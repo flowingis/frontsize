@@ -1,0 +1,709 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==               GLOBAL              ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==               RULES               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+/*
+.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
+	// Media queries for selectors active from a specific resolution or higher
+	// smartphone viewports were removed to improve width compatibility with all smartphone models
+	.@{selector} {
+		display: block;
+		margin: auto;
+		.wrap;
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.@{selector} {
+			max-width: (@tablet-portrait-step - @tabletPortraitMargin);
+		}
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		.@{selector} {
+			max-width: (@tablet-landscape-step - @tabletLandscapeMargin);
+		}
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		.@{selector} {
+			max-width: (@hd-ready-step - @hdReadyMargin);
+		}
+	}
+	@media @from-hd-full {
+		// Full HD
+		.@{selector} {
+			max-width: (@hd-full-step - @hdFullMargin);
+		}
+	}
+}
+*/
+@mixin setFontScaling($hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $smartphoneLandscape:$font-size, $smartphonePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media #{$from-smartphone-portrait}{
+		// Smartphone portrait
+		body {
+			font-size: $smartphonePortrait;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+	@media #{$from-smartphone-landscape} {
+		// Smartphone landscape
+		body {
+			font-size: $smartphoneLandscape;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+	@media #{$from-tablet-portrait} {
+		// Tablet portrait
+		body {
+			font-size:$tabletPortrait;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+	@media #{$from-tablet-landscape} {
+		// Tablet landscape
+		body {
+			font-size:$tabletLandscape;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+	@media #{$from-hd-ready} {
+		// HD Ready
+		body {
+			font-size:$hdReady;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+	@media #{$from-hd-full} {
+		// Full HD
+		body {
+			font-size:$hdFull;
+			line-height: $lineHeightMultiplier;
+		}
+	}
+}
+/*
+.addFontsRule(@selector:with-small-fonts, @fontFamilyHd:@font-small, @fontSizeHd:0.75em, @antialiasHd:antialiased, @fontFamilyTablet:@font-small, @fontSizeTablet:0.75em, @antialiasTablet:antialiased, @fontFamilySmartphone:@font-small, @fontSizeSmartphone:0.85em, @antialiasSmartphone:subpixel-antialiased) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-hd-ready {
+		// HD Ready
+		.@{selector} {
+			font-family:@fontFamilyHd;
+			font-size:@fontSizeHd;
+			.font-smoothing(@antialiasHd);
+		}
+	}
+	@media @from-hd-full {
+		// Full HD
+		.@{selector} {
+			font-family:@fontFamilyHd;
+			font-size:@fontSizeHd;
+			.font-smoothing(@antialiasHd);
+		}
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.@{selector} {
+			font-family:@fontFamilyTablet;
+			font-size:@fontSizeTablet;
+			.font-smoothing(@antialiasTablet);
+		}
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		.@{selector} {
+			font-family:@fontFamilyTablet;
+			font-size:@fontSizeTablet;
+			.font-smoothing(@antialiasTablet);
+		}
+	}
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		.@{selector} {
+			font-family:@fontFamilySmartphone;
+			font-size:@fontSizeSmartphone;
+			.font-smoothing(@antialiasSmartphone);
+		}
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		.@{selector} {
+			font-family:@fontFamilySmartphone;
+			font-size:@fontSizeSmartphone;
+			.font-smoothing(@antialiasSmartphone);
+		}
+	}
+}
+
+.headingsFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		h1 {
+			font-size: (@h1 * @smartphonePortraitFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @smartphonePortraitFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @smartphonePortraitFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @smartphonePortraitFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @smartphonePortraitFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @smartphonePortraitFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@smartphonePortraitFontSize / 4);
+		}
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		h1 {
+			font-size: (@h1 * @smartphoneLandscapeFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @smartphoneLandscapeFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @smartphoneLandscapeFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @smartphoneLandscapeFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @smartphoneLandscapeFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @smartphoneLandscapeFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@smartphoneLandscapeFontSize / 4);
+		}
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		h1 {
+			font-size: (@h1 * @tabletPortraitFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @tabletPortraitFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @tabletPortraitFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @tabletPortraitFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @tabletPortraitFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @tabletPortraitFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@tabletPortraitFontSize / 4);
+		}
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		h1 {
+			font-size: (@h1 * @tabletLandscapeFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @tabletLandscapeFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @tabletLandscapeFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @tabletLandscapeFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @tabletLandscapeFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @tabletLandscapeFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@tabletLandscapeFontSize / 4);
+		}
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		h1 {
+			font-size: (@h1 * @hdReadyFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @hdReadyFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @hdReadyFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @hdReadyFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @hdReadyFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @hdReadyFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@hdReadyFontSize / 4);
+		}
+	}
+	@media @from-hd-full {
+		// Full HD
+		h1 {
+			font-size: (@h1 * @hdFullFontSize);
+		}
+		h2 {
+			font-size: (@h2 * @hdFullFontSize);
+		}
+		h3 {
+			font-size: (@h3 * @hdFullFontSize);
+		}
+		h4 {
+			font-size: (@h4 * @hdFullFontSize);
+		}
+		h5 {
+			font-size: (@h5 * @hdFullFontSize);
+		}
+		h6 {
+			font-size: (@h6 * @hdFullFontSize);
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: (@hdFullFontSize / 4);
+		}
+	}
+}
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==               RULES               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+.addFontRule(@selector, @fontFamily:@font-default, @hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @antialias:antialiased, @lineHeightMultiplier:1.225) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	.@{selector} {
+		font-family:@fontFamily;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @from-hd-full {
+		// Full HD
+		.@{selector} {
+			font-size:@hdFullFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+	@media @till-hd-full {
+		// HD Ready
+		.@{selector} {
+			font-size:@hdReadyFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		.@{selector} {
+			font-size:@tabletLandscapeFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		.@{selector} {
+			font-size:@tabletPortraitFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{selector} {
+			font-size:@smartphoneLandscapeFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		.@{selector} {
+			font-size:@smartphonePortraitFontSize !important;
+			line-height:@lineHeightMultiplier;
+		}
+	}
+}
+
+.addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+	.@{selector},
+	.@{selector} *,
+	.@{selector} > * {
+		.box-sizing(border-box);
+	}
+	.@{selector} {
+		padding-top:@vertical-padding;
+		width:100%;
+		overflow:auto;
+		clear:both;
+	}
+	.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+}
+
+.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+	// Media queries for selectors active from a specific resolution or higher
+	.@{selector} > * {
+		min-height: 1px;
+		//padding-bottom:@vertical-padding;
+		.setColumnBehavior();
+		.setColumnStep(1, @hdFullSteps);
+	}
+	@media @only-smartphone-portrait {
+		// Smartphone portrait
+		.@{selector} > * {
+			.setColumns(@smartphonePortraitSteps);
+		}
+	}
+	@media @only-smartphone-landscape {
+		// Smartphone landscape
+		.@{selector} > * {
+			.setColumns(@smartphoneLandscapeSteps);
+		}
+	}
+	@media @only-tablet-portrait {
+		// Tablet portrait
+		.@{selector} > * {
+			.setColumns(@tabletPortraitSteps);
+		}
+	}
+	@media @only-tablet-landscape {
+		// Tablet landscape
+		.@{selector} > * {
+			.setColumns(@tabletLandscapeSteps);
+		}
+	}
+	@media @only-hd-ready {
+		// HD Ready
+		.@{selector} > * {
+			.setColumns(@hdReadySteps);
+		}
+	}
+	@media @only-hd-full {
+		// Full HD
+		.@{selector} > * {
+			.setColumns(@hdFullSteps);
+		}
+	}
+}
+
+.addPaddingRule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		.@{selector} { padding:@smartphonePortraitPadding; }
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		.@{selector} { padding:@smartphoneLandscapePadding; }
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.@{selector} { padding:@tabletPortraitPadding; }
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		.@{selector} { padding:@tabletLandscapePadding; }
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		.@{selector} { padding:@hdReadyPadding; }
+	}
+	@media @from-hd-full {
+		// Full HD
+		.@{selector} { padding:@hdFullPadding; }
+	}
+}
+
+.addMarginRule(@selector, @hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		.@{selector} { margin:@smartphonePortraitMargin; }
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		.@{selector} { margin:@smartphoneLandscapeMargin; }
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.@{selector} { margin:@tabletPortraitMargin; }
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		.@{selector} { margin:@tabletLandscapeMargin; }
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		.@{selector} { margin:@hdReadyMargin; }
+	}
+	@media @from-hd-full {
+		// Full HD
+		.@{selector} { margin:@hdFullMargin; }
+	}
+}
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==          VISIBILITY RULES         ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+.setViewportsPadding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		padding:@smartphonePortraitPadding;
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		padding:@smartphoneLandscapePadding;
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		padding:@tabletPortraitPadding;
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		padding:@tabletLandscapePadding;
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		padding:@hdReadyPadding;
+	}
+	@media @from-hd-full {
+		// Full HD
+		padding:@hdFullPadding;
+	}
+}
+
+.setViewportsMargin(@hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		margin:@smartphonePortraitMargin;
+	}
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		margin:@smartphoneLandscapeMargin;
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		margin:@tabletPortraitMargin;
+	}
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		margin:@tabletLandscapeMargin;
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		margin:@hdReadyMargin;
+	}
+	@media @from-hd-full {
+		// Full HD
+		margin:@hdFullMargin;
+	}
+}
+
+.setViewportsFontSize(@hdFull:1em, @hd-ready:1em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em, @lineHeightMultiplier:@font-line-height) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media @from-hd-full {
+		// Full HD
+		font-size:@hdFull !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @till-hd-full {
+		// HD Ready
+		font-size:@hd-ready !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		font-size:@tablet-landscape !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		font-size:@tablet-portrait !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		font-size:@smartphone-landscape !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		font-size:@smartphone-portrait !important;
+		line-height:@lineHeightMultiplier;
+	}
+}
+
+.setViewportsVerticalPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media @from-hd-full {
+		// Full HD
+		padding-top:@hd-full;
+		padding-bottom:@hd-full;
+	}
+	@media @till-hd-full {
+		// HD Ready
+		padding-top:@hd-ready;
+		padding-bottom:@hd-ready;
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		padding-top:@tablet-landscape;
+		padding-bottom:@tablet-landscape;
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		padding-top:@tablet-portrait;
+		padding-bottom:@tablet-portrait;
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		padding-top:@smartphone-landscape;
+		padding-bottom:@smartphone-landscape;
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		padding-top:@smartphone-portrait;
+		padding-bottom:@smartphone-portrait;
+	}
+}
+
+.setViewportsTopPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media @from-hd-full {
+		// Full HD
+		padding-top:@hd-full;
+	}
+	@media @till-hd-full {
+		// HD Ready
+		padding-top:@hd-ready;
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		padding-top:@tablet-landscape;
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		padding-top:@tablet-portrait;
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		padding-top:@smartphone-landscape;
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		padding-top:@smartphone-portrait;
+	}
+}
+
+.setViewportsBottomPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media @from-hd-full {
+		// Full HD
+		padding-bottom:@hd-full;
+	}
+	@media @till-hd-full {
+		// HD Ready
+		padding-bottom:@hd-ready;
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		padding-bottom:@tablet-landscape;
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		padding-bottom:@tablet-portrait;
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		padding-bottom:@smartphone-landscape;
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		padding-bottom:@smartphone-portrait;
+	}
+}
+
+.setViewportsHorizontalPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media @from-hd-full {
+		// Full HD
+		padding-left:@hd-full;
+		padding-right:@hd-full;
+	}
+	@media @till-hd-full {
+		// HD Ready
+		padding-left:@hd-ready;
+		padding-right:@hd-ready;
+	}
+	@media @till-hd-ready {
+		// Tablet landscape
+		padding-left:@tablet-landscape;
+		padding-right:@tablet-landscape;
+	}
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		padding-left:@tablet-portrait;
+		padding-right:@tablet-portrait;
+	}
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		padding-left:@smartphone-landscape;
+		padding-right:@smartphone-landscape;
+	}
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		padding-left:@smartphone-portrait;
+		padding-right:@smartphone-portrait;
+	}
+}
+
+.addColumnsSet(@steps:12, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+	}
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+	}
+	@media @from-hd-ready {
+		// HD Ready
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+	}
+	.addFillToColumnSet(@tabletViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+	.addFillToColumnSet(@hdViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+	.preventSmartphoneColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+}
+*/
+
+

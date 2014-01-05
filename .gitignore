@@ -6,6 +6,10 @@ bower.json
 *.bak
 src
 js
+node_modules
+css
+.sass-cache
+Gruntfile.js
 
 
 # Compiled source #

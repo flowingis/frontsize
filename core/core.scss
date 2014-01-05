@@ -1,0 +1,200 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==                VARS               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+$to-hd-full-step:              ($hd-full-step - 1px);
+$to-hd-ready-step:             ($hd-ready-step - 1px);
+$to-tablet-landscape-step:     ($tablet-landscape-step - 1px);
+$to-tablet-portrait-step:      ($tablet-portrait-step - 1px);
+$to-smartphone-landscape-step: ($smartphone-landscape-step - 1px);
+$to-smartphone-portrait-step:  ($smartphone-portrait-step - 1px);
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==               GLOBAL              ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==           VIEWPORTS VARS          ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+$only-smartphone-portrait:         "only screen and (min-width: 1px) and (max-width : ${to-smartphone-landscape-step})";
+$only-smartphone-landscape:        "only screen and (min-width: ${smartphone-landscape-step}) and (max-width : ${to-tablet-portrait-step})";
+$only-tablet-portrait:             "only screen and (min-width: ${tablet-portrait-step}) and (max-width : ${to-tablet-landscape-step}), only print";
+$only-tablet-landscape:            "only screen and (min-width: ${tablet-landscape-step}) and (max-width : ${to-hd-ready-step})";
+$only-hd-ready:                    "only screen and (min-width: ${hd-ready-step}) and (max-width : ${to-hd-full-step})";
+$only-hd-full:                     "only screen and (min-width: ${hd-full-step})";
+
+$from-smartphone-portrait:         "only screen and (min-width: 1px)";
+$from-smartphone-landscape:        "only screen and (min-width: ${smartphone-landscape-step})";
+$from-tablet-portrait:             "only screen and (min-width: ${tablet-portrait-step}), only print";
+$from-tablet-landscape:            "only screen and (min-width: ${tablet-landscape-step})";
+$from-hd-ready:                    "only screen and (min-width: ${hd-ready-step})";
+$from-hd-full:                     $only-hd-full;
+
+$only-smartphone:                  "only screen and (min-width: 1px) and (max-width : ${to-tablet-portrait-step})";
+$only-tablet:                      "only screen and (min-width: ${tablet-portrait-step}) and (max-width : ${to-hd-ready-step}), only print";
+$only-hd:                          $from-hd-ready;
+
+$till-smartphone-portrait:         "only screen and (max-width: ${to-smartphone-portrait-step})"; // useless!
+$till-smartphone-landscape:        "only screen and (max-width: ${to-smartphone-landscape-step})";
+$till-tablet-portrait:             "only screen and (max-width: ${to-tablet-portrait-step})";
+$till-tablet-landscape:            "only screen and (max-width: ${to-tablet-landscape-step}), only print";
+$till-hd-ready:                    "only screen and (max-width: ${to-hd-ready-step})";
+$till-hd-full:                     "only screen and (max-width: ${to-hd-full-step})";
+
+$retina-from-smartphone-portrait:  "${from-smartphone-portrait},	${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-smartphone-landscape: "${from-smartphone-landscape},	${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-tablet-portrait:      "${from-tablet-portrait},		${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-tablet-landscape:     "${from-tablet-landscape},		${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-hd-ready:             "${from-hd-ready},				${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-hd-full:              "${from-hd-full},				${display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+
+$display-retina-browser-compatible:     "only screen and (min-device-pixel-ratio: 2)";
+$display-retina:                        "only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
+$display-standard:                      "only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
+
+$print-viewport: $only-tablet-portrait;
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==             INTERNAL              ===================================================================================================================================
+// ==              MIXINS               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+/*
+.addColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	.loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
+}
+
+.addFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
+}
+
+.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+	}
+}
+
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+	@nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+	.@{prefix}@{index}@{columnsSeparator}@{total} {
+		.setColumnStep(@index, @total);
+	}
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
+	@{prevRule} {
+		.setColumnBehavior();
+		.box-sizing(border-box);
+	}
+}
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+	@nextRule:~".@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+	.@{prefix}@{index} {
+		.setColumnStep(@index, @total);
+	}
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+	@{prevRule} {
+		.setColumnBehavior();
+		.box-sizing(border-box);
+	}
+}
+
+.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+	.@{prefix}@{index}@{columnsSeparator}@{total} {
+		.setColumnStep(@index, @total);
+	}
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+	.@{prefix}@{index} {
+		.setColumnStep(@index, @total);
+	}
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+
+
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = true) {
+	@nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = false) {
+	@nextRule:~".@{prefix}@{index}";
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}";
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) {
+	@media @till-hd-ready {
+		// Tablet landscape
+		@{prevRule} {
+			width: 100%;
+		}
+	}
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) {
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		@{prevRule} {
+			width: 100%;
+		}
+	}
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		@{prevRule} {
+			width: 100%;
+		}
+	}
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) {
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		@{prevRule} {
+			width: 100%;
+		}
+	}
+}
+
+.setColumns(@columns) {
+	width:(100%/@columns);
+	&:nth-child(@{columns}n+1) {clear:both;}
+}
+
+.setColumnStep(@step, @columns) {
+	width:((100% * @step)/@columns);
+}
+
+.setColumnBehavior(@usePosition:true) {
+	padding-left: @horizontal-padding;
+	padding-right: @horizontal-padding;
+	padding-bottom: @vertical-padding;
+	float: left;
+}.setColumnBehavior(@usePosition:true) when (@usePosition = true) {
+	position: relative;
+}
+*/
