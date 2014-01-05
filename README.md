@@ -1,4 +1,4 @@
 frontsize-sass
 ==============
 
-frontend framework based on sass
+Documentation coming soon...
