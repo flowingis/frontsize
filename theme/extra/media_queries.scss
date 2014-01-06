@@ -1,0 +1,81 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==       YOUR THEME CUSTOMIZABLE     ===================================================================================================================================
+==            MEDIA QUERIES          ===================================================================================================================================
+==               RULES               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+// =====================================================================================================================================================================
+// Media queries for selectors active from the smaller resolution to a specific one
+// RECOMMENDED for Mobile first develop
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media #{$till-hd-full} {
+	// Full HD
+}
+@media #{$till-hd-ready} {
+	// HD Ready
+}
+@media #{$till-tablet-landscape} {
+	// Tablet landscape
+}
+@media #{$till-tablet-portrait} {
+	// Tablet portrait
+}
+@media #{$till-smartphone-landscape} {
+	// Smartphone landscape
+}
+@media #{$till-smartphone-portrait} {
+	// Smartphone portrait
+}
+
+// =====================================================================================================================================================================
+// Media queries for selectors active from a specific resolution or higher
+// RECOMMENDED for Mobile first develop
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media #{$from-smartphone-portrait} {
+	// Smartphone portrait
+}
+@media #{$from-smartphone-landscape} {
+	// Smartphone landscape
+}
+@media #{$from-tablet-portrait} {
+	// Tablet portrait
+}
+@media #{$from-tablet-landscape} {
+	// Tablet landscape
+}
+@media #{$from-hd-ready} {
+	// HD Ready
+}
+@media #{$from-hd-full} {
+	// Full HD
+}
+
+// =====================================================================================================================================================================
+// Media queries for strict resolution range selectors
+// NOT RECOMMENDED for Mobile first develop
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media #{$only-hd-full} {
+	// Full HD
+}
+@media #{$only-hd-ready} {
+	// HD Ready
+}
+@media #{$only-tablet-landscape} {
+	// Tablet landscape
+}
+@media #{$only-tablet-portrait} {
+	// Tablet portrait
+}
+@media #{$only-smartphone-landscape} {
+	// Smartphone landscape
+}
+@media #{$only-smartphone-portrait} {
+	// Smartphone portrait
+}

@@ -1,0 +1,11 @@
+// Put fixes here for external libraries
+
+
+.debug {
+	// Just for debug pruposes
+	$border: 1px solid rgb(200,200,0) !important;
+	border:$border;
+	* {
+		border:$border;
+	}
+}

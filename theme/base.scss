@@ -3,49 +3,6 @@
 // 
 // HTML5 elements
 // Url - http://html5doctor.com/element-index/
-/*
-.base-body();
-.base-a(@font-default-color, none);
-.base-mark();
-.base-pre();
-.base-p();
-.base-blockquote(4px solid lighten(@font-default-color, 20%), lighten(@font-default-color, 45%), @global-padding, italic, '«', '»');
-.base-code(0 0.25em, rgba(0,0,0,.075));
-.base-abbr(#FCFCFC);
-.base-kbd(@font-monospace);
-.base-samp(@font-monospace);
-.base-small(@font-small-size);
-.base-s(@font-default-color, line-through, @state-faded-opacity);
-.base-ul(0, 0);
-.base-li(0, 0 0 0 1.25em);
-.base-ol(0, 0);
-.base-hr(@vertical-padding 0, 1px solid, rgba(0,0,0,0.075), rgba(255,255,255,0.8));
-.base-meter();
-.base-img();
-
-.base-form(1em 0 0 0);
-.base-form-submit();
-.base-form-text();
-.base-form-range();
-.base-form-radio();
-.base-form-checkbox();
-.base-form-textarea(100px, 300px, vertical);
-.base-form-label();
-.base-form-file();
-.base-form-select();
-.base-form-datalist();
-.base-form-output();
-.base-form-fieldset();
-.base-form-legend();
-
-.base-h(black, @font-heading, bold);
-.base-table(middle, separate);
-.base-tr();
-.base-th(center, bold, 0.5em);
-.base-td(left, 0.5em);
-.base-caption(@global-padding);
-.base-figcaption(@vertical-padding 0 0 0);
-.base-tfoot();
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -55,27 +12,26 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-.base-body() {
+@mixin base-body() {
 	* {
-		.disableOutline();
+		@include disableOutline();
 	}
 
 	body {
 		margin:0;
 		padding:0;
 
-		color:@font-default-color;
+		color:$font-default-color;
 		text-shadow:1px 1px 0px rgba(255,255,255,.61);
-		font-family: @font-default;
+		font-family: $font-default;
 		
 		background-color: #FCFCFC;
 		
-		.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
+		@include font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 	}
 }
 
-
-.base-a(@color:@font-default-color, @userSelect:none) {
+@mixin base-a($color:$font-default-color, $userSelect:none) {
 	// If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
 	// If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
 	// 
@@ -84,15 +40,15 @@
 	// Url - http://html5doctor.com/element-index/#a
 	a {
 		display: inline-block;
-		line-height: @font-line-height;
+		line-height: $font-line-height;
 		text-decoration: none;
-		color:@color;
+		color:$color;
 
-		border-bottom:2px solid fade(@color, 30%);
+		border-bottom:2px solid opacify($color, 0.3);
 	
-		@animation:0.3s ease-in-out;
-		.transition(border-bottom @animation, color @animation;);
-		.user-select(@userSelect);
+		$animation:0.3s ease-in-out;
+		@include transition("border-bottom #{$animation}, color #{$animation}");
+		@include user-select($userSelect);
 		
 		&[title]:hover {
 			text-decoration: none;
@@ -102,8 +58,8 @@
 		&.hover,
 		&.selected,
 		&.active {
-			color:saturate(darken(@color, 10%), 7%);
-			border-bottom-color: @color;
+			color:saturate(darken($color, 10%), 7%);
+			border-bottom-color: $color;
 		}
 		
 		&.selected {
@@ -116,23 +72,23 @@
 	}
 }
 
-.base-h(@color:black, @fontFamily:@font-heading, @fontWeight:bold, @lineHeight:1, @margin: 0 0 0.5em 0) {
+@mixin base-h($color:black, $fontFamily:$font-heading, $fontWeight:bold, $lineHeight:1, $margin: 0 0 0.5em 0) {
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		font-family: @fontFamily;
-		font-weight: @fontWeight;
-		color: @color;
-		line-height: @lineHeight;
-		margin: @margin;
-		.user-select();
+		font-family: $fontFamily;
+		font-weight: $fontWeight;
+		color: $color;
+		line-height: $lineHeight;
+		margin: $margin;
+		@include user-select();
 	}
 }
 
-.base-code(@padding:0 0.25em, @backgroundColor:rgba(0,0,0,.075), @color:inherit) {
+@mixin base-code($padding:0 0.25em, $backgroundColor:rgba(0,0,0,.075), $color:inherit) {
 	// The code element represents a fragment of computer code.
 	// This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
 	// 
@@ -146,17 +102,17 @@
 	.code,
 	var,
 	.var {
-		font-family: @font-monospace;
-		padding:@padding;
+		font-family: $font-monospace;
+		padding:$padding;
 	
-		color:@color;
+		color:$color;
 		
 		border:1px solid rgba(0,0,0,.03);
 		border-top-color: rgba(0,0,0,.075);
-		background-color: @backgroundColor;
+		background-color: $backgroundColor;
 	
-		.border-radius(4px);
-		.box-shadow(0px 1px 0px rgba(255,255,255,.6));
+		@include border-radius(4px);
+		@include box-shadow(0px 1px 0px rgba(255,255,255,.6));
 	
 		&.code-black {
 			background-color: #202020;
@@ -166,26 +122,26 @@
 	}
 }
 
-.base-samp(@fontFamily:@font-monospace, @fontStyle:normal, @color:inherit) {
+@mixin base-samp($fontFamily:$font-monospace, $fontStyle:normal, $color:inherit) {
 	samp {
-		font-family: @fontFamily;
-		font-style: @fontStyle;
-		color: @color;
+		font-family: $fontFamily;
+		font-style: $fontStyle;
+		color: $color;
 	}
 }
 
-.base-kbd(@fontFamily:@font-monospace, @fontStyle:normal, @color:inherit) {
+@mixin base-kbd($fontFamily:$font-monospace, $fontStyle:normal, $color:inherit) {
 	kbd {
-		font-family: @fontFamily;
-		font-style: @fontStyle;
-		color: @color;
-		.keyboard-commodore();
+		font-family: $fontFamily;
+		font-style: $fontStyle;
+		color: $color;
+		@include keyboard-commodore();
 		kbd {
 			padding: 0;
 			border:none;
 			background-color: transparent;
 			background: none;
-			.box-shadow(none);
+			@include box-shadow(none);
 			position: static;
 			&:active {
 				margin-bottom:0;
@@ -195,32 +151,32 @@
 	}
 }
 
-.base-pre(@padding:1em, @backgroundColor:#202020, @color:white) {
+@mixin base-pre($padding:1em, $backgroundColor:#202020, $color:white) {
 	pre {
-		font-family: @font-monospace;
-		padding:@padding;
+		font-family: $font-monospace;
+		padding:$padding;
 		overflow: auto;
 
 		white-space: pre;
-		color:@color;
+		color:$color;
 		text-shadow: none;
 
 		border:1px solid rgba(0,0,0,.03);
 		border-top-color: rgba(0,0,0,.075);
-		background-color: @backgroundColor;
+		background-color: $backgroundColor;
 
-		.border-radius(4px);
-		.box-shadow(0px 1px 0px rgba(255,255,255,.6));
+		@include border-radius(4px);
+		@include box-shadow(0px 1px 0px rgba(255,255,255,.6));
 
 		kbd {
-			color:darken(@color, 40%);
+			color:darken($color, 40%);
 			cursor: inherit;
-			.user-select(inherit);
+			@include user-select(inherit);
 			padding: 0;
 			border:none;
 			background-color: transparent;
 			background: none;
-			.box-shadow(none);
+			@include box-shadow(none);
 			text-shadow: none;
 			position: static;
 			&:active {
@@ -233,15 +189,15 @@
 		samp {
 			border-color:transparent;
 			background-color: transparent;
-			.box-shadow(none);
+			@include box-shadow(none);
 		}
 		&.with-small-fonts {
-			font-family: @font-monospace;
+			font-family: $font-monospace;
 		}
 	}
 }
 
-.base-meter() {
+@mixin base-meter() {
 	// When the meter binding applies to a meter element, the element is expected to render as an 'inline-block' box with a 'height' of '1em' and a 'width' of '5em', a 'vertical-align' of '-0.2em', and with its contents depicting a gauge.
 	// 
 	// When the element is wider than it is tall(or square), the depiction is expected to be of a horizontal gauge, with the minimum value on the right if the 'direction' property on this element has a computed value of 'rtl', and on the left otherwise.
@@ -257,7 +213,7 @@
 	}
 }
 
-.base-progress() {
+@mixin base-progress() {
 	progress {
 		// Represents the completion progress of a task.
 		// Progress may be either indeterminate — meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) — or a numeric value between 0 and a given maximum, explicitly specifying the fraction of work that has so far been completed.
@@ -278,46 +234,45 @@
 	}
 }
 
-.base-s(@color:@font-default-color, @textDecoration:line-through, @opacity:@state-faded-opacity) {
+@mixin base-s($color:$font-default-color, $textDecoration:line-through, $opacity:$state-faded-opacity) {
 	s {
 		// The s element represents contents that are no longer accurate or no longer relevant.
 		// Url - http://html5doctor.com/element-index/#s
-		color: @color;
-		text-decoration: @textDecoration;
-		opacity: @opacity;
+		color: $color;
+		text-decoration: $textDecoration;
+		opacity: $opacity;
 	}
 }
 
-
-.base-mark(@backgroundColor:rgb(255,255,0)) {
+@mixin base-mark($backgroundColor:rgb(255,255,0)) {
 	// Represents a run of text in one document marked or highlighted because of its relevance in another context.
 	// When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
 	// 
 	// Url - http://html5doctor.com/element-index/#mark
 	mark {
 		color:inherit;
-		background-color:@backgroundColor;
-		.box-shadow(0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75););
+		background-color:$backgroundColor;
+		@include box-shadow("0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75)");
 	}
 }
 
-.base-ul(@padding:0 0 0 1.25em, @margin:1em 0 1em 0) {
+@mixin base-ul($padding:0 0 0 1.25em, $margin:1em 0 1em 0) {
 	ul {
-		padding: @padding;
-		margin: @margin;
+		padding: $padding;
+		margin: $margin;
 	}
 }
-.base-li(@padding:0 0 0 1.25em, @margin:1em 0 1em 0) {
+@mixin base-li($padding:0 0 0 1.25em, $margin:1em 0 1em 0) {
 	li {
-		padding: @padding;
-		margin: @margin;
+		padding: $padding;
+		margin: $margin;
 	}
 }
 
-.base-ol(@padding:0, @margin:1em 0 1em 0) {
+@mixin base-ol($padding:0, $margin:1em 0 1em 0) {
 	ol {
-		padding: @padding;
-		margin: @margin;
+		padding: $padding;
+		margin: $margin;
 	}
 	
 	dt {
@@ -325,7 +280,7 @@
 	}
 }
 
-.base-abbr(@borderColor:@font-default-color) {
+@mixin base-abbr($borderColor:$font-default-color) {
 	// Represents an abbreviation or acronym.
 	// The optional title attribute may be used to provide an expansion of the abbreviation.
 	// If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
@@ -333,48 +288,48 @@
 	// Url - http://html5doctor.com/element-index/#abbr
 	abbr,
 	abbr[title] {
-		border-bottom: 2px dotted @borderColor;
+		border-bottom: 2px dotted $borderColor;
 		cursor: help;
-		.transition(border 0.25s ease-in-out);
+		@include transition(border 0.25s ease-in-out);
 		&:hover {
-			border-bottom: 2px solid darken(@borderColor,10%);
+			border-bottom: 2px solid darken($borderColor,10%);
 			text-decoration: none;
 		}
 	}
 }
-.base-p() {
+@mixin base-p() {
 	p {
-		.user-select();
+		@include user-select();
 	}
 }
 
-.base-small(@fontSize:0.75em) {
+@mixin base-small($fontSize:0.75em) {
 	small {
 		// Represents side comments such as small print.
 		// It is not intended to be presentational.
 		// The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
 		// 
 		// Url - http://html5doctor.com/element-index/#small
-		font-size: @fontSize;
+		font-size: $fontSize;
 	}
 }
 
-.base-blockquote(@borderLeft:4px solid lighten(@font-default-color,20%), @backgroundColor:transparent, @padding:@horizontal-padding, @fontStyle:italic, @beforeText:'" ', @afterText:' "') {
+@mixin base-blockquote($borderLeft:4px solid lighten($font-default-color,20%), $backgroundColor:transparent, $padding:$horizontal-padding, $fontStyle:italic, $beforeText:"' ", $afterText:" '") {
 	blockquote {
-		border-left: @borderLeft;
-		padding: @padding;
-		background-color: @backgroundColor;
-		font-style: @fontStyle;
+		border-left: $borderLeft;
+		padding: $padding;
+		background-color: $backgroundColor;
+		font-style: $fontStyle;
 		&:before {
-			content:@beforeText;
+			content:$beforeText;
 		}
 		&:after {
-			content:@afterText;
+			content:$afterText;
 		}
 	}
 }
 
-.base-form-text(@color:@font-default-color, @border:1px solid rgba(0,0,0,.2), @borderFocused:1px solid rgba(0,0,0,0.3), @backgroundColor:rgba(0,0,0,.05), @backgroundColorFocused:white, @padding:0.5em, @placeholderColor:@color) {
+@mixin base-form-text($color:$font-default-color, $border:1px solid rgba(0,0,0,.2), $borderFocused:1px solid rgba(0,0,0,0.3), $backgroundColor:rgba(0,0,0,.05), $backgroundColorFocused:white, $padding:0.5em, $placeholderColor:$color) {
 	textarea,
 	input[type="text"],
 	input[type="email"],
@@ -383,94 +338,94 @@
 		
 		width: 100%;
 		outline-style: none;
-		padding: @padding;
+		padding: $padding;
 		
-		color: @color;
+		color: $color;
 		
-		border: @border;
-		background-color: @backgroundColor;
+		border: $border;
+		background-color: $backgroundColor;
 		
-		.input-placeholder(@placeholderColor, lighten(@placeholderColor, 20%));
-		.box-shadow(inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0););
-		.transition(border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
+		@include input-placeholder($placeholderColor, lighten($placeholderColor, 20%));
+		@include box-shadow("inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0)");
+		@include transition("border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out");
 	
 		&:focus {
-			border-color: @borderFocused;
-			background-color: @backgroundColorFocused;
-			.box-shadow(inset 0px 0px 0px rgba(0,0,0,0), 0px 1px 4px rgba(0,0,0,0.15););
+			border-color: $borderFocused;
+			background-color: $backgroundColorFocused;
+			@include box-shadow("inset 0px 0px 0px rgba(0,0,0,0), 0px 1px 4px rgba(0,0,0,0.15)");
 		}
 	}
 }
 
-.base-form-file(@backgroundColor:rgba(0,0,0,.05)) {
+@mixin base-form-file($backgroundColor:rgba(0,0,0,.05)) {
 	input[type="file"] {
-		.defaultElement();
-		.button-dark-metal();
+		@include defaultElement();
+		@include button-dark-metal();
 	}
 }
-
-.base-form-range() {
+@mixin base-form-range() {
 	input[type="range"] {
 		
 	}
 }
 
-.base-form-radio(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+@mixin base-form-radio($checkedBackgroundColor:white, $checkedBorderColor:lighten($font-default-color, 15%), $backgroundColor:$font-default-color, $borderColor:white) {
 	input[type="radio"] {
-		.user-select(none);
+		@include user-select(none);
 		cursor: pointer;
 
-		.defaultElement();
+		@include defaultElement();
 		-moz-appearance: radio;
 
-		@size:24px;
-		.size(@size);
-		.moveTop((@size / 4));
+		$size:24px;
+		@include size($size);
+		@include moveTop(($size / 4));
 
-		@imageWidth:(@size * 2);
-		@imageHeight:@size;
-		.spriteRetina("input-radio-1x.png", "input-radio-2x.png", @size, @size, @imageWidth, @imageHeight);
+		$imageWidth:($size * 2);
+		$imageHeight:$size;
+		@include spriteRetina("input-radio-1x.png", "input-radio-2x.png", $size, $size, $imageWidth, $imageHeight);
 
 		&:checked {
-			.spritePosition(1, 0, @size);
+			@include spritePosition(1, 0, $size);
 		}
 	}
 }
-.base-form-checkbox(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+
+@mixin base-form-checkbox($checkedBackgroundColor:white, $checkedBorderColor:lighten($font-default-color, 15%), $backgroundColor:$font-default-color, $borderColor:white) {
 	input[type="checkbox"] {
-		.user-select(none);
+		@include user-select(none);
 		cursor: pointer;
 
-		.defaultElement();
+		@include defaultElement();
 		-moz-appearance: checkbox;
 
-		@size:32px;
-		.size(@size);
-		.moveTop((@size / 4));
+		$size:32px;
+		@include size($size);
+		@include moveTop(($size / 4));
 
-		@imageWidth:(@size * 2);
-		@imageHeight:@size;
-		.spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", @size, @size, @imageWidth, @imageHeight);
+		$imageWidth:($size * 2);
+		$imageHeight:$size;
+		@include spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", $size, $size, $imageWidth, $imageHeight);
 
 		&:checked {
-			.spritePosition(1, 0, @size);
+			@include spritePosition(1, 0, $size);
 		}
 	}
 }
 
-.base-hr(@margin:@vertical-padding 0, @borderStyle:1px solid, @borderTopColor:rgba(0,0,0,0.075), @borderBottomColor:rgba(255,255,255,0.8)) {
+@mixin base-hr($margin:$vertical-padding 0, $borderStyle:1px solid, $borderTopColor:rgba(0,0,0,0.075), $borderBottomColor:rgba(255,255,255,0.8)) {
 	hr {
 		display: block;
 		width: 100%;
 		border: none;
-		border-top: @borderStyle @borderTopColor;
-		border-bottom: @borderStyle @borderBottomColor;
+		border-top: $borderStyle $borderTopColor;
+		border-bottom: $borderStyle $borderBottomColor;
 		padding: 0;
-		margin: @margin;
+		margin: $margin;
 	}
 }
 
-.base-table(@verticalAlign:middle, @borderCollapse:collapse) {
+@mixin base-table($verticalAlign:middle, $borderCollapse:collapse) {
 	table {
 		// The table element represents data with more than one dimension, in the form of a table.
 		// Tables must not be used as layout aids.
@@ -486,17 +441,17 @@
 		// </table>
 		// 
 		// Url - http://html5doctor.com/element-index/#table
-		border-collapse: @borderCollapse;
-		vertical-align: @verticalAlign;
+		border-collapse: $borderCollapse;
+		vertical-align: $verticalAlign;
 		width: 100%;
 	}
 }
-.base-figcaption(@padding:@global-padding) {
+@mixin base-figcaption($padding:$global-padding) {
 	figcaption {
-		padding: @padding;
+		padding: $padding;
 	}
 }
-.base-caption(@padding:@global-padding) {
+@mixin base-caption($padding:$global-padding) {
 	caption {
 		// The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
 		// 
@@ -521,34 +476,34 @@
 		// </table>
 		// 
 		// Url - http://html5doctor.com/element-index/#caption
-		padding: @padding;
+		padding: $padding;
 	}
 }
 
-.base-th(@textAlign:center, @fontWeight:bold, @padding:0.5em) {
+@mixin base-th($textAlign:center, $fontWeight:bold, $padding:0.5em) {
 	th {
-		text-align: @textAlign;
-		font-weight: @fontWeight;
-		padding: @padding;
+		text-align: $textAlign;
+		font-weight: $fontWeight;
+		padding: $padding;
 	}
 }
-.base-td(@textAlign:left, @padding:0.5em) {
+@mixin base-td($textAlign:left, $padding:0.5em) {
 	td {
-		text-align: @textAlign;
-		padding: @padding;
+		text-align: $textAlign;
+		padding: $padding;
 	}
 }
-.base-tr(@backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHover:rgb(220,220,220), @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:white) {
+@mixin base-tr($backgroundColorOdd:rgb(230,230,230), $backgroundColorEven:white, $backgroundColorHover:rgb(220,220,220), $backgroundColorHoverOdd:rgb(240,240,240), $backgroundColorHoverEven:white) {
 	tbody {
 		tr {
 			&:nth-child(odd) {
 				td {
-					background-color: @backgroundColorOdd;
+					background-color: $backgroundColorOdd;
 				}
 			}
 			&:nth-child(even) {
 				td {
-					background-color: @backgroundColorEven;
+					background-color: $backgroundColorEven;
 				}
 			}
 		}
@@ -556,24 +511,24 @@
 			tr {
 				&:nth-child(odd) {
 					td {
-						background-color: @backgroundColorHoverOdd;
+						background-color: $backgroundColorHoverOdd;
 					}
 				}
 				&:nth-child(even) {
 					td {
-						background-color: @backgroundColorHoverEven;
+						background-color: $backgroundColorHoverEven;
 					}
 				}
 				&:hover {
 					td {
-						background-color: @backgroundColorHover;
+						background-color: $backgroundColorHover;
 					}
 				}
 			}
 		}
 	}
 }
-.base-tfoot(@textAlign:center, @color:lighten(@font-default-color,20%)) {
+@mixin base-tfoot($textAlign:center, $color:lighten($font-default-color,20%)) {
 	tfoot {
 		// The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
 		// 
@@ -596,14 +551,14 @@
 		// 
 		// Url - http://html5doctor.com/element-index/#tfoot
 		td {
-			text-align: @textAlign;
-			color: @color;
+			text-align: $textAlign;
+			color: $color;
 		}
 		
 	}
 }
 
-.base-form-textarea(@minHeight:100px, @maxHeight:300px, @resize:vertical) {
+@mixin base-form-textarea($minHeight:100px, $maxHeight:300px, $resize:vertical) {
 	textarea {
 		// The textarea element represents a multiline plain text edit control for the element's raw value.
 		// The contents of the control represent the control's default value.
@@ -615,22 +570,21 @@
 		// 
 		// Url - http://html5doctor.com/element-index/#textarea
 		width:100%;
-		.wrap;
-		.resize(@resize);
-		@minHeight: 100px;
-		min-height: @minHeight;
-		max-height: @maxHeight;
+		@include box-sizing(border-box);
+		@include resize($resize);
+		$minHeight: 100px;
+		min-height: $minHeight;
+		max-height: $maxHeight;
 	}
 }
 
-.base-form(@padding:1em 0 0 0) {
+@mixin base-form($padding:1em 0 0 0) {
 	form {
-		padding:@padding;
+		padding:$padding;
 	}
 }
 
-.base-form-label() {
-
+@mixin base-form-label() {
 	label {
 		// The label represents a caption in a user interface.
 		// The caption can be associated with a specific form control, known as the label element's labeled control, either using for attribute, or by putting the form control inside the label element itself.
@@ -642,8 +596,8 @@
 		// Url - http://html5doctor.com/element-index/#label
 		
 		display: inline-block;
-		.wrap;
-		.user-select(none);
+		@include box-sizing(border-box);
+		@include user-select(none);
 	
 		textarea,
 		input {
@@ -652,39 +606,35 @@
 	}
 }
 
-
-
-.base-form-output() {
+@mixin base-form-output() {
 	output {
 		// Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_output
 
 	}
 }
 
-.base-form-datalist(@color:@font-default-color, @backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:@backgroundColorHoverOdd) {
+@mixin base-form-datalist($color:$font-default-color, $backgroundColorOdd:rgb(230,230,230), $backgroundColorEven:white, $backgroundColorHoverOdd:rgb(240,240,240), $backgroundColorHoverEven:$backgroundColorHoverOdd) {
 	datalist *,
 	select option {
 		// Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_datalist
-		color: @color;
+		color: $color;
 		border:1px solid transparent;
 		&:nth-child(odd) {
-			background-color: @backgroundColorOdd;
+			background-color: $backgroundColorOdd;
 			&:hover {
-				background-color: @backgroundColorHoverOdd;
+				background-color: $backgroundColorHoverOdd;
 			}
 		}
 		&:nth-child(even) {
-			background-color: @backgroundColorEven;
+			background-color: $backgroundColorEven;
 			&:hover {
-				background-color: @backgroundColorHoverEven;
+				background-color: $backgroundColorHoverEven;
 			}
 		}
 	}
 }
 
-
-
-.base-form-select(@backgroundColor:@font-default-color) {
+@mixin base-form-select($backgroundColor:$font-default-color) {
 	select,
 	keygen {
 		// The select element represents a control for selecting amongst a set of options.
@@ -702,24 +652,24 @@
 		// 
 		// Url - http://html5doctor.com/element-index/#select
 
-		.defaultElement();
+		@include defaultElement();
 
 		cursor: pointer;
 		padding: 0.25em 1.75em 0.25em 0.5em;
 
-		color: @font-default-color;
+		color: $font-default-color;
 		font-weight: normal;
 		//.cropText();
 
-		border: 2px solid @backgroundColor;
-		background-color: desaturate(lighten(@backgroundColor, 45%), 2%);
+		border: 2px solid $backgroundColor;
+		background-color: desaturate(lighten($backgroundColor, 45%), 2%);
 
-		@size: 16px;
-		.backgroundRetinaIcon("input-select-1x.png", "input-select-2x.png", @size);
+		$size: 16px;
+		@include backgroundRetinaIcon("input-select-1x.png", "input-select-2x.png", $size);
 		background-position: right 0.5em center;
 
-		.transition(background-color 0.25s ease-in-out);
-		.border-radius(10px);
+		@include transition(background-color 0.25s ease-in-out);
+		@include border-radius(10px);
 		
 		&:hover {
 			background-color: white;
@@ -727,7 +677,7 @@
 	}
 }
 
-.base-form-fieldset(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+@mixin base-form-fieldset($backgroundColor:desaturate(lighten($font-default-color, 45%), 2%)) {
 	fieldset {
 		// The fieldset element is expected to establish a new block formatting context.
 		// 
@@ -756,15 +706,15 @@
 		// 
 		// Url - http://html5doctor.com/element-index/#fieldset
 
-		background-color: @backgroundColor;
+		background-color: $backgroundColor;
 		border:none;
-		padding:@global-padding;
-		.box-shadow(inset 0px -1px 0px rgba(0,0,0,0.05));
-		.border-radius(10px);
+		padding:$global-padding;
+		@include box-shadow(inset 0px -1px 0px rgba(0,0,0,0.05));
+		@include border-radius(10px);
 	}
 }
 
-.base-form-legend(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+@mixin base-form-legend($backgroundColor:desaturate(lighten($font-default-color, 45%), 2%)) {
 	legend {
 		
 		// The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
@@ -789,26 +739,26 @@
 		// 
 		// Url - http://html5doctor.com/element-index/#legend
 
-		@round: 20px;
+		$round: 20px;
 		font-weight: bold;
-		background-color: @backgroundColor;
-		padding:(@vertical-padding / 1.5) @horizontal-padding;
-		margin-left: -(@horizontal-padding);
-		.border-radius(@round @round 0px 0px);
+		background-color: $backgroundColor;
+		padding:($vertical-padding / 1.5) $horizontal-padding;
+		margin-left: -($horizontal-padding);
+		@include border-radius("#{$round} #{$round} 0px 0px");
 	}
 }
 
-.base-form-submit() {
+@mixin base-form-submit() {
 	button,
 	input[type="reset"],
 	input[type="button"],
 	input[type="submit"] {
 		//.button-metal();
-		.button-dark-metal();
+		@include button-dark-metal();
 	}
 }
 
-.base-img() {
+@mixin base-img() {
 	img {
 		// An img element represents an image.
 		// The image given by the src attribute is the embedded content, and the value of the alt attribute is the img element's fallback content.
@@ -821,9 +771,52 @@
 		// Url - http://html5doctor.com/element-index/#img
 		interpolation-mode: bicubic;
 	}
-}.base-img() when (@use-css-prefix = true) {
-	img {
-		-ms-interpolation-mode: bicubic;
+	@if $use-css-prefix == true {
+		img {
+			-ms-interpolation-mode: bicubic;
+		}
 	}
 }
-*/
+
+@include base-body();
+@include base-a($font-default-color, none);
+@include base-mark();
+@include base-pre();
+@include base-p();
+@include base-blockquote(4px solid lighten($font-default-color, 20%), lighten($font-default-color, 45%), $global-padding, italic, '«', '»');
+@include base-code(0 0.25em, rgba(0,0,0,.075));
+@include base-abbr(#FCFCFC);
+@include base-kbd($font-monospace);
+@include base-samp($font-monospace);
+@include base-small($font-small-size);
+@include base-s($font-default-color, line-through, $state-faded-opacity);
+@include base-ul(0, 0);
+@include base-li(0, 0 0 0 1.25em);
+@include base-ol(0, 0);
+@include base-hr($vertical-padding 0, 1px solid, rgba(0,0,0,0.075), rgba(255,255,255,0.8));
+@include base-meter();
+@include base-img();
+
+@include base-form(1em 0 0 0);
+@include base-form-submit();
+@include base-form-text();
+@include base-form-range();
+@include base-form-radio();
+@include base-form-checkbox();
+@include base-form-textarea(100px, 300px, vertical);
+@include base-form-label();
+@include base-form-file();
+@include base-form-select();
+@include base-form-datalist();
+@include base-form-output();
+@include base-form-fieldset();
+@include base-form-legend();
+
+@include base-h(black, $font-heading, bold);
+@include base-table(middle, separate);
+@include base-tr();
+@include base-th(center, bold, 0.5em);
+@include base-td(left, 0.5em);
+@include base-caption($global-padding);
+@include base-figcaption($vertical-padding 0 0 0);
+@include base-tfoot();

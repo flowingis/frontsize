@@ -8,7 +8,7 @@
 @mixin area-hifi($hifiColor:#3d4041) {
 	z-index: 10;
 	border-bottom:1px solid lighten($hifiColor,8%);
-	@include verticalGradient(fade($hifiColor,95%),-5%);
+	@include verticalGradient(opacify($hifiColor,0.95),5%);
 	@include box-shadow(0px 0px 4px rgba(0,0,0,.5));
 }
 
@@ -21,13 +21,13 @@
 	white-space: nowrap;
 	@include border-radius(100px);
 	$p:.3s ease-in-out;
-	@include transition(color $p, background-color $p, box-shadow $p);
+	@include transition("color #{$p}, background-color #{$p}, box-shadow #{$p}");
 	&:hover,
 	&.active,
 	&.selected {
 		color:white;
 		background-color:$hifiColor;
-		@include box-shadow(0px 1px 4px rgba(0,0,0,.45), 0px 1px 2px rgba(255,255,255,.1) inset);
+		@include box-shadow("0px 1px 4px rgba(0,0,0,.45), 0px 1px 2px rgba(255,255,255,.1) inset");
 	}
 	&.selected {
 		cursor: default;
@@ -48,7 +48,7 @@
 	border-top:1px solid lighten($color,10%);
 	border-bottom:4px solid darken($color,20%);
 	@include border-radius(6px);
-	@include verticalGradient($color,-5%);
+	@include verticalGradient($color,5%);
 	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);
 	&:active {
@@ -72,7 +72,7 @@
 	border-top:4px solid lighten($color,10%);
 	border-bottom:14px solid darken($color,20%);
 	@include border-radius(12px);
-	@include verticalGradient($color,-5%);
+	@include verticalGradient($color,5%);
 	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);
 	&:active {
@@ -96,7 +96,7 @@
 	border-top:4px solid lighten($color,10%);
 	border-bottom:14px solid darken($color,20%);
 	@include border-radius(12px);
-	@include verticalGradient($color, -8%);
+	@include verticalGradient($color, 8%);
 	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);
 	&:active {
@@ -124,7 +124,7 @@
 		text-align:center;
 		cursor: pointer;
 		background-color: white;
-		@include transition(margin-right $duration $animation, margin-left $duration $animation);
+		@include transition("margin-right #{$duration} #{$animation}, margin-left #{$duration} $#{$animation}");
 		@include box-shadow(0px 0px 1px rgba(0,0,0,.3));
 		@include border-radius(($round - $padding) px);
 		&.on {
@@ -186,7 +186,7 @@
 	font-weight: bold;
 	color:white;
 	border:none;
-	@include verticalGradient($backgroundColor,-10%);
+	@include verticalGradient($backgroundColor,10%);
 	@include box-shadow(0px 1px 2px rgba(0,0,0,.4));
 	@include border-radius($borderRadius);
 	&:hover {
@@ -205,8 +205,8 @@
 	text-shadow:1px 1px white;
 	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
-	@include transition(background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out);
-	@include box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.7));
+	@include transition("background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out");
+	@include box-shadow("0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.7)");
 	@include border-radius(4px);
 	@include font-smoothing(subpixel-antialiased);
 	&:hover {
@@ -232,8 +232,8 @@
 	background-color: $backgroundColor;
 	@include border-radius(4px);
 	@include verticalGradient($backgroundColor, 10%);
-	@include box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35));
-	@include transition(color .25s ease-out, box-shadow .25s ease-out);
+	@include box-shadow("0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35)");
+	@include transition("color .25s ease-out, box-shadow .25s ease-out");
 	> * {
 		text-shadow:0px -1px 0px $textShadowColor;
 		color:$color;
@@ -256,17 +256,17 @@
 	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
 	@include border-radius(100px);
 	@include verticalGradient($backgroundColor, 10%);
-	@include box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.7));
+	@include box-shadow("0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.7)");
 	@include transition(text-shadow .25s ease-out);
 	&:hover {
-		@include box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 2px 8px rgba(255, 255, 255, 0.7));
+		@include box-shadow("0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 2px 8px rgba(255, 255, 255, 0.7)");
 	}
 	&:active {
 		color:$backgroundColor;
 		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
 		border-color:darken($color,10%);
-		@include verticalGradient($color, -10%);
-		@include box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5));
+		@include verticalGradient($color, 10%);
+		@include box-shadow("0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5)");
 	}
 }
 
@@ -282,18 +282,18 @@
 	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
 	@include border-radius($radius);
 	@include verticalGradient($backgroundColor, 5%);
-	@include box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3));
-	@include transition(color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out);
+	@include box-shadow("0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3)");
+	@include transition("color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out");
 	&:hover {
 		color:lighten($color,5%);
 		@include verticalGradient(lighten($backgroundColor,2%), 5%);
-		@include box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3));
+		@include box-shadow("0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3)");
 	}
 	&:active {
 		color:lighten($color,2%);
 		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
-		@include verticalGradient($backgroundColor, -5%);
-		@include box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5));
+		@include verticalGradient($backgroundColor, 5%);
+		@include box-shadow("0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5)");
 	}
 }
 
@@ -316,7 +316,7 @@
 		border:$borderSize solid transparent;
 		color:$defaultColor;
 		list-style-type:none;
-		@include transition(color .25s ease-out, border-color .25s ease-out);
+		@include transition("color .25s ease-out, border-color .25s ease-out");
 		@include border-radius($borderRadius $borderRadius 0 0);
 		&:hover {
 			color:$selectedColor;
@@ -344,7 +344,7 @@
 			border:$border;
 			border-color:$borderColor;
 			@include border-radius($borderRadius);
-			@include transition(box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out);
+			@include transition("box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out");
 			&.paginator-text {
 				background-color:transparent;
 				border-color:transparent;
@@ -353,7 +353,7 @@
 				color:lighten($color,5%);
 				border-color:darken($borderColor,12%);
 				background-color: lighten($backgroundColor,5%);
-				@include box-shadow(0px 1px 6px rgba(0,0,0,.2), 0px 0px 0px rgba(0,0,0,0) inset);
+				@include box-shadow("0px 1px 6px rgba(0,0,0,.2), 0px 0px 0px rgba(0,0,0,0) inset");
 				&.paginator-text {
 					color:lighten($color,20%);
 					background-color:transparent;
@@ -367,7 +367,7 @@
 				color:lighten($color,5%);
 				border-color:darken($borderColor,12%);
 				background-color: darken($backgroundColor,5%);
-				@include box-shadow(0px 0px 6px rgba(0,0,0,.2) inset, 0px 0px 0px rgba(0,0,0,0));
+				@include box-shadow("0px 0px 6px rgba(0,0,0,.2) inset, 0px 0px 0px rgba(0,0,0,0)");
 			}
 		}
 	}

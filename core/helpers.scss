@@ -84,7 +84,7 @@
 
 // backgrounds
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
-	$lighten: saturate(lighten($color,$strenght),(-$strenght/2));
+	$lighten: saturate(lighten($color,$strenght),($strenght/2));
 	$darken: saturate(darken($color,$strenght),($strenght/2));
 	@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
@@ -277,7 +277,7 @@
 }
 
 @mixin outlineBoxShadow($outlineOpacity:0.2, $boxShadow:0px 0px 0px transparent) {
-	@include box-shadow(0px 0px 1px rgba(0,0,0,$outlineOpacity), $boxShadow);
+	@include box-shadow("0px 0px 1px rgba(0,0,0,#{$outlineOpacity}), #{$boxShadow}");
 }
 
 @mixin hooked($zIndex:100) {

@@ -1,0 +1,224 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==              MIXINS               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+@mixin backgroundRetina($defaultImage, $retinaImage:$defaultImage, $backgroundSize:auto) {
+	//@background-size: auto | px | % |  cover | contain
+	//.backgroundRetina("path/image-low-res.png", "path/image-high-res.png");
+	@include backgroundImage($defaultImage);
+	background-size:$backgroundSize;
+	@media #{$display-retina} {
+		@include backgroundImage($retinaImage);
+	}
+}
+
+@mixin backgroundRetinaResponsive(
+	$defaultHdFullBackground,
+	$retinaHdFullBackground:$defaultHdFullBackground,
+	$defaultHdReadyRetinaBackground:$defaultHdFullBackground,
+	$retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground,
+	$defaultTabletLandscapeBackground:$defaultHdReadyRetinaBackground,
+	$retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground,
+	$defaultTabletPortraitBackground:$defaultTabletLandscapeBackground,
+	$retinaTabletPortraitBackground:$defaultTabletPortraitBackground,
+	$defaultSmartphoneLandscapeBackground:$defaultTabletPortraitBackground,
+	$retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground,
+	$defaultSmartphonePortraitBackground:$defaultSmartphoneLandscapeBackground,
+	$retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground,
+	$backgroundSize:auto,
+	$rootPath:$rootpath
+	)  {
+	@if $use-rootpath == false{
+		background-size:$backgroundSize;
+		@include backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground);
+		@include backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground);
+		@include backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground);
+		@include backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground);
+		@include backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground);
+		@include backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground);
+	}
+	@else{
+		background-size:$backgroundSize;
+		@include backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $rootPath);
+		@include backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $rootPath);
+		@include backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $rootPath);
+		@include backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $rootPath);
+		@include backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $rootPath);
+		@include backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground, $rootPath);
+	}
+}
+
+@mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:$rootpath) {
+	@if $use-rootpath == true{
+		@media #{$from-hd-full} {
+			// Full HD
+			@include backgroundImage($defaultHdFullBackground, $rootPath);
+		}
+		@media #{$retina-from-hd-full} {
+			// Full HD Retina
+			@include backgroundImage($retinaHdFullBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-hd-full} {
+			// Full HD
+			@include backgroundImage($defaultHdFullBackground, "");
+		}
+		@media #{$retina-from-hd-full} {
+			// Full HD Retina
+			@include backgroundImage($retinaHdFullBackground, "");
+		}
+	}
+}
+
+@mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:$rootpath){
+	@if $use-rootpath == true{
+		@media  #{$from-hd-ready} {
+			// HD Ready
+			@include backgroundImage($defaultHdReadyRetinaBackground, $rootPath);
+		}
+		@media #{$retina-from-hd-ready} {
+			// HD Ready Retina
+			@include backgroundImage($retinaHdReadyRetinaBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-hd-ready} {
+			// HD Ready
+			@include backgroundImage($defaultHdReadyRetinaBackground, "");
+		}
+		@media #{$retina-from-hd-ready} {
+			// HD Ready Retina
+			@include backgroundImage($retinaHdReadyRetinaBackground, "");
+		}
+	}
+}
+
+@mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:$rootpath){
+	@if $use-rootpath == true{ 
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			@include backgroundImage($defaultTabletLandscapeBackground, $rootPath);
+		}
+		@media #{$retina-from-tablet-landscape} {
+			// Tablet landscape Retina
+			@include backgroundImage($retinaTabletLandscapeBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			@include backgroundImage($defaultTabletLandscapeBackground, "");
+		}
+		@media #{$retina-from-tablet-landscape} {
+			// Tablet landscape Retina
+			@include backgroundImage($retinaTabletLandscapeBackground, "");
+		}
+	}
+}
+
+@mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:$rootpath){
+	@if $use-rootpath == true{ 
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			@include backgroundImage($defaultTabletPortraitBackground, $rootPath);
+		}
+		@media #{$retina-from-tablet-portrait} {
+			// Tablet portrait Retina
+			@include backgroundImage($retinaTabletPortraitBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			@include backgroundImage($defaultTabletPortraitBackground, "");
+		}
+		@media #{$retina-from-tablet-portrait} {
+			// Tablet portrait Retina
+			@include backgroundImage($retinaTabletPortraitBackground, "");
+		}
+	}
+}
+
+@mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:$rootpath){
+	@if $use-rootpath == true{ 
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			@include backgroundImage($defaultSmartphoneLandscapeBackground, $rootPath);
+		}
+		@media #{$retina-from-smartphone-landscape} {
+			// Smartphone landscape Retina
+			@include backgroundImage($retinaSmartphoneLandscapeBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			@include backgroundImage($defaultSmartphoneLandscapeBackground, "");
+		}
+		@media #{$retina-from-smartphone-landscape} {
+			// Smartphone landscape Retina
+			@include backgroundImage($retinaSmartphoneLandscapeBackground, "");
+		}
+	}	
+}
+
+@mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:$rootpath) {
+	@if $use-rootpath == true{
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			@include backgroundImage($defaultSmartphonePortraitBackground, $rootPath);
+		}
+		@media #{$retina-from-smartphone-portrait} {
+			// Smartphone portrait Retina
+			@include backgroundImage($retinaSmartphonePortraitBackground, $rootPath);
+		}
+	}
+	@else{
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			@include backgroundImage($defaultSmartphonePortraitBackground, "");
+		}
+		@media #{$retina-from-smartphone-portrait} {
+			// Smartphone portrait Retina
+			@include backgroundImage($retinaSmartphonePortraitBackground, "");
+		}
+	}
+}
+
+@mixin iconRetina($defaultImage, $retinaImage, $width, $height:$width) {
+	@include size($width, $height);
+	@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height);
+	background-position: center;
+}
+
+@mixin backgroundRetinaIcon($defaultImage, $retinaImage:$defaultImage, $width:100%, $height:$width) {
+	@include backgroundImage($defaultImage);
+	background-size:$width $height;
+	background-repeat: no-repeat;
+	@media #{$display-retina} {
+		@include backgroundImage($retinaImage);
+	}
+}
+
+@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0) {
+	@include sprite($defaultImage, $width, $height);
+	@media #{$display-retina} {
+		@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight);
+	}
+}
+
+@media #{$display-retina} {
+	.not-retina-only {
+		display:none;
+	}
+}
+
+@media #{$display-standard} {
+	.retina-only {
+		display:none;
+	}
+}
