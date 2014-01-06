@@ -1,0 +1,385 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==              MIXIN                ===================================================================================================================================
+// ==             WIDGETS               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+@mixin area-hifi($hifiColor:#3d4041) {
+	z-index: 10;
+	border-bottom:1px solid lighten($hifiColor,8%);
+	@include verticalGradient(fade($hifiColor,95%),-5%);
+	@include box-shadow(0px 0px 4px rgba(0,0,0,.5));
+}
+
+@mixin button-hifi($hifiColor:#3d4041, $color:#b1b1b1) {
+	display: inline-block;
+	padding:.25em .75em;
+	border-bottom: none;
+	color:$color;
+	text-shadow:0px -1px 0px rgba(0,0,0,.5);
+	white-space: nowrap;
+	@include border-radius(100px);
+	$p:.3s ease-in-out;
+	@include transition(color $p, background-color $p, box-shadow $p);
+	&:hover,
+	&.active,
+	&.selected {
+		color:white;
+		background-color:$hifiColor;
+		@include box-shadow(0px 1px 4px rgba(0,0,0,.45), 0px 1px 2px rgba(255,255,255,.1) inset);
+	}
+	&.selected {
+		cursor: default;
+	}
+}
+
+@mixin keyboard($color:#393634, $textColor:white) {
+	// <div class="keyboard">cmd</div>
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+	color:$textColor;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	border:1px solid $color;
+	border-top:1px solid lighten($color,10%);
+	border-bottom:4px solid darken($color,20%);
+	@include border-radius(6px);
+	@include verticalGradient($color,-5%);
+	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+	@include user-select(none);
+	&:active {
+		top:2px;
+		margin-bottom:2px;
+		border-bottom-width:2px;
+	}
+}
+
+@mixin keyboard-vintage($color:#423f38, $textColor:white) {
+	// <div class="keyboard-vintage">cmd</div>
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+	color:$textColor;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	border:8px solid $color;
+	border-top:4px solid lighten($color,10%);
+	border-bottom:14px solid darken($color,20%);
+	@include border-radius(12px);
+	@include verticalGradient($color,-5%);
+	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+	@include user-select(none);
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+
+@mixin keyboard-commodore($color:#cecbba, $text:#423f38) {
+	// <div class="keyboard-commodore">cmd</div>
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+	color:$text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 0px rgba(255,255,255,.75);
+	border:8px solid $color;
+	border-top:4px solid lighten($color,10%);
+	border-bottom:14px solid darken($color,20%);
+	@include border-radius(12px);
+	@include verticalGradient($color, -8%);
+	@include box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+	@include user-select(none);
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+
+@mixin switch($round:6px, $padding:1px, $margin:2.5em, $onColor:#1ba6da, $offColor:#dc3151) {
+	$duration:.2s;
+	$animation:ease-out;
+	padding:$padding;
+	background-color: rgb(245,245,245);
+	border:1px solid rgba(0,0,0,.15);
+	@include border-radius($round);
+	@include box-shadow(inset 0px 1px 4px rgba(0,0,0,.2));
+	> * {
+		display: inline-block;
+		padding:.5em;
+		@include box-sizing(border-box);
+		min-width:$margin;
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.3);
+		text-align:center;
+		cursor: pointer;
+		background-color: white;
+		@include transition(margin-right $duration $animation, margin-left $duration $animation);
+		@include box-shadow(0px 0px 1px rgba(0,0,0,.3));
+		@include border-radius(($round - $padding) px);
+		&.on {
+			margin-right:$margin;
+			margin-left:0;
+			@include verticalGradient($onColor);
+			border:1px solid darken($onColor,5%);
+			border-top-color:lighten($onColor,10%);
+			border-bottom-color:darken($onColor,10%);
+		}
+		&.off {
+			margin-right:0;
+			margin-left:$margin;
+			@include verticalGradient($offColor);
+			border:1px solid darken($offColor,5%);
+			border-top-color:lighten($offColor,5%);
+			border-bottom-color:darken($offColor,10%);
+		}
+	}
+}
+
+@mixin pic($borderWidth:3px, $boxShadow:0px 2px 3px rgba(0,0,0,0.2), $outlineOpacity:0.2) {
+	border:$borderWidth solid white;
+	line-height: 0;
+	@include outlineBoxShadow($outlineOpacity, $boxShadow);
+	&:hover {
+		border:$borderWidth solid white;
+	}
+}
+
+@mixin text-buried($color:black, $light:rgba(255,255,255,.05), $offset:1px) {
+	// <div alt="Text Buried">Text Buried</div>
+	display: inline-block;
+	color: $color;
+	position: relative;
+	text-shadow:none;
+	&:before, &:after {
+		content: attr(alt);
+		color: $light;
+		position: absolute;
+	}
+	&:before {
+		top:$offset;
+		left:$offset;
+	}
+	&:after {
+		top:$offset;
+		left:$offset;
+	}
+}
+
+@mixin button-box($backgroundColor:#1ba6da, $padding:1em, $borderRadius:4px) {
+	// <a class="button" href="#">Download</a>
+	display: inline-block;
+	padding: $padding;
+	text-transform: uppercase;
+	text-shadow: 0px -1px 1px rgba(0,0,0,.3);
+	text-decoration: none;
+	font-weight: bold;
+	color:white;
+	border:none;
+	@include verticalGradient($backgroundColor,-10%);
+	@include box-shadow(0px 1px 2px rgba(0,0,0,.4));
+	@include border-radius($borderRadius);
+	&:hover {
+		color:white;
+		border:none;
+	}
+}
+
+@mixin button-mini($color:#e9e9e9, $textColor:darken($color,40%)) {
+	display: inline-block;
+	padding:0.5em 0.75em;
+	cursor: pointer;
+	border:1px solid rgba(0, 0, 0, 0.075);
+	background-color: $color;
+	color:$textColor;
+	text-shadow:1px 1px white;
+	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	@include transition(background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out);
+	@include box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.7));
+	@include border-radius(4px);
+	@include font-smoothing(subpixel-antialiased);
+	&:hover {
+		border-color:rgba(0, 0, 0, 0.15);
+		border-bottom-color:rgba(0, 0, 0, 0.2);
+		color:darken($textColor,10%);
+		background-color: darken($color,5%);
+	}
+}
+
+@mixin button-account($backgroundColor:#C3C3C3, $color:white, $textShadowColor:0px -1px 0px rgba(255, 0, 0, 0.3)) {
+	// Code snippet:
+	// <a class="twitter-account with-small-fonts" href="#">Connect to <b>Twitter</b></a>
+	// <a class="google-account" href="#">Connect to <span>Google+</span></a>
+	display: inline-block;
+	padding:0 0.5em;
+	margin-bottom:0.5em;
+	cursor:pointer;
+	color:desaturate(lighten($backgroundColor,25%),12%);
+	text-shadow:0px -1px 0px rgba(0, 0, 0, 0.3);
+	border:1px solid saturate(darken($backgroundColor, 8%),8%);
+	border-bottom-color:saturate(darken($backgroundColor, 20%),20%);
+	background-color: $backgroundColor;
+	@include border-radius(4px);
+	@include verticalGradient($backgroundColor, 10%);
+	@include box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35));
+	@include transition(color .25s ease-out, box-shadow .25s ease-out);
+	> * {
+		text-shadow:0px -1px 0px $textShadowColor;
+		color:$color;
+	}
+	&:hover {
+		text-shadow:0px -1px 0px $textShadowColor;
+		color:$color;
+		@include verticalGradient($backgroundColor, 0%);
+	}
+}
+
+@mixin button-metal($backgroundColor:#E2E4E3, $color:#535353) {
+	display: inline-block;
+	padding:0.5em 1em;
+	cursor:pointer;
+	color:$color;
+	text-shadow:0px 1px 0px rgba(255, 255, 255, 0.3);
+	font-weight:bold;
+	border:1px solid saturate(darken($backgroundColor, 20%),2%);
+	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
+	@include border-radius(100px);
+	@include verticalGradient($backgroundColor, 10%);
+	@include box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.7));
+	@include transition(text-shadow .25s ease-out);
+	&:hover {
+		@include box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 2px 8px rgba(255, 255, 255, 0.7));
+	}
+	&:active {
+		color:$backgroundColor;
+		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
+		border-color:darken($color,10%);
+		@include verticalGradient($color, -10%);
+		@include box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5));
+	}
+}
+
+@mixin button-dark-metal($backgroundColor:#414548, $color:#c3c3c5, $radius:4px) {
+	display: inline-block;
+	padding:0.5em 1em;
+	cursor:pointer;
+	color:$color;
+	text-shadow:1px -1px 1px rgba(0, 0, 0, 0.3);
+	font-weight:normal;
+	border:1px solid saturate(darken($backgroundColor, 10%),2%);
+	border-top-color:$backgroundColor;
+	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
+	@include border-radius($radius);
+	@include verticalGradient($backgroundColor, 5%);
+	@include box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3));
+	@include transition(color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out);
+	&:hover {
+		color:lighten($color,5%);
+		@include verticalGradient(lighten($backgroundColor,2%), 5%);
+		@include box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3));
+	}
+	&:active {
+		color:lighten($color,2%);
+		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
+		@include verticalGradient($backgroundColor, -5%);
+		@include box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5));
+	}
+}
+
+@mixin tabs($selectedColor:#7b8284, $selectedBackground:white, $defaultColor:#CCCCCC, $borderColor:#CCCCCC, $borderRadius:0.5em, $borderSize:1px) {
+	overflow:auto;
+	padding:$vertical-padding $horizontal-padding 0 $horizontal-padding;
+	.bottom-line {
+		position:relative;
+		z-index:0;
+		top:-$borderSize;
+		width:100%;
+		height:$borderSize;
+		border-top:$borderSize solid $borderColor;
+	}
+	.tab {
+		display:inline-block;
+		position:relative;
+		padding:($vertical-padding/2) $horizontal-padding;
+		cursor:pointer;
+		border:$borderSize solid transparent;
+		color:$defaultColor;
+		list-style-type:none;
+		@include transition(color .25s ease-out, border-color .25s ease-out);
+		@include border-radius($borderRadius $borderRadius 0 0);
+		&:hover {
+			color:$selectedColor;
+		}
+		&.selected {
+			z-index:1;
+			color:$selectedColor;
+			background-color:$selectedBackground;
+			border-color:$borderColor;
+			border-bottom-color:$selectedBackground;
+		}
+	}
+}
+
+@mixin paginator-circular($containerLinkPadding:0 0.5em, $linkPadding:0.5em 0.875em, $backgroundColor:white, $color:#7b8284, $border:1px solid, $borderColor:#e2e2e2, $borderRadius:200px) {
+	display:inline-block;
+	padding:0;
+	> * {
+		padding:$containerLinkPadding;
+		@include asTableCell(0, middle);
+		> * {
+			padding:$linkPadding;
+			color:$color;
+			background-color: $backgroundColor;
+			border:$border;
+			border-color:$borderColor;
+			@include border-radius($borderRadius);
+			@include transition(box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out);
+			&.paginator-text {
+				background-color:transparent;
+				border-color:transparent;
+			}
+			&:hover {
+				color:lighten($color,5%);
+				border-color:darken($borderColor,12%);
+				background-color: lighten($backgroundColor,5%);
+				@include box-shadow(0px 1px 6px rgba(0,0,0,.2), 0px 0px 0px rgba(0,0,0,0) inset);
+				&.paginator-text {
+					color:lighten($color,20%);
+					background-color:transparent;
+					border-color:transparent;
+					@include box-shadow(none);
+				}
+			}
+			&:active,
+			&.selected {
+				cursor:default;
+				color:lighten($color,5%);
+				border-color:darken($borderColor,12%);
+				background-color: darken($backgroundColor,5%);
+				@include box-shadow(0px 0px 6px rgba(0,0,0,.2) inset, 0px 0px 0px rgba(0,0,0,0));
+			}
+		}
+	}
+}
+
+@mixin message-status($color:#de6646, $backgroundColor:desaturate(lighten($color,30%),30%), $border:1px solid rgba(0,0,0,0.015), $borderRadius:0.25em, $boxShadow:0px 1px 3px rgba(0,0,0,0.075), $margin:0 0 $vertical-padding 0) {
+	width:100%;
+	margin:$margin;
+	padding:($vertical-padding/2em) $horizontal-padding;
+	color:$color;
+	background-color:$backgroundColor;
+	border:$border;
+	@include border-radius($borderRadius);
+	@include box-shadow($boxShadow);
+}

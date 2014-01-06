@@ -1,0 +1,696 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==               STATE               ===================================================================================================================================
+// ==             SELECTORS             ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+.wrap {
+	// avoid the unwanted width over the 100% of the size of the container
+	@include box-sizing(border-box);
+}
+
+.wrap-content {
+	@include box-sizing(content-box);
+}
+
+.full {
+	@include setColumnBehavior(false);
+	float: none;
+}
+
+.inline {
+	width: auto !important;
+	display: inline-block !important;
+}
+
+.block {
+	display: block !important;
+}
+
+.full,
+.fill {
+	width: 100% !important;
+}
+
+.little {
+	width: 25% !important;
+}
+
+.half {
+	width: 50% !important;
+}
+
+.almost {
+	width: 75% !important;
+}
+
+.auto {
+	width: auto !important;
+}
+
+.box {
+	overflow: auto !important;
+}
+
+.visible {
+	overflow: visible !important;
+}
+
+.cut {
+	overflow: hidden !important;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.selected {
+	cursor: default;
+}
+
+.faded {
+	opacity: $state-faded-opacity !important;
+	@include transition(opacity 0.25s ease-out);
+}
+
+.disabled {
+	cursor: default;
+	opacity: $state-disabled-opacity !important;
+	@include transition(opacity 0.25s ease-out);
+}
+
+.invisible {
+	opacity: 0 !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.text-center {
+	// manually center all the contents inside
+	text-align: center !important;
+}
+
+.text-right {
+	// manually center all the contents inside
+	text-align: right !important;
+}
+
+.text-left {
+	// manually center all the contents inside
+	text-align: left !important;
+}
+
+.text-justify {
+	// manually center all the contents inside
+	text-align: justify !important;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.unselectable {
+	@include user-select(none);
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.no-line-height {
+	line-height: 0;
+}
+
+.line-height {
+	line-height: $font-line-height;
+}
+
+.gain-margin {
+	width: auto !important;
+	margin-left: -$horizontal-padding !important;
+	margin-right: -$horizontal-padding !important;
+}
+
+.to-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.to-left {
+	float: left;
+}
+
+.to-right {
+	float: right;
+}
+
+.clear {
+	// manually go down to the next row
+	clear: both;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+	float: none;
+	&.to-bottom {
+		bottom: 0px;
+	}
+	&.to-top {
+		top: 0px;
+	}
+	&.to-right {
+		right: 0px;
+	}
+	&.to-left {
+		left: 0px;
+	}
+}
+
+.move-bottom-left {
+	position: absolute;
+	bottom:0px;
+	left:0px;
+}
+
+.move-bottom-right {
+	position: absolute;
+	bottom:0px;
+	right:0px;
+}
+
+.move-top-left {
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+
+.move-top-right {
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
+.with-padding {
+	padding: $vertical-padding $horizontal-padding !important;
+}
+
+.horizontal-padding {
+	padding-right: $horizontal-padding !important;
+	padding-left: $horizontal-padding !important;
+}
+
+.vertical-padding {
+	padding-top: $vertical-padding !important;
+	padding-bottom: $vertical-padding !important;
+}
+
+.top-padding {
+	padding-top: $vertical-padding !important;
+}
+
+.bottom-padding {
+	padding-bottom: $vertical-padding !important;
+}
+
+.left-padding {
+	padding-left: $horizontal-padding !important;
+}
+
+.right-padding {
+	padding-right: $horizontal-padding !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-top-padding {
+	padding-top: 0 !important;
+}
+
+.no-bottom-padding {
+	padding-bottom: 0 !important;
+}
+
+.no-vertical-padding {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.no-left-padding {
+	padding-left: 0 !important;
+}
+
+.no-right-padding {
+	padding-right: 0 !important;
+}
+
+.no-horizontal-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.with-margin {
+	margin: $vertical-padding $horizontal-padding !important;
+}
+
+.horizontal-margin {
+	margin-right: $horizontal-padding !important;
+	margin-left: $horizontal-padding !important;
+}
+
+.vertical-margin {
+	margin-top: $vertical-padding !important;
+	margin-bottom: $vertical-padding !important;
+}
+
+.top-margin {
+	margin-top: $vertical-padding !important;
+}
+
+.bottom-margin {
+	margin-bottom: $vertical-padding !important;
+}
+
+.left-margin {
+	margin-left: $horizontal-padding !important;
+}
+
+.right-margin {
+	margin-right: $horizontal-padding !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.no-top-margin {
+	margin-top: 0 !important;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0 !important;
+}
+
+.no-vertical-margin {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.no-left-margin {
+	margin-left: 0 !important;
+}
+
+.no-right-margin {
+	margin-right: 0 !important;
+}
+
+.no-horizontal-margin {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.no-list-style {
+	list-style-type: none;
+}
+
+.fluid {
+	// make an image responsive
+	height: auto;
+	max-width: 100% !important;
+	@include box-sizing(border-box);
+	img {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+	&.fill {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.not-fluid {
+	// set an image with it's default behavior
+	width: auto !important;
+	height: auto !important;
+}
+
+.nav {
+	padding: 0;
+	&.inline {
+		li {
+			display: inline-block;
+			margin-left: ($horizontal-padding / 2);
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+	&.vertical {
+		ul {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	li {
+		list-style-type: none;
+	}
+}
+
+
+
+.table {
+	@include asTable($state-table-padding, middle, 100%);
+}
+
+.table-top {
+	@include asTable($state-table-padding, top, 100%);
+}
+
+.inline-table {
+	@include asTable($state-table-padding, middle, auto);
+}
+
+.cell {
+	@include asTableCell(0, middle);
+}
+
+.cell-top {
+	@include asTableCell(0, top);
+}
+
+.cell-bottom {
+	@include asTableCell(0, bottom);
+}
+
+.fixed {
+	position: fixed;
+	&.cover {
+		bottom:0;
+		top:0;
+		right:0;
+		left:0;
+	}
+	&.to-bottom {
+		bottom:0;
+	}
+	&.to-top {
+		top:0;
+	}
+	&.to-right {
+		right:0;
+	}
+	&.to-left {
+		left:0;
+	}
+}
+
+.hookable {
+	$transition: 0.3s ease-in-out;
+	@include transition("top #{$transition}, right #{$transition}, bottom #{$transition}, left #{$transition}");
+}
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==          VISIBILITY RULES         ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+// Media queries for strict resolution selectors
+@media #{$only-hd} {
+	//.only-on-hd				{ display:none; }
+	.only-on-tablet				{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-hd					{ display: none; }
+}
+
+@media #{$only-hd-full} {
+	// Full HD
+	//.only-on-hd-full				{ background-color:pink; }
+	.only-on-hd-ready				{ display: none; }
+	.only-on-tablet-landscape		{ display: none; }
+	.only-on-tablet-portrait		{ display: none; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-hd-full					{ display: none; }
+}
+
+@media #{$only-hd-ready} {
+	// HD Ready
+	.only-on-hd-full				{ display: none; }
+	//.only-on-hd-ready				{ background-color:aqua; }
+	.only-on-tablet-landscape		{ display: none; }
+	.only-on-tablet-portrait		{ display: none; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-hd-ready				{ display: none; }
+}
+
+@media #{$only-tablet} {
+	.only-on-hd					{ display:none; }
+	//.only-on-tablet			{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-tablet				{ display: none; }
+}
+
+@media #{$only-tablet-landscape} {
+	// Tablet landscape
+	.only-on-hd-full				{ display: none; }
+	.only-on-hd-ready				{ display: none; }
+	//.only-on-tablet-landscape		{ background-color:yellow; }
+	.only-on-tablet-portrait		{ display: none; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-tablet 					{ display: none; }
+	.not-on-tablet-landscape 		{ display: none; }
+}
+
+@media #{$only-tablet-portrait} {
+	// Tablet portrait
+	.only-on-hd-full				{ display: none; }
+	.only-on-hd-ready				{ display: none; }
+	.only-on-tablet-landscape		{ display: none; }
+	//.only-on-tablet-portrait		{ background-color: orange; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-tablet-portrait 		{ display: none; }
+}
+
+@media #{$only-smartphone} {
+	.only-on-hd					{ display:none; }
+	.only-on-tablet				{ display:none; }
+	//.only-on-smartphone		{ display:none; }
+	.not-on-smartphone			{ display: none; }
+}
+
+@media #{$only-smartphone-landscape} {
+	// Smartphone landscape
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	//.only-on-smartphone-landscape	{background-color:lightgrey; padding:.25em;}
+	.only-on-smartphone-portrait	{display:none;}
+	.not-on-smartphone-landscape 	{display:none;}
+}
+
+@media #{$only-smartphone-portrait} {
+	// Smartphone portrait
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	.only-on-smartphone-landscape	{display:none;}
+	//.only-on-smartphone-portrait	{background-color:lightblue; padding:.25em;}
+	.not-on-smartphone-portrait 	{display:none;}
+}
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==        MOBILE FIRST RULES         ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+// Media queries for selectors active from smaller resolution device mobile to a specific one
+@media #{$till-hd-full} {
+	// Full HD
+	.not-till-hd-full			{ display: none !important; }
+	.block-till-hd-full			{ display: block !important; }
+	.fill-till-hd-full			{ width: 100% !important; }
+	.almost-till-hd-full		{ width: 75% !important; }
+	.half-till-hd-full			{ width: 50% !important; }
+	.little-till-hd-full		{ width: 25% !important; }
+	.text-left-till-hd-full		{ text-align: left !important; }
+	.text-center-till-hd-full	{ text-align: center !important; }
+	.text-right-till-hd-full	{ text-align: right !important; }
+	.to-center-till-hd-full		{ margin: auto !important; }
+	.to-left-till-hd-full		{ float: left !important; }
+	.to-right-till-hd-full		{ float: right !important; }
+}
+
+@media #{$till-hd-ready} {
+	// HD Ready
+	.not-till-hd-ready					{ display: none !important; }
+	.block-till-hd-ready				{ display: block !important; }
+	.fill-till-hd-ready					{ width: 100% !important; }
+	.almost-till-hd-ready				{ width: 75% !important; }
+	.half-till-hd-ready					{ width: 50% !important; }
+	.little-till-hd-ready				{ width: 25% !important; }
+	.text-left-till-hd-ready			{ text-align: left !important; }
+	.text-center-till-hd-ready			{ text-align: center !important; }
+	.text-right-till-hd-ready			{ text-align: right !important; }
+	.to-center-till-hd-ready			{ margin: auto !important; }
+	.to-left-till-hd-ready				{ float: left !important; }
+	.to-right-till-hd-ready				{ float: right !important; }
+}
+
+@media #{$till-tablet-landscape} {
+	// Tablet landscape
+	.not-till-tablet-landscape				{ display: none !important; }
+	.block-till-tablet-landscape			{ display: block !important; }
+	.fill-till-tablet-landscape				{ width: 100% !important; }
+	.almost-till-tablet-landscape			{ width: 75% !important; }
+	.half-till-tablet-landscape				{ width: 50% !important; }
+	.little-till-tablet-landscape			{ width: 25% !important; }
+	.text-left-till-tablet-landscape		{ text-align: left !important; }
+	.text-center-till-tablet-landscape		{ text-align: center !important; }
+	.text-right-till-tablet-landscape		{ text-align: right !important; }
+	.not-fixed-till-tablet-landscape		{ position: static !important; }
+	.to-center-till-tablet-landscape		{ margin: auto !important; }
+	.to-left-till-tablet-landscape			{ float: left !important; }
+	.to-right-till-tablet-landscape			{ float: right !important; }
+}
+
+@media #{$till-tablet-portrait} {
+	// Tablet portrait
+	.not-till-tablet-portrait				{ display: none !important; }
+	.block-till-tablet-portrait				{ display: block !important; }
+	.fill-till-tablet-portrait				{ width: 100% !important; }
+	.almost-till-tablet-portrait			{ width: 75% !important; }
+	.half-till-tablet-portrait				{ width: 50% !important; }
+	.little-till-tablet-portrait			{ width: 25% !important; }
+	.text-left-till-tablet-portrait			{ text-align: left !important; }
+	.text-center-till-tablet-portrait		{ text-align: center !important; }
+	.text-right-till-tablet-portrait		{ text-align: right !important; }
+	.not-fixed-till-tablet-portrait			{ position: static !important; }
+	.to-center-till-tablet-portrait			{ margin: auto !important; }
+	.to-left-till-tablet-portrait			{ float: left !important; }
+	.to-right-till-tablet-portrait			{ float: right !important; }
+}
+
+@media #{$till-smartphone-landscape} {
+	// Smartphone landscape
+	.not-till-smartphone-landscape				{ display: none !important; }
+	.block-till-smartphone-landscape			{ display: block !important; }
+	.fill-till-smartphone-landscape				{ width: 100% !important; }
+	.almost-till-smartphone-landscape			{ width: 75% !important; }
+	.half-till-smartphone-landscape				{ width: 50% !important; }
+	.little-till-smartphone-landscape			{ width: 25% !important; }
+	.text-left-till-smartphone-landscape		{ text-align: left !important; }
+	.text-center-till-smartphone-landscape		{ text-align: center !important; }
+	.text-right-till-smartphone-landscape		{ text-align: right !important; }
+	.to-center-till-smartphone-landscape		{ margin: auto !important; }
+	.to-left-till-smartphone-landscape			{ float: left !important; }
+	.to-right-till-smartphone-landscape			{ float: right !important; }
+}
+
+// Media queries for selectors active from a specific resolution or higher
+@media #{$from-smartphone-portrait} {
+	// Smartphone portrait
+	.not-from-smartphone-portrait			{ display:none !important; }
+	.text-center-from-smartphone-portrait	{ text-align: center !important; }
+	.text-left-from-smartphone-portrait		{ text-align: left !important; }
+	.text-right-from-smartphone-portrait	{ text-align: right !important; }
+	.to-center-from-smartphone-portrait		{ margin: auto !important; }
+	.to-left-from-smartphone-portrait		{ float: left !important; }
+	.to-right-from-smartphone-portrait		{ float: right !important; }
+}
+
+@media #{$from-smartphone-landscape} {
+	// Smartphone landscape
+	.not-from-smartphone-landscape				{ display:none; position:fixed; }
+	.text-center-from-smartphone-landscape		{ text-align: center !important; }
+	.text-left-from-smartphone-landscape		{ text-align: left !important; }
+	.text-right-from-smartphone-landscape		{ text-align: right !important; }
+	.to-center-from-smartphone-landscape		{ margin: auto !important; }
+	.to-left-from-smartphone-landscape			{ float: left !important; }
+	.to-right-from-smartphone-landscape			{ float: right !important; }
+}
+
+@media #{$from-tablet-portrait} {
+	// Tablet portrait
+	.not-from-tablet-portrait			{ display:none !important; }
+	.text-center-from-tablet-portrait	{ text-align: center !important; }
+	.text-left-from-tablet-portrait		{ text-align: left !important; }
+	.text-right-from-tablet-portrait	{ text-align: right !important; }
+	.to-center-from-tablet-portrait		{ margin: auto !important; }
+	.to-left-from-tablet-portrait		{ float: left !important; }
+	.to-right-from-tablet-portrait		{ float: right !important; }
+}
+
+@media #{$from-tablet-landscape} {
+	// Tablet landscape
+	.not-from-tablet-landscape				{ display:none !important; }
+	.text-center-from-tablet-landscape		{ text-align: center !important; }
+	.text-left-from-tablet-landscape		{ text-align: left !important; }
+	.text-right-from-tablet-landscape		{ text-align: right !important; }
+	.to-center-from-tablet-landscape		{ margin: auto !important; }
+	.to-left-from-tablet-landscape			{ float: left !important; }
+	.to-right-from-tablet-landscape			{ float: right !important; }
+}
+
+@media #{$from-hd-ready} {
+	// HD Ready
+	.not-from-hd-ready				{ display:none !important; }
+	.text-center-from-hd-ready		{ text-align: center !important; }
+	.text-left-from-hd-ready		{ text-align: left !important; }
+	.text-right-from-hd-ready		{ text-align: right !important; }
+	.to-center-from-hd-ready		{ margin: auto !important; }
+	.to-left-from-hd-ready			{ float: left !important; }
+	.to-right-from-hd-ready			{ float: right !important; }
+}
+
+@media #{$from-hd-full} {
+	// Full HD
+	.not-from-hd-full			{ display:none !important; }
+	.text-center-from-hd-full	{ text-align: center !important; }
+	.text-left-from-hd-full		{ text-align: left !important; }
+	.text-right-from-hd-full	{ text-align: right !important; }
+	.to-center-from-hd-full		{ margin: auto !important; }
+	.to-left-from-hd-full		{ float: left !important; }
+	.to-right-from-hd-full		{ float: right !important; }
+}

@@ -1,0 +1,298 @@
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==             MIXINS                ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+// Easing effects
+@mixin ease($easing){
+	@include transition-timing-function($easing);
+	@if $easing == "ease-in-quad"{
+		@include transition-timing-function(cubic-bezier(0.550, 0.085, 0.680, 0.530));
+	}
+	@if $easing == "ease-in-cubic"{
+		@include transition-timing-function(cubic-bezier(0.550, 0.055, 0.675, 0.190));
+	}
+	@if $easing == "ease-in-quart"{
+		@include transition-timing-function(cubic-bezier(0.895, 0.030, 0.685, 0.220));
+	}
+	@if $easing == "ease-in-quint"{
+		@include transition-timing-function(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+	}
+	@if $easing == "ease-in-sine"{
+		@include transition-timing-function(cubic-bezier(0.470, 0.000, 0.745, 0.715));
+	}
+	@if $easing == "ease-in-expo"{
+		@include transition-timing-function(cubic-bezier(0.950, 0.050, 0.795, 0.035));
+	}
+	@if $easing == "ease-in-circ"{
+		@include transition-timing-function(cubic-bezier(0.600, 0.040, 0.980, 0.335));
+	}
+	@if $easing == "ease-in-back"{
+		@include transition-timing-function(cubic-bezier(0.600,-0.280, 0.735, 0.045));
+	}
+	@if $easing == "ease-out-quad"{
+		@include transition-timing-function(cubic-bezier(0.250, 0.460, 0.450, 0.940));
+	}
+	@if $easing == "ease-out-cubic"{
+		@include transition-timing-function(cubic-bezier(0.215, 0.610, 0.355, 1.000));
+	}
+	@if $easing == "ease-out-quart"{
+		@include transition-timing-function(cubic-bezier(0.165, 0.840, 0.440, 1.000));
+	}
+	@if $easing == "ease-out-quint"{
+		@include transition-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000));
+	}
+	@if $easing == "ease-out-sine"{
+		@include transition-timing-function(cubic-bezier(0.390, 0.575, 0.565, 1.000));
+	}
+	@if $easing == "ease-out-expo"{
+		@include transition-timing-function(cubic-bezier(0.190, 1.000, 0.220, 1.000));
+	}
+	@if $easing == "ease-out-circ"{
+		@include transition-timing-function(cubic-bezier(0.075, 0.820, 0.165, 1.000));
+	}
+	@if $easing == "ease-out-back"{
+		@include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.275));
+	}
+	@if $easing == "ease-in-out-quad"{
+		@include transition-timing-function(cubic-bezier(0.455, 0.030, 0.515, 0.955));
+	}
+	@if $easing == "ease-in-out-cubic"{
+		@include transition-timing-function(cubic-bezier(0.645, 0.045, 0.355, 1.000));
+	}
+	@if $easing == "ease-in-out-quart"{
+		@include transition-timing-function(cubic-bezier(0.770, 0.000, 0.175, 1.000));
+	}
+	@if $easing == "ease-in-out-quint"{
+		@include transition-timing-function(cubic-bezier(0.860, 0.000, 0.070, 1.000));
+	}
+	@if $easing == "ease-in-out-sine"{
+		@include transition-timing-function(cubic-bezier(0.445, 0.050, 0.550, 0.950));
+	}
+	@if $easing == "ease-in-out-expo"{
+		@include transition-timing-function(cubic-bezier(1.000, 0.000, 0.000, 1.000));
+	}
+	@if $easing == "ease-in-out-circ"{
+		@include transition-timing-function(cubic-bezier(0.785, 0.135, 0.150, 0.860));
+	}
+	@if $easing == "ease-in-out-back"{
+		@include transition-timing-function(cubic-bezier(0.680,-0.550, 0.265, 1.550));
+	}
+}
+
+// backgrounds
+@mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
+	$lighten: saturate(lighten($color,$strenght),(-$strenght/2));
+	$darken: saturate(darken($color,$strenght),($strenght/2));
+	@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+}
+@mixin verticalGradientColors($firstColor:#000000, $lastColor:#FFFFFF) {
+	@include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$firstColor}", endColorstr="#{$lastColor}", GradientType=0);
+}
+@mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
+	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
+}
+@mixin backgroundImage($backgroundImage, $path:$rootpath){
+	@if $use-rootpath == false{
+		background-image: url("#{$backgroundImage}");
+	}
+	@else{
+		background-image: url("#{$path}#{$backgroundImage}");
+	}
+}
+
+@mixin backgroundResponsive($hdFullBackground, $hdReadyBackground, $tabletLandscapeBackground, $tabletPortraitBackground, $smartphoneLandscapeBackground, $smartphonePortraitBackground) {
+	// .backgroundResponsive(
+	//     "path/hd-full/background.png",
+	//     "path/hd-ready/background.png",
+	//     "path/tablet-landscape/background.png",
+	//     "path/tablet-portrait/background.png",
+	//     "path/smartphone-landscape/background.png",
+	//     "path/smartphone-portrait/background.png"
+	// );
+	@include backgroundHdFull($hdFullBackground);
+	@include backgroundHdReady($hdReadyBackground);
+	@include backgroundTabletLandscape($tabletLandscapeBackground);
+	@include backgroundTabletPortrait($tabletPortraitBackground);
+	@include backgroundSmartphoneLandscape($smartphoneLandscapeBackground);
+	@include backgroundSmartphonePortrait($smartphonePortraitBackground);
+}
+@mixin backgroundHdFull($hdFullBackground) {
+	@media #{$from-hd-full} {
+		// Full HD
+		@include backgroundImage($hdFullBackground);
+	}
+}
+@mixin backgroundHdReady($hdReadyBackground) {
+	@media #{$from-hd-ready} {
+		// HD Ready
+		@include backgroundImage($hdReadyBackground);
+	}
+}
+@mixin backgroundTabletLandscape($tabletLandscapeBackground) {
+	@media #{$from-tablet-landscape} {
+		// Tablet landscape
+		@include backgroundImage($tabletLandscapeBackground);
+	}
+}
+@mixin backgroundTabletPortrait($tabletPortraitBackground) {
+	@media #{$from-tablet-portrait} {
+		// Tablet portrait
+		@include backgroundImage($tabletPortraitBackground);
+	}
+}
+@mixin backgroundSmartphoneLandscape($smartphoneLandscapeBackground) {
+	@media #{$from-smartphone-landscape} {
+		// Smartphone landscape
+		@include backgroundImage($smartphoneLandscapeBackground);
+	}
+}
+@mixin backgroundSmartphonePortrait($smartphonePortraitBackground) {
+	@media #{$from-smartphone-portrait} {
+		// Smartphone portrait
+		@include backgroundImage($smartphonePortraitBackground);
+	}
+}
+@mixin sprite($image, $width, $height:$width, $backgroudSize:auto) {
+	@include backgroundImage($image);
+	background-repeat:no-repeat;
+	background-size:$backgroudSize;
+	@include size($width, $height);
+	@include box-sizing(border-box);
+}
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
+	background-position: (-#{($horizontalPosition*$width)}px) (-#{$verticalPosition*$height}px);
+}
+
+@mixin spriteCoordinates($positionX:0px, $positionY:0px) {
+	background-position: (-$positionX) (-$positionY);
+}
+@mixin cropText($overflow:ellipsis, $whiteSpace:nowrap) {
+	overflow: hidden;
+	white-space: $whiteSpace;
+	@include text-overflow($overflow);
+}
+
+@mixin disableOutline() {
+	outline:0;
+	outline:none;
+    @if $use-css-prefix == true {
+		&::-moz-focus-inner {
+			border: 0;
+		}
+	}
+}
+@mixin defaultElement() {
+	@include appearance(none);
+	outline:0;
+	display: inline-block;
+	border: none;
+	background-color: transparent;
+}
+
+@mixin roundTop($radius:6px) {
+	// sets the top radius of the element
+	@include border-radius("#{$radius} #{$radius} 0px 0px");
+}
+@mixin roundBottom($radius:6px) {
+	// sets the bottom radius of the element
+	@include border-radius("0px 0px #{$radius} #{$radius}");
+}
+@mixin roundLeft($radius:6px) {
+	// sets the left radius of the element
+	@include border-radius("#{$radius} 0px 0px #{$radius}");
+}
+@mixin roundRight($radius:6px) {
+	// sets the right radius of the element
+	@include border-radius("0px #{$radius} #{$radius} 0px");
+}
+
+@mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%) {
+	display: table;
+	width: $tableWidth;
+	> * {
+		@include asTableRow($cellPadding, $verticalAlign);
+	}
+}
+
+@mixin asTableRow($cellPadding:$global-padding, $verticalAlign:middle) {
+	display: table-row;
+	> * {
+		@include asTableCell($cellPadding, $verticalAlign);
+	}
+}
+
+@mixin asTableCell($cellPadding:$global-padding, $verticalAlign:middle) {
+	display: table-cell;
+	padding: $cellPadding;
+	vertical-align: $verticalAlign;
+}
+
+@mixin moveTop($top:0px, $position:relative) {
+	position: $position;
+	top:$top;
+}
+
+@mixin moveBottom($bottom:0px, $position:relative) {
+	position: $position;
+	bottom:$bottom;
+}
+
+@mixin moveLeft($left:0px, $position:relative) {
+	position: $position;
+	left:$left;
+}
+
+@mixin moveRight($right:0px, $position:relative) {
+	position: $position;
+	right:$right;
+}
+
+@mixin size($width:16px, $height:$width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin icon($backgroundImage, $width, $height:$width) {
+	@include size($width, $height);
+	@include backgroundImage($backgroundImage);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin arrowLeft($size:1em, $color:#FFFFFF, $top:0px, $right:0px) {
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+	width: 0px;
+	border-top: $size solid transparent;
+	border-right: $size solid $color;
+	border-bottom: $size solid transparent;
+	right: $right;
+	top: $top;
+}
+
+@mixin outlineBoxShadow($outlineOpacity:0.2, $boxShadow:0px 0px 0px transparent) {
+	@include box-shadow(0px 0px 1px rgba(0,0,0,$outlineOpacity), $boxShadow);
+}
+
+@mixin hooked($zIndex:100) {
+	position:fixed;
+	width:100%;
+	left:0px;
+	z-index:$zIndex;
+	@include box-sizing(border-box);
+	
+	@include transition(top .3s ease-in-out);
+
+	&.to-top {
+		top:0px;
+	}
+	&.to-bottom {
+		bottom:0px;
+	}
+}

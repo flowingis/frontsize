@@ -9,16 +9,16 @@ Website:   https://github.com/AlessandroMinoccheri
 */
 
 @import "app";
-/*@import (less) "core/lib/normalize.css";
-@import "core/base";*/
+/*@import (less) "core/lib/normalize.css";*/
 @import "core/core";
-/*@import "core/prefixes";
-@import "core/state";
-@import "core/retina";
+@import "core/prefixes";
 @import "core/helpers";
-@import "core/widgets";*/
+@import "core/state";
+@import "core/base";
+/*@import "core/retina";*/
+@import "core/widgets";
 @import "core/media_queries";
-/*@import "core/print";*/
+@import "core/print";
 @import "theme/import";
 
 //@import "-theme($theme)/import";

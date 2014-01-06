@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+*[title] {
+	cursor: help;
+	&:hover {
+		text-decoration: underline;
+	}
+	
+}
+
+a[title] {
+	cursor: pointer;
+}
+
+p,
+blockquote,
+dl, dt, dd,
+figure,
+figcaption,
+div,
+hr,
+article,
+nav,
+aside,
+main,
+section,
+header,
+footer,
+h1, h2, h3, h4, h5, h6
+hgroup,
+address {
+	@include box-sizing(border-box);
+	margin:0;
+	padding:0;
+}
+
+button,
+input[type="text"],
+input[type="reset"],
+input[type="button"],
+input[type="email"],
+input[type="submit"],
+input[type="password"] {
+	@include box-sizing(border-box);
+}
+
+ul {
+	text-align: left;
+	display: inline-block;
+}
+
+nav {
+	ul {
+		list-style-type: none;
+		padding: 0;
+		li {
+			margin-left:0;
+		}
+	}
+}

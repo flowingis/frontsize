@@ -8,9 +8,9 @@
 @include useFrontsizeWidgets();
 
 // set font scaling to change the font size depending by different resolutions
-//.setFontScaling();
-//.headingsFont();
-//.addFontsRule(with-small-fonts, $font-default, $font-small-size, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);
+@include setFontScaling();
+@include setHeadingFont();
+@include addFontsRule(with-small-fonts, $font-default, $font-small-size, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);
 
 
 // ========================================================================================================================================================================
@@ -22,10 +22,8 @@
 
 
 // comment what you don't need to gain weight for your CSS file.
-//.addContainerRow(selector-name, $hd-full-columns, $hd-ready-columns, $tablet-landscape-columns, $tablet-portrait-columns, $smartphone-landscape-columns, $smartphone-portrait-columns);
-//.addContainerRow(row);
+@include addContainerRow(row);
 
 // set the margins
-//.addColumnsSet(12);
-//.addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);
-
+@include addColumnsSet(12);
+@include addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);
