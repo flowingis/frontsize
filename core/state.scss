@@ -63,11 +63,11 @@
 }
 
 .pointer {
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 .selected {
-	cursor: default;
+	cursor: default !important;
 }
 
 .faded {
@@ -110,31 +110,51 @@
 }
 
 .uppercase {
-	text-transform: uppercase;
+	text-transform: uppercase !important;
 }
 
 .lowercase {
-	text-transform: lowercase;
+	text-transform: lowercase !important;
 }
 
 .capitalize {
-	text-transform: capitalize;
+	text-transform: capitalize !important;
 }
 
 .underline {
-	text-decoration: underline;
+	text-decoration: underline !important;
 }
 
 .line-through {
-	text-decoration: line-through;
+	text-decoration: line-through !important;
 }
 
 .italic {
-	font-style: italic;
+	font-style: italic !important;
 }
 
 .bold {
-	font-weight: bold;
+	font-weight: bold !important;
+}
+
+.font-sans {
+	font-family: $font-sans !important;
+}
+
+.font-serif {
+	font-family: $font-serif !important;
+}
+
+.font-monospace {
+	font-family: $font-monospace !important;
+}
+
+.font-heading {
+	font-family: $font-heading !important;
+}
+
+.font-small {
+	font-family: $font-small !important;
 }
 
 .unselectable {
@@ -142,7 +162,7 @@
 }
 
 .no-wrap {
-	white-space: nowrap;
+	white-space: nowrap !important;
 }
 
 .no-line-height {
@@ -160,29 +180,29 @@
 }
 
 .to-center {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 .to-left {
-	float: left;
+	float: left !important;
 }
 
 .to-right {
-	float: right;
+	float: right !important;
 }
 
 .clear {
 	// manually go down to the next row
-	clear: both;
+	clear: both !important;
 }
 
 .relative {
-	position: relative;
+	position: relative !important;
 }
 
 .absolute {
-	position: absolute;
+	position: absolute !important;
 	float: none;
 	&.to-bottom {
 		bottom: 0px;
@@ -199,25 +219,25 @@
 }
 
 .move-bottom-left {
-	position: absolute;
+	position: absolute !important;
 	bottom:0px;
 	left:0px;
 }
 
 .move-bottom-right {
-	position: absolute;
+	position: absolute !important;
 	bottom:0px;
 	right:0px;
 }
 
 .move-top-left {
-	position: absolute;
+	position: absolute !important;
 	top:0px;
 	left:0px;
 }
 
 .move-top-right {
-	position: absolute;
+	position: absolute !important;
 	top:0px;
 	right:0px;
 }
