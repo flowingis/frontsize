@@ -84,10 +84,18 @@
 
 // backgrounds
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
-	$lighten: saturate(lighten($color,$strenght),($strenght/2));
-	$darken: saturate(darken($color,$strenght),($strenght/2));
-	@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+	@if($strenght > 0%){
+		$lighten: saturate(lighten($color,$strenght),($strenght/2));
+		$darken: saturate(darken($color,$strenght),($strenght/2));
+		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
+		filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+	}
+	@else{
+		$lighten: saturate(darken($color,abs($strenght)),(abs($strenght/2)));
+		$darken: saturate(lighten($color,abs($strenght)),(abs($strenght/2)));
+		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
+		filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+	}
 }
 @mixin verticalGradientColors($firstColor:#000000, $lastColor:#FFFFFF) {
 	@include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
@@ -96,7 +104,7 @@
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
 	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
 }
-@mixin backgroundImage($backgroundImage, $path:root-path){
+@mixin backgroundImage($backgroundImage, $path:$root-path){
 	@if $use-root-path == false{
 		background-image: url("#{$backgroundImage}");
 	}

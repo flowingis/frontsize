@@ -73,7 +73,7 @@ $hd-full-step:				1800px;	// Full HD					1920 (1080p)
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-$theme: "theme";
+$theme: "default";
 
 $use-css-prefix: true;
 // enable or disable browser specific CSS3 prefixes:
@@ -96,7 +96,7 @@ $use-css-prefix: true;
 
 $use-root-path: true;
 //$rootpath: 'css/frontsize/${theme}/img/';
-$rootpath: "#{$theme}/img/";
+$root-path: "/themes/#{$theme}/img/";
 
 
 // if $use-root-path located in app.less is set to true use it with:

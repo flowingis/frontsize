@@ -51,7 +51,7 @@
 	}
 }
 
-@mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:root-path) {
+@mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:$root-path) {
 	@if $use-root-path == true{
 		@media #{$from-hd-full} {
 			// Full HD
@@ -74,7 +74,7 @@
 	}
 }
 
-@mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:root-path){
+@mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:$root-path){
 	@if $use-root-path == true{
 		@media  #{$from-hd-ready} {
 			// HD Ready
@@ -97,7 +97,7 @@
 	}
 }
 
-@mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:root-path){
+@mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:$root-path){
 	@if $use-root-path == true{ 
 		@media #{$from-tablet-landscape} {
 			// Tablet landscape
@@ -120,7 +120,7 @@
 	}
 }
 
-@mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:root-path){
+@mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:$root-path){
 	@if $use-root-path == true{ 
 		@media #{$from-tablet-portrait} {
 			// Tablet portrait
@@ -143,7 +143,7 @@
 	}
 }
 
-@mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:root-path){
+@mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:$root-path){
 	@if $use-root-path == true{ 
 		@media #{$from-smartphone-landscape} {
 			// Smartphone landscape
@@ -166,7 +166,7 @@
 	}	
 }
 
-@mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:root-path) {
+@mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:$root-path) {
 	@if $use-root-path == true{
 		@media #{$from-smartphone-portrait} {
 			// Smartphone portrait
