@@ -378,7 +378,7 @@
 		-moz-appearance: radio;
 
 		$size:24px;
-		@include size($size);
+		//@include size($size);
 		@include moveTop(($size / 4));
 
 		$imageWidth:($size * 2);
@@ -400,7 +400,7 @@
 		-moz-appearance: checkbox;
 
 		$size:32px;
-		@include size($size);
+		//@include size($size);
 		@include moveTop(($size / 4));
 
 		$imageWidth:($size * 2);

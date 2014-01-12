@@ -127,22 +127,23 @@
 		@include transition("margin-right #{$duration} #{$animation}, margin-left #{$duration} $#{$animation}");
 		@include box-shadow(0px 0px 1px rgba(0,0,0,.3));
 		@include border-radius(($round - $padding) px);
-		&.on {
-			margin-right:$margin;
-			margin-left:0;
-			@include verticalGradient($onColor);
-			border:1px solid darken($onColor,5%);
-			border-top-color:lighten($onColor,10%);
-			border-bottom-color:darken($onColor,10%);
-		}
-		&.off {
-			margin-right:0;
-			margin-left:$margin;
-			@include verticalGradient($offColor);
-			border:1px solid darken($offColor,5%);
-			border-top-color:lighten($offColor,5%);
-			border-bottom-color:darken($offColor,10%);
-		}
+	}
+
+	> .on {
+		margin-right:$margin;
+		margin-left:0;
+		@include verticalGradient($onColor);
+		border:1px solid darken($onColor,5%);
+		border-top-color:lighten($onColor,10%);
+		border-bottom-color:darken($onColor,10%);
+	}
+	> .off {
+		margin-right:0;
+		margin-left:$margin;
+		@include verticalGradient($offColor);
+		border:1px solid darken($offColor,5%);
+		border-top-color:lighten($offColor,5%);
+		border-bottom-color:darken($offColor,10%);
 	}
 }
 

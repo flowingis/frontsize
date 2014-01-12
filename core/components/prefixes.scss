@@ -743,9 +743,9 @@
 	}
 }
 
-@mixin user-select($select:auto) {
+@mixin user-select($select:text) {
 	// it disables text selection
-	// Values: auto | none | text;
+	// Values: none | text | toggle | element | elements | all | inherit
 	user-select: #{$select};	
 
 	@if $use-css-prefix == true{
