@@ -1,0 +1,7 @@
+@function removeUnit($num) {
+    @return ($num / ($num * 0 + 1));
+}
+
+@function getUnit($num){
+	@return (unit($num));
+}

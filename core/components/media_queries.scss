@@ -141,147 +141,153 @@
 @mixin setHeadingFont($hdFullFontSize:1.5em, $hdReadyFontSize:1.25em, $tabletLandscapeFontSize:1.125em, $tabletPortraitFontSize:1.125em, $smartphoneLandscapeFontSize:1em, $smartphonePortraitFontSize:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media #{$from-smartphone-portrait} {
+		$unit_num: getUnit($smartphonePortraitFontSize);
 		// Smartphone portrait
 		h1 {
-			font-size: ($h1 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h1) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h2) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h3) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h4) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h5) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h6 {
-			font-size: ($h6 * #{$smartphonePortraitFontSize});
+			font-size: (removeUnit($h6) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$smartphonePortraitFontSize} / 4);
+			margin-bottom: (removeUnit($smartphonePortraitFontSize) / 4)#{$unit_num};
 		}
 	}
 	@media #{$from-smartphone-landscape} {
+		$unit_num: getUnit($smartphoneLandscapeFontSize);
 		// Smartphone landscape
 		h1 {
-			font-size: ($h1 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h1) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h2) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h3) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h4) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h5) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h6 {
-			font-size: ($h6 * #{$smartphoneLandscapeFontSize});
+			font-size: (removeUnit($h6) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$smartphoneLandscapeFontSize} / 4);
+			margin-bottom: (removeUnit($smartphoneLandscapeFontSize) / 4)#{$unit_num};
 		}
 	}
 	@media #{$from-tablet-portrait} {
+		$unit_num: getUnit($tabletPortraitFontSize);
 		// Tablet portrait
 		h1 {
-			font-size: ($h1 * #{$tabletPortraitFontSize});
+			font-size: (removeUnit($h1) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$tabletPortraitFontSize});
+			font-size: (removeUnit($h2) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$tabletPortraitFontSize});
+			font-size: (removeUnit($h3) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$tabletPortraitFontSize});
+			font-size: (removeUnit($h4) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$tabletPortraitFontSize});
+			font-size: (removeUnit($h5) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h6 {
- 			font-size: ($h6 * #{$tabletPortraitFontSize});
+ 			font-size: (removeUnit($h6) * removeUnit($tabletPortraitFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$tabletPortraitFontSize} / 4);
+			margin-bottom: (removeUnit($tabletPortraitFontSize) / 4)#{$unit_num};
 		}
 	}
 	@media #{$from-tablet-landscape} {
+		$unit_num: getUnit($tabletLandscapeFontSize);
 		// Tablet landscape
 		h1 {
-			font-size: ($h1 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h1) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h2) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h3) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h4) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h5) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h6 {
-			font-size: ($h6 * #{$tabletLandscapeFontSize});
+			font-size: (removeUnit($h6) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$tabletLandscapeFontSize} / 4);
+			margin-bottom: (removeUnit($tabletLandscapeFontSize) / 4)#{$unit_num};
 		}
 	}
 	@media #{$from-hd-ready} {
+		$unit_num: getUnit($hdReadyFontSize);
 		// HD Ready
 		h1 {
-			font-size: ($h1 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h1) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h2) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h3) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h4) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h5) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h6 {
-			font-size: ($h6 * #{$hdReadyFontSize});
+			font-size: (removeUnit($h6) * removeUnit($hdReadyFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$hdReadyFontSize} / 4);
+			margin-bottom: (removeUnit($hdReadyFontSize) / 4)#{$unit_num};
 		}
 	}
 	@media #{$from-hd-full} {
+		$unit_num: getUnit($hdReadyFontSize);
 		// Full HD
 		h1 {
-			font-size: ($h1 * #{$hdFullFontSize});
+			font-size: (removeUnit($h1) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h2 {
-			font-size: ($h2 * #{$hdFullFontSize});
+			font-size: (removeUnit($h2) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h3 {
-			font-size: ($h3 * #{$hdFullFontSize});
+			font-size: (removeUnit($h3) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h4 {
-			font-size: ($h4 * #{$hdFullFontSize});
+			font-size: (removeUnit($h4) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h5 {
-			font-size: ($h5 * #{$hdFullFontSize});
+			font-size: (removeUnit($h5) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h6 {
-			font-size: ($h6 * #{$hdFullFontSize});
+			font-size: (removeUnit($h6) * removeUnit($hdFullFontSize))#{$unit_num};
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (#{$hdFullFontSize} / 4);
+			margin-bottom: (removeUnit($hdFullFontSize) / 4)#{$unit_num};
 		}
 	}
 }
