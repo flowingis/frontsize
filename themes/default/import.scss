@@ -7,11 +7,12 @@
 // ========================================================================================================================================================================
 
 @import "vars";
-@import "base";
-@import "components/widgets";
-@import "config";
-@import "extra/media_queries";
+@import "layout/base";
 @import "extra/fix";
+@import "components/widgets";
 @import "components/helpers";
-//@import "layout/empty";
-//@import "views/empty";
+@import "config";
+
+// @import "extra/media_queries";
+// @import "layout/header";
+// @import "views/view_name";

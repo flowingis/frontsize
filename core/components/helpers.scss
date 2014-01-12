@@ -96,8 +96,8 @@
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
 	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
 }
-@mixin backgroundImage($backgroundImage, $path:$rootpath){
-	@if $use-rootpath == false{
+@mixin backgroundImage($backgroundImage, $path:root-path){
+	@if $use-root-path == false{
 		background-image: url("#{$backgroundImage}");
 	}
 	@else{
@@ -164,8 +164,8 @@
 	@include size($width, $height);
 	@include box-sizing(border-box);
 }
-@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
-	background-position: (-#{($horizontalPosition*$width)}px) (-#{$verticalPosition*$height}px);
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0px, $height:$width){
+	background-position: (-#{($horizontalPosition*$width)}) (-#{$verticalPosition*$height});
 }
 
 @mixin spriteCoordinates($positionX:0px, $positionY:0px) {

@@ -29,9 +29,9 @@
 	$defaultSmartphonePortraitBackground:$defaultSmartphoneLandscapeBackground,
 	$retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground,
 	$backgroundSize:auto,
-	$rootPath:$rootpath
+	$rootPath:$root-path
 	)  {
-	@if $use-rootpath == false{
+	@if $use-root-path == false{
 		background-size:$backgroundSize;
 		@include backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground);
 		@include backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground);
@@ -51,8 +51,8 @@
 	}
 }
 
-@mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:$rootpath) {
-	@if $use-rootpath == true{
+@mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:root-path) {
+	@if $use-root-path == true{
 		@media #{$from-hd-full} {
 			// Full HD
 			@include backgroundImage($defaultHdFullBackground, $rootPath);
@@ -74,8 +74,8 @@
 	}
 }
 
-@mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:$rootpath){
-	@if $use-rootpath == true{
+@mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:root-path){
+	@if $use-root-path == true{
 		@media  #{$from-hd-ready} {
 			// HD Ready
 			@include backgroundImage($defaultHdReadyRetinaBackground, $rootPath);
@@ -97,8 +97,8 @@
 	}
 }
 
-@mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:$rootpath){
-	@if $use-rootpath == true{ 
+@mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:root-path){
+	@if $use-root-path == true{ 
 		@media #{$from-tablet-landscape} {
 			// Tablet landscape
 			@include backgroundImage($defaultTabletLandscapeBackground, $rootPath);
@@ -120,8 +120,8 @@
 	}
 }
 
-@mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:$rootpath){
-	@if $use-rootpath == true{ 
+@mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:root-path){
+	@if $use-root-path == true{ 
 		@media #{$from-tablet-portrait} {
 			// Tablet portrait
 			@include backgroundImage($defaultTabletPortraitBackground, $rootPath);
@@ -143,8 +143,8 @@
 	}
 }
 
-@mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:$rootpath){
-	@if $use-rootpath == true{ 
+@mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:root-path){
+	@if $use-root-path == true{ 
 		@media #{$from-smartphone-landscape} {
 			// Smartphone landscape
 			@include backgroundImage($defaultSmartphoneLandscapeBackground, $rootPath);
@@ -166,8 +166,8 @@
 	}	
 }
 
-@mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:$rootpath) {
-	@if $use-rootpath == true{
+@mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:root-path) {
+	@if $use-root-path == true{
 		@media #{$from-smartphone-portrait} {
 			// Smartphone portrait
 			@include backgroundImage($defaultSmartphonePortraitBackground, $rootPath);

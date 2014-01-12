@@ -8,17 +8,15 @@ Author:    Alessandro Minoccheri
 Website:   https://github.com/AlessandroMinoccheri
 */
 
-@import "app";
-/*@import (less) "core/lib/normalize.css";*/
+@import "themes/default/app";
+@import "core/lib/normalize";
+@import "core/components/prefixes";
+@import "core/layout/base";
 @import "core/core";
-@import "core/prefixes";
-@import "core/helpers";
-@import "core/state";
-@import "core/base";
-@import "core/retina";
-@import "core/widgets";
-@import "core/media_queries";
-@import "core/print";
-@import "theme/import";
-
-//@import "-theme($theme)/import";
+@import "core/components/helpers";
+@import "core/components/retina";
+@import "core/components/widgets";
+@import "core/components/media_queries";
+@import "core/components/print";
+@import "core/layout/state";
+@import "themes/default/import";

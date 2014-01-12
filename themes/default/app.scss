@@ -94,12 +94,12 @@ $use-css-prefix: true;
 // becomes:
 // box-shadow:1px 1px 2px rgba(0,0,0,0.3);
 
-$use-rootpath: true;
+$use-root-path: true;
 //$rootpath: 'css/frontsize/${theme}/img/';
 $rootpath: "#{$theme}/img/";
 
 
-// if $use-rootpath located in app.less is set to true use it with:
+// if $use-root-path located in app.less is set to true use it with:
 // .background-image("background.png");
 // this will output
 // background-image: url("/img/background.png");
