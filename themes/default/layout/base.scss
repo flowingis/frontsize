@@ -31,13 +31,15 @@
 	}
 }
 
-@mixin base-a($color:$font-default-color, $userSelect:none) {
+@mixin base-a() {
 	// If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
 	// If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
 	// 
 	// The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
 	// 
 	// Url - http://html5doctor.com/element-index/#a
+	$color:$font-default-color;
+    $userSelect:none;
 	a {
 		display: inline-block;
 		line-height: $font-line-height;
@@ -72,7 +74,13 @@
 	}
 }
 
-@mixin base-h($color:black, $fontFamily:$font-heading, $fontWeight:bold, $lineHeight:1, $margin: 0 0 0.5em 0) {
+@mixin base-h() {
+	$color:black;
+    $fontFamily:$font-heading;
+    $fontWeight:bold;
+    $lineHeight:1;
+    $margin: 0 0 0.5em 0;
+
 	h1,
 	h2,
 	h3,
@@ -88,7 +96,7 @@
 	}
 }
 
-@mixin base-code($padding:0 0.25em, $backgroundColor:rgba(0,0,0,.075), $color:inherit) {
+@mixin base-code() {
 	// The code element represents a fragment of computer code.
 	// This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
 	// 
@@ -98,6 +106,10 @@
 	// This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
 	// 
 	// Url - http://html5doctor.com/element-index/#var
+	$padding: 0 0.25em;
+    $backgroundColor: rgba(0,0,0,.075);
+    $color: inherit;
+
 	code,
 	.code,
 	var,
@@ -122,7 +134,10 @@
 	}
 }
 
-@mixin base-samp($fontFamily:$font-monospace, $fontStyle:normal, $color:inherit) {
+@mixin base-samp() {
+	$fontFamily: $font-monospace;
+    $fontStyle: normal;
+    $color: inherit;
 	samp {
 		font-family: $fontFamily;
 		font-style: $fontStyle;
@@ -130,7 +145,10 @@
 	}
 }
 
-@mixin base-kbd($fontFamily:$font-monospace, $fontStyle:normal, $color:inherit) {
+@mixin base-kbd() {
+	$fontFamily: $font-monospace;
+    $fontStyle: normal;
+    $color: inherit;
 	kbd {
 		font-family: $fontFamily;
 		font-style: $fontStyle;
@@ -151,7 +169,10 @@
 	}
 }
 
-@mixin base-pre($padding:1em, $backgroundColor:#202020, $color:white) {
+@mixin base-pre() {
+	$padding: 1em;
+    $backgroundColor: #202020;
+    $color: white;
 	pre {
 		font-family: $font-monospace;
 		padding:$padding;
@@ -234,7 +255,10 @@
 	}
 }
 
-@mixin base-s($color:$font-default-color, $textDecoration:line-through, $opacity:$state-faded-opacity) {
+@mixin base-s() {
+	$color: $font-default-color;
+    $textDecoration: line-through;
+    $opacity:$state-faded-opacity;
 	s {
 		// The s element represents contents that are no longer accurate or no longer relevant.
 		// Url - http://html5doctor.com/element-index/#s
@@ -244,11 +268,12 @@
 	}
 }
 
-@mixin base-mark($backgroundColor:rgb(255,255,0)) {
+@mixin base-mark() {
 	// Represents a run of text in one document marked or highlighted because of its relevance in another context.
 	// When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
 	// 
 	// Url - http://html5doctor.com/element-index/#mark
+	$backgroundColor: rgb(255,255,0);
 	mark {
 		color:inherit;
 		background-color:$backgroundColor;
@@ -256,20 +281,26 @@
 	}
 }
 
-@mixin base-ul($padding:0 0 0 1.25em, $margin:1em 0 1em 0) {
+@mixin base-ul() {
+	$padding: 0;
+    $margin: 0;
 	ul {
 		padding: $padding;
 		margin: $margin;
 	}
 }
-@mixin base-li($padding:0 0 0 1.25em, $margin:1em 0 1em 0) {
+@mixin base-li() {
+	$padding: 0;
+    $margin: 0 0 0 1.25em;
 	li {
 		padding: $padding;
 		margin: $margin;
 	}
 }
 
-@mixin base-ol($padding:0, $margin:1em 0 1em 0) {
+@mixin base-ol() {
+	$padding: 0;
+    $margin: 0;
 	ol {
 		padding: $padding;
 		margin: $margin;
@@ -280,12 +311,13 @@
 	}
 }
 
-@mixin base-abbr($borderColor:$font-default-color) {
+@mixin base-abbr() {
 	// Represents an abbreviation or acronym.
 	// The optional title attribute may be used to provide an expansion of the abbreviation.
 	// If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
 	// 
 	// Url - http://html5doctor.com/element-index/#abbr
+	$borderColor: #FCFCFC;
 	abbr,
 	abbr[title] {
 		border-bottom: 2px dotted $borderColor;
@@ -303,18 +335,25 @@
 	}
 }
 
-@mixin base-small($fontSize:0.75em) {
+@mixin base-small() {
 	small {
 		// Represents side comments such as small print.
 		// It is not intended to be presentational.
 		// The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
 		// 
 		// Url - http://html5doctor.com/element-index/#small
-		font-size: $fontSize;
+		font-size: $font-small-size;
 	}
 }
 
-@mixin base-blockquote($borderLeft:4px solid lighten($font-default-color,20%), $backgroundColor:transparent, $padding:$horizontal-padding, $fontStyle:italic, $beforeText:"' ", $afterText:" '") {
+@mixin base-blockquote() {
+	$borderLeft: 4px solid lighten($font-default-color, 20%);
+    $backgroundColor: lighten($font-default-color, 45%);
+    $padding: $global-padding;
+    $fontStyle: italic;
+    $beforeText: '«';
+    $afterText: '»';
+
 	blockquote {
 		border-left: $borderLeft;
 		padding: $padding;
@@ -329,7 +368,15 @@
 	}
 }
 
-@mixin base-form-text($color:$font-default-color, $border:1px solid rgba(0,0,0,.2), $borderFocused:1px solid rgba(0,0,0,0.3), $backgroundColor:rgba(0,0,0,.05), $backgroundColorFocused:white, $padding:0.5em, $placeholderColor:$color) {
+@mixin base-form-text() {
+	$color: $font-default-color;
+    $border: 1px solid rgba(0,0,0,.2);
+    $borderFocused: 1px solid rgba(0,0,0,0.3);
+    $backgroundColor: rgba(0,0,0,.05);
+    $backgroundColorFocused: white;
+    $padding: 0.5em;
+    $placeholderColor: $color;
+
 	textarea,
 	input[type="text"],
 	input[type="email"],
@@ -357,7 +404,7 @@
 	}
 }
 
-@mixin base-form-file($backgroundColor:rgba(0,0,0,.05)) {
+@mixin base-form-file() {
 	input[type="file"] {
 		@include defaultElement();
 		@include button-dark-metal();
@@ -369,7 +416,11 @@
 	}
 }
 
-@mixin base-form-radio($checkedBackgroundColor:white, $checkedBorderColor:lighten($font-default-color, 15%), $backgroundColor:$font-default-color, $borderColor:white) {
+@mixin base-form-radio() {
+	$checkedBackgroundColor: white;
+    $checkedBorderColor: lighten($font-default-color, 15%);
+    $backgroundColor: $font-default-color;
+    $borderColor: white;
 	input[type="radio"] {
 		@include user-select(none);
 		cursor: pointer;
@@ -391,7 +442,11 @@
 	}
 }
 
-@mixin base-form-checkbox($checkedBackgroundColor:white, $checkedBorderColor:lighten($font-default-color, 15%), $backgroundColor:$font-default-color, $borderColor:white) {
+@mixin base-form-checkbox() {
+	$checkedBackgroundColor: white;
+    $checkedBorderColor: lighten($font-default-color, 15%);
+    $backgroundColor: $font-default-color;
+    $borderColor: white;
 	input[type="checkbox"] {
 		@include user-select(none);
 		cursor: pointer;
@@ -413,7 +468,11 @@
 	}
 }
 
-@mixin base-hr($margin:$vertical-padding 0, $borderStyle:1px solid, $borderTopColor:rgba(0,0,0,0.075), $borderBottomColor:rgba(255,255,255,0.8)) {
+@mixin base-hr() {
+	$margin: $vertical-padding 0;
+    $borderStyle: 1px solid;
+    $borderTopColor: rgba(0,0,0,0.075);
+    $borderBottomColor: rgba(255,255,255,0.8);
 	hr {
 		display: block;
 		width: 100%;
@@ -425,7 +484,9 @@
 	}
 }
 
-@mixin base-table($verticalAlign:middle, $borderCollapse:collapse) {
+@mixin base-table() {
+	$verticalAlign: middle;
+    $borderCollapse: separate;
 	table {
 		// The table element represents data with more than one dimension, in the form of a table.
 		// Tables must not be used as layout aids.
@@ -446,12 +507,14 @@
 		width: 100%;
 	}
 }
-@mixin base-figcaption($padding:$global-padding) {
+@mixin base-figcaption() {
+	$padding: $vertical-padding 0 0 0;
 	figcaption {
 		padding: $padding;
 	}
 }
-@mixin base-caption($padding:$global-padding) {
+@mixin base-caption() {
+	$padding: $global-padding;
 	caption {
 		// The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
 		// 
@@ -480,20 +543,30 @@
 	}
 }
 
-@mixin base-th($textAlign:center, $fontWeight:bold, $padding:0.5em) {
+@mixin base-th() {
+	$textAlign: center;
+    $fontWeight: bold;
+    $padding: 0.5em;
 	th {
 		text-align: $textAlign;
 		font-weight: $fontWeight;
 		padding: $padding;
 	}
 }
-@mixin base-td($textAlign:left, $padding:0.5em) {
+@mixin base-td() {
+	$textAlign: left;
+    $padding: 0.5em;
 	td {
 		text-align: $textAlign;
 		padding: $padding;
 	}
 }
-@mixin base-tr($backgroundColorOdd:rgb(230,230,230), $backgroundColorEven:white, $backgroundColorHover:rgb(220,220,220), $backgroundColorHoverOdd:rgb(240,240,240), $backgroundColorHoverEven:white) {
+@mixin base-tr() {
+	$backgroundColorOdd: rgb(230,230,230);
+    $backgroundColorEven: white;
+    $backgroundColorHover: rgb(220,220,220);
+    $backgroundColorHoverOdd: rgb(240,240,240);
+    $backgroundColorHoverEven: white;
 	tbody {
 		tr {
 			&:nth-child(odd) {
@@ -528,7 +601,9 @@
 		}
 	}
 }
-@mixin base-tfoot($textAlign:center, $color:lighten($font-default-color,20%)) {
+@mixin base-tfoot() {
+	$textAlign: center;
+    $color: lighten($font-default-color,20%);
 	tfoot {
 		// The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
 		// 
@@ -558,7 +633,10 @@
 	}
 }
 
-@mixin base-form-textarea($minHeight:100px, $maxHeight:300px, $resize:vertical) {
+@mixin base-form-textarea() {
+	$minHeight: 100px;
+    $maxHeight: 300px;
+    $resize: vertical;
 	textarea {
 		// The textarea element represents a multiline plain text edit control for the element's raw value.
 		// The contents of the control represent the control's default value.
@@ -578,7 +656,8 @@
 	}
 }
 
-@mixin base-form($padding:1em 0 0 0) {
+@mixin base-form() {
+	$padding: 1em 0 0 0;
 	form {
 		padding:$padding;
 	}
@@ -613,7 +692,12 @@
 	}
 }
 
-@mixin base-form-datalist($color:$font-default-color, $backgroundColorOdd:rgb(230,230,230), $backgroundColorEven:white, $backgroundColorHoverOdd:rgb(240,240,240), $backgroundColorHoverEven:$backgroundColorHoverOdd) {
+@mixin base-form-datalist() {
+	$color: $font-default-color;
+    $backgroundColorOdd: rgb(230,230,230);
+    $backgroundColorEven: white;
+    $backgroundColorHoverOdd: rgb(240,240,240);
+    $backgroundColorHoverEven: $backgroundColorHoverOdd;
 	datalist *,
 	select option {
 		// Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_datalist
@@ -634,7 +718,8 @@
 	}
 }
 
-@mixin base-form-select($backgroundColor:$font-default-color) {
+@mixin base-form-select() {
+	$backgroundColor: $font-default-color;
 	select,
 	keygen {
 		// The select element represents a control for selecting amongst a set of options.
@@ -677,7 +762,8 @@
 	}
 }
 
-@mixin base-form-fieldset($backgroundColor:desaturate(lighten($font-default-color, 45%), 2%)) {
+@mixin base-form-fieldset() {
+	$backgroundColor: desaturate(lighten($font-default-color, 45%), 2%);
 	fieldset {
 		// The fieldset element is expected to establish a new block formatting context.
 		// 
@@ -714,7 +800,8 @@
 	}
 }
 
-@mixin base-form-legend($backgroundColor:desaturate(lighten($font-default-color, 45%), 2%)) {
+@mixin base-form-legend() {
+	$backgroundColor: desaturate(lighten($font-default-color, 45%), 2%);
 	legend {
 		
 		// The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
@@ -779,31 +866,31 @@
 }
 
 @include base-body();
-@include base-a($font-default-color, none);
+@include base-a();
 @include base-mark();
 @include base-pre();
 @include base-p();
-@include base-blockquote(4px solid lighten($font-default-color, 20%), lighten($font-default-color, 45%), $global-padding, italic, '«', '»');
-@include base-code(0 0.25em, rgba(0,0,0,.075));
-@include base-abbr(#FCFCFC);
-@include base-kbd($font-monospace);
-@include base-samp($font-monospace);
-@include base-small($font-small-size);
-@include base-s($font-default-color, line-through, $state-faded-opacity);
-@include base-ul(0, 0);
-@include base-li(0, 0 0 0 1.25em);
-@include base-ol(0, 0);
-@include base-hr($vertical-padding 0, 1px solid, rgba(0,0,0,0.075), rgba(255,255,255,0.8));
+@include base-blockquote();
+@include base-code();
+@include base-abbr();
+@include base-kbd();
+@include base-samp();
+@include base-small();
+@include base-s();
+@include base-ul();
+@include base-li();
+@include base-ol();
+@include base-hr();
 @include base-meter();
 @include base-img();
 
-@include base-form(1em 0 0 0);
+@include base-form();
 @include base-form-submit();
 @include base-form-text();
 @include base-form-range();
 @include base-form-radio();
 @include base-form-checkbox();
-@include base-form-textarea(100px, 300px, vertical);
+@include base-form-textarea();
 @include base-form-label();
 @include base-form-file();
 @include base-form-select();
@@ -812,11 +899,13 @@
 @include base-form-fieldset();
 @include base-form-legend();
 
-@include base-h(black, $font-heading, bold);
-@include base-table(middle, separate);
+@include base-h();
+@include base-table();
 @include base-tr();
-@include base-th(center, bold, 0.5em);
-@include base-td(left, 0.5em);
-@include base-caption($global-padding);
-@include base-figcaption($vertical-padding 0 0 0);
+@include base-th();
+@include base-td();
+@include base-caption();
+@include base-figcaption(
+
+	);
 @include base-tfoot();

@@ -10,7 +10,6 @@
 // http://caniuse.com/
 
 @mixin transition($transition:0.3s ease-in-out initial) {
-	transition: #{$transition};
  	@if $use-css-prefix == true{
  		-webkit-transition: #{$transition};
 		-khtml-transition: #{$transition};
@@ -18,10 +17,10 @@
 		-ms-transition: #{$transition};
 		-o-transition: #{$transition};
  	}
+ 	transition: #{$transition};
 }
 
 @mixin transition-delay($delay:0.5s) {
-	transition-delay: #{$delay};
     @if $use-css-prefix == true {
 		-webkit-transition: #{$delay};
 		-khtml-transition: #{$delay};
@@ -29,10 +28,10 @@
 		-ms-transition: #{$delay};
 		-o-transition: #{$delay};
 	}
+	transition-delay: #{$delay};
 }
 
 @mixin transition-duration($duration:0.5s) {
-	transition-duration: #{$duration};
     @if $use-css-prefix == true {
 		-webkit-transition-duration: #{$duration};
 		-khtml-transition-duration: #{$duration};
@@ -40,10 +39,10 @@
 		-ms-transition-duration: #{$duration};
 		-o-transition-duration: #{$duration};
 	}
+	transition-duration: #{$duration};
 }
 
 @mixin transition-property($property:all) {
-	transition-property: #{$property};
 	@if $use-css-prefix == true {
 		-webkit-transition-property: #{$property};
 		-khtml-transition-property: #{$property};
@@ -59,10 +58,11 @@
 		-o-transition-property:-o-transform;
 		transition-property:transform;
 	}
+
+	transition-property: #{$property};
 }
 
 @mixin transition-timing-function($easing:ease-in-out) {
-	transition-timing-function: #{$easing};
     @if $use-css-prefix == true {
 		-webkit-transition-timing-function: #{$easing};
 		-khtml-transition-timing-function: #{$easing};
@@ -70,16 +70,11 @@
 		-ms-transition-timing-function: #{$easing};
 		-o-transition-timing-function: #{$easing};
 	}
+	transition-timing-function: #{$easing};
 }
 
 @mixin globalPlaceholder($color:#999999, $focused:#CCCCCC) {
 	// sets the color of the input text placeholder attribute
-	:input-placeholder {
-		color: $color;
-	}
-	input:focus:input-placeholder {
-		color: $focused;
-	}
 	@if $use-css-prefix == true {
 		::-webkit-input-placeholder {
 			color: $color;
@@ -118,12 +113,16 @@
 			color: $focused;
 		}
 	}
+	:input-placeholder {
+		color: $color;
+	}
+	input:focus:input-placeholder {
+		color: $focused;
+	}
 }
 
 @mixin input-placeholder($color:#999999, $focused:#CCCCCC) {
 	// sets the color of the input text placeholder attribute
-	&:input-placeholder { color: $color; }
-	&:focus:input-placeholder { color: $focused; }
 	@if $use-css-prefix == true {
 		&::-webkit-input-placeholder {
 			color: $color;
@@ -162,17 +161,12 @@
 			color: $focused;
 		}
 	}
+	&:input-placeholder { color: $color; }
+	&:focus:input-placeholder { color: $focused; }
 }
 
 @mixin globalSelection($text-color:inherit, $background-color:inherit) {
 	// Sets the color of the text selection area and the color of the text selected
-	::selection {
-		background: $background-color; 
-		color: $text-color;
-	}
-	img::selection {
-		background: transparent;
-	}
 	@if $use-css-prefix == true {
 		::-moz-selection {
 			background: $background-color;
@@ -185,14 +179,17 @@
 			border: 0;
 		}
 	}
+	::selection {
+		background: $background-color; 
+		color: $text-color;
+	}
+	img::selection {
+		background: transparent;
+	}
 }
 
 @mixin selection($text-color:inherit, $background-color:inherit) {
 	// Sets the color of the text selection area and the color of the text selected
-	&::selection {
-		background: $background-color; 
-		color: $text-color;
-	}
 	@if $use-css-prefix == true {
 		&::-moz-selection {
 			background: $background-color;
@@ -202,25 +199,27 @@
 			border: 0;
 		}
 	}
+	&::selection {
+		background: $background-color; 
+		color: $text-color;
+	}
 }
 
 @mixin font-smoothing($antialias:antialiased) {
 	// Sets the antialias text for the whole page
 	// Values: antialiased | subpixel-antialiased | none
-	font-smoothing: #{$antialias};
 	@if $use-css-prefix == true {
 	    -webkit-font-smoothing: #{$antialias};
 		-khtml-font-smoothing: #{$antialias};
 		-moz-font-smoothing: #{$antialias};
 		-ms-font-smoothing: #{$antialias};
 		-o-font-smoothing: #{$antialias};
-
  	}
+ 	font-smoothing: #{$antialias};
 }
 
 @mixin column-count($count:auto) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_column-count.asp
-	column-count: #{$count};
 	@if $use-css-prefix == true {
 		-webkit-column-count: #{$count};
 		-khtml-column-count: #{$count};
@@ -228,11 +227,11 @@
 		-ms-column-count: #{$count};
 		-o-column-count: #{$count};
 	}
+	column-count: #{$count};
 }
 
 @mixin column-gap($gap:normal) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_column-gap.asp
-	column-gap: #{$gap};
 	@if $use-css-prefix == true {
 		-webkit-column-gap: #{$gap};
 		-khtml-column-gap: #{$gap};
@@ -240,11 +239,11 @@
 		-ms-column-gap: #{$gap};
 		-o-column-gap: #{$gap};
 	}
+	column-gap: #{$gap};
 }
 
 @mixin column-rule($rule:medium none black) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_column-rule.asp
-	column-rule: #{$rule};
 	@if $use-css-prefix == true {
 		-webkit-column-rule: #{$rule};
 		-khtml-column-rule: #{$rule};
@@ -252,6 +251,7 @@
 		-ms-column-rule: #{$rule};
 		-o-column-rule: #{$rule};
 	}
+	column-rule: #{$rule};
 }
 
 @mixin column-span($span:1) {
@@ -260,7 +260,6 @@
 	// The CSS column-span property allows content to span across multiple columns on a multi-column layout.
 	// This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
 	// Values: 1 | none | all;
-	column-span: #{$span};
 	@if $use-css-prefix == true {
 		-webkit-column-span: #{$span};
 		-khtml-column-span: #{$span};
@@ -268,12 +267,12 @@
 		-ms-column-span: #{$span};
 		-o-column-span: #{$span};
 	}
+	column-span: #{$span};
 }
 
 @mixin column-width($rule:auto) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_column-width.asp
 	// The column-width property specifies the width of the columns.
-	column-width: #{$rule};
 	@if $use-css-prefix == true {
 		-webkit-column-width: #{$rule};
 		-khtml-column-width: #{$rule};
@@ -281,12 +280,12 @@
 		-ms-column-width: #{$rule};
 		-o-column-width: #{$rule};
 	}
+	column-width: #{$rule};
 }
 
 @mixin columns($columns:auto auto) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_columns.asp
 	// The columns property is a shorthand property for setting column-width and column-count.
-	columns: #{$columns};
 	@if $use-css-prefix == true {
 		-webkit-columns: #{$columns};
 		-khtml-columns: #{$columns};
@@ -294,6 +293,7 @@
 		-ms-columns: #{$columns};
 		-o-columns: #{$columns};
 	}
+	columns: #{$columns};
 }
 
 @mixin border-radius($radius:6px) {
@@ -302,7 +302,6 @@
 	// .border-radius(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
 	// .border-radius(4px);
 	// .border-radius(4px 6px 8px 10px);
-	border-radius: #{$radius};
 	@if $use-css-prefix == true {
 		-webkit-border-radius: #{$radius};
 		-khtml-border-radius: #{$radius};
@@ -310,10 +309,10 @@
 		-ms-border-radius: #{$radius};
 		-o-border-radius: #{$radius};
 	}
+	border-radius: #{$radius};
 }
 
 @mixin outline-radius($radius:6px) {
-	outline-radius: #{$radius};
 	@if $use-css-prefix == true {
 		-webkit-outline-radius: #{$radius};
 		-khtml-outline-radius: #{$radius};
@@ -321,6 +320,7 @@
 		-ms-outline-radius: #{$radius};
 		-o-outline-radius: #{$radius};
 	}
+	outline-radius: #{$radius};
 }
 
 @mixin border-image($params) {
@@ -328,7 +328,6 @@
 	// Url - http://www.w3schools.com/cssref/css3_pr_border-image.asp
 	// Defaut usage
 	// .border-image(url(border.png) 30 30 round);
-	border-image: #{$params};
 	@if $use-css-prefix == true {
 		-webkit-border-image: #{$params};
 		-khtml-border-image: #{$params};
@@ -336,9 +335,9 @@
 		-ms-border-image: #{$params};
 		-o-border-image: #{$params};
 	}
+	border-image: #{$params};
 }
 @mixin displayBox() {
-	display:box;
 	@if $use-css-prefix == true {
 		display:-webkit-box;
 		display:-ms-flexbox;
@@ -346,13 +345,13 @@
 		display:-moz-box;
 		display:-o-box;
 	}
+	display:box;
 }
 
 @mixin box-align($align:stretch) {
 	// The box-align property specifies how to align the child elements of a box.
 	// Url - http://www.w3schools.com/cssref/css3_pr_box-align.asp
 	// Values: start | end | center | baseline | stretch
-	box-align: #{$align};
 	@if $use-css-prefix == true {
 		-webkit-box-align: #{$align};
 		-khtml-box-align: #{$align};
@@ -360,13 +359,13 @@
 		-ms-box-align: #{$align};
 		-o-box-align: #{$align};
 	}
+	box-align: #{$align};
 }
 
 @mixin box-direction($direction:normal) {
 	// The box-direction property specifies the direction in which child elements of a box element are laid out.
 	// Url - http://www.w3schools.com/cssref/css3_pr_box-direction.asp
 	// Values: normal | reverse | inherit
-	box-direction: #{$direction};
 	@if $use-css-prefix == true {
 		-webkit-box-direction: #{$direction};
 		-khtml-box-direction: #{$direction};
@@ -374,6 +373,7 @@
 		-ms-box-direction: #{$direction};
 		-o-box-direction: #{$direction};
 	}
+	box-direction: #{$direction};
 }
 
 @mixin box-flex($flexibility:0.0) {
@@ -387,7 +387,6 @@
 	//         .box-flex();
 	//     }
 	// }
-	box-flex: #{$flexibility};
 	@if $use-css-prefix == true {
 		-webkit-box-flex: #{$flexibility};
 		-khtml-box-flex: #{$flexibility};
@@ -395,6 +394,7 @@
 		-ms-box-flex: #{$flexibility};
 		-o-box-flex: #{$flexibility};
 	}
+	box-flex: #{$flexibility};
 }
 
 @mixin box-ordinal-group($order:1) {
@@ -413,7 +413,6 @@
 	//         .box-ordinal-group(1);
 	//     }
 	// }
-	box-ordinal-group: #{$order};
 	@if $use-css-prefix == true {
 		-webkit-box-ordinal-group: #{$order};
 		-khtml-box-ordinal-group: #{$order};
@@ -422,6 +421,7 @@
 		-o-box-ordinal-group: #{$order};
 		-ms-flex-order: #{$order};
 	}
+	box-ordinal-group: #{$order};
 }
 
 @mixin box-orient($orient:inline-axis) {
@@ -439,7 +439,6 @@
 	//         .box-ordinal-group(1);
 	//     }
 	// }
-	box-orient: #{$orient};
 	@if $use-css-prefix == true {
 		-webkit-box-orient: #{$orient};
 		-khtml-box-orient: #{$orient};
@@ -448,6 +447,7 @@
 		-ms-box-orient: #{$orient};
 		-o-box-orient: #{$orient};
 	}
+	box-orient: #{$orient};
 }
 
 @mixin box-pack($pack) {
@@ -465,7 +465,6 @@
 	//         .box-ordinal-group(1);
 	//     }
 	// }
-	box-pack: #{$pack};
 	@if $use-css-prefix == true {
 		-webkit-box-pack: #{$pack};
 		-khtml-box-pack: #{$pack};
@@ -474,6 +473,7 @@
 		-ms-box-pack: #{$pack};
 		-o-box-pack: #{$pack};
 	}
+	box-pack: #{$pack};
 }
 
 @mixin box-sizing($sizing:content-box) {
@@ -481,7 +481,6 @@
 	// The box-sizing property allows you to define certain elements to fit an area in a certain way.
 	// For example, if you want two bordered boxes side by side, it can be achieved through setting box-sizing to "border-box". This forces the browser to render the box with the specified width and height, and place the border and padding inside the box.
 	// Values: content-box | border-box | inherit
-	box-sizing: #{$sizing};
 	@if $use-css-prefix == true {
 		-webkit-box-sizing: #{$sizing};
 		-khtml-box-sizing: #{$sizing};
@@ -489,6 +488,7 @@
 		-ms-box-sizing: #{$sizing};
 		-o-box-sizing: #{$sizing};
 	}
+	box-sizing: #{$sizing};
 }
 
 @mixin box-shadow($params:0px 0px 1px rgba(0,0,0,.3)) {
@@ -496,7 +496,6 @@
 	// .box-shadow(x y blur [expand] color [inset]);
 	// .box-shadow(1px 2px 4px rgba(0,0,0,.3));
 	// .box-shadow(0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5););
-	box-shadow: #{$params};
 	@if $use-css-prefix == true {
 		-webkit-box-shadow: #{$params};
 		-khtml-box-shadow: #{$params};
@@ -504,13 +503,13 @@
 		-ms-box-shadow: #{$params};
 		-o-box-shadow: #{$params};
 	}
+	box-shadow: #{$params};
 }
 
 @mixin transform($transform:none) {
 	// The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
 	// Possible values: none|transform-functions
 	// Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
-	transform: #{$transform};
 	@if $use-css-prefix == true {
 		-webkit-transform: #{$transform};
 		-khtml-transform: #{$transform};
@@ -518,6 +517,7 @@
 		-ms-transform: #{$transform};
 		-o-transform: #{$transform};
 	}
+	transform: #{$transform};
 }
 
 // Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
@@ -584,7 +584,6 @@
 }
 
 @mixin filter($filter) {
-	filter: #{$filter};
 	@if $use-css-prefix == true {
 		-webkit-filter: #{$filter};
 		-khtml-filter: #{$filter};
@@ -592,6 +591,7 @@
 		-ms-filter: #{$filter};
 		-o-filter: #{$filter};
 	}
+	filter: #{$filter};
 }
 @mixin blur($blur:0) {
 	@include filter(blur(#{$blur}));
@@ -602,7 +602,6 @@
 	// This property is useful when an element is rotated, and you do not want to see its backside.
 	// Url - http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp
 	// Values: visible | hidden
-	backface-visibility: #{$visibility};
 	@if $use-css-prefix == true {
 		-webkit-backface-visibility: #{$visibility};
 		-khtml-backface-visibility: #{$visibility};
@@ -610,13 +609,13 @@
 		-ms-backface-visibility: #{$visibility};
 		-o-backface-visibility: #{$visibility};
 	}
+	backface-visibility: #{$visibility};
 }
 
 @mixin transform-style($style:flat) {
 	// The transform-style property specifies how nested elements are rendered in 3D space.
 	// Url - http://www.w3schools.com/cssref/css3_pr_transform-style.asp
 	// Values: flat | preserve-3d
-	transform-style: #{$style};
 	@if $use-css-prefix == true {
 		-webkit-transform-style: #{$style};
 		-khtml-transform-style: #{$style};
@@ -624,14 +623,13 @@
 		-ms-transform-style: #{$style};
 		-o-transform-style: #{$style};
 	}
+	transform-style: #{$style};
 }
 
 @mixin resize($resize:none) {
 	// The resize property specifies whether or not an element is resizable by the user.
 	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
 	// Values: none | both | horizontal | vertical
-	resize: #{$resize};
-	overflow: auto;
 	@if $use-css-prefix == true {
 		-webkit-resize: #{$resize};
 		-khtml-resize: #{$resize};
@@ -639,14 +637,14 @@
 		-ms-resize: #{$resize};
 		-o-resize: #{$resize};
 	}
+	resize: #{$resize};
+	overflow: auto;
 }
 
 @mixin hyphens($hyphens:none) {
 	// Sets how to split words to improve the layout of paragraphs
 	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
 	// Values: none | both | horizontal | vertical
-	hyphens: #{$hyphens};
-	word-wrap: break-word;
 	@if $use-css-prefix == true {
 		-webkit-hyphens: #{$hyphens};
 		-khtml-hyphens: #{$hyphens};
@@ -654,12 +652,13 @@
 		-ms-hyphens: #{$hyphens};
 		-o-hyphens: #{$hyphens};
 	}
+	hyphens: #{$hyphens};
+	word-wrap: break-word;
 }
 
 @mixin image-resolution($resolution:1dppx) {
 	// http://www.w3.org/TR/css3-images/#image-resolution
 	// Values: from-image | snap | dpi
-	image-resolution:#{$resolution};
 	@if $use-css-prefix == true {
 		-webkit-image-resolution: #{$resolution};
 		-khtml-image-resolution: #{$resolution};
@@ -667,13 +666,13 @@
 		-ms-image-resolution: #{$resolution};
 		-o-image-resolution: #{$resolution};
 	}
+	image-resolution:#{$resolution};
 }
 
 @mixin marks($marks:none) {
 	// This property specifies what sort of marks should be rendered just outside the rendered page box.
 	// The characteristics and position of the marks will be browser dependent.
 	// Values: inherit | none | crop | cross | crop cross
-	marks:#{$marks};
 	@if $use-css-prefix == true {
 		-webkit-marks: #{$marks};
 		-khtml-marks: #{$marks};
@@ -681,6 +680,7 @@
 		-ms-marks: #{$marks};
 		-o-marks: #{$marks};
 	}
+	marks:#{$marks};
 }
 
 @mixin appearance($appearence:normal) {
@@ -690,7 +690,6 @@
 	// Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
 	// Code snippet:
 	// .appearance(button);
-	appearance: #{$appearence};
 	@if $use-css-prefix == true {
 		-webkit-appearance: #{$appearence};
 		-khtml-appearance: #{$appearence};
@@ -698,10 +697,10 @@
 		-ms-appearance: #{$appearence};
 		-o-appearance: #{$appearence};
 	}
+	appearance: #{$appearence};
 }
 
 @mixin linear-gradient($gradient:"top, #FFFFFF, #000000") {
-	background: linear-gradient(#{$gradient});
 	@if $use-css-prefix == true {
 		background: -webkit-linear-gradient(#{$gradient});
 		background: -khtml-linear-gradient(#{$gradient});
@@ -709,6 +708,7 @@
 		background: -ms-linear-gradient(#{$gradient});
 		background: -o-linear-gradient(#{$gradient});
 	}
+	background: linear-gradient(#{$gradient});
 }
 
 @mixin background-origin($origin:padding-box) {
@@ -717,7 +717,6 @@
 	// Values: padding-box | border-box | content-box;
 	// Code snippet:
 	// .background-origin(border-box);
-	background-origin: #{$origin};
 	@if $use-css-prefix == true {
 		-webkit-background-origin: #{$origin};
 		-khtml-background-origin: #{$origin};
@@ -725,6 +724,7 @@
 		-ms-background-origin: #{$origin};
 		-o-background-origin: #{$origin};
 	}
+	background-origin: #{$origin};
 }
 
 @mixin background-clip($clip:border-box) {
@@ -733,7 +733,6 @@
 	// Values: border-box | padding-box | content-box;
 	// Code snippet:
 	// .background-clip(border-box);
-	background-clip: #{$clip};
 	@if $use-css-prefix == true {
 		-webkit-background-clip: #{$clip};
 		-khtml-background-clip: #{$clip};
@@ -741,13 +740,12 @@
 		-ms-background-clip: #{$clip};
 		-o-background-clip: #{$clip};
 	}
+	background-clip: #{$clip};
 }
 
 @mixin user-select($select:text) {
 	// it disables text selection
-	// Values: none | text | toggle | element | elements | all | inherit
-	user-select: #{$select};	
-
+	// Values: none | text | toggle | element | elements | all | inherit	
 	@if $use-css-prefix == true{
 		-webkit-touch-callout: #{$select};
 		-webkit-user-select: #{$select};
@@ -755,7 +753,8 @@
 		-moz-user-select: #{$select};
 		-ms-user-select: #{$select};
 		-o-user-select: #{$select};
-	}       
+	}   
+	user-select: #{$select};    
 }
 
 *[unselectable=on] {
@@ -772,7 +771,6 @@
 }
 
 @mixin opacity($opacity:1) {
-	opacity:#{$opacity};
 	@if $use-css-prefix == true {
 		-khtml-opacity: #{$opacity};
 		-moz-opacity: #{$opacity};
@@ -780,17 +778,17 @@
 		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$msOpacity});
 		filter:alpha(opacity=#{$msOpacity});
 	}
+	opacity:#{$opacity};
 }
 
 @mixin text-overflow($overflow:ellipsis) {
-	text-overflow: #{$overflow};
 	@if $use-css-prefix == true {
 		-ms-text-overflow: #{$overflow};
 	}
+	text-overflow: #{$overflow};
 }
 
 @mixin text-fill-color($color:transparent) {
-	text-fill-color: #{$color};
 	@if $use-css-prefix == true {
 		-webkit-text-fill-color: #{$color};
 		-khtml-text-fill-color: #{$color};
@@ -798,10 +796,10 @@
 		-ms-text-fill-color: #{$color};
 		-o-text-fill-color: #{$color};
 	}
+	text-fill-color: #{$color};
 }
 
 @mixin text-stroke-color($color:black) {
-	text-stroke-color: #{$color};
 	@if $use-css-prefix == true {
 		-webkit-text-stroke-color: #{$color};
 		-khtml-text-stroke-color: #{$color};
@@ -809,10 +807,10 @@
 		-ms-text-stroke-color: #{$color};
 		-o-text-stroke-color: #{$color};
 	}
+	text-stroke-color: #{$color};
 }
 
 @mixin text-stroke-width($width:1px) {
-	text-stroke-width: #{$width};
 	@if $use-css-prefix == true {
 		-webkit-text-stroke-width: #{$width};
 		-khtml-text-stroke-width: #{$width};
@@ -820,10 +818,10 @@
 		-ms-text-stroke-width: #{$width};
 		-o-text-stroke-width: #{$width};
 	}
+	text-stroke-width: #{$width};
 }
 
 @mixin text-stroke($textStroke:"1px black") {
-	text-stroke: #{$textStroke};
 	@if $use-css-prefix == true {
 		-webkit-text-stroke: #{$textStroke};
 		-khtml-text-stroke: #{$textStroke};
@@ -831,4 +829,5 @@
 		-ms-text-stroke: #{$textStroke};
 		-o-text-stroke: #{$textStroke};
 	}
+	text-stroke: #{$textStroke};
 }
