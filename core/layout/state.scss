@@ -21,140 +21,179 @@
 }
 
 .inline {
-	width: auto !important;
-	display: inline-block !important;
+	$important: important();
+	width: auto #{$important};
+	display: inline-block #{$important};
 }
 
 .block {
-	display: block !important;
+	$important: important();
+	display: block #{$important};
 }
 
 .full,
 .fill {
-	width: 100% !important;
+	$important: important();
+	width: 100% #{$important};
 }
 
 .little {
-	width: 25% !important;
+	$important: important();
+	width: 25% #{$important};
 }
 
 .half {
-	width: 50% !important;
+	$important: important();
+	width: 50% #{$important};
 }
 
 .almost {
-	width: 75% !important;
+	$important: important();
+	width: 75% #{$important};
 }
 
 .auto {
-	width: auto !important;
+	$important: important();
+	width: auto #{$important};
 }
 
 .box {
-	overflow: auto !important;
+	$important: important();
+	overflow: auto #{$important};
 }
 
 .visible {
-	overflow: visible !important;
+	$important: important();
+	overflow: visible #{$important};
 }
 
 .cut {
-	overflow: hidden !important;
+	$important: important();
+	overflow: hidden #{$important};
 }
 
 .pointer {
-	cursor: pointer !important;
+	$important: important();
+	cursor: pointer #{$important};
 }
 
 .selected {
-	cursor: default !important;
+	$important: important();
+	cursor: default #{$important};
 }
 
 .faded {
-	opacity: $state-faded-opacity !important;
+	$important: important();
+	opacity: $state-faded-opacity #{$important};
 	@include transition(opacity 0.25s ease-out);
 }
 
 .disabled {
+	$important: important();
 	cursor: default;
-	opacity: $state-disabled-opacity !important;
+	opacity: $state-disabled-opacity #{$important};
 	@include transition(opacity 0.25s ease-out);
 }
 
 .invisible {
-	opacity: 0 !important;
+	$important: important();
+	opacity: 0 #{$important};
 }
 
 .hidden {
-	display: none !important;
+	$important: important();
+	display: none #{$important};
 }
 
 .text-center {
 	// manually center all the contents inside
-	text-align: center !important;
+	$important: important();
+	text-align: center #{$important};
 }
 
 .text-right {
 	// manually center all the contents inside
-	text-align: right !important;
+	$important: important();
+	text-align: right #{$important};
 }
 
 .text-left {
 	// manually center all the contents inside
-	text-align: left !important;
+	$important: important();
+	text-align: left #{$important};
 }
 
 .text-justify {
 	// manually center all the contents inside
-	text-align: justify !important;
+	$important: important();
+	text-align: justify #{$important};
+}
+
+.text-crop {
+	$important: important();
+    overflow: hidden #{$important};
+    white-space: nowrap #{$important};
+    overflow-text: ellipsis #{$important};
 }
 
 .uppercase {
-	text-transform: uppercase !important;
+	$important: important();
+	text-transform: uppercase #{$important};
 }
 
 .lowercase {
-	text-transform: lowercase !important;
+	$important: important();
+	text-transform: lowercase #{$important};
 }
 
 .capitalize {
-	text-transform: capitalize !important;
+	$important: important();
+	text-transform: capitalize #{$important};
 }
 
 .underline {
-	text-decoration: underline !important;
+	$important: important();
+	text-decoration: underline #{$important};
 }
 
 .line-through {
-	text-decoration: line-through !important;
+	$important: important();
+	text-decoration: line-through #{$important};
 }
 
 .italic {
-	font-style: italic !important;
+	$important: important();
+	font-style: italic #{$important};
 }
 
 .bold {
-	font-weight: bold !important;
+	$important: important();
+	font-weight: bold #{$important};
 }
 
 .font-sans {
-	font-family: $font-sans !important;
+	$important: important();
+	font-family: $font-sans #{$important};
 }
 
 .font-serif {
-	font-family: $font-serif !important;
+	$important: important();
+	font-family: $font-serif #{$important};
 }
 
 .font-monospace {
-	font-family: $font-monospace !important;
+	$important: important();
+	font-family: $font-monospace #{$important};
 }
 
 .font-heading {
-	font-family: $font-heading !important;
+	$important: important();
+	font-family: $font-heading #{$important};
 }
 
 .font-small {
-	font-family: $font-small !important;
+	$important: important();
+	font-family: $font-small #{$important};
 }
 
 .unselectable {
@@ -162,7 +201,8 @@
 }
 
 .no-wrap {
-	white-space: nowrap !important;
+	$important: important();
+	white-space: nowrap #{$important};
 }
 
 .no-line-height {
@@ -170,39 +210,47 @@
 }
 
 .line-height {
+	$important: important();
 	line-height: $font-line-height;
 }
 
 .gain-margin {
-	width: auto !important;
-	margin-left: -$horizontal-padding !important;
-	margin-right: -$horizontal-padding !important;
+	$important: important();
+	width: auto #{$important};
+	margin-left: -$horizontal-padding #{$important};
+	margin-right: -$horizontal-padding #{$important};
 }
 
 .to-center {
-	margin-left: auto !important;
-	margin-right: auto !important;
+	$important: important();
+	margin-left: auto #{$important};
+	margin-right: auto #{$important};
 }
 
 .to-left {
-	float: left !important;
+	$important: important();
+	float: left #{$important};
 }
 
 .to-right {
-	float: right !important;
+	$important: important();
+	float: right #{$important};
 }
 
 .clear {
 	// manually go down to the next row
-	clear: both !important;
+	$important: important();
+	clear: both #{$important};
 }
 
 .relative {
-	position: relative !important;
+	$important: important();
+	position: relative #{$important};
 }
 
 .absolute {
-	position: absolute !important;
+	$important: important();
+	position: absolute #{$important};
 	float: none;
 	&.to-bottom {
 		bottom: 0px;
@@ -219,147 +267,179 @@
 }
 
 .move-bottom-left {
-	position: absolute !important;
+	$important: important();
+	position: absolute #{$important};
 	bottom:0px;
 	left:0px;
 }
 
 .move-bottom-right {
-	position: absolute !important;
+	$important: important();
+	position: absolute #{$important};
 	bottom:0px;
 	right:0px;
 }
 
 .move-top-left {
-	position: absolute !important;
+	$important: important();
+	position: absolute #{$important};
 	top:0px;
 	left:0px;
 }
 
 .move-top-right {
-	position: absolute !important;
+	$important: important();
+	position: absolute #{$important};
 	top:0px;
 	right:0px;
 }
 
 .with-padding {
-	padding: $vertical-padding $horizontal-padding !important;
+	$important: important();
+	padding: $vertical-padding $horizontal-padding #{$important};
 }
 
 .horizontal-padding {
-	padding-right: $horizontal-padding !important;
-	padding-left: $horizontal-padding !important;
+	$important: important();
+	padding-right: $horizontal-padding #{$important};
+	padding-left: $horizontal-padding #{$important};
 }
 
 .vertical-padding {
-	padding-top: $vertical-padding !important;
-	padding-bottom: $vertical-padding !important;
+	$important: important();
+	padding-top: $vertical-padding #{$important};
+	padding-bottom: $vertical-padding #{$important};
 }
 
 .top-padding {
-	padding-top: $vertical-padding !important;
+	$important: important();
+	padding-top: $vertical-padding #{$important};
 }
 
 .bottom-padding {
-	padding-bottom: $vertical-padding !important;
+	$important: important();
+	padding-bottom: $vertical-padding #{$important};
 }
 
 .left-padding {
-	padding-left: $horizontal-padding !important;
+	$important: important();
+	padding-left: $horizontal-padding #{$important};
 }
 
 .right-padding {
-	padding-right: $horizontal-padding !important;
+	$important: important();
+	padding-right: $horizontal-padding #{$important};
 }
 
 .no-padding {
-	padding: 0 !important;
+	$important: important();
+	padding: 0 #{$important};
 }
 
 .no-top-padding {
-	padding-top: 0 !important;
+	$important: important();
+	padding-top: 0 #{$important};
 }
 
 .no-bottom-padding {
-	padding-bottom: 0 !important;
+	$important: important();
+	padding-bottom: 0 #{$important};
 }
 
 .no-vertical-padding {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
+	$important: important();
+	padding-top: 0 #{$important};
+	padding-bottom: 0 #{$important};
 }
 
 .no-left-padding {
-	padding-left: 0 !important;
+	$important: important();
+	padding-left: 0 #{$important};
 }
 
 .no-right-padding {
-	padding-right: 0 !important;
+	$important: important();
+	padding-right: 0 #{$important};
 }
 
 .no-horizontal-padding {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
+	$important: important();
+	padding-left: 0 #{$important};
+	padding-right: 0 #{$important};
 }
 
 .with-margin {
-	margin: $vertical-padding $horizontal-padding !important;
+	$important: important();
+	margin: $vertical-padding $horizontal-padding #{$important};
 }
 
 .horizontal-margin {
-	margin-right: $horizontal-padding !important;
-	margin-left: $horizontal-padding !important;
+	$important: important();
+	margin-right: $horizontal-padding #{$important};
+	margin-left: $horizontal-padding #{$important};
 }
 
 .vertical-margin {
-	margin-top: $vertical-padding !important;
-	margin-bottom: $vertical-padding !important;
+	$important: important();
+	margin-top: $vertical-padding #{$important};
+	margin-bottom: $vertical-padding #{$important};
 }
 
 .top-margin {
-	margin-top: $vertical-padding !important;
+	$important: important();
+	margin-top: $vertical-padding #{$important};
 }
 
 .bottom-margin {
-	margin-bottom: $vertical-padding !important;
+	$important: important();
+	margin-bottom: $vertical-padding #{$important};
 }
 
 .left-margin {
-	margin-left: $horizontal-padding !important;
+	$important: important();
+	margin-left: $horizontal-padding #{$important};
 }
 
 .right-margin {
-	margin-right: $horizontal-padding !important;
+	$important: important();
+	margin-right: $horizontal-padding #{$important};
 }
 
 .no-margin {
-	margin: 0 !important;
+	$important: important();
+	margin: 0 #{$important};
 }
 
 .no-top-margin {
-	margin-top: 0 !important;
+	$important: important();
+	margin-top: 0 #{$important};
 }
 
 .no-bottom-margin {
-	margin-bottom: 0 !important;
+	$important: important();
+	margin-bottom: 0 #{$important};
 }
 
 .no-vertical-margin {
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
+	$important: important();
+	margin-top: 0 #{$important};
+	margin-bottom: 0 #{$important};
 }
 
 .no-left-margin {
-	margin-left: 0 !important;
+	$important: important();
+	margin-left: 0 #{$important};
 }
 
 .no-right-margin {
-	margin-right: 0 !important;
+	$important: important();
+	margin-right: 0 #{$important};
 }
 
 .no-horizontal-margin {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+	$important: important();
+	margin-left: 0 #{$important};
+	margin-right: 0 #{$important};
 }
 
 .no-list-style {
@@ -368,12 +448,13 @@
 
 .fluid {
 	// make an image responsive
+	$important: important();
 	height: auto;
-	max-width: 100% !important;
+	max-width: 100% #{$important};
 	@include box-sizing(border-box);
 	img {
-		max-width: 100% !important;
-		height: auto !important;
+		max-width: 100% #{$important};
+		height: auto #{$important};
 	}
 	&.fill {
 		img {
@@ -384,8 +465,9 @@
 
 .not-fluid {
 	// set an image with it's default behavior
-	width: auto !important;
-	height: auto !important;
+	$important: important();
+	width: auto #{$important};
+	height: auto #{$important};
 }
 
 .nav {
@@ -568,149 +650,160 @@
 // Media queries for selectors active from smaller resolution device mobile to a specific one
 @media #{$till-hd-full} {
 	// Full HD
-	.not-till-hd-full			{ display: none !important; }
-	.block-till-hd-full			{ display: block !important; }
-	.fill-till-hd-full			{ width: 100% !important; }
-	.almost-till-hd-full		{ width: 75% !important; }
-	.half-till-hd-full			{ width: 50% !important; }
-	.little-till-hd-full		{ width: 25% !important; }
-	.text-left-till-hd-full		{ text-align: left !important; }
-	.text-center-till-hd-full	{ text-align: center !important; }
-	.text-right-till-hd-full	{ text-align: right !important; }
-	.to-center-till-hd-full		{ margin: auto !important; }
-	.to-left-till-hd-full		{ float: left !important; }
-	.to-right-till-hd-full		{ float: right !important; }
+	$important: important();
+	.not-till-hd-full			{ display: none #{$important}; }
+	.block-till-hd-full			{ display: block #{$important}; }
+	.fill-till-hd-full			{ width: 100% #{$important}; }
+	.almost-till-hd-full		{ width: 75% #{$important}; }
+	.half-till-hd-full			{ width: 50% #{$important}; }
+	.little-till-hd-full		{ width: 25% #{$important}; }
+	.text-left-till-hd-full		{ text-align: left #{$important}; }
+	.text-center-till-hd-full	{ text-align: center #{$important}; }
+	.text-right-till-hd-full	{ text-align: right #{$important}; }
+	.to-center-till-hd-full		{ margin: auto #{$important}; }
+	.to-left-till-hd-full		{ float: left #{$important}; }
+	.to-right-till-hd-full		{ float: right #{$important}; }
 }
 
 @media #{$till-hd-ready} {
 	// HD Ready
-	.not-till-hd-ready					{ display: none !important; }
-	.block-till-hd-ready				{ display: block !important; }
-	.fill-till-hd-ready					{ width: 100% !important; }
-	.almost-till-hd-ready				{ width: 75% !important; }
-	.half-till-hd-ready					{ width: 50% !important; }
-	.little-till-hd-ready				{ width: 25% !important; }
-	.text-left-till-hd-ready			{ text-align: left !important; }
-	.text-center-till-hd-ready			{ text-align: center !important; }
-	.text-right-till-hd-ready			{ text-align: right !important; }
-	.to-center-till-hd-ready			{ margin: auto !important; }
-	.to-left-till-hd-ready				{ float: left !important; }
-	.to-right-till-hd-ready				{ float: right !important; }
+	$important: important();
+	.not-till-hd-ready					{ display: none #{$important}; }
+	.block-till-hd-ready				{ display: block #{$important}; }
+	.fill-till-hd-ready					{ width: 100% #{$important}; }
+	.almost-till-hd-ready				{ width: 75% #{$important}; }
+	.half-till-hd-ready					{ width: 50% #{$important}; }
+	.little-till-hd-ready				{ width: 25% #{$important}; }
+	.text-left-till-hd-ready			{ text-align: left #{$important}; }
+	.text-center-till-hd-ready			{ text-align: center #{$important}; }
+	.text-right-till-hd-ready			{ text-align: right #{$important}; }
+	.to-center-till-hd-ready			{ margin: auto #{$important}; }
+	.to-left-till-hd-ready				{ float: left #{$important}; }
+	.to-right-till-hd-ready				{ float: right #{$important}; }
 }
 
 @media #{$till-tablet-landscape} {
 	// Tablet landscape
-	.not-till-tablet-landscape				{ display: none !important; }
-	.block-till-tablet-landscape			{ display: block !important; }
-	.fill-till-tablet-landscape				{ width: 100% !important; }
-	.almost-till-tablet-landscape			{ width: 75% !important; }
-	.half-till-tablet-landscape				{ width: 50% !important; }
-	.little-till-tablet-landscape			{ width: 25% !important; }
-	.text-left-till-tablet-landscape		{ text-align: left !important; }
-	.text-center-till-tablet-landscape		{ text-align: center !important; }
-	.text-right-till-tablet-landscape		{ text-align: right !important; }
-	.not-fixed-till-tablet-landscape		{ position: static !important; }
-	.to-center-till-tablet-landscape		{ margin: auto !important; }
-	.to-left-till-tablet-landscape			{ float: left !important; }
-	.to-right-till-tablet-landscape			{ float: right !important; }
+	$important: important();
+	.not-till-tablet-landscape				{ display: none #{$important}; }
+	.block-till-tablet-landscape			{ display: block #{$important}; }
+	.fill-till-tablet-landscape				{ width: 100% #{$important}; }
+	.almost-till-tablet-landscape			{ width: 75% #{$important}; }
+	.half-till-tablet-landscape				{ width: 50% #{$important}; }
+	.little-till-tablet-landscape			{ width: 25% #{$important}; }
+	.text-left-till-tablet-landscape		{ text-align: left #{$important}; }
+	.text-center-till-tablet-landscape		{ text-align: center #{$important}; }
+	.text-right-till-tablet-landscape		{ text-align: right #{$important}; }
+	.not-fixed-till-tablet-landscape		{ position: static #{$important}; }
+	.to-center-till-tablet-landscape		{ margin: auto #{$important}; }
+	.to-left-till-tablet-landscape			{ float: left #{$important}; }
+	.to-right-till-tablet-landscape			{ float: right #{$important}; }
 }
 
 @media #{$till-tablet-portrait} {
 	// Tablet portrait
-	.not-till-tablet-portrait				{ display: none !important; }
-	.block-till-tablet-portrait				{ display: block !important; }
-	.fill-till-tablet-portrait				{ width: 100% !important; }
-	.almost-till-tablet-portrait			{ width: 75% !important; }
-	.half-till-tablet-portrait				{ width: 50% !important; }
-	.little-till-tablet-portrait			{ width: 25% !important; }
-	.text-left-till-tablet-portrait			{ text-align: left !important; }
-	.text-center-till-tablet-portrait		{ text-align: center !important; }
-	.text-right-till-tablet-portrait		{ text-align: right !important; }
-	.not-fixed-till-tablet-portrait			{ position: static !important; }
-	.to-center-till-tablet-portrait			{ margin: auto !important; }
-	.to-left-till-tablet-portrait			{ float: left !important; }
-	.to-right-till-tablet-portrait			{ float: right !important; }
+	$important: important();
+	.not-till-tablet-portrait				{ display: none #{$important}; }
+	.block-till-tablet-portrait				{ display: block #{$important}; }
+	.fill-till-tablet-portrait				{ width: 100% #{$important}; }
+	.almost-till-tablet-portrait			{ width: 75% #{$important}; }
+	.half-till-tablet-portrait				{ width: 50% #{$important}; }
+	.little-till-tablet-portrait			{ width: 25% #{$important}; }
+	.text-left-till-tablet-portrait			{ text-align: left #{$important}; }
+	.text-center-till-tablet-portrait		{ text-align: center #{$important}; }
+	.text-right-till-tablet-portrait		{ text-align: right #{$important}; }
+	.not-fixed-till-tablet-portrait			{ position: static #{$important}; }
+	.to-center-till-tablet-portrait			{ margin: auto #{$important}; }
+	.to-left-till-tablet-portrait			{ float: left #{$important}; }
+	.to-right-till-tablet-portrait			{ float: right #{$important}; }
 }
 
 @media #{$till-smartphone-landscape} {
 	// Smartphone landscape
-	.not-till-smartphone-landscape				{ display: none !important; }
-	.block-till-smartphone-landscape			{ display: block !important; }
-	.fill-till-smartphone-landscape				{ width: 100% !important; }
-	.almost-till-smartphone-landscape			{ width: 75% !important; }
-	.half-till-smartphone-landscape				{ width: 50% !important; }
-	.little-till-smartphone-landscape			{ width: 25% !important; }
-	.text-left-till-smartphone-landscape		{ text-align: left !important; }
-	.text-center-till-smartphone-landscape		{ text-align: center !important; }
-	.text-right-till-smartphone-landscape		{ text-align: right !important; }
-	.to-center-till-smartphone-landscape		{ margin: auto !important; }
-	.to-left-till-smartphone-landscape			{ float: left !important; }
-	.to-right-till-smartphone-landscape			{ float: right !important; }
+	$important: important();
+	.not-till-smartphone-landscape				{ display: none #{$important}; }
+	.block-till-smartphone-landscape			{ display: block #{$important}; }
+	.fill-till-smartphone-landscape				{ width: 100% #{$important}; }
+	.almost-till-smartphone-landscape			{ width: 75% #{$important}; }
+	.half-till-smartphone-landscape				{ width: 50% #{$important}; }
+	.little-till-smartphone-landscape			{ width: 25% #{$important}; }
+	.text-left-till-smartphone-landscape		{ text-align: left #{$important}; }
+	.text-center-till-smartphone-landscape		{ text-align: center #{$important}; }
+	.text-right-till-smartphone-landscape		{ text-align: right #{$important}; }
+	.to-center-till-smartphone-landscape		{ margin: auto #{$important}; }
+	.to-left-till-smartphone-landscape			{ float: left #{$important}; }
+	.to-right-till-smartphone-landscape			{ float: right #{$important}; }
 }
 
 // Media queries for selectors active from a specific resolution or higher
 @media #{$from-smartphone-portrait} {
 	// Smartphone portrait
-	.not-from-smartphone-portrait			{ display:none !important; }
-	.text-center-from-smartphone-portrait	{ text-align: center !important; }
-	.text-left-from-smartphone-portrait		{ text-align: left !important; }
-	.text-right-from-smartphone-portrait	{ text-align: right !important; }
-	.to-center-from-smartphone-portrait		{ margin: auto !important; }
-	.to-left-from-smartphone-portrait		{ float: left !important; }
-	.to-right-from-smartphone-portrait		{ float: right !important; }
+	$important: important();
+	.not-from-smartphone-portrait			{ display:none #{$important}; }
+	.text-center-from-smartphone-portrait	{ text-align: center #{$important}; }
+	.text-left-from-smartphone-portrait		{ text-align: left #{$important}; }
+	.text-right-from-smartphone-portrait	{ text-align: right #{$important}; }
+	.to-center-from-smartphone-portrait		{ margin: auto #{$important}; }
+	.to-left-from-smartphone-portrait		{ float: left #{$important}; }
+	.to-right-from-smartphone-portrait		{ float: right #{$important}; }
 }
 
 @media #{$from-smartphone-landscape} {
 	// Smartphone landscape
+	$important: important();
 	.not-from-smartphone-landscape				{ display:none; position:fixed; }
-	.text-center-from-smartphone-landscape		{ text-align: center !important; }
-	.text-left-from-smartphone-landscape		{ text-align: left !important; }
-	.text-right-from-smartphone-landscape		{ text-align: right !important; }
-	.to-center-from-smartphone-landscape		{ margin: auto !important; }
-	.to-left-from-smartphone-landscape			{ float: left !important; }
-	.to-right-from-smartphone-landscape			{ float: right !important; }
+	.text-center-from-smartphone-landscape		{ text-align: center #{$important}; }
+	.text-left-from-smartphone-landscape		{ text-align: left #{$important}; }
+	.text-right-from-smartphone-landscape		{ text-align: right #{$important}; }
+	.to-center-from-smartphone-landscape		{ margin: auto #{$important}; }
+	.to-left-from-smartphone-landscape			{ float: left #{$important}; }
+	.to-right-from-smartphone-landscape			{ float: right #{$important}; }
 }
 
 @media #{$from-tablet-portrait} {
 	// Tablet portrait
-	.not-from-tablet-portrait			{ display:none !important; }
-	.text-center-from-tablet-portrait	{ text-align: center !important; }
-	.text-left-from-tablet-portrait		{ text-align: left !important; }
-	.text-right-from-tablet-portrait	{ text-align: right !important; }
-	.to-center-from-tablet-portrait		{ margin: auto !important; }
-	.to-left-from-tablet-portrait		{ float: left !important; }
-	.to-right-from-tablet-portrait		{ float: right !important; }
+	$important: important();
+	.not-from-tablet-portrait			{ display:none #{$important}; }
+	.text-center-from-tablet-portrait	{ text-align: center #{$important}; }
+	.text-left-from-tablet-portrait		{ text-align: left #{$important}; }
+	.text-right-from-tablet-portrait	{ text-align: right #{$important}; }
+	.to-center-from-tablet-portrait		{ margin: auto #{$important}; }
+	.to-left-from-tablet-portrait		{ float: left #{$important}; }
+	.to-right-from-tablet-portrait		{ float: right #{$important}; }
 }
 
 @media #{$from-tablet-landscape} {
 	// Tablet landscape
-	.not-from-tablet-landscape				{ display:none !important; }
-	.text-center-from-tablet-landscape		{ text-align: center !important; }
-	.text-left-from-tablet-landscape		{ text-align: left !important; }
-	.text-right-from-tablet-landscape		{ text-align: right !important; }
-	.to-center-from-tablet-landscape		{ margin: auto !important; }
-	.to-left-from-tablet-landscape			{ float: left !important; }
-	.to-right-from-tablet-landscape			{ float: right !important; }
+	$important: important();
+	.not-from-tablet-landscape				{ display:none #{$important}; }
+	.text-center-from-tablet-landscape		{ text-align: center #{$important}; }
+	.text-left-from-tablet-landscape		{ text-align: left #{$important}; }
+	.text-right-from-tablet-landscape		{ text-align: right #{$important}; }
+	.to-center-from-tablet-landscape		{ margin: auto #{$important}; }
+	.to-left-from-tablet-landscape			{ float: left #{$important}; }
+	.to-right-from-tablet-landscape			{ float: right #{$important}; }
 }
 
 @media #{$from-hd-ready} {
 	// HD Ready
-	.not-from-hd-ready				{ display:none !important; }
-	.text-center-from-hd-ready		{ text-align: center !important; }
-	.text-left-from-hd-ready		{ text-align: left !important; }
-	.text-right-from-hd-ready		{ text-align: right !important; }
-	.to-center-from-hd-ready		{ margin: auto !important; }
-	.to-left-from-hd-ready			{ float: left !important; }
-	.to-right-from-hd-ready			{ float: right !important; }
+	$important: important();
+	.not-from-hd-ready				{ display:none #{$important}; }
+	.text-center-from-hd-ready		{ text-align: center #{$important}; }
+	.text-left-from-hd-ready		{ text-align: left #{$important}; }
+	.text-right-from-hd-ready		{ text-align: right #{$important}; }
+	.to-center-from-hd-ready		{ margin: auto #{$important}; }
+	.to-left-from-hd-ready			{ float: left #{$important}; }
+	.to-right-from-hd-ready			{ float: right #{$important}; }
 }
 
 @media #{$from-hd-full} {
 	// Full HD
-	.not-from-hd-full			{ display:none !important; }
-	.text-center-from-hd-full	{ text-align: center !important; }
-	.text-left-from-hd-full		{ text-align: left !important; }
-	.text-right-from-hd-full	{ text-align: right !important; }
-	.to-center-from-hd-full		{ margin: auto !important; }
-	.to-left-from-hd-full		{ float: left !important; }
-	.to-right-from-hd-full		{ float: right !important; }
+	$important: important();
+	.not-from-hd-full			{ display:none #{$important}; }
+	.text-center-from-hd-full	{ text-align: center #{$important}; }
+	.text-left-from-hd-full		{ text-align: left #{$important}; }
+	.text-right-from-hd-full	{ text-align: right #{$important}; }
+	.to-center-from-hd-full		{ margin: auto #{$important}; }
+	.to-left-from-hd-full		{ float: left #{$important}; }
+	.to-right-from-hd-full		{ float: right #{$important}; }
 }

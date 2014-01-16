@@ -82,18 +82,26 @@
 }
 
 // backgrounds
+@mixin ieVerticalGradient($firstColor, $lastColor) {
+	@if $use-ie-gradient == true{
+		$firstColor: fade($firstColor, 100%);
+    	$lastColor: fade($lastColor, 100%);
+    	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$firstColor}', endColorstr='#{$lastColor}', GradientType=0);
+	} 
+}
+
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
 	@if($strenght > 0%){
 		$lighten: saturate(lighten($color,$strenght),($strenght/2));
 		$darken: saturate(darken($color,$strenght),($strenght/2));
 		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
-		filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+		@include ieVerticalGradient($lighten, $darken);
 	}
 	@else{
 		$lighten: saturate(darken($color,abs($strenght)),(abs($strenght/2)));
 		$darken: saturate(lighten($color,abs($strenght)),(abs($strenght/2)));
 		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
-		filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$lighten}", endColorstr="#{$darken}", GradientType=0);
+		@include ieVerticalGradient($lighten, $darken);
 	}
 }
 @mixin verticalGradientColors($firstColor:#000000, $lastColor:#FFFFFF) {
@@ -259,9 +267,24 @@
 	right:$right;
 }
 
-@mixin size($width:16px, $height:$width) {
-	width: $width;
-	height: $height;
+@mixin size($width:16px, $height:$width, $scale:1) {
+	$unit_num: getUnit($width);
+	@if type-of($width) == 'number' and  type-of($height) == 'number'{
+		width: (removeUnit($width) * removeUnit($scale))#{$unit_num};
+		height: (removeUnit($height) * removeUnit($scale))#{$unit_num};
+	}
+	@if type-of($width) == 'number' and  type-of($height) != 'number'{
+		width: $width;
+		height: $height;
+	}
+	@if type-of($width) != 'number' and  type-of($height) == 'number'{
+		width: $width;
+		height: $height;
+	}
+	@if type-of($width) != 'number' and  type-of($height) != 'number'{
+		width: $width;
+		height: $height;
+	}
 }
 
 @mixin icon($backgroundImage, $width, $height:$width) {

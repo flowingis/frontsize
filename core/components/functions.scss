@@ -5,3 +5,12 @@
 @function getUnit($num){
 	@return (unit($num));
 }
+
+@function important(){
+	@if $state-important == true{
+		@return ("!important");
+	}
+	@else{
+		@return ("");
+	}
+}
