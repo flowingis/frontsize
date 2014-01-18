@@ -221,6 +221,16 @@
 	margin-right: -$horizontal-padding #{$important};
 }
 
+.gain-left {
+	$important: important();
+    margin-left: -$horizontal-padding #{$important};
+}
+
+.gain-right {
+	$important: important();
+    margin-right: -$horizontal-padding #{$important};
+}
+
 .to-center {
 	$important: important();
 	margin-left: auto #{$important};
