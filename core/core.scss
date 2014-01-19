@@ -183,26 +183,34 @@ $print-viewport: $only-tablet-portrait;
 		}
 
 		@if $fill == "tablet-landscape" and $index == 0{
-			#{$nextRule} {
-				width: 100%;
+			@media #{$till-hd-ready} {
+				#{$nextRule} {
+					width: 100%;
+				}
 			}
 		}
 
 		@if $fill == "tablet-portrait" and $index == 0{
-			#{$nextRule} {
-				width: 100%;
+			@media #{$till-tablet-landscape} {
+				#{$nextRule} {
+					width: 100%;
+				}
 			}
 		}
 
 		@if $fill == "smartphone-landscape" and $index == 0{
-			#{$nextRule} {
-				width: 100%;
+			@media #{$till-tablet-portrait} {
+				#{$nextRule} {
+					width: 100%;
+				}
 			}
 		}
 
 		@if $fill == "smartphone-portrait" and $index == 0{
-			#{$nextRule} {
-				width: 100%;
+			@media #{$till-smartphone-landscape} {
+				#{$nextRule} {
+					width: 100%;
+				}
 			}
 		}
 
