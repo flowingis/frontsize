@@ -114,7 +114,7 @@ $important: important();
 .text-crop {
     overflow: hidden #{$important};
     white-space: nowrap #{$important};
-    overflow-text: ellipsis #{$important};
+    text-overflow: ellipsis #{$important};
 }
 
 .uppercase {

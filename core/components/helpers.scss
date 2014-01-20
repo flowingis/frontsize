@@ -108,6 +108,17 @@
 	@include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$firstColor}", endColorstr="#{$lastColor}", GradientType=0);
 }
+
+@mixin glossGradient($color: #0A75Bf, $strength: 10%, $borderSize: 0){
+	@if $borderSize != 0{
+		border: $borderSize solid $color;
+    	@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
+	}
+	@else{
+		@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
+	}
+}
+
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
 	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
 }
