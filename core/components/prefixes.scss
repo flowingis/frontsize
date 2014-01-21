@@ -43,7 +43,7 @@
 }
 
 @mixin transition-property($property:all) {
-	@if $use-css-prefix == true {
+	@if $use-css-prefix == true and $property != "transform"{
 		-webkit-transition-property: #{$property};
 		-khtml-transition-property: #{$property};
 		-moz-transition-property: #{$property};
@@ -58,8 +58,9 @@
 		-o-transition-property:-o-transform;
 		transition-property:transform;
 	}
-
-	transition-property: #{$property};
+	@if $property != "transform"{
+		transition-property: #{$property};
+	}
 }
 
 @mixin transition-timing-function($easing:ease-in-out) {
