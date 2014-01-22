@@ -537,10 +537,10 @@
 @mixin translateX($x:0) {
 	@include transform(translateX(#{$x}));
 }
-@mixin translateY($x:0) {
+@mixin translateY($y:0) {
 	@include transform(translateY(#{$y}));
 }
-@mixin translateZ($x:0) {
+@mixin translateZ($z:0) {
 	@include transform(translateZ(#{$z}));
 }
 @mixin scale($scale:0) {
