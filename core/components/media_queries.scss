@@ -5,7 +5,6 @@
 // ==               RULES               ===================================================================================================================================
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
-
 @mixin addViewportsSteps($selector:use-steps, $hdFullMargin:500px, $hdReadyMargin:100px, $tabletLandscapeMargin:50px, $tabletPortraitMargin:20px) {
 	// Media queries for selectors active from a specific resolution or higher
 	// smartphone viewports were removed to improve width compatibility with all smartphone models
