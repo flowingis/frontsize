@@ -13,280 +13,342 @@
 		margin: auto;
 		@include box-sizing(border-box);
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		.#{$selector} {
-			max-width: ($tablet-portrait-step - $tabletPortraitMargin);
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.#{$selector} {
+				max-width: ($tablet-portrait-step - $tabletPortraitMargin);
+			}
 		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		.#{$selector} {
-			max-width: ($tablet-landscape-step - $tabletLandscapeMargin);
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.#{$selector} {
+				max-width: ($tablet-landscape-step - $tabletLandscapeMargin);
+			}
 		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		.#{$selector} {
-			max-width: ($hd-ready-step - $hdReadyMargin);
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			.#{$selector} {
+				max-width: ($hd-ready-step - $hdReadyMargin);
+			}
 		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		.#{$selector} {
-			max-width: ($hd-full-step - $hdFullMargin);
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector} {
+				max-width: ($hd-full-step - $hdFullMargin);
+			}
 		}
 	}
 }
 
 @mixin setFontScaling($hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $smartphoneLandscape:$font-size, $smartphonePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait}{
-		// Smartphone portrait
-		body {
-			font-size: $smartphonePortrait;
-			line-height: $lineHeightMultiplier;
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait}{
+			// Smartphone portrait
+			body {
+				font-size: $smartphonePortrait;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		body {
-			font-size: $smartphoneLandscape;
-			line-height: $lineHeightMultiplier;
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			body {
+				font-size: $smartphoneLandscape;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		body {
-			font-size:$tabletPortrait;
-			line-height: $lineHeightMultiplier;
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			body {
+				font-size:$tabletPortrait;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		body {
-			font-size:$tabletLandscape;
-			line-height: $lineHeightMultiplier;
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			body {
+				font-size:$tabletLandscape;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		body {
-			font-size:$hdReady;
-			line-height: $lineHeightMultiplier;
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			body {
+				font-size:$hdReady;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		body {
-			font-size:$hdFull;
-			line-height: $lineHeightMultiplier;
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			body {
+				font-size:$hdFull;
+				line-height: $lineHeightMultiplier;
+			}
 		}
 	}
 }
 
 @mixin addFontsRule($selector:with-small-fonts, $fontFamilyHd:$font-small, $fontSizeHd:0.75em, $antialiasHd:antialiased, $fontFamilyTablet:$font-small, $fontSizeTablet:0.75em, $antialiasTablet:antialiased, $fontFamilySmartphone:$font-small, $fontSizeSmartphone:0.85em, $antialiasSmartphone:subpixel-antialiased) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-hd-ready} {
-		// HD Ready
-		 .#{$selector}{
-			font-family:$fontFamilyHd;
-			font-size:$fontSizeHd;
-			@include font-smoothing($antialiasHd);
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			 .#{$selector}{
+				font-family:$fontFamilyHd;
+				font-size:$fontSizeHd;
+				@include font-smoothing($antialiasHd);
+			}
 		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		.#{$selector}{
-			font-family:$fontFamilyHd;
-			font-size:$fontSizeHd;
-			@include font-smoothing($antialiasHd);
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector}{
+				font-family:$fontFamilyHd;
+				font-size:$fontSizeHd;
+				@include font-smoothing($antialiasHd);
+			}
 		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		.#{$selector}{
-			font-family:$fontFamilyTablet;
-			font-size:$fontSizeTablet;
-			@include font-smoothing($antialiasTablet);
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.#{$selector}{
+				font-family:$fontFamilyTablet;
+				font-size:$fontSizeTablet;
+				@include font-smoothing($antialiasTablet);
+			}
 		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		.#{$selector}{
-			font-family:$fontFamilyTablet;
-			font-size:$fontSizeTablet;
-			@include font-smoothing($antialiasTablet);
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.#{$selector}{
+				font-family:$fontFamilyTablet;
+				font-size:$fontSizeTablet;
+				@include font-smoothing($antialiasTablet);
+			}
 		}
 	}
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		.#{$selector}{
-			font-family:$fontFamilySmartphone;
-			font-size:$fontSizeSmartphone;
-			@include font-smoothing($antialiasSmartphone);
+
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			.#{$selector}{
+				font-family:$fontFamilySmartphone;
+				font-size:$fontSizeSmartphone;
+				@include font-smoothing($antialiasSmartphone);
+			}
 		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		.#{$selector}{
-			font-family:$fontFamilySmartphone;
-			font-size:$fontSizeSmartphone;
-			@include font-smoothing($antialiasSmartphone);
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			.#{$selector}{
+				font-family:$fontFamilySmartphone;
+				font-size:$fontSizeSmartphone;
+				@include font-smoothing($antialiasSmartphone);
+			}
 		}
 	}
 }
 
 @mixin setHeadingFont($hdFullFontSize:1.5em, $hdReadyFontSize:1.25em, $tabletLandscapeFontSize:1.125em, $tabletPortraitFontSize:1.125em, $smartphoneLandscapeFontSize:1em, $smartphonePortraitFontSize:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait} {
-		$unit_num: getUnit($smartphonePortraitFontSize);
-		// Smartphone portrait
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h6 {
-			font-size: (removeUnit($h6) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($smartphonePortraitFontSize) / 4)#{$unit_num};
-		}
-	}
-	@media #{$from-smartphone-landscape} {
-		$unit_num: getUnit($smartphoneLandscapeFontSize);
-		// Smartphone landscape
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h6 {
-			font-size: (removeUnit($h6) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($smartphoneLandscapeFontSize) / 4)#{$unit_num};
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			$unit_num: getUnit($smartphonePortraitFontSize);
+			// Smartphone portrait
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h6 {
+				font-size: (removeUnit($h6) * removeUnit($smartphonePortraitFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($smartphonePortraitFontSize) / 4)#{$unit_num};
+			}
 		}
 	}
-	@media #{$from-tablet-portrait} {
-		$unit_num: getUnit($tabletPortraitFontSize);
-		// Tablet portrait
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h6 {
- 			font-size: (removeUnit($h6) * removeUnit($tabletPortraitFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($tabletPortraitFontSize) / 4)#{$unit_num};
-		}
-	}
-	@media #{$from-tablet-landscape} {
-		$unit_num: getUnit($tabletLandscapeFontSize);
-		// Tablet landscape
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h6 {
-			font-size: (removeUnit($h6) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($tabletLandscapeFontSize) / 4)#{$unit_num};
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			$unit_num: getUnit($smartphoneLandscapeFontSize);
+			// Smartphone landscape
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h6 {
+				font-size: (removeUnit($h6) * removeUnit($smartphoneLandscapeFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($smartphoneLandscapeFontSize) / 4)#{$unit_num};
+			}
 		}
 	}
-	@media #{$from-hd-ready} {
-		$unit_num: getUnit($hdReadyFontSize);
-		// HD Ready
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h6 {
-			font-size: (removeUnit($h6) * removeUnit($hdReadyFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($hdReadyFontSize) / 4)#{$unit_num};
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			$unit_num: getUnit($tabletPortraitFontSize);
+			// Tablet portrait
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h6 {
+	 			font-size: (removeUnit($h6) * removeUnit($tabletPortraitFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($tabletPortraitFontSize) / 4)#{$unit_num};
+			}
 		}
 	}
-	@media #{$from-hd-full} {
-		$unit_num: getUnit($hdReadyFontSize);
-		// Full HD
-		h1 {
-			font-size: (removeUnit($h1) * removeUnit($hdFullFontSize))#{$unit_num};
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			$unit_num: getUnit($tabletLandscapeFontSize);
+			// Tablet landscape
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h6 {
+				font-size: (removeUnit($h6) * removeUnit($tabletLandscapeFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($tabletLandscapeFontSize) / 4)#{$unit_num};
+			}
 		}
-		h2 {
-			font-size: (removeUnit($h2) * removeUnit($hdFullFontSize))#{$unit_num};
+	}
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			$unit_num: getUnit($hdReadyFontSize);
+			// HD Ready
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h6 {
+				font-size: (removeUnit($h6) * removeUnit($hdReadyFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($hdReadyFontSize) / 4)#{$unit_num};
+			}
 		}
-		h3 {
-			font-size: (removeUnit($h3) * removeUnit($hdFullFontSize))#{$unit_num};
-		}
-		h4 {
-			font-size: (removeUnit($h4) * removeUnit($hdFullFontSize))#{$unit_num};
-		}
-		h5 {
-			font-size: (removeUnit($h5) * removeUnit($hdFullFontSize))#{$unit_num};
-		}
-		h6 {
-			font-size: (removeUnit($h6) * removeUnit($hdFullFontSize))#{$unit_num};
-		}
-		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (removeUnit($hdFullFontSize) / 4)#{$unit_num};
+	}
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			$unit_num: getUnit($hdReadyFontSize);
+			// Full HD
+			h1 {
+				font-size: (removeUnit($h1) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h2 {
+				font-size: (removeUnit($h2) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h3 {
+				font-size: (removeUnit($h3) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h4 {
+				font-size: (removeUnit($h4) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h5 {
+				font-size: (removeUnit($h5) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h6 {
+				font-size: (removeUnit($h6) * removeUnit($hdFullFontSize))#{$unit_num};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: (removeUnit($hdFullFontSize) / 4)#{$unit_num};
+			}
 		}
 	}
 }
@@ -303,47 +365,59 @@
 	.#{$selector} {
 		font-family:$fontFamily;
 		line-height:$lineHeightMultiplier;
+		@include font-smoothing($antialias);
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		.#{$selector} {
-			font-size:$hdFullFontSize !important;
-			line-height:$lineHeightMultiplier;
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector} {
+				font-size:$hdFullFontSize !important;
+			}
 		}
 	}
-	@media #{$till-hd-full} {
-		// HD Ready
-		.#{$selector} {
-			font-size:$hdReadyFontSize !important;
-			line-height:$lineHeightMultiplier;
+
+	@if ($use-hd-ready == true){
+		@media #{$till-hd-full} {
+			// HD Ready
+			.#{$selector} {
+				font-size:$hdReadyFontSize !important;
+			}
 		}
 	}
-	@media #{$till-hd-ready} {
-		// Tablet landscape
-		.#{$selector} {
-			font-size:$tabletLandscapeFontSize !important;
-			line-height:$lineHeightMultiplier;
+
+	@if ($use-tablet-landscape == true){
+		@media #{$till-hd-ready} {
+			// Tablet landscape
+			.#{$selector} {
+				font-size:$tabletLandscapeFontSize !important;
+			}
 		}
 	}
-	@media #{$till-tablet-landscape} {
-		// Tablet portrait
-		.#{$selector} {
-			font-size:$tabletPortraitFontSize !important;
-			line-height:$lineHeightMultiplier;
+
+	@if ($use-tablet-portrait == true){
+		@media #{$till-tablet-landscape} {
+			// Tablet portrait
+			.#{$selector} {
+				font-size:$tabletPortraitFontSize !important;
+			}
 		}
 	}
-	@media #{$till-tablet-portrait} {
-		// Smartphone landscape
-		.#{$selector} {
-			font-size:$smartphoneLandscapeFontSize !important;
-			line-height:$lineHeightMultiplier;
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$till-tablet-portrait} {
+			// Smartphone landscape
+			.#{$selector} {
+				font-size:$smartphoneLandscapeFontSize !important;
+			}
 		}
 	}
-	@media #{$till-smartphone-landscape} {
-		// Smartphone portrait
-		.#{$selector} {
-			font-size:$smartphonePortraitFontSize !important;
-			line-height:$lineHeightMultiplier;
+
+	@if ($use-smartphone-portrait == true){
+		@media #{$till-smartphone-landscape} {
+			// Smartphone portrait
+			.#{$selector} {
+				font-size:$smartphonePortraitFontSize !important;
+			}
 		}
 	}
 }
@@ -372,40 +446,57 @@
 			@include setColumnBehavior();
 			@include setColumnStep(1, $hdFullSteps);
 		}
-		@media #{$only-smartphone-portrait} {
-			// Smartphone portrait
-			.#{$selector} > * {
-				@include setColumns($smartphonePortraitSteps);
+		@if ($use-smartphone-portrait == true){
+			@media #{$only-smartphone-portrait} {
+				// Smartphone portrait
+				.#{$selector} > * {
+					@include setColumns($smartphonePortraitSteps);
+				}
 			}
 		}
-		@media #{$only-smartphone-landscape} {
-			// Smartphone landscape
-			.#{$selector} > * {
-				@include setColumns($smartphoneLandscapeSteps);
+
+		@if ($use-smartphone-landscape == true){
+			@media #{$only-smartphone-landscape} {
+				// Smartphone landscape
+				.#{$selector} > * {
+					@include setColumns($smartphoneLandscapeSteps);
+				}
 			}
 		}
-		@media #{$only-tablet-portrait} {
-			// Tablet portrait
-			.#{$selector} > * {
-				@include setColumns($tabletPortraitSteps);
+
+		@if ($use-tablet-portrait == true){
+			@media #{$only-tablet-portrait} {
+				// Tablet portrait
+				.#{$selector} > * {
+					@include setColumns($tabletPortraitSteps);
+				}
 			}
 		}
-		@media #{$only-tablet-landscape} {
-			// Tablet landscape
-			.#{$selector} > * {
-				@include setColumns($tabletLandscapeSteps);
+
+		@if ($use-tablet-landscape == true){
+			@media #{$only-tablet-landscape} {
+				// Tablet landscape
+				.#{$selector} > * {
+					@include setColumns($tabletLandscapeSteps);
+				}
 			}
 		}
-		@media #{$only-hd-ready} {
-			// HD Ready
-			.#{$selector} > * {
-				@include setColumns($hdReadySteps);
+
+		@if ($use-hd-ready == true){
+			@media #{$only-hd-ready} {
+				// HD Ready
+				.#{$selector} > * {
+					@include setColumns($hdReadySteps);
+				}
 			}
 		}
-		@media #{$only-hd-full} {
-			// Full HD
-			.#{$selector} > * {
-				@include setColumns($hdFullSteps);
+
+		@if ($use-hd-full == true){
+			@media #{$only-hd-full} {
+				// Full HD
+				.#{$selector} > * {
+					@include setColumns($hdFullSteps);
+				}
 			}
 		}
 	}
@@ -413,57 +504,91 @@
 
 @mixin addPaddingRule($selector, $hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		.#{$selector} { padding:$smartphonePortraitPadding; }
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			.#{$selector} { padding:$smartphonePortraitPadding; }
+		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		.#{$selector} { padding:$smartphoneLandscapePadding; }
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			.#{$selector} { padding:$smartphoneLandscapePadding; }
+		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		.#{$selector} { padding:$tabletPortraitPadding; }
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.#{$selector} { padding:$tabletPortraitPadding; }
+		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		.#{$selector} { padding:$tabletLandscapePadding; }
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.#{$selector} { padding:$tabletLandscapePadding; }
+		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		.#{$selector} { padding:$hdReadyPadding; }
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			.#{$selector} { padding:$hdReadyPadding; }
+		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		.#{$selector} { padding:$hdFullPadding; }
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector} { padding:$hdFullPadding; }
+		}
 	}
 }
 
 @mixin addMarginRule($selector, $hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		.#{$selector} { margin:$smartphonePortraitMargin; }
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			.#{$selector} { margin:$smartphonePortraitMargin; }
+		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		.#{$selector} { margin:$smartphoneLandscapeMargin; }
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			.#{$selector} { margin:$smartphoneLandscapeMargin; }
+		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		.#{$selector} { margin:$tabletPortraitMargin; }
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.#{$selector} { margin:$tabletPortraitMargin; }
+		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		.#{$selector} { margin:$tabletLandscapeMargin; }
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.#{$selector} { margin:$tabletLandscapeMargin; }
+		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		.#{$selector} { margin:$hdReadyMargin; }
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			.#{$selector} { margin:$hdReadyMargin; }
+		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		.#{$selector} { margin:$hdFullMargin; }
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector} { margin:$hdFullMargin; }
+		}
 	}
 }
 
@@ -476,112 +601,171 @@
 
 @mixin setViewportsPadding($hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		padding:$smartphonePortraitPadding;
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			padding:$smartphonePortraitPadding;
+		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		padding:$smartphoneLandscapePadding;
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			padding:$smartphoneLandscapePadding;
+		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		padding:$tabletPortraitPadding;
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			padding:$tabletPortraitPadding;
+		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		padding:$tabletLandscapePadding;
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			padding:$tabletLandscapePadding;
+		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		padding:$hdReadyPadding;
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			padding:$hdReadyPadding;
+		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		padding:$hdFullPadding;
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			padding:$hdFullPadding;
+		}
 	}
 }
 
 @mixin setViewportsMargin($hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		margin:$smartphonePortraitMargin;
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			margin:$smartphonePortraitMargin;
+		}
 	}
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		margin:$smartphoneLandscapeMargin;
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			margin:$smartphoneLandscapeMargin;
+		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		margin:$tabletPortraitMargin;
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			margin:$tabletPortraitMargin;
+		}
 	}
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		margin:$tabletLandscapeMargin;
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			margin:$tabletLandscapeMargin;
+		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		margin:$hdReadyMargin;
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			margin:$hdReadyMargin;
+		}
 	}
-	@media #{$from-hd-full} {
-		// Full HD
-		margin:$hdFullMargin;
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			margin:$hdFullMargin;
+		}
 	}
 }
 
 @mixin setViewportsFontSize($hdFull:1em, $hd-ready:1em, $tablet-landscape:1em, $tablet-portrait:1em, $smartphone-landscape:1em, $smartphone-portrait:1em, $lineHeightMultiplier:$font-line-height) {
 	// Media queries for selectors active from the smaller resolution to a specific one
-	@media #{$from-hd-full} {
-		// Full HD
-		font-size:$hdFull !important;
-		line-height:$lineHeightMultiplier;
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			font-size:$hdFull !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
-	@media #{$till-hd-full} {
-		// HD Ready
-		font-size:$hd-ready !important;
-		line-height:$lineHeightMultiplier;
+
+	@if ($use-hd-ready == true){
+		@media #{$till-hd-full} {
+			// HD Ready
+			font-size:$hd-ready !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
-	@media #{$till-hd-ready} {
-		// Tablet landscape
-		font-size:$tablet-landscape !important;
-		line-height:$lineHeightMultiplier;
+
+	@if ($use-tablet-landscape == true){
+		@media #{$till-hd-ready} {
+			// Tablet landscape
+			font-size:$tablet-landscape !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
-	@media #{$till-tablet-landscape} {
-		// Tablet portrait
-		font-size:$tablet-portrait !important;
-		line-height:$lineHeightMultiplier;
+
+	@if ($use-tablet-portrait == true){
+		@media #{$till-tablet-landscape} {
+			// Tablet portrait
+			font-size:$tablet-portrait !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
-	@media #{$till-tablet-portrait} {
-		// Smartphone landscape
-		font-size:$smartphone-landscape !important;
-		line-height:$lineHeightMultiplier;
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$till-tablet-portrait} {
+			// Smartphone landscape
+			font-size:$smartphone-landscape !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
-	@media #{$till-smartphone-landscape} {
-		// Smartphone portrait
-		font-size:$smartphone-portrait !important;
-		line-height:$lineHeightMultiplier;
+
+	@if ($use-smartphone-portrait == true){
+		@media #{$till-smartphone-landscape} {
+			// Smartphone portrait
+			font-size:$smartphone-portrait !important;
+			line-height:$lineHeightMultiplier;
+		}
 	}
 }
 
 @mixin addColumnsSet($steps:12, $hdViewportPrefix:hd-, $tabletViewportPrefix:tablet-, $smartphoneViewportPrefix:smartphone-, $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:-of-) {
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+		}
 	}
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+		}
 	}
-	@media #{$from-hd-ready} {
-		// HD Ready
-		@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+		}
 	}
 	@include addFillToColumnSet($tabletViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
 	@include addFillToColumnSet($hdViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);

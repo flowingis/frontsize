@@ -52,139 +52,151 @@
 }
 
 @mixin backgroundRetinaHdFull($defaultHdFullBackground, $retinaHdFullBackground:$defaultHdFullBackground, $rootPath:$root-path) {
-	@if $use-root-path == true{
-		@media #{$from-hd-full} {
-			// Full HD
-			@include backgroundImage($defaultHdFullBackground, $rootPath);
+	@if ($use-hd-full == true){
+		@if $use-root-path == true{
+			@media #{$from-hd-full} {
+				// Full HD
+				@include backgroundImage($defaultHdFullBackground, $rootPath);
+			}
+			@media #{$retina-from-hd-full} {
+				// Full HD Retina
+				@include backgroundImage($retinaHdFullBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-hd-full} {
-			// Full HD Retina
-			@include backgroundImage($retinaHdFullBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-hd-full} {
-			// Full HD
-			@include backgroundImage($defaultHdFullBackground, "");
-		}
-		@media #{$retina-from-hd-full} {
-			// Full HD Retina
-			@include backgroundImage($retinaHdFullBackground, "");
+		@else{
+			@media #{$from-hd-full} {
+				// Full HD
+				@include backgroundImage($defaultHdFullBackground, "");
+			}
+			@media #{$retina-from-hd-full} {
+				// Full HD Retina
+				@include backgroundImage($retinaHdFullBackground, "");
+			}
 		}
 	}
 }
 
 @mixin backgroundRetinaHdReady($defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground, $rootPath:$root-path){
-	@if $use-root-path == true{
-		@media  #{$from-hd-ready} {
-			// HD Ready
-			@include backgroundImage($defaultHdReadyRetinaBackground, $rootPath);
+	@if ($use-hd-ready == true){
+		@if $use-root-path == true{
+			@media  #{$from-hd-ready} {
+				// HD Ready
+				@include backgroundImage($defaultHdReadyRetinaBackground, $rootPath);
+			}
+			@media #{$retina-from-hd-ready} {
+				// HD Ready Retina
+				@include backgroundImage($retinaHdReadyRetinaBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-hd-ready} {
-			// HD Ready Retina
-			@include backgroundImage($retinaHdReadyRetinaBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-hd-ready} {
-			// HD Ready
-			@include backgroundImage($defaultHdReadyRetinaBackground, "");
-		}
-		@media #{$retina-from-hd-ready} {
-			// HD Ready Retina
-			@include backgroundImage($retinaHdReadyRetinaBackground, "");
+		@else{
+			@media #{$from-hd-ready} {
+				// HD Ready
+				@include backgroundImage($defaultHdReadyRetinaBackground, "");
+			}
+			@media #{$retina-from-hd-ready} {
+				// HD Ready Retina
+				@include backgroundImage($retinaHdReadyRetinaBackground, "");
+			}
 		}
 	}
 }
 
 @mixin backgroundRetinaTabletLandscape($defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground, $rootPath:$root-path){
-	@if $use-root-path == true{ 
-		@media #{$from-tablet-landscape} {
-			// Tablet landscape
-			@include backgroundImage($defaultTabletLandscapeBackground, $rootPath);
+	@if ($use-tablet-landscape == true){
+		@if $use-root-path == true{ 
+			@media #{$from-tablet-landscape} {
+				// Tablet landscape
+				@include backgroundImage($defaultTabletLandscapeBackground, $rootPath);
+			}
+			@media #{$retina-from-tablet-landscape} {
+				// Tablet landscape Retina
+				@include backgroundImage($retinaTabletLandscapeBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-tablet-landscape} {
-			// Tablet landscape Retina
-			@include backgroundImage($retinaTabletLandscapeBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-tablet-landscape} {
-			// Tablet landscape
-			@include backgroundImage($defaultTabletLandscapeBackground, "");
-		}
-		@media #{$retina-from-tablet-landscape} {
-			// Tablet landscape Retina
-			@include backgroundImage($retinaTabletLandscapeBackground, "");
+		@else{
+			@media #{$from-tablet-landscape} {
+				// Tablet landscape
+				@include backgroundImage($defaultTabletLandscapeBackground, "");
+			}
+			@media #{$retina-from-tablet-landscape} {
+				// Tablet landscape Retina
+				@include backgroundImage($retinaTabletLandscapeBackground, "");
+			}
 		}
 	}
 }
 
 @mixin backgroundRetinaTabletPortrait($defaultTabletPortraitBackground, $retinaTabletPortraitBackground:$defaultTabletPortraitBackground, $rootPath:$root-path){
-	@if $use-root-path == true{ 
-		@media #{$from-tablet-portrait} {
-			// Tablet portrait
-			@include backgroundImage($defaultTabletPortraitBackground, $rootPath);
+	@if ($use-tablet-portrait == true){
+		@if $use-root-path == true{ 
+			@media #{$from-tablet-portrait} {
+				// Tablet portrait
+				@include backgroundImage($defaultTabletPortraitBackground, $rootPath);
+			}
+			@media #{$retina-from-tablet-portrait} {
+				// Tablet portrait Retina
+				@include backgroundImage($retinaTabletPortraitBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-tablet-portrait} {
-			// Tablet portrait Retina
-			@include backgroundImage($retinaTabletPortraitBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-tablet-portrait} {
-			// Tablet portrait
-			@include backgroundImage($defaultTabletPortraitBackground, "");
-		}
-		@media #{$retina-from-tablet-portrait} {
-			// Tablet portrait Retina
-			@include backgroundImage($retinaTabletPortraitBackground, "");
+		@else{
+			@media #{$from-tablet-portrait} {
+				// Tablet portrait
+				@include backgroundImage($defaultTabletPortraitBackground, "");
+			}
+			@media #{$retina-from-tablet-portrait} {
+				// Tablet portrait Retina
+				@include backgroundImage($retinaTabletPortraitBackground, "");
+			}
 		}
 	}
 }
 
 @mixin backgroundRetinaSmartphoneLandscape($defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground, $rootPath:$root-path){
-	@if $use-root-path == true{ 
-		@media #{$from-smartphone-landscape} {
-			// Smartphone landscape
-			@include backgroundImage($defaultSmartphoneLandscapeBackground, $rootPath);
+	@if ($use-smartphone-landscape == true){
+		@if $use-root-path == true{ 
+			@media #{$from-smartphone-landscape} {
+				// Smartphone landscape
+				@include backgroundImage($defaultSmartphoneLandscapeBackground, $rootPath);
+			}
+			@media #{$retina-from-smartphone-landscape} {
+				// Smartphone landscape Retina
+				@include backgroundImage($retinaSmartphoneLandscapeBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-smartphone-landscape} {
-			// Smartphone landscape Retina
-			@include backgroundImage($retinaSmartphoneLandscapeBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-smartphone-landscape} {
-			// Smartphone landscape
-			@include backgroundImage($defaultSmartphoneLandscapeBackground, "");
-		}
-		@media #{$retina-from-smartphone-landscape} {
-			// Smartphone landscape Retina
-			@include backgroundImage($retinaSmartphoneLandscapeBackground, "");
+		@else{
+			@media #{$from-smartphone-landscape} {
+				// Smartphone landscape
+				@include backgroundImage($defaultSmartphoneLandscapeBackground, "");
+			}
+			@media #{$retina-from-smartphone-landscape} {
+				// Smartphone landscape Retina
+				@include backgroundImage($retinaSmartphoneLandscapeBackground, "");
+			}
 		}
 	}	
 }
 
 @mixin backgroundRetinaSmartphonePortrait($defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground, $rootPath:$root-path) {
-	@if $use-root-path == true{
-		@media #{$from-smartphone-portrait} {
-			// Smartphone portrait
-			@include backgroundImage($defaultSmartphonePortraitBackground, $rootPath);
+	@if ($use-smartphone-portrait == true){
+		@if $use-root-path == true{
+			@media #{$from-smartphone-portrait} {
+				// Smartphone portrait
+				@include backgroundImage($defaultSmartphonePortraitBackground, $rootPath);
+			}
+			@media #{$retina-from-smartphone-portrait} {
+				// Smartphone portrait Retina
+				@include backgroundImage($retinaSmartphonePortraitBackground, $rootPath);
+			}
 		}
-		@media #{$retina-from-smartphone-portrait} {
-			// Smartphone portrait Retina
-			@include backgroundImage($retinaSmartphonePortraitBackground, $rootPath);
-		}
-	}
-	@else{
-		@media #{$from-smartphone-portrait} {
-			// Smartphone portrait
-			@include backgroundImage($defaultSmartphonePortraitBackground, "");
-		}
-		@media #{$retina-from-smartphone-portrait} {
-			// Smartphone portrait Retina
-			@include backgroundImage($retinaSmartphonePortraitBackground, "");
+		@else{
+			@media #{$from-smartphone-portrait} {
+				// Smartphone portrait
+				@include backgroundImage($defaultSmartphonePortraitBackground, "");
+			}
+			@media #{$retina-from-smartphone-portrait} {
+				// Smartphone portrait Retina
+				@include backgroundImage($retinaSmartphonePortraitBackground, "");
+			}
 		}
 	}
 }

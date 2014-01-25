@@ -148,39 +148,51 @@
 	@include backgroundSmartphonePortrait($smartphonePortraitBackground);
 }
 @mixin backgroundHdFull($hdFullBackground) {
-	@media #{$from-hd-full} {
-		// Full HD
-		@include backgroundImage($hdFullBackground);
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			@include backgroundImage($hdFullBackground);
+		}
 	}
 }
 @mixin backgroundHdReady($hdReadyBackground) {
-	@media #{$from-hd-ready} {
-		// HD Ready
-		@include backgroundImage($hdReadyBackground);
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			@include backgroundImage($hdReadyBackground);
+		}
 	}
 }
 @mixin backgroundTabletLandscape($tabletLandscapeBackground) {
-	@media #{$from-tablet-landscape} {
-		// Tablet landscape
-		@include backgroundImage($tabletLandscapeBackground);
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			@include backgroundImage($tabletLandscapeBackground);
+		}
 	}
 }
 @mixin backgroundTabletPortrait($tabletPortraitBackground) {
-	@media #{$from-tablet-portrait} {
-		// Tablet portrait
-		@include backgroundImage($tabletPortraitBackground);
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			@include backgroundImage($tabletPortraitBackground);
+		}
 	}
 }
 @mixin backgroundSmartphoneLandscape($smartphoneLandscapeBackground) {
-	@media #{$from-smartphone-landscape} {
-		// Smartphone landscape
-		@include backgroundImage($smartphoneLandscapeBackground);
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			@include backgroundImage($smartphoneLandscapeBackground);
+		}
 	}
 }
 @mixin backgroundSmartphonePortrait($smartphonePortraitBackground) {
-	@media #{$from-smartphone-portrait} {
-		// Smartphone portrait
-		@include backgroundImage($smartphonePortraitBackground);
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			@include backgroundImage($smartphonePortraitBackground);
+		}
 	}
 }
 @mixin sprite($image, $width, $height:$width, $backgroudSize:auto) {

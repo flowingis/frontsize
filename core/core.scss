@@ -72,6 +72,24 @@ $print-viewport: $only-tablet-portrait;
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
+@mixin addStep($selector:step, $width:false){
+	@if $width == false {
+	    .#{$selector} {
+	        display: block;
+	        margin: auto;
+	        @include box-sizing(border-box);
+	    }
+	}
+	@else{
+	    .#{$selector} {
+	        display: block;
+	        width: $width;
+	        margin: auto;
+	        @include box-sizing(border-box);
+	    }
+	}
+}
+
 @mixin addColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:-of-) {
 	$startIndex: $totalSteps;
 	@include loopColumnSet($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
@@ -84,9 +102,11 @@ $print-viewport: $only-tablet-portrait;
 
 @mixin preventSmartphoneColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:-of-) {
 	$startIndex: $totalSteps;
-	@media #{$till-tablet-portrait} {
-		// Smartphone landscape
-		@include loopSmartphoneColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+	@if ($use-smartphone-landscape == true){
+		@media #{$till-tablet-portrait} {
+			// Smartphone landscape
+			@include loopSmartphoneColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+		}
 	}
 }
 
@@ -182,7 +202,7 @@ $print-viewport: $only-tablet-portrait;
 			$nextRule: $nextRule + ", .#{$prefix}#{$index}";
 		}
 
-		@if $fill == "tablet-landscape" and $index == 0{
+		@if $fill == "tablet-landscape" and $index == 0 and $use-tablet-landscape == true{
 			@media #{$till-hd-ready} {
 				#{$nextRule} {
 					width: 100%;
@@ -190,7 +210,7 @@ $print-viewport: $only-tablet-portrait;
 			}
 		}
 
-		@if $fill == "tablet-portrait" and $index == 0{
+		@if $fill == "tablet-portrait" and $index == 0 and $use-tablet-portrait == true{
 			@media #{$till-tablet-landscape} {
 				#{$nextRule} {
 					width: 100%;
@@ -198,7 +218,7 @@ $print-viewport: $only-tablet-portrait;
 			}
 		}
 
-		@if $fill == "smartphone-landscape" and $index == 0{
+		@if $fill == "smartphone-landscape" and $index == 0 and $use-smartphone-landscape == true{
 			@media #{$till-tablet-portrait} {
 				#{$nextRule} {
 					width: 100%;
@@ -206,7 +226,7 @@ $print-viewport: $only-tablet-portrait;
 			}
 		}
 
-		@if $fill == "smartphone-portrait" and $index == 0{
+		@if $fill == "smartphone-portrait" and $index == 0 and $use-smartphone-portrait == true{
 			@media #{$till-smartphone-landscape} {
 				#{$nextRule} {
 					width: 100%;

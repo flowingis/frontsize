@@ -64,7 +64,14 @@ $tablet-landscape-step:		1024px;	// tablet landscape			1024
 $hd-ready-step:				1280px;	// HD Ready					1280 (720p)
 $hd-full-step:				1800px;	// Full HD					1920 (1080p)
 
-
+// Granular setting for which Media Query rules are enabled
+$use-smartphone-portrait:  true;
+$use-smartphone-landscape: true;
+$use-tablet-portrait:      true;
+$use-tablet-landscape:     true;
+$use-hd-ready:             true;
+$use-hd-full:              true;
+$use-viewport-states:      true;
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
