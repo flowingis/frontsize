@@ -145,6 +145,10 @@ $important: important();
 	font-weight: bold #{$important};
 }
 
+.normal {
+    font-weight: normal #{$important};
+}
+
 .font-sans {
 	font-family: $font-sans #{$important};
 }
@@ -385,7 +389,10 @@ $important: important();
 }
 
 .no-list-style {
-	list-style-type: none;
+    list-style-type: none #{$important};
+    li {
+        margin-left: 0;
+    }
 }
 
 .fluid {
