@@ -1,0 +1,33 @@
+@mixin tabs($selectedColor:#7b8284, $selectedBackground:white, $defaultColor:#CCCCCC, $borderColor:#CCCCCC, $borderRadius:0.5em, $borderSize:1px) {
+	overflow:auto;
+	padding:$vertical-padding $horizontal-padding 0 $horizontal-padding;
+	.bottom-line {
+		position:relative;
+		z-index:0;
+		top:-$borderSize;
+		width:100%;
+		height:$borderSize;
+		border-top:$borderSize solid $borderColor;
+	}
+	.tab {
+		display:inline-block;
+		position:relative;
+		padding:($vertical-padding/2) $horizontal-padding;
+		cursor:pointer;
+		border:$borderSize solid transparent;
+		color:$defaultColor;
+		list-style-type:none;
+		@include transition("color .25s ease-out, border-color .25s ease-out");
+		@include border-radius($borderRadius $borderRadius 0 0);
+		&:hover {
+			color:$selectedColor;
+		}
+		&.selected {
+			z-index:1;
+			color:$selectedColor;
+			background-color:$selectedBackground;
+			border-color:$borderColor;
+			border-bottom-color:$selectedBackground;
+		}
+	}
+}

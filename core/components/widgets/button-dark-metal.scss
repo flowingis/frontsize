@@ -1,0 +1,36 @@
+@mixin button-dark-metal($backgroundColor:#414548, $color:#c3c3c5, $radius:4px) {
+	display: inline-block;
+	padding:0.5em 1em;
+	cursor:pointer;
+	color:$color;
+	text-shadow:1px -1px 1px rgba(0, 0, 0, 0.3);
+	font-weight:normal;
+	border:1px solid saturate(darken($backgroundColor, 10%),2%);
+	border-top-color:$backgroundColor;
+	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
+	@include border-radius($radius);
+	@include verticalGradient($backgroundColor, 5%);
+	@include box-shadow("0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3)");
+	@include transition("color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out");
+	&:hover {
+		color:lighten($color,5%);
+		@include verticalGradient(lighten($backgroundColor,2%), 5%);
+		@include box-shadow("0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3)");
+	}
+	&:active {
+		color:lighten($color,2%);
+		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
+		@include verticalGradient($backgroundColor, -5%);
+		@include box-shadow("0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5)");
+	}
+	&:disabled {
+		cursor:default;
+		opacity: $state-disabled-opacity;
+
+		&:hover{
+			color:$color;
+			@include verticalGradient($backgroundColor, 5%);
+			@include box-shadow("0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3)");
+		}
+	}
+}
