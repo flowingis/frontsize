@@ -83,7 +83,7 @@
 
 // backgrounds
 @mixin ieVerticalGradient($firstColor, $lastColor) {
-	@if $use-ie-gradient == true{
+	@if $use-ie-filters == true{
 		$firstColor: fade($firstColor, 100%);
     	$lastColor: fade($lastColor, 100%);
     	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$firstColor}', endColorstr='#{$lastColor}', GradientType=0);

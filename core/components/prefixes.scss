@@ -775,9 +775,11 @@
 	@if $use-css-prefix == true {
 		-khtml-opacity: #{$opacity};
 		-moz-opacity: #{$opacity};
-		$msOpacity:(#{$opacity} * 100);
-		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$msOpacity});
-		filter:alpha(opacity=#{$msOpacity});
+		@if $use-ie-filters == true {
+			$msOpacity:(#{$opacity} * 100);
+			-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$msOpacity});
+			filter:alpha(opacity=#{$msOpacity});
+		}
 	}
 	opacity:#{$opacity};
 }
