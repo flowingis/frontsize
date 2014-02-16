@@ -10,23 +10,58 @@
 // ========================================================================================================================================================================
 
 @mixin useFrontsizeWidgets() {
-	.hooked				{ @include hooked(); }
-	.area-hifi			{ @include area-hifi(); }
-	.button-hifi		{ @include button-hifi(); }
-	.button-box			{ @include button-box(); }
-	.button-mini		{ @include button-mini(); }
-	.button-metal		{ @include button-metal(); }
-	.keyboard			{ @include keyboard(); }
-	.keyboard-vintage	{ @include keyboard-vintage();}
-	.keyboard-commodore	{ @include keyboard-commodore(); }
-	.switch 			{ @include switch(); }
-	.text-buried		{ @include text-buried(); }
-	.facebook-account	{ @include button-account(#5670a6); }
-	.google-account		{ @include button-account(#d55a4a); }
-	.twitter-account	{ @include button-account(#53bbef); }
-	.github-account		{ @include button-account(#cdcdcd, darken(rgb(192,192,192),15%), rgba(255,255,255,.3)); }
-	.tabs				{ @include tabs(); }
-	.paginator-circular	{ @include paginator-circular(); }
-	.message-status		{ @include message-status(); }
-	.pic				{ @include pic(); }
+	.area-hifi{ 
+		@include area-hifi();
+	}
+	.button-hifi{ 
+		@include button-hifi();
+	}
+	.button-box{ 
+		@include button-box();
+	}
+	.button-mini{ 
+		@include button-mini();
+	}
+	.button-metal{ 
+		@include button-metal();
+	}
+	.keyboard{
+		@include keyboard();
+	}
+	.keyboard-vintage{ 
+		@include keyboard-vintage();
+	}
+	.keyboard-commodore{ 
+		@include keyboard-commodore();
+	}
+	.switch{
+		@include switch();
+	}
+	.text-buried{ 
+		@include text-buried();
+	}
+	.facebook-account{
+		@include button-account(#5670a6);
+	}
+	.google-account{ 
+		@include button-account(#d55a4a);
+	}
+	.twitter-account{ 
+		@include button-account(#53bbef); 
+	}
+	.github-account{ 
+		@include button-account(#cdcdcd, darken(rgb(192,192,192),15%), rgba(255,255,255,.3));
+	}
+	.tabs{ 
+		@include tabs();
+	}
+	.paginator-circular{ 
+		@include paginator-circular();
+	}
+	.message-status{ 
+		@include message-status();
+	}
+	.pic{ 
+		@include pic();
+	}
 }
