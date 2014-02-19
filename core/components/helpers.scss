@@ -195,8 +195,13 @@
 		}
 	}
 }
-@mixin sprite($image, $width, $height:$width, $backgroudSize:auto) {
-	@include backgroundImage($image);
+@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include backgroundImage($image);
+	}
+	@else{
+		@include backgroundImage($image, $rootPath);
+	}
 	background-repeat:no-repeat;
 	background-size:$backgroudSize;
 	@include size($width, $height);

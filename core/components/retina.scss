@@ -5,13 +5,20 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-@mixin backgroundRetina($defaultImage, $retinaImage:$defaultImage, $backgroundSize:auto) {
-	//@background-size: auto | px | % |  cover | contain
-	//.backgroundRetina("path/image-low-res.png", "path/image-high-res.png");
-	@include backgroundImage($defaultImage);
-	background-size:$backgroundSize;
-	@media #{$display-retina} {
-		@include backgroundImage($retinaImage);
+@mixin backgroundRetina($defaultImage, $retinaImage:$defaultImage, $backgroundSize:auto, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include backgroundImage($defaultImage);
+		background-size:$backgroundSize;
+		@media #{$display-retina} {
+			@include backgroundImage($retinaImage);
+		}
+	}
+	@else{
+		@include backgroundImage($defaultImage, $rootPath);
+		background-size:$backgroundSize;
+		@media #{$display-retina} {
+			@include backgroundImage($retinaImage, $rootPath);
+		}
 	}
 }
 
@@ -201,25 +208,48 @@
 	}
 }
 
-@mixin iconRetina($defaultImage, $retinaImage, $width, $height:$width) {
+@mixin iconRetina($defaultImage, $retinaImage, $width, $height:$width, $rootPath:$root-path) {
 	@include size($width, $height);
-	@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height);
+	@if $use-root-path == false{
+		@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height);
+	}
+	@else{
+		@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height, $rootPath);
+	}
 	background-position: center;
 }
 
-@mixin backgroundRetinaIcon($defaultImage, $retinaImage:$defaultImage, $width:100%, $height:$width) {
-	@include backgroundImage($defaultImage);
-	background-size:$width $height;
-	background-repeat: no-repeat;
-	@media #{$display-retina} {
-		@include backgroundImage($retinaImage);
+@mixin backgroundRetinaIcon($defaultImage, $retinaImage:$defaultImage, $width:100%, $height:$width, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include backgroundImage($defaultImage);
+		background-size:$width $height;
+		background-repeat: no-repeat;
+		@media #{$display-retina} {
+			@include backgroundImage($retinaImage);
+		}
+	}
+	@else{
+		@include backgroundImage($defaultImage, $rootPath);
+		background-size:$width $height;
+		background-repeat: no-repeat;
+		@media #{$display-retina} {
+			@include backgroundImage($retinaImage, $rootPath);
+		}
 	}
 }
 
-@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0) {
-	@include sprite($defaultImage, $width, $height);
-	@media #{$display-retina} {
-		@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight);
+@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include sprite($defaultImage, $width, $height);
+		@media #{$display-retina} {
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight);
+		}
+	}
+	@else{
+		@include sprite($defaultImage, $width, $height, $rootPath);
+		@media #{$display-retina} {
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $rootPath);
+		}
 	}
 }
 

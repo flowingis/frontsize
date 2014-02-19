@@ -105,7 +105,7 @@ $use-ie-filters: false;
 
 $use-root-path: true;
 //$rootpath: 'css/frontsize/${theme}/img/';
-$root-path: "/themes/#{$theme}/img/";
+$root-path: "frontsize-sass/themes/#{$theme}/img/";
 
 
 // if $use-root-path located in app.less is set to true use it with:
