@@ -7,10 +7,8 @@ bower.json
 src
 js
 node_modules
-css
+# css
 .sass-cache
-Gruntfile.js
-
 
 # Compiled source #
 ###################

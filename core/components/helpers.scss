@@ -91,6 +91,9 @@
 }
 
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
+	@if $use-css-prefix == true {
+		background: -webkit-gradient(#{$color});
+	}
 	@if($strenght > 0%){
 		$lighten: saturate(lighten($color,$strenght),($strenght/2));
 		$darken: saturate(darken($color,$strenght),($strenght/2));
@@ -207,11 +210,24 @@
 	@include size($width, $height);
 	@include box-sizing(border-box);
 }
-@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0px, $height:$width){
-	background-position: (-#{($horizontalPosition*$width)}) (-#{$verticalPosition*$height});
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
+	@if $horizontalPosition == 0{
+		$horizontalPosition : $horizontalPosition;
+	}
+	@else{
+		$horizontalPosition : $horizontalPosition*$width;
+	}
+
+	@if $verticalPosition == 0{
+		$verticalPosition : $verticalPosition;
+	}
+	@else{
+		$verticalPosition : $verticalPosition*$height;
+	}
+	background-position: (-#{($horizontalPosition)}) (-#{$verticalPosition});
 }
 
-@mixin spriteCoordinates($positionX:0px, $positionY:0px) {
+@mixin spriteCoordinates($positionX:0, $positionY:0) {
 	background-position: (-$positionX) (-$positionY);
 }
 @mixin cropText($overflow:ellipsis, $whiteSpace:nowrap) {
@@ -221,37 +237,31 @@
 }
 
 @mixin disableOutline() {
-	outline:0;
-	outline:none;
+	&:focus{
+		outline: transparent;
+	}
     @if $use-css-prefix == true {
 		&::-moz-focus-inner {
 			border: 0;
 		}
 	}
 }
-@mixin defaultElement() {
-	@include appearance(none);
-	outline:0;
-	display: inline-block;
-	border: none;
-	background-color: transparent;
-}
 
 @mixin roundTop($radius:6px) {
 	// sets the top radius of the element
-	@include border-radius("#{$radius} #{$radius} 0px 0px");
+	@include border-radius("#{$radius} #{$radius} 0 0");
 }
 @mixin roundBottom($radius:6px) {
 	// sets the bottom radius of the element
-	@include border-radius("0px 0px #{$radius} #{$radius}");
+	@include border-radius("0 0 #{$radius} #{$radius}");
 }
 @mixin roundLeft($radius:6px) {
 	// sets the left radius of the element
-	@include border-radius("#{$radius} 0px 0px #{$radius}");
+	@include border-radius("#{$radius} 0 0 #{$radius}");
 }
 @mixin roundRight($radius:6px) {
 	// sets the right radius of the element
-	@include border-radius("0px #{$radius} #{$radius} 0px");
+	@include border-radius("0 #{$radius} #{$radius} 0");
 }
 
 @mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%) {
@@ -275,22 +285,22 @@
 	vertical-align: $verticalAlign;
 }
 
-@mixin moveTop($top:0px, $position:relative) {
+@mixin moveTop($top:0, $position:relative) {
 	position: $position;
 	top:$top;
 }
 
-@mixin moveBottom($bottom:0px, $position:relative) {
+@mixin moveBottom($bottom:0, $position:relative) {
 	position: $position;
 	bottom:$bottom;
 }
 
-@mixin moveLeft($left:0px, $position:relative) {
+@mixin moveLeft($left:0, $position:relative) {
 	position: $position;
 	left:$left;
 }
 
-@mixin moveRight($right:0px, $position:relative) {
+@mixin moveRight($right:0, $position:relative) {
 	position: $position;
 	right:$right;
 }
@@ -322,35 +332,6 @@
 	background-position: center;
 }
 
-@mixin arrowLeft($size:1em, $color:#FFFFFF, $top:0px, $right:0px) {
-	position: relative;
-	font-size: 0;
-	line-height: 0;
-	width: 0px;
-	border-top: $size solid transparent;
-	border-right: $size solid $color;
-	border-bottom: $size solid transparent;
-	right: $right;
-	top: $top;
-}
-
-@mixin outlineBoxShadow($outlineOpacity:0.2, $boxShadow:0px 0px 0px transparent) {
-	@include box-shadow("0px 0px 1px rgba(0,0,0,#{$outlineOpacity}), #{$boxShadow}");
-}
-
-@mixin hooked($zIndex:100) {
-	position:fixed;
-	width:100%;
-	left:0px;
-	z-index:$zIndex;
-	@include box-sizing(border-box);
-	
-	@include transition(top .3s ease-in-out);
-
-	&.to-top {
-		top:0px;
-	}
-	&.to-bottom {
-		bottom:0px;
-	}
+@mixin outlineBoxShadow($outlineOpacity:0.2, $boxShadow:0 0 0 transparent) {
+	@include box-shadow("0 0 1px rgba(0,0,0,#{$outlineOpacity}), #{$boxShadow}");
 }

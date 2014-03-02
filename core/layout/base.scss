@@ -3,13 +3,18 @@ body {
 	padding: 0;
 }
 
-*[title] {
-	cursor: help;
-	&:hover {
-		text-decoration: underline;
+span,
+div,
+b,
+strong {
+	&[title] {
+		cursor: help;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
-	
 }
+
 
 a[title] {
 	cursor: pointer;

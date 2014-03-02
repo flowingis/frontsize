@@ -1,4 +1,4 @@
-@mixin message-status($color:#de6646, $backgroundColor:desaturate(lighten($color,30%),30%), $border:1px solid rgba(0,0,0,0.015), $borderRadius:0.25em, $boxShadow:0px 1px 3px rgba(0,0,0,0.075), $margin:0 0 $vertical-padding 0) {
+@mixin message-status($color:#de6646, $backgroundColor:desaturate(lighten($color,30%),30%), $border:1px solid rgba(0,0,0,0.015), $borderRadius:0.25em, $boxShadow:0 1px 3px rgba(0,0,0,0.075), $margin:0 0 $vertical-padding 0) {
 	width:100%;
 	margin:$margin;
 	padding:($vertical-padding/2em) $horizontal-padding;
@@ -7,4 +7,5 @@
 	border:$border;
 	@include border-radius($borderRadius);
 	@include box-shadow($boxShadow);
+	@include box-sizing(border-box);
 }

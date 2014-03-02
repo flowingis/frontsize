@@ -1,4 +1,4 @@
-@mixin pic($borderWidth:3px, $boxShadow:0px 2px 3px rgba(0,0,0,0.2), $outlineOpacity:0.2) {
+@mixin pic($borderWidth:3px, $boxShadow:0 2px 3px rgba(0,0,0,0.2), $outlineOpacity:0.2) {
 	border:$borderWidth solid white;
 	line-height: 0;
 	@include outlineBoxShadow($outlineOpacity, $boxShadow);

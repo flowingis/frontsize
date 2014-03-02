@@ -1,0 +1,20 @@
+{
+    "name": "frontsize-sass",
+    "version": "0.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "sass": "*",
+        "csslint": "*",
+        "grunt": "~0.4.1",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-sass": "*",
+        "grunt-contrib-csslint": "*",
+        "grunt-csso": "*"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    },
+    "scripts": {
+        "test": "grunt test"
+    }
+}

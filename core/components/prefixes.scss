@@ -216,7 +216,8 @@
 		-ms-font-smoothing: #{$antialias};
 		-o-font-smoothing: #{$antialias};
  	}
- 	font-smoothing: #{$antialias};
+ 	// this property is not listed in CSS3 specifications
+ 	// font-smoothing: #{$antialias};
 }
 
 @mixin column-count($count:auto) {
@@ -347,6 +348,14 @@
 		display:-o-box;
 	}
 	display:box;
+}
+
+@mixin interpolation-mode($interpolation: bicubic) {
+	@if $use-css-prefix == true {
+		-ms-interpolation-mode: $interpolation;
+	}
+	// This property is not listed in CSS3 specification
+	// interpolation-mode: $interpolation;
 }
 
 @mixin box-align($align:stretch) {
@@ -492,7 +501,7 @@
 	box-sizing: #{$sizing};
 }
 
-@mixin box-shadow($params:0px 0px 1px rgba(0,0,0,.3)) {
+@mixin box-shadow($params:0 0 1px rgba(0,0,0,.3)) {
 	// Sets the shadow of the element
 	// .box-shadow(x y blur [expand] color [inset]);
 	// .box-shadow(1px 2px 4px rgba(0,0,0,.3));
@@ -756,19 +765,6 @@
 		-o-user-select: #{$select};
 	}   
 	user-select: #{$select};    
-}
-
-*[unselectable=on] {
-	// a fix to disable text selections if set
-	// Code snippet:
-	// <div unselectable="on">This text is not selectable</div>
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
 }
 
 @mixin opacity($opacity:1) {
