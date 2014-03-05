@@ -1,34 +1,43 @@
 @mixin tabs($selectedColor:#7b8284, $selectedBackground:white, $defaultColor:#CCCCCC, $borderColor:#CCCCCC, $borderRadius:0.5em, $borderSize:1px) {
 	overflow:auto;
 	padding:$vertical-padding $horizontal-padding 0 $horizontal-padding;
+
 	.bottom-line {
-		position:relative;
-		z-index:0;
-		top:-$borderSize;
-		width:100%;
-		height:$borderSize;
-		border-top:$borderSize solid $borderColor;
+		position: relative;
+		z-index: 0;
+		top: -$borderSize;
+		width: 100%;
+		height: $borderSize;
 		@include box-sizing(border-box);
+
+		border-top: $borderSize solid $borderColor;
+		@include fallbackColor(border-color, $borderColor);
 	}
+
 	.tab {
 		display:inline-block;
 		position:relative;
 		padding:($vertical-padding/2) $horizontal-padding;
 		cursor:pointer;
-		border:$borderSize solid transparent;
-		color:$defaultColor;
+
 		list-style-type:none;
+
+		border:$borderSize solid transparent;
+		@include fallbackColor(color, $defaultColor);
+		
 		@include transition("color .25s ease-out, border-color .25s ease-out");
 		@include border-radius($borderRadius $borderRadius 0 0);
+
 		&:hover {
-			color:$selectedColor;
+			@include fallbackColor(color, $selectedColor);
 		}
+
 		&.selected {
 			z-index:1;
-			color:$selectedColor;
-			background-color:$selectedBackground;
-			border-color:$borderColor;
-			border-bottom-color:$selectedBackground;
+			@include fallbackColor(color, $selectedColor);
+            @include fallbackColor(background-color, $selectedBackground);
+            @include fallbackColor(border-color, $borderColor);
+            @include fallbackColor(border-bottom-color, $selectedBackground);
 		}
 	}
 }

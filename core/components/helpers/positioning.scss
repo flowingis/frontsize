@@ -1,0 +1,19 @@
+@mixin moveTop($top:0, $position:relative) {
+	position: $position;
+	top:$top;
+}
+
+@mixin moveBottom($bottom:0, $position:relative) {
+	position: $position;
+	bottom:$bottom;
+}
+
+@mixin moveLeft($left:0, $position:relative) {
+	position: $position;
+	left:$left;
+}
+
+@mixin moveRight($right:0, $position:relative) {
+	position: $position;
+	right:$right;
+}

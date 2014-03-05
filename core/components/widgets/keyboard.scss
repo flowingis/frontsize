@@ -4,17 +4,21 @@
 	display: inline-block;
 	position: relative;
 	cursor:pointer;
+
 	color:$textColor;
 	text-align: center;
 	text-decoration: none;
 	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+
 	border:1px solid $color;
 	border-top:1px solid lighten($color,10%);
 	border-bottom:4px solid darken($color,20%);
 	@include border-radius(6px);
+
 	@include verticalGradient($color,5%);
 	@include box-shadow(0 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);
+
 	&:active {
 		top:2px;
 		margin-bottom:2px;
@@ -28,17 +32,24 @@
 	display: inline-block;
 	position: relative;
 	cursor:pointer;
-	color:$textColor;
+
+	@include fallbackColor(color, $textColor);
 	text-align: center;
 	text-decoration: none;
 	text-shadow:1px 1px 1px rgba(0,0,0,.2);
-	border:8px solid $color;
-	border-top:4px solid lighten($color,10%);
-	border-bottom:14px solid darken($color,20%);
+
+	border:8px solid;
+	border-top:4px solid;
+	border-bottom:14px solid;
+	@include fallbackColor(border-color, $color);
+    @include fallbackColor(border-top-color, lighten($color,10%));
+    @include fallbackColor(border-bottom-color, darken($color,20%));
 	@include border-radius(12px);
+
 	@include verticalGradient($color,-5%);
 	@include box-shadow(0 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);
+
 	&:active {
 		top:6px;
 		margin-bottom:6px;
@@ -46,20 +57,26 @@
 	}
 }
 
-@mixin keyboard-commodore($color:#cecbba, $text:#423f38) {
+@mixin keyboard-commodore($color:#cecbba, $textColor:#423f38) {
 	// <div class="keyboard-commodore">cmd</div>
 	padding:.5em .75em;
 	display: inline-block;
 	position: relative;
 	cursor:pointer;
-	color:$text;
+
+	@include fallbackColor(color, $textColor);
 	text-align: center;
 	text-decoration: none;
 	text-shadow:1px 1px 0 rgba(255,255,255,.75);
-	border:8px solid $color;
-	border-top:4px solid lighten($color,10%);
-	border-bottom:14px solid darken($color,20%);
+
+	border:8px solid;
+	border-top:4px solid;
+	border-bottom:14px solid;
+	@include fallbackColor(border-color, $color);
+    @include fallbackColor(border-top-color, lighten($color,10%));
+    @include fallbackColor(border-bottom-color, darken($color,20%));
 	@include border-radius(12px);
+	
 	@include verticalGradient($color, -8%);
 	@include box-shadow(0 3px 4px -2px rgba(0,0,0,.3));
 	@include user-select(none);

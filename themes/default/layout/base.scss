@@ -46,7 +46,8 @@
 		text-decoration: none;
 		color:$color;
 
-		border-bottom:2px solid opacify($color, 0.3);
+		border-bottom:2px solid;
+        @include fallbackColor(border-bottom-color, fade($color, 30%));
 	
 		$animation:0.3s ease-in-out;
 		@include transition("border-bottom #{$animation}, color #{$animation}");
@@ -119,9 +120,10 @@
 	
 		color:$color;
 		
-		border:1px solid rgba(0,0,0,.03);
-		border-top-color: rgba(0,0,0,.075);
-		background-color: $backgroundColor;
+		border:1px solid;
+        @include fallbackColor(border-color, rgba(0,0,0,.03));
+        @include fallbackColor(border-top-color, rgba(0,0,0,.075));
+        @include fallbackColor(background-color, $backgroundColor);
 	
 		@include border-radius(4px);
 		@include box-shadow(0 1px 0 rgba(255,255,255,.6));
@@ -181,8 +183,9 @@
 		color:$color;
 		text-shadow: none;
 
-		border:1px solid rgba(0,0,0,.03);
-		border-top-color: rgba(0,0,0,.075);
+		border:1px solid;
+        @include fallbackColor(border-color, rgba(0,0,0,.03));
+        @include fallbackColor(border-top-color, rgba(0,0,0,.075));
 		background-color: $backgroundColor;
 
 		@include border-radius(4px);
@@ -369,8 +372,10 @@
 
 @mixin base-form-text() {
 	$color: $font-default-color;
-    $border: 1px solid rgba(0,0,0,.2);
-    $borderFocused: 1px solid rgba(0,0,0,0.3);
+    $borderStyle: 1px solid;
+    $borderColor: rgba(0,0,0,.2);
+    $borderFocusedStyle: 1px solid;
+    $borderFocusedColor: rgba(0,0,0,0.3);
     $backgroundColor: rgba(0,0,0,.05);
     $backgroundColorFocused: white;
     $padding: 0.5em;
@@ -386,20 +391,23 @@
 		width: 100%;
 		outline-style: none;
 		padding: $padding;
+
+		@include box-sizing(border-box);
+
+		@include fallbackColor(color, $color);
 		
-		color: $color;
-		
-		border: $border;
-		background-color: $backgroundColor;
+		border: $borderStyle;
+		@include fallbackColor(border-color, $borderColor);
+        @include fallbackColor(background-color, $backgroundColor);
 		
 		@include input-placeholder($placeholderColor, lighten($placeholderColor, 20%));
 		@include box-shadow("inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0)");
 		@include transition("border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out");
-		@include box-sizing(border-box);
 
 		&:focus {
-			border: $borderFocused;
-			background-color: $backgroundColorFocused;
+			border: $borderFocusedStyle;
+			@include fallbackColor(border-color, $borderFocusedColor);
+            @include fallbackColor(background-color, $backgroundColorFocused);
 			@include box-shadow("inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15)");
 		}
 		&:disabled {
@@ -431,7 +439,7 @@
 		cursor: pointer;
 
 		@include appearance(none);
-		-moz-appearance: radio;
+		//-moz-appearance: radio;
 
 		$size:24px;
 		//@include size($size);
@@ -457,7 +465,7 @@
 		cursor: pointer;
 
 		@include appearance(none);
-		-moz-appearance: checkbox;
+		//-moz-appearance: checkbox;
 
 		$size:32px;
 		//@include size($size);
@@ -480,12 +488,15 @@
     $borderBottomColor: rgba(255,255,255,0.8);
 	hr {
 		display: block;
-		width: 100%;
-		border: none;
-		border-top: $borderStyle $borderTopColor;
-		border-bottom: $borderStyle $borderBottomColor;
-		padding: 0;
-		margin: $margin;
+        width: 100%;
+        padding: 0;
+        margin: $margin;
+
+        border: none;
+		border-top: $borderStyle;
+		border-bottom: $borderStyle;
+		@include fallbackColor(border-top-color, $borderTopColor);
+        @include fallbackColor(border-bottom-color, $borderBottomColor);
 	}
 }
 

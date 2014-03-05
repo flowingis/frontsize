@@ -9,19 +9,25 @@
 	display: inline-block;
 	padding:.25em .75em;
 	border-bottom: none;
-	color:$color;
+
+	@include fallbackColor(color, $color);
 	text-shadow:0 -1px 0 rgba(0,0,0,.5);
 	white-space: nowrap;
+
+	background-color: transparent;
+
 	@include border-radius(100px);
 	$p:.3s ease-in-out;
 	@include transition("color #{$p}, background-color #{$p}, box-shadow #{$p}");
+	
 	&:hover,
 	&.active,
 	&.selected {
 		color:white;
-		background-color:$hifiColor;
+		@include fallbackColor(background-color, $hifiColor);
 		@include box-shadow("0 1px 4px rgba(0,0,0,.45), 0 1px 2px rgba(255,255,255,.1) inset");
 	}
+	
 	&.selected {
 		cursor: default;
 	}

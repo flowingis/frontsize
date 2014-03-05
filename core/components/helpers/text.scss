@@ -1,0 +1,5 @@
+@mixin cropText($overflow:ellipsis, $whiteSpace:nowrap) {
+	overflow: hidden;
+	white-space: $whiteSpace;
+	@include text-overflow($overflow);
+}

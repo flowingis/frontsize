@@ -2,20 +2,24 @@
 	display: inline-block;
 	padding:0.5em 0.75em;
 	cursor: pointer;
-	border:1px solid rgba(0, 0, 0, 0.075);
-	background-color: $color;
-	color:$textColor;
+
+	border:1px solid;
+    @include fallbackColor(border-color, rgba(0, 0, 0, 0.15));
+    @include fallbackColor(background-color, $color);
+
+	@include fallbackColor(color, $textColor);
 	text-shadow:1px 1px white;
 	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
+
 	@include transition("background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out");
 	@include box-shadow("0 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.7)");
 	@include border-radius(4px);
-	@include font-smoothing(subpixel-antialiased);
+
 	&:hover {
-		border-color:rgba(0, 0, 0, 0.15);
-		border-bottom-color:rgba(0, 0, 0, 0.2);
-		color:darken($textColor,10%);
-		background-color: darken($color,5%);
+		@include fallbackColor(border-color, rgba(0, 0, 0, 0.15));
+        @include fallbackColor(border-bottom-color, rgba(0, 0, 0, 0.2));
+        @include fallbackColor(color, darken($textColor,10%));
+        @include fallbackColor(background-color, darken($color,5%));
 	}
 }

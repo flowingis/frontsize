@@ -1,13 +1,15 @@
 @mixin text-buried($color:black, $light:rgba(255,255,255,.05), $offset:1px) {
 	// <div alt="Text Buried">Text Buried</div>
 	display: inline-block;
-	color: $color;
 	position: relative;
+
+	@include fallbackColor(color, $color);
 	text-shadow:none;
+
 	&:before, &:after {
 		content: attr(alt);
-		color: $light;
 		position: absolute;
+		@include fallbackColor(color, $light);
 	}
 	&:before {
 		top:$offset;

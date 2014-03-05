@@ -201,7 +201,7 @@
 		}
 	}
 	&::selection {
-		background: $background-color; 
+		background: $background-color;
 		color: $text-color;
 	}
 }
@@ -341,13 +341,13 @@
 }
 @mixin displayBox() {
 	@if $use-css-prefix == true {
-		display:-webkit-box;
-		display:-ms-flexbox;
-		display:-khtml-box;
-		display:-moz-box;
-		display:-o-box;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -khtml-box;
+		display: -moz-box;
+		display: -o-box;
 	}
-	display:box;
+	display: box;
 }
 
 @mixin interpolation-mode($interpolation: bicubic) {
@@ -758,13 +758,13 @@
 	// Values: none | text | toggle | element | elements | all | inherit	
 	@if $use-css-prefix == true{
 		-webkit-touch-callout: #{$select};
-		-webkit-user-select: #{$select};
 		-khtml-user-select: #{$select};
+		-webkit-user-select: #{$select};
 		-moz-user-select: #{$select};
 		-ms-user-select: #{$select};
 		-o-user-select: #{$select};
 	}   
-	user-select: #{$select};    
+	user-select: #{$select};
 }
 
 @mixin opacity($opacity:1) {

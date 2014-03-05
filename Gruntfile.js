@@ -1,16 +1,25 @@
-
 module.exports = function(grunt) {
 	grunt.initConfig({
 		// running `grunt sass` will compile once
 		sass: {
 			development: {
 				options: {
-					style: "expanded" // nested compact compressed expanded
+					compress: false,
+                    cleancss: false
 				},
 				files: {
-					"./css/frontsize.css" : "./compile.scss"
+					"test/frontsize.css" : "compile.scss"
 				}
-			}
+			},
+            test: {
+                options: {
+                    compress: false,
+                    cleancss: false
+                },
+                files: {
+                    "test/frontsize.css" : "test.scss"
+                }
+            }
 		},
 		csso: {
             options: {
@@ -18,17 +27,21 @@ module.exports = function(grunt) {
             },
             production: {
                 files: {
-                    "css/frontsize.min.css": ["css/frontsize.css"]
+                    "test/frontsize.min.css": ["test/frontsize.css"]
                 }
             }
         },
 		watch: {
-			files: [
-				"./**/*.scss"
-			],
-			tasks: [
-				"sass:development"
-			]
+			development : {
+                files: [
+                    "*.scss",
+                    "**/*.scss"
+                ],
+                tasks: [
+                    "sass:development",
+                    "csso:production"
+                ]
+            }
 		},
         csslint: {
             options: {
@@ -38,18 +51,27 @@ module.exports = function(grunt) {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['css/frontsize.css']
+                src: ['test/frontsize.css']
+            },
+            test_min: {
+                options: {
+                  csslintrc: '.csslintrc'
+                },
+                src: ['test/frontsize.min.css']
             }
         }
 	});
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks("grunt-contrib-csslint");
-	grunt.loadNpmTasks("grunt-csso");
+
+	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
 	grunt.registerTask("test", [
-        "sass:development",
-        "csso:production",
+        "sass:test",
         "csslint:test"
+    ]);
+
+    grunt.registerTask("test_min", [
+        "sass:test",
+        "csso:production",
+        "csslint:test_min"
     ]);
 };

@@ -2,27 +2,34 @@
 	display: inline-block;
 	padding:0.5em 1em;
 	cursor:pointer;
-	color:$color;
+
+	@include fallbackColor(color, $color);
 	text-shadow:0 1px 0 rgba(255, 255, 255, 0.3);
 	font-weight:bold;
-	border:1px solid saturate(darken($backgroundColor, 20%),2%);
-	border-bottom-color:saturate(darken($backgroundColor, 30%),4%);
+
+	border:1px solid;
+	@include fallbackColor(border-color, saturate(darken($backgroundColor, 20%),2%));
+    @include fallbackColor(border-bottom-color, saturate(darken($backgroundColor, 30%),4%));
 	@include border-radius(100px);
+
 	@include verticalGradient($backgroundColor, 10%);
 	@include box-shadow("0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7)");
 	@include transition(text-shadow .25s ease-out);
+
 	&:hover {
 		@include box-shadow("0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 2px 8px rgba(255, 255, 255, 0.7)");
 	}
+
 	&:active {
-		color:$backgroundColor;
+		@include fallbackColor(color, $backgroundColor);;
 		text-shadow:0 1px 2px rgba(0, 0, 0, 0.4);
-		border-color:darken($color,10%);
+		@include fallbackColor(border-color, darken($color,10%));
 		@include verticalGradient($color, -10%);
 		@include box-shadow("0 1px 0 rgba(255, 255, 255, 0.4), inset 0 2px 8px rgba(0, 0, 0, 0.5)");
 	}
-	&:disabled {
-		cursor:default;
+	
+	&.disabled,
+    &:disabled {
 		opacity:$state-disabled-opacity;
 		&:hover {
 			@include box-shadow("0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7)");

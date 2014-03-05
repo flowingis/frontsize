@@ -103,6 +103,8 @@ $use-css-prefix: true;
 
 $use-ie-filters: false;
 
+$use-fallback-colors: true;
+
 $use-root-path: true;
 //$rootpath: 'css/frontsize/${theme}/img/';
 $root-path: "frontsize-sass/themes/#{$theme}/img/";

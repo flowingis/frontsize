@@ -1,0 +1,31 @@
+@mixin disableOutline() {
+	&:focus{
+		outline: transparent;
+	}
+    @if $use-css-prefix == true {
+		&::-moz-focus-inner {
+			border: 0;
+		}
+	}
+}
+
+@mixin roundTop($radius:6px) {
+	// sets the top radius of the element
+	@include border-radius("#{$radius} #{$radius} 0 0");
+}
+@mixin roundBottom($radius:6px) {
+	// sets the bottom radius of the element
+	@include border-radius("0 0 #{$radius} #{$radius}");
+}
+@mixin roundLeft($radius:6px) {
+	// sets the left radius of the element
+	@include border-radius("#{$radius} 0 0 #{$radius}");
+}
+@mixin roundRight($radius:6px) {
+	// sets the right radius of the element
+	@include border-radius("0 #{$radius} #{$radius} 0");
+}
+
+@mixin outlineBoxShadow($outlineOpacity:0.2, $boxShadow:0 0 0 transparent) {
+	@include box-shadow("0 0 1px rgba(0,0,0,#{$outlineOpacity}), #{$boxShadow}");
+}

@@ -1,0 +1,20 @@
+@mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%) {
+	display: table;
+	width: $tableWidth;
+	> * {
+		@include asTableRow($cellPadding, $verticalAlign);
+	}
+}
+
+@mixin asTableRow($cellPadding:$global-padding, $verticalAlign:middle) {
+	display: table-row;
+	> * {
+		@include asTableCell($cellPadding, $verticalAlign);
+	}
+}
+
+@mixin asTableCell($cellPadding:$global-padding, $verticalAlign:middle) {
+	display: table-cell;
+	padding: $cellPadding;
+	vertical-align: $verticalAlign;
+}

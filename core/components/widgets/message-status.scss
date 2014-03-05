@@ -1,11 +1,17 @@
-@mixin message-status($color:#de6646, $backgroundColor:desaturate(lighten($color,30%),30%), $border:1px solid rgba(0,0,0,0.015), $borderRadius:0.25em, $boxShadow:0 1px 3px rgba(0,0,0,0.075), $margin:0 0 $vertical-padding 0) {
+@mixin message-status($color:#de6646, $backgroundColor:desaturate(lighten($color,30%),30%), $borderStyle:1px solid, $borderColor:rgba(0,0,0,0.015), $borderRadius:0.25em, $boxShadow:0 1px 3px rgba(0,0,0,0.075), $margin:0 0 $vertical-padding 0) {
+	
+	@include box-sizing(border-box);
+
 	width:100%;
 	margin:$margin;
 	padding:($vertical-padding/2em) $horizontal-padding;
-	color:$color;
-	background-color:$backgroundColor;
-	border:$border;
+
+	border:$borderStyle;
+	@include fallbackColor(border-color, $borderColor);
+
+    @include fallbackColor(color, $color);
+    @include fallbackColor(background-color, $backgroundColor);
+	
 	@include border-radius($borderRadius);
 	@include box-shadow($boxShadow);
-	@include box-sizing(border-box);
 }
