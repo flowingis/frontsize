@@ -4,8 +4,13 @@
     "dependencies": {},
     "devDependencies": {
         "matchdep": "*",
-        "sass": "*",
+
+        "phantomjs": "*",
+        "resemblejs": "*",
+        "casperjs": "*",
         "csslint": "*",
+
+        "sass": "*",
         "grunt": "~0.4.1",
         "grunt-contrib-watch": "*",
         "grunt-contrib-sass": "*",

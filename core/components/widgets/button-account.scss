@@ -12,7 +12,6 @@
 	border:1px solid;
 	@include fallbackColor(border-color, saturate(darken($backgroundColor, 8%),8%));
     @include fallbackColor(border-bottom-color, saturate(darken($backgroundColor, 20%),20%));
-	background-color: $backgroundColor;
 
 	@include border-radius(4px);
 	@include verticalGradient($backgroundColor, 10%);

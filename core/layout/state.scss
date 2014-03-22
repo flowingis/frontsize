@@ -230,18 +230,25 @@ $important: important();
 .absolute {
 	position: absolute #{$important};
 	float: none;
-	&.to-bottom {
-		bottom: 0;
-	}
-	&.to-top {
-		top: 0;
-	}
-	&.to-right {
-		right: 0;
-	}
-	&.to-left {
-		left: 0;
-	}
+	z-index: 1;
+}
+
+.fixed {
+    position: fixed;
+    z-index: 1;
+}
+
+.to-bottom {
+    bottom: 0;
+}
+.to-top {
+    top: 0;
+}
+.to-right {
+    right: 0;
+}
+.to-left {
+    left: 0;
 }
 
 .move-bottom-left {

@@ -5,48 +5,49 @@
 // ==               RULES               ===================================================================================================================================
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
-@mixin addViewportsSteps($selector:use-steps, $hdFullMargin:500px, $hdReadyMargin:100px, $tabletLandscapeMargin:50px, $tabletPortraitMargin:20px) {
+@mixin addViewportsSteps($selector:use-steps, $hdFullMargin:500px, $hdReadyMargin:100px, $tabletLandscapeMargin:50px, $tabletPortraitMargin:20px, $width:false) {
 	// Media queries for selectors active from a specific resolution or higher
 	// smartphone viewports were removed to improve width compatibility with all smartphone models
-	.#{$selector} {
-		display: block;
-		margin: auto;
-		@include box-sizing(border-box);
-	}
-	@if ($use-tablet-portrait == true){
-		@media #{$from-tablet-portrait} {
-			// Tablet portrait
-			.#{$selector} {
-				max-width: ($tablet-portrait-step - $tabletPortraitMargin);
+	@if $width == false {
+		@include addStep($selector);
+		@if ($use-tablet-portrait == true){
+			@media #{$from-tablet-portrait} {
+				// Tablet portrait
+				.#{$selector} {
+					max-width: ($tablet-portrait-step - $tabletPortraitMargin);
+				}
 			}
 		}
-	}
 
-	@if ($use-tablet-landscape == true){
-		@media #{$from-tablet-landscape} {
-			// Tablet landscape
-			.#{$selector} {
-				max-width: ($tablet-landscape-step - $tabletLandscapeMargin);
+		@if ($use-tablet-landscape == true){
+			@media #{$from-tablet-landscape} {
+				// Tablet landscape
+				.#{$selector} {
+					max-width: ($tablet-landscape-step - $tabletLandscapeMargin);
+				}
+			}
+		}
+
+		@if ($use-hd-ready == true){
+			@media #{$from-hd-ready} {
+				// HD Ready
+				.#{$selector} {
+					max-width: ($hd-ready-step - $hdReadyMargin);
+				}
+			}
+		}
+
+		@if ($use-hd-full == true){
+			@media #{$from-hd-full} {
+				// Full HD
+				.#{$selector} {
+					max-width: ($hd-full-step - $hdFullMargin);
+				}
 			}
 		}
 	}
-
-	@if ($use-hd-ready == true){
-		@media #{$from-hd-ready} {
-			// HD Ready
-			.#{$selector} {
-				max-width: ($hd-ready-step - $hdReadyMargin);
-			}
-		}
-	}
-
-	@if ($use-hd-full == true){
-		@media #{$from-hd-full} {
-			// Full HD
-			.#{$selector} {
-				max-width: ($hd-full-step - $hdFullMargin);
-			}
-		}
+	@else {
+		@include addStep($selector, $width);
 	}
 }
 

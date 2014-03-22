@@ -7,6 +7,9 @@
 }
 
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
+	@if $use-fallback-colors == true {
+		background-color: rgb(red($color), green($color), blue($color));
+	}
 	@if $use-css-prefix == true {
 		background: -webkit-gradient(#{$color});
 	}
@@ -24,18 +27,23 @@
 	}
 }
 @mixin verticalGradientColors($firstColor:#000000, $lastColor:#FFFFFF) {
+	@if $use-fallback-colors == true {
+		$color: mix($firstColor, $lastColor, 100%);
+		background-color: rgb(red($color), green($color), blue($color));
+	}
 	@include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$firstColor}", endColorstr="#{$lastColor}", GradientType=0);
+	@include ieVerticalGradient($firstColor, $lastColor);
 }
 
 @mixin glossGradient($color: #0A75Bf, $strength: 10%, $borderSize: 0){
+	@if $use-fallback-colors == true {
+		background-color: rgb(red($color), green($color), blue($color));
+	}
 	@if $borderSize != 0{
 		border: $borderSize solid $color;
-    	@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
 	}
-	@else{
-		@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
-	}
+	@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
+	@include ieVerticalGradient(lighten(#{$color}, #{$strength}/2), lighten(#{$color}, #{$strength}));
 }
 
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
@@ -133,7 +141,7 @@
 	@include box-sizing(border-box);
 }
 @mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
-	@if $horizontalPosition == 0{
+	@if ($horizontalPosition == 0){
 		$horizontalPosition : $horizontalPosition;
 	}
 	@else{
