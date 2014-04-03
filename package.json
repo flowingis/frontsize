@@ -15,6 +15,7 @@
         "grunt-contrib-watch": "*",
         "grunt-contrib-sass": "*",
         "grunt-contrib-csslint": "*",
+        "grunt-autoprefixer": "*",
         "grunt-csso": "*"
     },
     "engines": {

@@ -224,18 +224,28 @@
 	}
 }
 
-@mixin font-smoothing($antialias:antialiased) {
-	// Sets the antialias text for the whole page
-	// Values: antialiased | subpixel-antialiased | none
-	@if $use-css-prefix == true {
+@mixin font-smoothing($antialias:antialiased, $forcePrefixes:true) {
+	// added @forcePrefixes to prevent font-smoothing to be skipped when use-css-prefix is false, this is for Chrome only for now
+	@if $forcePrefixes == true{
 	    -webkit-font-smoothing: #{$antialias};
 		-khtml-font-smoothing: #{$antialias};
 		-moz-font-smoothing: #{$antialias};
 		-ms-font-smoothing: #{$antialias};
 		-o-font-smoothing: #{$antialias};
  	}
- 	// this property is not listed in CSS3 specifications
- 	// font-smoothing: #{$antialias};
+ 	@else{
+ 		@if $use-css-prefix == true and $forcePrefixes != true{
+		    -webkit-font-smoothing: #{$antialias};
+			-khtml-font-smoothing: #{$antialias};
+			-moz-font-smoothing: #{$antialias};
+			-ms-font-smoothing: #{$antialias};
+			-o-font-smoothing: #{$antialias};
+	 	}
+ 	}
+ 	// Sets the antialias text for the whole page
+    // Values: antialiased | subpixel-antialiased | none
+    // this property is not listed in CSS3 specification
+    // font-smooth: @antialias;
 }
 
 @mixin column-count($count:auto) {
@@ -711,21 +721,30 @@
 	marks:#{$marks};
 }
 
-@mixin appearance($appearence:normal) {
-	// The appearance property allows you to make an element look like a standard user interface element.
-	// Url - http://css-tricks.com/almanac/properties/a/appearance/
-	// Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
-	// Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
-	// Code snippet:
-	// .appearance(button);
-	@if $use-css-prefix == true {
-		-webkit-appearance: #{$appearence};
+@mixin appearance($appearence:normal, $forcePrefixes:true) {
+	@if $use-css-prefix == false and  $forcePrefixes == true{
+		-webkit-appearance:#{$appearence};
 		-khtml-appearance: #{$appearence};
-		-moz-appearance: #{$appearence};	// For now is not working for form elements radio and checkbox
+		// -moz-appearance: @appearence;   // For now is not working for form elements radio and checkbox
 		-ms-appearance: #{$appearence};
-		-o-appearance: #{$appearence};
+		// -o-appearance: @appearence;     // not working for elements radio and checkbox
 	}
-	appearance: #{$appearence};
+	@else{
+		@if $use-css-prefix == true and  $forcePrefixes == false{
+			-webkit-appearance: #{$appearence};
+			-khtml-appearance: #{$appearence};
+			-moz-appearance: #{$appearence};	// For now is not working for form elements radio and checkbox
+			-ms-appearance: #{$appearence};
+			-o-appearance: #{$appearence};
+		}
+	}
+	// The appearance property allows you to make an element look like a standard user interface element.
+    // Url - http://css-tricks.com/almanac/properties/a/appearance/
+    // Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
+    // Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
+    // Code snippet:
+    // .appearance(button);
+    appearance: #{$appearence};
 }
 
 @mixin linear-gradient($gradient:"top, #FFFFFF, #000000") {

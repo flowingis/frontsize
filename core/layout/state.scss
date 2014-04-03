@@ -81,6 +81,10 @@ $important: important();
 	cursor: default;
 	opacity: $state-disabled-opacity #{$important};
 	@include transition(opacity 0.25s ease-out);
+	@include user-select(none);
+    * {
+        @include user-select(none);
+    }
 }
 
 .invisible {
@@ -178,7 +182,7 @@ $important: important();
 }
 
 .no-line-height {
-	line-height: 0;
+	line-height: 0 #{$important};
 }
 
 .line-height {
@@ -249,6 +253,22 @@ $important: important();
 }
 .to-left {
     left: 0;
+}
+
+.fit,
+.fit-window {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.fit {
+    position: absolute #{$important};
+}
+
+.fit-window {
+    position: fixed #{$important};
 }
 
 .move-bottom-left {
@@ -424,29 +444,24 @@ $important: important();
 	height: auto #{$important};
 }
 
-.nav {
-	padding: 0;
-	&.inline {
-		li {
-			display: inline-block;
-			margin-left: ($horizontal-padding / 2);
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-	}
-	&.vertical {
-		ul {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-	li {
-		list-style-type: none;
-	}
+.list-inline {
+    li {
+        display: inline-block;
+        margin-left: ($horizontal-padding / 2);
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 
+.list-vertical {
+    padding-left: 0;
+    padding-right: 0;
 
+    li {
+        list-style-type: none;
+    }
+}
 
 .table {
 	@include asTable($state-table-padding, middle, 100%);
@@ -456,7 +471,7 @@ $important: important();
 	@include asTable($state-table-padding, top, 100%);
 }
 
-.inline-table {
+.table-inline {
 	@include asTable($state-table-padding, middle, auto);
 }
 

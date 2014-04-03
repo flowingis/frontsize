@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	position: relative;
 }
 
 span,
@@ -14,7 +15,6 @@ strong {
 		}
 	}
 }
-
 
 a[title] {
 	cursor: pointer;
@@ -54,7 +54,6 @@ input[type="password"] {
 
 ul {
 	text-align: left;
-	display: inline-block;
 }
 
 nav {
