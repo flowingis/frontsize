@@ -16,8 +16,12 @@ strong {
 	}
 }
 
-a[title] {
-	cursor: pointer;
+a[title],
+a strong[title],
+a span[title],
+a div[title],
+a b[title] {
+    cursor: pointer;
 }
 
 p,

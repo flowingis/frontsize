@@ -364,7 +364,11 @@ strong[title] {
   strong[title]:hover {
     text-decoration: underline; }
 
-a[title] {
+a[title],
+a strong[title],
+a span[title],
+a div[title],
+a b[title] {
   cursor: pointer; }
 
 p,
