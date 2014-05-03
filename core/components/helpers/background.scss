@@ -164,3 +164,9 @@
 @mixin scaleBackgroundSize($scale, $width, $height:$width) {
     background-size: ($width*$scale) ($height*$scale);
 }
+
+@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width) {
+	&.#{$selector} {
+        @include spritePosition($horizontalPosition, $verticalPosition, $width, $height);
+    }
+}
