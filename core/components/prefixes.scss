@@ -725,7 +725,7 @@
 	@if $use-css-prefix == false and  $forcePrefixes == true{
 		-webkit-appearance:#{$appearence};
 		-khtml-appearance: #{$appearence};
-		// -moz-appearance: @appearence;   // For now is not working for form elements radio and checkbox
+	    -moz-appearance: normal;
 		-ms-appearance: #{$appearence};
 		// -o-appearance: @appearence;     // not working for elements radio and checkbox
 	}
@@ -733,7 +733,7 @@
 		@if $use-css-prefix == true and  $forcePrefixes == false{
 			-webkit-appearance: #{$appearence};
 			-khtml-appearance: #{$appearence};
-			-moz-appearance: #{$appearence};	// For now is not working for form elements radio and checkbox
+			-moz-appearance: normal;
 			-ms-appearance: #{$appearence};
 			-o-appearance: #{$appearence};
 		}

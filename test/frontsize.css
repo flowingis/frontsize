@@ -1648,6 +1648,7 @@ input[type="radio"] {
   cursor: pointer;
   -webkit-appearance: none;
   -khtml-appearance: none;
+  -moz-appearance: normal;
   -ms-appearance: none;
   appearance: none;
   position: relative;
@@ -1676,6 +1677,7 @@ input[type="checkbox"] {
   cursor: pointer;
   -webkit-appearance: none;
   -khtml-appearance: none;
+  -moz-appearance: normal;
   -ms-appearance: none;
   appearance: none;
   position: relative;
@@ -1718,6 +1720,7 @@ label {
 input[type="file"] {
   -webkit-appearance: none;
   -khtml-appearance: none;
+  -moz-appearance: normal;
   -ms-appearance: none;
   appearance: none;
   display: inline-block;
@@ -1758,6 +1761,7 @@ select,
 keygen {
   -webkit-appearance: none;
   -khtml-appearance: none;
+  -moz-appearance: normal;
   -ms-appearance: none;
   appearance: none;
   cursor: pointer;
