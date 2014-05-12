@@ -86,3 +86,13 @@
 		border-bottom-width:8px;
 	}
 }
+
+.keyboard{
+	@include keyboard();
+}
+.keyboard-vintage{ 
+	@include keyboard-vintage();
+}
+.keyboard-commodore{ 
+	@include keyboard-commodore();
+}

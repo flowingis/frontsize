@@ -23,3 +23,7 @@
         @include fallbackColor(background-color, darken($color,5%));
 	}
 }
+
+.button-mini{ 
+	@include button-mini();
+}

@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                     cleancss: false
                 },
                 files: {
-                    "test/frontsize.css" : "test.scss"
+                    "test/frontsize.test.css" : "test.scss"
                 }
             }
 		},
@@ -41,8 +41,14 @@ module.exports = function(grunt) {
                 files: {
                     "test/frontsize.min.css": ["test/frontsize.css"]
                 }
+            },
+            test: {
+                files: {
+                    "test/frontsize.test.min.css": ["test/frontsize.test.css"]
+                }
             }
         },
+
 		watch: {
 			development : {
                 files: [
@@ -51,10 +57,10 @@ module.exports = function(grunt) {
                 ],
                 tasks: [
                     "sass:development",
-                    "csso:production"
                 ]
             }
 		},
+
         csslint: {
             options: {
                 csslintrc: '.csslintrc'
@@ -63,13 +69,13 @@ module.exports = function(grunt) {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['test/frontsize.css']
+                src: ['test/frontsize.test.css']
             },
             test_min: {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['test/frontsize.min.css']
+                src: ['test/frontsize.test.min.css']
             },
             test_prefixed: {
                 options: {
@@ -88,14 +94,26 @@ module.exports = function(grunt) {
         "csslint:test_prefixed" 
     ]);
 
+    grunt.registerTask("test_all", [
+        "test",
+        "test_min",
+        "production"
+    ]);
+
 	grunt.registerTask("test", [
         "sass:test",
+        "csso:test",
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
         "sass:test",
-        "csso:production",
+        "csso:test",
         "csslint:test_min"
+    ]);
+
+    grunt.registerTask("production", [
+        "sass:development",
+        "csso:production"
     ]);
 };

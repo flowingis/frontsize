@@ -46,3 +46,7 @@
 		}
 	}
 }
+
+.paginator-circular{ 
+	@include paginator-circular();
+}

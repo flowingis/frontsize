@@ -32,3 +32,10 @@
 		cursor: default;
 	}
 }
+
+.area-hifi{ 
+	@include area-hifi();
+}
+.button-hifi{ 
+	@include button-hifi();
+}

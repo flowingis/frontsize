@@ -6,3 +6,7 @@
 		border:$borderWidth solid white;
 	}
 }
+
+.pic{ 
+	@include pic();
+}

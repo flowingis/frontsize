@@ -45,3 +45,7 @@
         @include fallbackColor(border-bottom-color, darken($offColor,10%));
 	}
 }
+
+.switch{
+	@include switch();
+}

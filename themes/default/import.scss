@@ -6,9 +6,61 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
+@import "widgets/button-account";
+@import "widgets/button-box";
+@import "widgets/button-dark-metal";
+@import "widgets/button-metal";
+@import "widgets/button-mini";
+@import "widgets/hifi";
+@import "widgets/keyboard";
+@import "widgets/message-status";
+@import "widgets/paginator-circular";
+@import "widgets/pic";
+@import "widgets/switch";
+@import "widgets/tabs";
+@import "widgets/text-buried";
+
+@import "base/embedded-img";
+@import "base/form-datalist";
+@import "base/form-fieldset";
+@import "base/form-input-checkbox";
+@import "base/form-input-file";
+@import "base/form-input-radio";
+@import "base/form-input-range";
+@import "base/form-input-submit-button";
+@import "base/form-input-text-textarea";
+@import "base/form-label";
+@import "base/form-legend";
+@import "base/form-meter";
+@import "base/form-output";
+@import "base/form-progress";
+@import "base/form-select-option";
+@import "base/form";
+@import "base/grouping-blockquote";
+@import "base/grouping-dd-dl-dt";
+@import "base/grouping-figcaption";
+@import "base/grouping-hr";
+@import "base/grouping-p";
+@import "base/grouping-pre";
+@import "base/grouping-ul-ol-li";
+@import "base/section-body";
+@import "base/section-h1-h6";
+@import "base/table-caption";
+@import "base/table-td";
+@import "base/table-tfoot";
+@import "base/table-th";
+@import "base/table";
+@import "base/text-a";
+@import "base/text-abbr";
+@import "base/text-code-var";
+@import "base/text-kbd";
+@import "base/text-mark";
+@import "base/text-s";
+@import "base/text-samp";
+@import "base/text-small";
+@import "base/text-span";
+
 @import "vars";
-@import "base/a";
-@import "base/base";
 @import "extra/fix";
 @import "config";
 

@@ -16,3 +16,7 @@
 		border:none;
 	}
 }
+
+.button-box{ 
+	@include button-box();
+}

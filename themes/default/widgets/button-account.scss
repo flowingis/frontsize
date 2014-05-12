@@ -29,3 +29,16 @@
 		@include verticalGradient($backgroundColor, 0%);
 	}
 }
+
+.facebook-account{
+	@include button-account(#5670a6);
+}
+.google-account{ 
+	@include button-account(#d55a4a);
+}
+.twitter-account{ 
+	@include button-account(#53bbef); 
+}
+.github-account{ 
+	@include button-account(#cdcdcd, darken(rgb(192,192,192),15%), rgba(255,255,255,.3));
+}

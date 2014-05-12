@@ -15,3 +15,7 @@
 	@include border-radius($borderRadius);
 	@include box-shadow($boxShadow);
 }
+
+.message-status{ 
+	@include message-status();
+}

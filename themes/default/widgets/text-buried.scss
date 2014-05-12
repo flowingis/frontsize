@@ -20,3 +20,8 @@
 		left:$offset;
 	}
 }
+
+.text-buried{ 
+	@include text-buried();
+}
+		

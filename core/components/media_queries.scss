@@ -5,6 +5,17 @@
 // ==               RULES               ===================================================================================================================================
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
+@media #{$display-retina} {
+    .not-retina-only {
+        display:none;
+    }
+}
+
+@media #{$display-standard} {
+    .retina-only {
+        display:none;
+    }
+}
 
 @mixin addViewportsSteps($selector:use-steps, $hdFullMargin:500px, $hdReadyMargin:100px, $tabletLandscapeMargin:50px, $tabletPortraitMargin:20px, $width:false) {
 	// Media queries for selectors active from a specific resolution or higher
