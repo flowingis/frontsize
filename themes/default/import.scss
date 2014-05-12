@@ -7,10 +7,9 @@
 // ========================================================================================================================================================================
 
 @import "vars";
-@import "layout/base";
+@import "base/a";
+@import "base/base";
 @import "extra/fix";
-@import "components/widgets";
-@import "components/helpers";
 @import "config";
 
 // @import "extra/media_queries";

@@ -5,7 +5,7 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-@include useFrontsizeWidgets();
+//@include useFrontsizeWidgets();
 
 // set font scaling to change the font size depending by different resolutions
 @include setFontScaling();
@@ -26,4 +26,5 @@
 
 // set the margins
 @include addColumnsSet(12);
+@include addMarginOffset(12);
 @include addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);

@@ -1,0 +1,57 @@
+@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include backgroundImage($image);
+	}
+	@else{
+		@include backgroundImage($image, $rootPath);
+	}
+	background-repeat:no-repeat;
+	background-size:$backgroudSize;
+	@include size($width, $height);
+	@include box-sizing(border-box);
+}
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
+	@if ($horizontalPosition == 0){
+		$horizontalPosition : $horizontalPosition;
+	}
+	@else{
+		$horizontalPosition : $horizontalPosition*$width;
+	}
+
+	@if $verticalPosition == 0{
+		$verticalPosition : $verticalPosition;
+	}
+	@else{
+		$verticalPosition : $verticalPosition*$height;
+	}
+	background-position: (-#{($horizontalPosition)}) (-#{$verticalPosition});
+}
+
+@mixin spriteCoordinates($positionX:0, $positionY:0) {
+	background-position: (-$positionX) (-$positionY);
+}
+
+@mixin scaleBackgroundSize($scale, $width, $height:$width) {
+    background-size: ($width*$scale) ($height*$scale);
+}
+
+@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width) {
+	&.#{$selector} {
+        @include spritePosition($horizontalPosition, $verticalPosition, $width, $height);
+    }
+}
+
+@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0, $rootPath:$root-path) {
+	@if $use-root-path == false{
+		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight);
+		@media #{$display-retina} {
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight);
+		}
+	}
+	@else{
+		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $rootPath);
+		@media #{$display-retina} {
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $rootPath);
+		}
+	}
+}

@@ -13,12 +13,43 @@ Website:   https://github.com/AlessandroMinoccheri
 @import "themes/default/app";
 @import "core/lib/normalize";
 @import "core/components/functions";
+@import "core/components/margin";
+@import "core/components/media_queries";
+@import "core/components/padding";
 @import "core/components/prefixes";
+@import "core/components/print";
+@import "core/components/typography";
+
 @import "core/layout/base";
 @import "core/core";
-@import "core/components/helpers";
-@import "core/components/retina";
-@import "core/components/widgets";
+
+@import "core/helpers/background";
+@import "core/helpers/background_retina";
+@import "core/helpers/border";
+@import "core/helpers/compatibility";
+@import "core/helpers/positioning";
+@import "core/helpers/sizing";
+@import "core/helpers/sprite";
+@import "core/helpers/table";
+@import "core/helpers/text";
+@import "core/helpers/transition";
+
+@import "core/widgets/button-account";
+@import "core/widgets/button-box";
+@import "core/widgets/button-dark-metal";
+@import "core/widgets/button-metal";
+@import "core/widgets/button-mini";
+@import "core/widgets/hifi";
+@import "core/widgets/keyboard";
+@import "core/widgets/message-status";
+@import "core/widgets/paginator-circular";
+@import "core/widgets/pic";
+@import "core/widgets/switch";
+@import "core/widgets/tabs";
+@import "core/widgets/text-buried";
+
+@import "core/widgets/_load_widget.scss";
+
 @import "core/components/media_queries";
 @import "core/components/print";
 @import "core/layout/state";

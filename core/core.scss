@@ -171,6 +171,152 @@ $print-viewport: $only-tablet-portrait;
 	}
 } 
 
+/* private */@mixin addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:-of-) {
+    $startIndex: $totalSteps;
+    @include loopColumnMarginOffset($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
+}
+
+/* private */@mixin addFillToMarginOffset($prefix, $totalSteps, $fillViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:-of-) {
+    $startIndex: $totalSteps;
+    @include loopMarginOffsetFill($prefix, $totalSteps, $fillViewport, $startIndex, $viewTotalColumns, $columnsSeparator);
+}
+
+/* private */@mixin preventSmartphoneMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:-of-) {
+	@if $use-smartphone-landscape == true {
+	    $startIndex: $totalSteps;
+	    @media #{$till-tablet-portrait} {
+	        // Smartphone landscape
+	        @include loopSmartphoneColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+	    }
+	}
+}
+
+@mixin loopColumnMarginOffset ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+	$nextRule:"";
+	@if $viewTotalColumns == true{
+		@while $index >= 0{
+	  		@if $index == $total{
+	  			$nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+	  		}
+	  		@else{
+	  			@if $index > 0{
+	  				$nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+	  			}
+	  		}
+
+	  		@if $index > 0{
+	  			.#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+			        @include setColumnMarginOffsetStep($index, $total);
+			    }
+	  		}
+
+	  		@if $index == 0{
+	  			//
+	  		}
+	  		
+	  		$index: $index - 1;
+		}
+	}
+	@else{
+		@while $index >= 0{
+	  		@if $index == $total{
+	  			$nextRule: ".#{$prefix}#{$index}";
+	  		}
+	  		@else {
+	  			@if $index > 0{
+	  				$nextRule: $nextRule + ", .#{$prefix}#{$index}";
+	  			}
+	  		}
+
+	  		@if $index > 0{
+	  			.#{$prefix}#{$index} {
+			        @include setColumnMarginOffsetStep($index, $total);
+			    }
+	  		}
+
+	  		@if $index == 0{
+	  			//
+	  		}
+	  		
+	  		$index: $index - 1;
+		}
+	}
+}
+
+/* private */@mixin loopSmartphoneMarginOffset($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
+	@while $index >= 0{
+		 @if $index > 0 and $viewTotalColumns == true {
+			.#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+				@include setColumnMarginOffsetStep($index, $total);
+			}
+		}
+		@if $index > 0 and $viewTotalColumns == false {
+			.#{$prefix}#{$index} {
+				@include setColumnMarginOffsetStep($index, $total);
+			}
+		}
+		$index: $index - 1;
+	}
+}
+
+/* private */@mixin loopMarginOffsetFill($prefix, $total, $fill, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+	$nextRule:"";
+	@while $index >= 0{
+		@if $index == $total and $viewTotalColumns == true{
+			$nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+		}
+		@if $index == $total and $viewTotalColumns == false{
+			$nextRule: ".#{$prefix}#{$index}";
+		}
+
+		@if $index > 0 and $index < $total and $viewTotalColumns == true{
+			$nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+		}
+
+		@if $index > 0 and $index < $total and $viewTotalColumns == false{
+			$nextRule: $nextRule + ", .#{$prefix}#{$index}";
+		}
+
+		@if $fill == "tablet-landscape" and $index == 0 and $use-tablet-landscape == true{
+			@media #{$till-hd-ready} {
+				#{$nextRule} {
+					margin-left: 0;
+				}
+			}
+		}
+
+		@if $fill == "tablet-portrait" and $index == 0 and $use-tablet-portrait == true{
+			@media #{$till-tablet-landscape} {
+				#{$nextRule} {
+					margin-left: 0;
+				}
+			}
+		}
+
+		@if $fill == "smartphone-landscape" and $index == 0 and $use-smartphone-landscape == true{
+			@media #{$till-tablet-portrait} {
+				#{$nextRule} {
+					margin-left: 0;
+				}
+			}
+		}
+
+		@if $fill == "smartphone-portrait" and $index == 0 and $use-smartphone-portrait == true{
+			@media #{$till-smartphone-landscape} {
+				#{$nextRule} {
+					margin-left: 0;
+				}
+			}
+		}
+
+		$index: $index - 1;
+	}
+}
+
+/* private */@mixin setColumnMarginOffsetStep($step, $columns) {
+	margin-left:((100% * $step)/$columns);
+}
+
 @mixin loopSmartphoneColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
 	@while $index >= 0{
 		 @if $index > 0 and $viewTotalColumns == true {

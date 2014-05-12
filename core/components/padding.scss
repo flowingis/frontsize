@@ -1,0 +1,89 @@
+@mixin addPaddingRule($selector, $hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			.#{$selector} { padding:$smartphonePortraitPadding; }
+		}
+	}
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			.#{$selector} { padding:$smartphoneLandscapePadding; }
+		}
+	}
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.#{$selector} { padding:$tabletPortraitPadding; }
+		}
+	}
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.#{$selector} { padding:$tabletLandscapePadding; }
+		}
+	}
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			.#{$selector} { padding:$hdReadyPadding; }
+		}
+	}
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			.#{$selector} { padding:$hdFullPadding; }
+		}
+	}
+}
+
+@mixin setViewportsPadding($hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
+	// Media queries for selectors active from a specific resolution or higher
+	@if ($use-smartphone-portrait == true){
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			padding:$smartphonePortraitPadding;
+		}
+	}
+
+	@if ($use-smartphone-landscape == true){
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			padding:$smartphoneLandscapePadding;
+		}
+	}
+
+	@if ($use-tablet-portrait == true){
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			padding:$tabletPortraitPadding;
+		}
+	}
+
+	@if ($use-tablet-landscape == true){
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			padding:$tabletLandscapePadding;
+		}
+	}
+
+	@if ($use-hd-ready == true){
+		@media #{$from-hd-ready} {
+			// HD Ready
+			padding:$hdReadyPadding;
+		}
+	}
+
+	@if ($use-hd-full == true){
+		@media #{$from-hd-full} {
+			// Full HD
+			padding:$hdFullPadding;
+		}
+	}
+}

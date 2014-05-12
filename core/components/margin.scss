@@ -1,0 +1,115 @@
+@mixin addMarginRule($selector, $hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    @include addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin);
+    @include addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin);
+    @include addMarginRuleTabletPortrait($selector, $tabletPortraitMargin);
+    @include addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin);
+    @include addMarginRuleHdReady($selector, $hdReadyMargin);
+    @include addMarginRuleHdFull($selector, $hdFullMargin);
+}
+@mixin addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin) {
+    @if $use-smartphone-portrait == true {
+        @media #{$from-smartphone-portrait} {
+            // Smartphone portrait
+            .#{$selector} { margin: $smartphonePortraitMargin; }
+        }
+    }
+}
+@mixin addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin) {
+    @if $use-smartphone-landscape == true {
+        @media #{$from-smartphone-landscape} {
+            // Smartphone landscape
+            .#{$selector} { margin: $smartphoneLandscapeMargin; }
+        }
+    }
+}
+@mixin addMarginRuleTabletPortrait($selector, $tabletPortraitMargin) {
+    @if $use-tablet-portrait == true {
+        @media #{$from-tablet-portrait} {
+            // Tablet portrait
+            .#{$selector} { margin: $tabletPortraitMargin; }
+        }
+    }
+}
+@mixin addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin) {
+    @if $use-tablet-landscape == true {
+        @media #{$from-tablet-landscape} {
+            // Tablet landscape
+            .#{$selector} { margin: $tabletLandscapeMargin; }
+        }
+    }
+}
+@mixin addMarginRuleHdReady($selector, $hdReadyMargin) {
+    @if $use-hd-ready == true {
+        @media #{$from-hd-ready} {
+            // HD Ready
+            .#{$selector} { margin: $hdReadyMargin; }
+        }
+    }
+}
+@mixin addMarginRuleHdFull($selector, $hdFullMargin) {
+    @if $use-hd-full == true {
+        @media #{$from-hd-full} {
+            // Full HD
+            .#{$selector} { margin: $hdFullMargin; }
+        }
+    }
+}
+
+@mixin setViewportsMargin($hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    @include setViewportsMarginSmartphonePortrait($smartphonePortraitMargin);
+    @include setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin);
+    @include setViewportsMarginTabletPortrait($tabletPortraitMargin);
+    @include setViewportsMarginTabletLandscape($tabletLandscapeMargin);
+    @include setViewportsMarginHdReady($hdReadyMargin);
+    @include setViewportsMarginHdFull($hdFullMargin);
+}
+@mixin setViewportsMarginSmartphonePortrait($smartphonePortraitMargin) {
+    @if $use-smartphone-portrait == true {
+        @media #{$from-smartphone-portrait} {
+            // Smartphone portrait
+            margin: $smartphonePortraitMargin;
+        }
+    }
+}
+@mixin setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin) {
+    @if $use-smartphone-landscape == true {
+        @media #{$from-smartphone-landscape} {
+            // Smartphone landscape
+            margin: $smartphoneLandscapeMargin;
+        }
+    }
+}
+@mixin setViewportsMarginTabletPortrait($tabletPortraitMargin) {
+    @if $use-tablet-portrait == true {
+        @media #{$from-tablet-portrait} {
+            // Tablet portrait
+            margin: $tabletPortraitMargin;
+        }
+    }
+}
+@mixin setViewportsMarginTabletLandscape($tabletLandscapeMargin) {
+    @if $use-tablet-landscape == true {
+        @media #{$from-tablet-landscape} {
+            // Tablet landscape
+            margin: $tabletLandscapeMargin;
+        }
+    }
+}
+@mixin setViewportsMarginHdReady($hdReadyMargin) {
+    @if $use-hd-ready == true {
+        @media #{$from-hd-ready} {
+            // HD Ready
+            margin: $hdReadyMargin;
+        }
+    }
+}
+@mixin setViewportsMarginHdFull($hdFullMargin) {
+    @if $use-hd-full == true {
+        @media #{$from-hd-full} {
+            // Full HD
+            margin: $hdFullMargin;
+        }
+    }
+}
