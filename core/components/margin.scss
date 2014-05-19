@@ -113,3 +113,56 @@
         }
     }
 }
+
+@mixin addMarginSelector($selector:false, $verticalMargin:$vertical-padding, $horizontalMargin:$horizontal-padding){
+    @if $selector != false{
+        #{$selector}-margin {
+            padding: $verticalMargin $horizontalMargin $important;
+        }
+        #{$selector}-vertical-margin {
+            padding-bottom: $verticalMargin $important;
+            padding-top: $verticalMargin $important;
+        }
+        #{$selector}-bottom-margin {
+            padding-bottom: $verticalMargin $important;
+        }
+        #{$selector}-top-margin {
+            padding-top: $verticalMargin $important;
+        }
+        #{$selector}-horizontal-margin {
+            padding-left: $horizontalMargin $important;
+            padding-right: $horizontalMargin $important;
+        }
+        #{$selector}-left-margin {
+            padding-left: $horizontalMargin $important;
+        }
+        #{$selector}-right-margin {
+            padding-right: $horizontalMargin $important;
+        }
+    }
+    @else{
+        .with-margin {
+            padding: $verticalMargin $horizontalMargin $important;
+        }
+        .vertical-margin {
+            padding-bottom: $verticalMargin $important;
+            padding-top: $verticalMargin $important;
+        }
+        .bottom-margin {
+            padding-bottom: $verticalMargin $important;
+        }
+        .top-margin {
+            padding-top: $verticalMargin $important;
+        }
+        .horizontal-margin {
+            padding-left: $horizontalMargin $important;
+            padding-right: $horizontalMargin $important;
+        }
+        .left-margin {
+            padding-left: $horizontalMargin $important;
+        }
+        .right-margin {
+            padding-right: $horizontalMargin $important;
+        } 
+    }
+}
