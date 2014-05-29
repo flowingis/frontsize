@@ -143,36 +143,32 @@
 	}
 }
 
-@mixin addColumnsSet($steps:12, $hdViewportPrefix:hd-, $tabletViewportPrefix:tablet-, $smartphoneViewportPrefix:smartphone-, $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:-of-) {
-	@if ($use-smartphone-portrait == true){
-		@media #{$from-smartphone-portrait} {
-			// Smartphone portrait
-			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		}
-	}
+@mixin addColumnsSet($hdSteps:12, $tabletSteps:$hdSteps, $smartphoneSteps:$tabletSteps, $hdViewportPrefix:hd-, $tabletViewportPrefix:tablet-, $smartphoneViewportPrefix:smartphone-, $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:-of-, $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
 
-	@if ($use-tablet-portrait == true){
-		@media #{$from-tablet-portrait} {
-			// Tablet portrait
-			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		}
-	}
+    @media #{$from-smartphone-portrait} {
+        // Smartphone portrait
+        @include addColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+    }
 
-	@if ($use-hd-ready == true){
-		@media #{$from-hd-ready} {
-			// HD Ready
-			@include addColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($tabletViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-			@include addColumnSet($hdViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
-		}
-	}
-	@include addFillToColumnSet($tabletViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
-	@include addFillToColumnSet($hdViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
-	@include preventSmartphoneColumnSet($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
+    @media #{$from-tablet-portrait} {
+        // Tablet portrait
+        @include addColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @media #{$from-hd-ready} {
+        // HD Ready
+        @include addColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include addColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @include addFillToColumnSet($tabletViewportPrefix, $tabletSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    @include addFillToColumnSet($hdViewportPrefix, $hdSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    @include preventSmartphoneColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
 }
 
 @mixin addMarginOffset($steps:12, $hdViewportPrefix:hd-offset-, $tabletViewportPrefix:tablet-offset-, $smartphoneViewportPrefix:smartphone-offset-, $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:-of-, $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
