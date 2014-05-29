@@ -175,9 +175,6 @@
     @include addMarginOffsetSmartphonePortrait($steps, $hdViewportPrefix, $tabletViewportPrefix, $smartphoneViewportPrefix, $viewTotalColumns, $columnsSeparator, $useSmartphoneRules);
     @include addMarginOffsetTabletPortrait($steps, $hdViewportPrefix, $tabletViewportPrefix, $smartphoneViewportPrefix, $viewTotalColumns, $columnsSeparator, $useTabletRules);
     @include addMarginOffsetHdReady($steps, $hdViewportPrefix, $tabletViewportPrefix, $smartphoneViewportPrefix, $viewTotalColumns, $columnsSeparator, $useHdRules);
-    @include addFillToMarginOffset($tabletViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
-    @include addFillToMarginOffset($hdViewportPrefix, $steps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
-    @include preventSmartphoneMarginOffset($smartphoneViewportPrefix, $steps, $viewTotalColumns, $columnsSeparator);
 }
 
 /* private */@mixin addMarginOffsetSmartphonePortrait($steps, $hdViewportPrefix, $tabletViewportPrefix, $smartphoneViewportPrefix, $viewTotalColumns, $columnsSeparator, $useSmartphoneRules) {
