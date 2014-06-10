@@ -114,55 +114,55 @@
     }
 }
 
-@mixin addMarginSelector($selector:false, $verticalMargin:$vertical-padding, $horizontalMargin:$horizontal-padding){
+@mixin addMarginSelector($selector:false, $verticalMargin:$vertical-margin, $horizontalMargin:$horizontal-margin){
     @if $selector != false{
         #{$selector}-margin {
-            padding: $verticalMargin $horizontalMargin $important;
+            margin: $verticalMargin $horizontalMargin $important;
         }
         #{$selector}-vertical-margin {
-            padding-bottom: $verticalMargin $important;
-            padding-top: $verticalMargin $important;
+            margin-bottom: $verticalMargin $important;
+            margin-top: $verticalMargin $important;
         }
         #{$selector}-bottom-margin {
-            padding-bottom: $verticalMargin $important;
+            margin-bottom: $verticalMargin $important;
         }
         #{$selector}-top-margin {
-            padding-top: $verticalMargin $important;
+            margin-top: $verticalMargin $important;
         }
         #{$selector}-horizontal-margin {
-            padding-left: $horizontalMargin $important;
-            padding-right: $horizontalMargin $important;
+            margin-left: $horizontalMargin $important;
+            margin-right: $horizontalMargin $important;
         }
         #{$selector}-left-margin {
-            padding-left: $horizontalMargin $important;
+            margin-left: $horizontalMargin $important;
         }
         #{$selector}-right-margin {
-            padding-right: $horizontalMargin $important;
+            margin-right: $horizontalMargin $important;
         }
     }
     @else{
         .with-margin {
-            padding: $verticalMargin $horizontalMargin $important;
+            margin: $verticalMargin $horizontalMargin $important;
         }
         .vertical-margin {
-            padding-bottom: $verticalMargin $important;
-            padding-top: $verticalMargin $important;
+            margin-bottom: $verticalMargin $important;
+            margin-top: $verticalMargin $important;
         }
         .bottom-margin {
-            padding-bottom: $verticalMargin $important;
+            margin-bottom: $verticalMargin $important;
         }
         .top-margin {
-            padding-top: $verticalMargin $important;
+            margin-top: $verticalMargin $important;
         }
         .horizontal-margin {
-            padding-left: $horizontalMargin $important;
-            padding-right: $horizontalMargin $important;
+            margin-left: $horizontalMargin $important;
+            margin-right: $horizontalMargin $important;
         }
         .left-margin {
-            padding-left: $horizontalMargin $important;
+            margin-left: $horizontalMargin $important;
         }
         .right-margin {
-            padding-right: $horizontalMargin $important;
+            margin-right: $horizontalMargin $important;
         } 
     }
 }
