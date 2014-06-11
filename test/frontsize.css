@@ -2195,6 +2195,7 @@ body {
   color: #7b8284;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
   font-family: "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1.25;
   background-color: #FCFCFC;
   -webkit-font-smoothing: antialiased;
   -khtml-font-smoothing: antialiased;
