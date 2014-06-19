@@ -651,6 +651,13 @@ nav ul {
 .line-through {
   text-decoration: line-through !important; }
 
+.up-first-letter-only {
+  text-transform: lowercase !important; }
+
+.up-first-letter:first-letter,
+.up-first-letter-only:first-letter {
+  text-transform: uppercase !important; }
+
 .italic {
   font-style: italic !important; }
 
