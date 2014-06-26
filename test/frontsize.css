@@ -907,8 +907,10 @@ nav ul {
   display: table;
   width: 100%; }
   .table > * {
+    float: none;
     display: table-row; }
     .table > * > * {
+      float: none;
       display: table-cell;
       padding: 0.5em;
       vertical-align: middle; }
@@ -917,8 +919,10 @@ nav ul {
   display: table;
   width: 100%; }
   .table-top > * {
+    float: none;
     display: table-row; }
     .table-top > * > * {
+      float: none;
       display: table-cell;
       padding: 0.5em;
       vertical-align: top; }
@@ -927,23 +931,28 @@ nav ul {
   display: table;
   width: auto; }
   .table-inline > * {
+    float: none;
     display: table-row; }
     .table-inline > * > * {
+      float: none;
       display: table-cell;
       padding: 0.5em;
       vertical-align: middle; }
 
 .cell {
+  float: none;
   display: table-cell;
   padding: 0;
   vertical-align: middle; }
 
 .cell-top {
+  float: none;
   display: table-cell;
   padding: 0;
   vertical-align: top; }
 
 .cell-bottom {
+  float: none;
   display: table-cell;
   padding: 0;
   vertical-align: bottom; }
@@ -1688,6 +1697,7 @@ nav ul {
   display: inline-block;
   padding: 0; }
   .paginator-circular > * {
+    float: none;
     display: table-cell;
     padding: 0 0.5em;
     vertical-align: middle; }
