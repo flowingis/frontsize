@@ -1,3 +1,72 @@
+@mixin setLineHeightScaling($hdFull:($font-line-height + ($font-line-height/2)), $hdReady:($font-line-height + ($font-line-height/4)), $tabletLandscape:$font-line-height, $tabletPortrait:$font-line-height, $smartphoneLandscape:$font-line-height, $smartphonePortrait:$font-line-height) {
+    @include setLineHeightScalingSmartphonePortrait($smartphonePortrait);
+    @include setLineHeightScalingSmartphoneLandscape($smartphoneLandscape);
+    @include setLineHeightScalingTabletPortrait($tabletPortrait);
+    @include setLineHeightScalingTabletLandscape($tabletLandscape);
+    @include setLineHeightScalingHdReady($hdReady);
+    @include setLineHeightScalingHdFull($hdFull);
+}
+@mixin setLineHeightScalingSmartphonePortrait($smartphonePortrait){
+	@if ($use-smartphone-portrait == true){
+	    @media #{$from-smartphone-portrait} {
+	        // Smartphone portrait
+	        body {
+	            line-height: $smartphonePortrait;
+	        }
+    	}
+	}
+}
+@mixin setLineHeightScalingSmartphoneLandscape($smartphoneLandscape){
+	@if ($use-smartphone-landscape == true){
+	    @media #{$from-smartphone-landscape} {
+	        // Smartphone landscape
+	        body {
+	            line-height: $smartphoneLandscape;
+	        }
+	    }
+ 	}   
+}
+@mixin setLineHeightScalingTabletPortrait($tabletPortrait){
+	@if ($use-tablet-portrait == true){
+	    @media #{$from-tablet-portrait} {
+	        // Tablet portrait
+	        body {
+	            line-height: $tabletPortrait;
+	        }
+	    }
+	}
+}
+@mixin setLineHeightScalingTabletLandscape($tabletLandscape){
+	@if ($use-tablet-landscape == true){
+	    @media #{$from-tablet-landscape} {
+	        // Tablet landscape
+	        body {
+	            line-height: $tabletLandscape;
+	        }
+	    }
+	}
+}
+@mixin setLineHeightScalingHdReady($hdReady){
+    @if ($use-hd-ready == true){
+	    @media #{$from-hd-ready} {
+	        // HD Ready
+	        body {
+	            line-height: $hdReady;
+	        }
+	    }
+	}
+}
+@mixin setLineHeightScalingHdFull($hdFull){
+	@if ($use-hd-full == true){
+	    @media #{$from-hd-full} {
+	        // Full HD
+	        body {
+	            line-height: $hdFull;
+	        }
+	    }
+	}
+}
+
 @mixin setFontScaling($hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $smartphoneLandscape:$font-size, $smartphonePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
 	// Media queries for selectors active from a specific resolution or higher
 	@if ($use-smartphone-portrait == true){
