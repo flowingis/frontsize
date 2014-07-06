@@ -4,7 +4,7 @@
 
 	width:100%;
 	margin:$margin;
-	padding:($vertical-padding/2em) $horizontal-padding;
+	padding:($vertical-padding/2,em) $horizontal-padding;
 
 	border:$borderStyle;
 	@include fallbackColor(border-color, $borderColor);

@@ -6,36 +6,37 @@
 // ========================================================================================================================================================================
 
 // font sizes for h# elements 
-$h1: 2em;
-$h2: 1.75em;
-$h3: 1.5em;
-$h4: 1.25em;
-$h5: 1.125em;
-$h6: 1em;
+$h1: 32px;
+$h2: 28px;
+$h3: 24px;
+$h4: 20px;
+$h5: 18px;
+$h6: 16px;
 
-$font-size: 1em;
-$font-small-size: 0.75em;
+// Font sizes
+$font-size: 16px;
+$font-small-size: 13px;
 
-$font-sans:			"helvetica neue", helvetica, arial, sans-serif;
-$font-serif:		georgia, "times new roman", times, serif;
-$font-monospace:	menlo, monaco, "courier new", monospace;
-$font-small:		"lucida grande", tahoma, verdana, arial, sans-serif;
+$font-sans: 'helvetica neue', helvetica, arial, sans-serif;
+$font-serif: georgia, 'times new roman', times, serif;
+$font-monospace: menlo, monaco, 'courier new', monospace;
+$font-small: 'lucida grande', tahoma, verdana, arial, sans-serif;
 
 $font-default-color: #7b8284;
 $font-default: $font-sans;
 $font-heading: $font-sans;
 $font-line-height:	1.25;
 
+$global-step: 24px;
 
-// ========================================================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ==              PADDING              ===================================================================================================================================
-// ==               VARS                ===================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ========================================================================================================================================================================
+$font-line-height: $global-step;
+$font-weight: 300;
+$font-color: #898989;
 
-$horizontal-padding: 1em;
-$vertical-padding: 1em;
+
+// Global padding configuration
+$horizontal-padding: $global-step;
+$vertical-padding: $global-step;
 $global-padding: $vertical-padding $horizontal-padding;
 
 // ========================================================================================================================================================================
@@ -47,7 +48,7 @@ $global-padding: $vertical-padding $horizontal-padding;
 $state-important: true;
 $state-faded-opacity: 0.5;
 $state-disabled-opacity: 0.5;
-$state-table-padding: 0.5em;
+$state-table-padding: 12px;
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -72,6 +73,7 @@ $use-tablet-portrait:      true;
 $use-tablet-landscape:     true;
 $use-hd-ready:             true;
 $use-hd-full:              true;
+$use-viewport-states:      true;
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -82,7 +84,7 @@ $use-hd-full:              true;
 
 $theme: "default";
 
-$use-css-prefix: false;
+$use-css-prefix: true;
 // enable or disable browser specific CSS3 prefixes:
 
 // if $use-css-prefix is set to TRUE
@@ -107,7 +109,7 @@ $use-fallback-colors: true;
 
 $use-root-path: true;
 //$rootpath: 'css/frontsize/${theme}/img/';
-$root-path: "frontsize-sass/themes/#{$theme}/img/";
+$root-path: "/css/frontsize-less/themes/#{$theme}/img/";
 
 $use-core-widgets: true
 
