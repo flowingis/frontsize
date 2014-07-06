@@ -3355,8 +3355,7 @@ span {
   .mini-font {
     font-size: 11px !important; } }
 .row,
-.row *,
-.row > * {
+.row * {
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
   -moz-box-sizing: border-box;
