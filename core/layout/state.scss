@@ -174,8 +174,9 @@ $important: important();
 	font-family: $font-small #{$important};
 }
 
-.unselectable {
-	@include user-select(none);
+.unselectable,
+.unselectable * {
+    @include user-select(none);
 }
 
 .no-wrap {

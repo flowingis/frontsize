@@ -744,7 +744,8 @@ nav ul {
 .font-small {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif !important; }
 
-.unselectable {
+.unselectable,
+.unselectable * {
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
