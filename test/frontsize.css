@@ -744,6 +744,11 @@ nav ul {
 .font-small {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif !important; }
 
+.comma-separated > *:after {
+  content: ",\00a0"; }
+.comma-separated > *:last-child:after {
+  content: ""; }
+
 .unselectable,
 .unselectable * {
   -webkit-touch-callout: none;
