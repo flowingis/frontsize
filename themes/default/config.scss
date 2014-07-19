@@ -1,7 +1,7 @@
 //@include useFrontsizeWidgets();
 
 // set font scaling to change the font size depending by different resolutions
-@include setFontScaling(body, 20px, 20px, 16px, 16px, 16px, 16px);
+@include setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
 @include setLineHeightScaling(body, $global-step);
 
 @include addFontsRule(small-fonts, $font-default, 14px, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);

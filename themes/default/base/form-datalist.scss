@@ -15,8 +15,11 @@
 // Url - http://html5doctor.com/element-index/#datalist
 
 datalist * {
+
     $colorEven: rgb(255,255,255);
     $colorOdd: rgb(230,230,230);
+
+    color: $font-color;
 
     &:nth-child(odd) {
         background-color: $colorOdd;

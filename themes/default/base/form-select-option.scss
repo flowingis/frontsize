@@ -24,16 +24,17 @@
 
 select,
 keygen {
+
     @include appearance(none);
 
     cursor: pointer;
     padding: 0.25em 1.75em 0.25em 0.5em;
 
-    color: $font-default-color;
+    color: $font-color;
     font-weight: normal;
 
-    border: 2px solid $font-default-color;
-    background-color: desaturate(lighten($font-default-color, 45%), 2%);
+    border: 2px solid $font-color;
+    background-color: desaturate(lighten($font-color, 45%), 2%);
 
     $size: 16px;
     @include backgroundRetinaIcon("input-select-1x.png", "input-select-2x.png", $size);

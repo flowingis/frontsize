@@ -23,7 +23,7 @@
 // Url - http://html5doctor.com/element-index/#legend
 
 legend {
-    $backgroundColor: desaturate(lighten($font-default-color, 45%), 2%);
+    $backgroundColor: desaturate(lighten($font-color, 45%), 2%);
     $round: 20px;
 	font-weight: bold;
 	background-color: $backgroundColor;

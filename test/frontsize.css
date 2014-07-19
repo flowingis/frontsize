@@ -2284,17 +2284,19 @@ nav ul {
 img {
   -ms-interpolation-mode: bicubic; }
 
-datalist *:nth-child(odd) {
-  background-color: #e6e6e6; }
-  datalist *:nth-child(odd):hover {
-    background-color: #cdcdcd; }
-datalist *:nth-child(even) {
-  background-color: white; }
-  datalist *:nth-child(even):hover {
+datalist * {
+  color: #898989; }
+  datalist *:nth-child(odd) {
     background-color: #e6e6e6; }
+    datalist *:nth-child(odd):hover {
+      background-color: #cdcdcd; }
+  datalist *:nth-child(even) {
+    background-color: white; }
+    datalist *:nth-child(even):hover {
+      background-color: #e6e6e6; }
 
 fieldset {
-  background-color: #f2f2f2;
+  background-color: #fcfcfc;
   border: none;
   padding: 24px 24px;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
@@ -2631,7 +2633,7 @@ input[type="date"] {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  color: #7b8284;
+  color: #898989;
   border: 1px solid;
   border-color: black;
   background-color: black;
@@ -2667,7 +2669,7 @@ input[type="date"] {
   input[type="password"]::-webkit-input-placeholder,
   input[type="number"]::-webkit-input-placeholder,
   input[type="date"]::-webkit-input-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus::-webkit-input-placeholder,
   input[type="text"]:focus::-webkit-input-placeholder,
@@ -2675,14 +2677,14 @@ input[type="date"] {
   input[type="password"]:focus::-webkit-input-placeholder,
   input[type="number"]:focus::-webkit-input-placeholder,
   input[type="date"]:focus::-webkit-input-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:-khtml-input-placeholder,
   input[type="text"]:-khtml-input-placeholder,
   input[type="email"]:-khtml-input-placeholder,
   input[type="password"]:-khtml-input-placeholder,
   input[type="number"]:-khtml-input-placeholder,
   input[type="date"]:-khtml-input-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus:-khtml-input-placeholder,
   input[type="text"]:focus:-khtml-input-placeholder,
@@ -2690,14 +2692,14 @@ input[type="date"] {
   input[type="password"]:focus:-khtml-input-placeholder,
   input[type="number"]:focus:-khtml-input-placeholder,
   input[type="date"]:focus:-khtml-input-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:-moz-placeholder,
   input[type="text"]:-moz-placeholder,
   input[type="email"]:-moz-placeholder,
   input[type="password"]:-moz-placeholder,
   input[type="number"]:-moz-placeholder,
   input[type="date"]:-moz-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus:-moz-placeholder,
   input[type="text"]:focus:-moz-placeholder,
@@ -2705,14 +2707,14 @@ input[type="date"] {
   input[type="password"]:focus:-moz-placeholder,
   input[type="number"]:focus:-moz-placeholder,
   input[type="date"]:focus:-moz-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea::-moz-placeholder,
   input[type="text"]::-moz-placeholder,
   input[type="email"]::-moz-placeholder,
   input[type="password"]::-moz-placeholder,
   input[type="number"]::-moz-placeholder,
   input[type="date"]::-moz-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus::-moz-placeholder,
   input[type="text"]:focus::-moz-placeholder,
@@ -2720,14 +2722,14 @@ input[type="date"] {
   input[type="password"]:focus::-moz-placeholder,
   input[type="number"]:focus::-moz-placeholder,
   input[type="date"]:focus::-moz-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:-ms-input-placeholder,
   input[type="text"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
   input[type="number"]:-ms-input-placeholder,
   input[type="date"]:-ms-input-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus:-ms-input-placeholder,
   input[type="text"]:focus:-ms-input-placeholder,
@@ -2735,14 +2737,14 @@ input[type="date"] {
   input[type="password"]:focus:-ms-input-placeholder,
   input[type="number"]:focus:-ms-input-placeholder,
   input[type="date"]:focus:-ms-input-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:-o-input-placeholder,
   input[type="text"]:-o-input-placeholder,
   input[type="email"]:-o-input-placeholder,
   input[type="password"]:-o-input-placeholder,
   input[type="number"]:-o-input-placeholder,
   input[type="date"]:-o-input-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus:-o-input-placeholder,
   input[type="text"]:focus:-o-input-placeholder,
@@ -2750,14 +2752,14 @@ input[type="date"] {
   input[type="password"]:focus:-o-input-placeholder,
   input[type="number"]:focus:-o-input-placeholder,
   input[type="date"]:focus:-o-input-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:input-placeholder,
   input[type="text"]:input-placeholder,
   input[type="email"]:input-placeholder,
   input[type="password"]:input-placeholder,
   input[type="number"]:input-placeholder,
   input[type="date"]:input-placeholder {
-    color: #7b8284;
+    color: #898989;
     font-family: "helvetica neue", helvetica, arial, sans-serif; }
   textarea:focus:input-placeholder,
   input[type="text"]:focus:input-placeholder,
@@ -2765,7 +2767,7 @@ input[type="date"] {
   input[type="password"]:focus:input-placeholder,
   input[type="number"]:focus:input-placeholder,
   input[type="date"]:focus:input-placeholder {
-    color: #b0b4b5; }
+    color: #bcbcbc; }
   textarea:focus,
   input[type="text"]:focus,
   input[type="email"]:focus,
@@ -2831,7 +2833,7 @@ label {
 
 legend {
   font-weight: bold;
-  background-color: #f2f2f2;
+  background-color: #fcfcfc;
   padding: 16px 24px;
   margin-left: -24px;
   -webkit-border-radius: 20px 20px 0 0;
@@ -2859,10 +2861,10 @@ keygen {
   appearance: none;
   cursor: pointer;
   padding: 0.25em 1.75em 0.25em 0.5em;
-  color: #7b8284;
+  color: #898989;
   font-weight: normal;
-  border: 2px solid #7b8284;
-  background-color: #f2f2f2;
+  border: 2px solid #898989;
+  background-color: #fcfcfc;
   background-image: url("/css/frontsize-less/themes/default/img/input-select-1x.png");
   background-size: 16px 16px;
   background-repeat: no-repeat;
@@ -2904,8 +2906,8 @@ form {
 blockquote {
   padding: 24px 24px;
   font-style: italic;
-  border-left: 4px solid #b0b4b5;
-  background-color: #f2f3f3; }
+  border-left: 4px solid #bcbcbc;
+  background-color: #fcfcfc; }
   blockquote:before {
     content: '«'; }
   blockquote:after {
@@ -3017,7 +3019,7 @@ li {
 body {
   margin: 0;
   padding: 0;
-  color: #7b8284;
+  color: #898989;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
   font-family: "helvetica neue", helvetica, arial, sans-serif;
   line-height: 24px;
@@ -3058,7 +3060,7 @@ tbody:hover tr:nth-child(even) td {
 
 tfoot td {
   text-align: center;
-  color: #b0b4b5; }
+  color: #bcbcbc; }
 
 th {
   text-align: center;
@@ -3074,7 +3076,7 @@ a {
   display: inline-block;
   line-height: 24px;
   text-decoration: none;
-  color: #7b8284;
+  color: #898989;
   border-bottom: 2px solid;
   -webkit-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
   -khtml-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -3085,8 +3087,8 @@ a {
   a[title]:hover {
     text-decoration: none; }
   a:hover, a.hover, a.selected, a.active {
-    color: #5b6c71;
-    border-bottom-color: #7b8284; }
+    color: #776868;
+    border-bottom-color: #898989; }
   a.selected {
     cursor: default; }
   a img {
@@ -3217,7 +3219,7 @@ mark {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75; }
 
 s {
-  color: #7b8284;
+  color: #898989;
   text-decoration: line-through;
   opacity: 0.5; }
 
@@ -3240,27 +3242,27 @@ span {
 @media only screen and (min-width: 1px) {
   body {
     font-size: 16px;
-    line-height: 16px; } }
+    line-height: 24px; } }
 @media only screen and (min-width: 480px) {
   body {
     font-size: 16px;
-    line-height: 16px; } }
+    line-height: 24px; } }
 @media only screen and (min-width: 768px), only print {
   body {
     font-size: 16px;
-    line-height: 16px; } }
+    line-height: 24px; } }
 @media only screen and (min-width: 1024px) {
   body {
-    font-size: 20px;
-    line-height: 16px; } }
+    font-size: 16px;
+    line-height: 24px; } }
 @media only screen and (min-width: 1280px) {
   body {
-    font-size: 20px;
-    line-height: 16px; } }
+    font-size: 18px;
+    line-height: 24px; } }
 @media only screen and (min-width: 1800px) {
   body {
-    font-size: body;
-    line-height: 16px; } }
+    font-size: 20px;
+    line-height: 24px; } }
 @media only screen and (min-width: 1px) {
   body {
     line-height: 24px; } }
@@ -3278,7 +3280,7 @@ span {
     line-height: 24px; } }
 @media only screen and (min-width: 1800px) {
   body {
-    line-height: body; } }
+    line-height: 24px; } }
 @media only screen and (min-width: 1280px) {
   .small-fonts {
     font-family: "helvetica neue", helvetica, arial, sans-serif;

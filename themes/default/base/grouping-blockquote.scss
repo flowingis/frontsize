@@ -11,8 +11,8 @@ blockquote {
 
     padding: $global-padding;
     font-style: italic;
-    border-left: 4px solid lighten($font-default-color, 20%);
-    background-color: lighten($font-default-color, 45%);
+    border-left: 4px solid lighten($font-color, 20%);
+    background-color: lighten($font-color, 45%);
 
     &:before {
         content: '«';
