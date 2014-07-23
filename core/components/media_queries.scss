@@ -70,7 +70,7 @@
 	@include checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector);
 }
 
-@mixin checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector){
+/* private */@mixin checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector){
 	 @if $hdFullSteps > 0 {
 		// Media queries for selectors active from a specific resolution or higher
 		.#{$selector} > * {
