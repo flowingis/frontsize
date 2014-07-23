@@ -7,7 +7,7 @@
     @include addMarginRuleHdReady($selector, $hdReadyMargin);
     @include addMarginRuleHdFull($selector, $hdFullMargin);
 }
-@mixin addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin) {
+/* private */@mixin addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin) {
     @if $use-smartphone-portrait == true {
         @media #{$from-smartphone-portrait} {
             // Smartphone portrait
@@ -15,7 +15,7 @@
         }
     }
 }
-@mixin addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin) {
+/* private */@mixin addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin) {
     @if $use-smartphone-landscape == true {
         @media #{$from-smartphone-landscape} {
             // Smartphone landscape
@@ -23,7 +23,7 @@
         }
     }
 }
-@mixin addMarginRuleTabletPortrait($selector, $tabletPortraitMargin) {
+/* private */@mixin addMarginRuleTabletPortrait($selector, $tabletPortraitMargin) {
     @if $use-tablet-portrait == true {
         @media #{$from-tablet-portrait} {
             // Tablet portrait
@@ -31,7 +31,7 @@
         }
     }
 }
-@mixin addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin) {
+/* private */@mixin addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin) {
     @if $use-tablet-landscape == true {
         @media #{$from-tablet-landscape} {
             // Tablet landscape
@@ -39,7 +39,7 @@
         }
     }
 }
-@mixin addMarginRuleHdReady($selector, $hdReadyMargin) {
+/* private */@mixin addMarginRuleHdReady($selector, $hdReadyMargin) {
     @if $use-hd-ready == true {
         @media #{$from-hd-ready} {
             // HD Ready
@@ -47,7 +47,7 @@
         }
     }
 }
-@mixin addMarginRuleHdFull($selector, $hdFullMargin) {
+/* private */@mixin addMarginRuleHdFull($selector, $hdFullMargin) {
     @if $use-hd-full == true {
         @media #{$from-hd-full} {
             // Full HD
@@ -65,7 +65,7 @@
     @include setViewportsMarginHdReady($hdReadyMargin);
     @include setViewportsMarginHdFull($hdFullMargin);
 }
-@mixin setViewportsMarginSmartphonePortrait($smartphonePortraitMargin) {
+/* private */@mixin setViewportsMarginSmartphonePortrait($smartphonePortraitMargin) {
     @if $use-smartphone-portrait == true {
         @media #{$from-smartphone-portrait} {
             // Smartphone portrait
@@ -73,7 +73,7 @@
         }
     }
 }
-@mixin setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin) {
+/* private */@mixin setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin) {
     @if $use-smartphone-landscape == true {
         @media #{$from-smartphone-landscape} {
             // Smartphone landscape
@@ -81,7 +81,7 @@
         }
     }
 }
-@mixin setViewportsMarginTabletPortrait($tabletPortraitMargin) {
+/* private */@mixin setViewportsMarginTabletPortrait($tabletPortraitMargin) {
     @if $use-tablet-portrait == true {
         @media #{$from-tablet-portrait} {
             // Tablet portrait
@@ -89,7 +89,7 @@
         }
     }
 }
-@mixin setViewportsMarginTabletLandscape($tabletLandscapeMargin) {
+/* private */@mixin setViewportsMarginTabletLandscape($tabletLandscapeMargin) {
     @if $use-tablet-landscape == true {
         @media #{$from-tablet-landscape} {
             // Tablet landscape
@@ -97,7 +97,7 @@
         }
     }
 }
-@mixin setViewportsMarginHdReady($hdReadyMargin) {
+/* private */@mixin setViewportsMarginHdReady($hdReadyMargin) {
     @if $use-hd-ready == true {
         @media #{$from-hd-ready} {
             // HD Ready
@@ -105,7 +105,7 @@
         }
     }
 }
-@mixin setViewportsMarginHdFull($hdFullMargin) {
+/* private */@mixin setViewportsMarginHdFull($hdFullMargin) {
     @if $use-hd-full == true {
         @media #{$from-hd-full} {
             // Full HD
