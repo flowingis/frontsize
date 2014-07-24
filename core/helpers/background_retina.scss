@@ -5,7 +5,7 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-@mixin backgroundRetina($defaultImage, $retinaImage:$defaultImage, $backgroundSize:auto, $rootPath:$root-path) {
+@mixin backgroundRetina($backgroundSize, $defaultImage, $retinaImage:$defaultImage, $rootPath:$root-path) {
 	@if $use-root-path == false{
 		@include backgroundImage($defaultImage);
 		background-size:$backgroundSize;
@@ -23,6 +23,7 @@
 }
 
 @mixin backgroundRetinaResponsive(
+	$backgroundSize,
 	$defaultHdFullBackground,
 	$retinaHdFullBackground:$defaultHdFullBackground,
 	$defaultHdReadyRetinaBackground:$defaultHdFullBackground,
@@ -35,7 +36,6 @@
 	$retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground,
 	$defaultSmartphonePortraitBackground:$defaultSmartphoneLandscapeBackground,
 	$retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground,
-	$backgroundSize:auto,
 	$rootPath:$root-path
 	)  {
 	@if $use-root-path == false{
