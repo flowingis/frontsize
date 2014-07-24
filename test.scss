@@ -8,7 +8,7 @@
 // @import (less) "core/lib/normalize.css";
 
 @import "themes/default/app";
-@import "core/components/functions";
+/*@import "core/components/functions";
 @import "core/components/prefixes";
 @import "core/layout/base";
 @import "core/core";
@@ -18,4 +18,34 @@
 @import "core/components/media_queries";
 @import "core/components/print";
 @import "core/layout/state";
+@import "themes/default/import";
+
+// External libraries
+//@import (less) "core/lib/normalize.css";
+/*! Frontsize */
+// Frontsize dependances
+@import "core/core";
+
+@import "core/helpers/background";
+@import "core/helpers/background_retina";
+@import "core/helpers/border";
+@import "core/helpers/compatibility";
+@import "core/helpers/positioning";
+@import "core/helpers/sizing";
+@import "core/helpers/sprite";
+@import "core/helpers/table";
+@import "core/helpers/text";
+@import "core/helpers/transition";
+
+@import "core/components/functions";
+@import "core/components/margin";
+@import "core/components/media_queries";
+@import "core/components/padding";
+@import "core/components/prefixes";
+@import "core/components/print";
+@import "core/components/typography";
+
+@import "core/layout/base";
+@import "core/layout/state";
+
 @import "themes/default/import";
