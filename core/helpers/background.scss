@@ -128,3 +128,12 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
+@mixin fillImage($backgroundImage, $path:$root-path){
+	@if $use-root-path == false{
+		fill: url('#{$backgroundImage}');
+	}
+	@else{
+		fill: url('#{$path}#{$backgroundImage}');
+	}
+}

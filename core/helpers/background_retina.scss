@@ -237,3 +237,19 @@
 		}
 	}
 }
+
+@mixin fillRetinaImage($backgroundSize, $standardImage, $retinaImage:$standardImage, $rootPath:$root-path) {
+    @if $use-root-path == false{
+    	@include fillImage($standardImage);
+	    background-size:$backgroundSize;
+	    @media #{$display-retina} {
+	        @include fillImage($retinaImage);
+	    }
+    }@else{
+    	@include fillImage($standardImage, $rootPath);
+	    background-size:$backgroundSize;
+	    @media #{$display-retina} {
+	        @include fillImage($retinaImage, $rootPath);
+	    }
+    }
+}
