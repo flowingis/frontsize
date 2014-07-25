@@ -57,6 +57,7 @@ module.exports = function(grunt) {
                 ],
                 tasks: [
                     "sass:development",
+                    "csso:production"
                 ]
             }
 		},
@@ -82,6 +83,19 @@ module.exports = function(grunt) {
                   csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.prefixed.css']
+            }
+        },
+
+        phantomcss: {
+            options: {},
+            your_target: {
+                options: {
+                    screenshots: 'test/screenshots/',
+                    results: 'results/'
+                },
+                src: [
+                    'test/**/*.js'
+                ]
             }
         }
 	});
@@ -116,4 +130,5 @@ module.exports = function(grunt) {
         "sass:development",
         "csso:production"
     ]);
+
 };
