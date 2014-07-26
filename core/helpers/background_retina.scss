@@ -5,7 +5,7 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-@mixin backgroundRetina($backgroundSize, $defaultImage, $retinaImage:$defaultImage, $rootPath:$root-path) {
+@mixin backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath:$root-path) {
 	@if $use-root-path == false{
 		@include backgroundImage($defaultImage);
 		background-size:$backgroundSize;
