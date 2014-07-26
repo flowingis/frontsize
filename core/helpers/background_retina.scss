@@ -238,7 +238,7 @@
 	}
 }
 
-@mixin fillRetinaImage($backgroundSize, $standardImage, $retinaImage:$standardImage, $rootPath:$root-path) {
+@mixin fillRetinaImage($standardImage, $retinaImage, $backgroundSize, $rootPath:$root-path) {
     @if $use-root-path == false{
     	@include fillImage($standardImage);
 	    background-size:$backgroundSize;
