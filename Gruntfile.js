@@ -41,12 +41,12 @@ module.exports = function(grunt) {
                 files: {
                     "test/frontsize.min.css": ["test/frontsize.css"]
                 }
-            },
+            }/*,
             test: {
                 files: {
                     "test/frontsize.test.min.css": ["test/frontsize.test.css"]
                 }
-            }
+            }*/
         },
 
 		watch: {
@@ -56,8 +56,8 @@ module.exports = function(grunt) {
                     "**/*.scss"
                 ],
                 tasks: [
-                    "sass:development",
-                    "csso:production"
+                    "sass:development"/*,
+                    "csso:production"*/
                 ]
             }
 		},

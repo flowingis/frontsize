@@ -23,19 +23,19 @@
 }
 
 @mixin backgroundRetinaResponsive(
-	$backgroundSize,
 	$defaultHdFullBackground,
-	$retinaHdFullBackground:$defaultHdFullBackground,
-	$defaultHdReadyRetinaBackground:$defaultHdFullBackground,
-	$retinaHdReadyRetinaBackground:$defaultHdReadyRetinaBackground,
-	$defaultTabletLandscapeBackground:$defaultHdReadyRetinaBackground,
-	$retinaTabletLandscapeBackground:$defaultTabletLandscapeBackground,
-	$defaultTabletPortraitBackground:$defaultTabletLandscapeBackground,
-	$retinaTabletPortraitBackground:$defaultTabletPortraitBackground,
-	$defaultSmartphoneLandscapeBackground:$defaultTabletPortraitBackground,
-	$retinaSmartphoneLandscapeBackground:$defaultSmartphoneLandscapeBackground,
-	$defaultSmartphonePortraitBackground:$defaultSmartphoneLandscapeBackground,
-	$retinaSmartphonePortraitBackground:$defaultSmartphonePortraitBackground,
+	$retinaHdFullBackground,
+	$defaultHdReadyRetinaBackground,
+	$retinaHdReadyRetinaBackground,
+	$defaultTabletLandscapeBackground,
+	$retinaTabletLandscapeBackground,
+	$defaultTabletPortraitBackground,
+	$retinaTabletPortraitBackground,
+	$defaultSmartphoneLandscapeBackground,
+	$retinaSmartphoneLandscapeBackground,
+	$defaultSmartphonePortraitBackground,
+	$retinaSmartphonePortraitBackground,
+	$backgroundSize,
 	$rootPath:$root-path
 	)  {
 	@if $use-root-path == false{
