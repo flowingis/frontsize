@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                     }*/
                 },
                 files: {
-                    "test/frontsize.test.autoprefixed.css" : "test_autoprefixed.scss"
+                    "test/frontsize.test.autoprefixer.css" : "test_autoprefixer.scss"
                 }
             }
 		},
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src: "test/frontsize.test.autoprefixed.css",
-                    dest: "test/frontsize.autoprefixed.css"
+                    src: "test/frontsize.test.autoprefixer.css",
+                    dest: "test/frontsize.autoprefixer.css"
               }  
         },
         
@@ -90,8 +90,8 @@ module.exports = function(grunt) {
                     "**/*.scss"
                 ],
                 tasks: [
-                    "sass:development",
-                    "csso:production"
+                    "sass:development"/*,
+                    "csso:production"*/
                 ]
             }
 		},
