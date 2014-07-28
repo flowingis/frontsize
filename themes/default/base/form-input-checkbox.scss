@@ -5,19 +5,21 @@
 // Url - http://html5doctor.com/element-index/#input
 
 input[type="checkbox"] {
-    @include user-select(none);
+    
+    $size:32px;
     cursor: pointer;
 
+    @include user-select(none);
     @include appearance(none);
-
-    $size:32px;
     @include moveTop(($size / 4));
 
-    $imageWidth:($size * 2);
-    $imageHeight:$size;
-    @include spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", $size, $size, $imageWidth, $imageHeight);
+    @include spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", $size, $size, 64px, 32px);
 
     &:checked {
         @include spritePosition(1, 0, $size);
+    }
+
+    & + * {
+        cursor: pointer;
     }
 }

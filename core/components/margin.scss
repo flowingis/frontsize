@@ -117,52 +117,52 @@
 @mixin addMarginSelector($selector:false, $verticalMargin:$vertical-margin, $horizontalMargin:$horizontal-margin){
     @if $selector != false{
         #{$selector}-margin {
-            margin: $verticalMargin $horizontalMargin $important;
+            margin: $verticalMargin $horizontalMargin #{$important};
         }
         #{$selector}-margin-vertical {
-            margin-bottom: $verticalMargin $important;
-            margin-top: $verticalMargin $important;
+            margin-bottom: $verticalMargin #{$important};
+            margin-top: $verticalMargin #{$important};
         }
         #{$selector}-margin-bottom {
-            margin-bottom: $verticalMargin $important;
+            margin-bottom: $verticalMargin #{$important};
         }
         #{$selector}-margin-top {
-            margin-top: $verticalMargin $important;
+            margin-top: $verticalMargin #{$important};
         }
         #{$selector}-margin-horizontal {
-            margin-left: $horizontalMargin $important;
-            margin-right: $horizontalMargin $important;
+            margin-left: $horizontalMargin #{$important};
+            margin-right: $horizontalMargin #{$important};
         }
         #{$selector}-margin-left {
-            margin-left: $horizontalMargin $important;
+            margin-left: $horizontalMargin #{$important};
         }
         #{$selector}-margin-right {
-            margin-right: $horizontalMargin $important;
+            margin-right: $horizontalMargin #{$important};
         }
     }
     @else{
         .with-margin {
-            margin: $verticalMargin $horizontalMargin $important;
+            margin: $verticalMargin $horizontalMargin #{$important};
         }
         .margin-vertical {
-            margin-bottom: $verticalMargin $important;
-            margin-top: $verticalMargin $important;
+            margin-bottom: $verticalMargin #{$important};
+            margin-top: $verticalMargin #{$important};
         }
         .margin-bottom {
-            margin-bottom: $verticalMargin $important;
+            margin-bottom: $verticalMargin #{$important};
         }
         .margin-top {
-            margin-top: $verticalMargin $important;
+            margin-top: $verticalMargin #{$important};
         }
         .margin-horizontal {
-            margin-left: $horizontalMargin $important;
-            margin-right: $horizontalMargin $important;
+            margin-left: $horizontalMargin #{$important};
+            margin-right: $horizontalMargin #{$important};
         }
         .margin-left {
-            margin-left: $horizontalMargin $important;
+            margin-left: $horizontalMargin #{$important};
         }
         .margin-right {
-            margin-right: $horizontalMargin $important;
+            margin-right: $horizontalMargin #{$important};
         } 
     }
 }

@@ -595,96 +595,96 @@ nav ul {
   display: none; }
 
 .no-margin {
-  margin: 0 "!important"; }
+  margin: 0 !important; }
 
 .no-margin-top {
-  margin-top: 0 "!important"; }
+  margin-top: 0 !important; }
 
 .no-margin-bottom {
-  margin-bottom: 0 "!important"; }
+  margin-bottom: 0 !important; }
 
 .no-margin-vertical {
-  margin-top: 0 "!important";
-  margin-bottom: 0 "!important"; }
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
 
 .no-margin-left {
-  margin-left: 0 "!important"; }
+  margin-left: 0 !important; }
 
 .no-margin-right {
-  margin-right: 0 "!important"; }
+  margin-right: 0 !important; }
 
 .no-margin-horizontal {
-  margin-left: 0 "!important";
-  margin-right: 0 "!important"; }
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
 
 .with-margin {
-  margin: 24px 24px "!important"; }
+  margin: 24px 24px !important; }
 
 .margin-vertical {
-  margin-bottom: 24px "!important";
-  margin-top: 24px "!important"; }
+  margin-bottom: 24px !important;
+  margin-top: 24px !important; }
 
 .margin-bottom {
-  margin-bottom: 24px "!important"; }
+  margin-bottom: 24px !important; }
 
 .margin-top {
-  margin-top: 24px "!important"; }
+  margin-top: 24px !important; }
 
 .margin-horizontal {
-  margin-left: 24px "!important";
-  margin-right: 24px "!important"; }
+  margin-left: 24px !important;
+  margin-right: 24px !important; }
 
 .margin-left {
-  margin-left: 24px "!important"; }
+  margin-left: 24px !important; }
 
 .margin-right {
-  margin-right: 24px "!important"; }
+  margin-right: 24px !important; }
 
 .no-padding {
-  padding: 0 "!important"; }
+  padding: 0 !important; }
 
 .no-top-padding {
-  padding-top: 0 "!important"; }
+  padding-top: 0 !important; }
 
 .no-bottom-padding {
-  padding-bottom: 0 "!important"; }
+  padding-bottom: 0 !important; }
 
 .no-vertical-padding {
-  padding-top: 0 "!important";
-  padding-bottom: 0 "!important"; }
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
 
 .no-left-padding {
-  padding-left: 0 "!important"; }
+  padding-left: 0 !important; }
 
 .no-right-padding {
-  padding-right: 0 "!important"; }
+  padding-right: 0 !important; }
 
 .no-horizontal-padding {
-  padding-left: 0 "!important";
-  padding-right: 0 "!important"; }
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
 
 .with-padding {
-  padding: 24px 24px "!important"; }
+  padding: 24px 24px !important; }
 
 .padding-vertical {
-  padding-bottom: 24px "!important";
-  padding-top: 24px "!important"; }
+  padding-bottom: 24px !important;
+  padding-top: 24px !important; }
 
 .padding-bottom {
-  padding-bottom: 24px "!important"; }
+  padding-bottom: 24px !important; }
 
 .padding-top {
-  padding-top: 24px "!important"; }
+  padding-top: 24px !important; }
 
 .padding-horizontal {
-  padding-left: 24px "!important";
-  padding-right: 24px "!important"; }
+  padding-left: 24px !important;
+  padding-right: 24px !important; }
 
 .padding-left {
-  padding-left: 24px "!important"; }
+  padding-left: 24px !important; }
 
 .padding-right {
-  padding-right: 24px "!important"; }
+  padding-right: 24px !important; }
 
 .gain-margin {
   width: auto !important;
@@ -920,7 +920,7 @@ nav ul {
   width: 75% !important; }
 
 .auto {
-  width: auto "!important"; }
+  width: auto!important; }
 
 .overflow-auto {
   overflow: auto !important; }
@@ -2004,7 +2004,7 @@ nav ul {
   box-sizing: border-box;
   width: 100%;
   margin: 0 0 24px 0;
-  padding: 12px, em 24px;
+  padding: 12px 24px;
   border: 1px solid;
   border-color: black;
   color: #de6646;
@@ -2265,6 +2265,7 @@ fieldset {
   border-radius: 10px; }
 
 input[type="checkbox"] {
+  cursor: pointer;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -2272,7 +2273,6 @@ input[type="checkbox"] {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  cursor: pointer;
   appearance: none;
   position: relative;
   top: 8px;
@@ -2314,6 +2314,8 @@ input[type="checkbox"] {
       box-sizing: border-box; } }
   input[type="checkbox"]:checked {
     background-position: -32px -0; }
+  input[type="checkbox"] + * {
+    cursor: pointer; }
 
 input[type="file"] {
   appearance: none;

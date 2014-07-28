@@ -43,7 +43,7 @@ $important: important();
 		}
 
 		.auto {
-	        width: auto $important;
+	        width: auto#{$important};
 	    }
 
 	    .overflow-auto {

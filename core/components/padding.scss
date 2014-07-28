@@ -91,52 +91,52 @@
 @mixin addPaddingSelector($selector:false, $verticalPadding:$vertical-padding, $horizontalPadding:$horizontal-padding){
 	@if selector == false {
 	    #{$selector}-padding {
-	        padding: $verticalPadding $horizontalPadding $important;
+	        padding: $verticalPadding $horizontalPadding #{$important};
 	    }
 	    #{$selector}-padding-vertical {
-	        padding-bottom: $verticalPadding $important;
-	        padding-top: $verticalPadding $important;
+	        padding-bottom: $verticalPadding #{$important};
+	        padding-top: $verticalPadding #{$important};
 	    }
 	    #{$selector}-padding-bottom {
-	        padding-bottom: $verticalPadding $important;
+	        padding-bottom: $verticalPadding #{$important};
 	    }
 	    #{$selector}-padding-top {
-	        padding-top: $verticalPadding $important;
+	        padding-top: $verticalPadding #{$important};
 	    }
 	    #{$selector}-padding-horizontal {
-	        padding-left: $horizontalPadding $important;
-	        padding-right: $horizontalPadding $important;
+	        padding-left: $horizontalPadding #{$important};
+	        padding-right: $horizontalPadding #{$important};
 	    }
 	    #{$selector}-padding-left {
-	        padding-left: $horizontalPadding $important;
+	        padding-left: $horizontalPadding #{$important};
 	    }
 	    #{$selector}-padding-right {
-	        padding-right: $horizontalPadding $important;
+	        padding-right: $horizontalPadding #{$important};
 	    }
 	}
 	@else{
 	    .with-padding {
-	        padding: $verticalPadding $horizontalPadding $important;
+	        padding: $verticalPadding $horizontalPadding #{$important};
 	    }
 	    .padding-vertical {
-	        padding-bottom: $verticalPadding $important;
-	        padding-top: $verticalPadding $important;
+	        padding-bottom: $verticalPadding #{$important};
+	        padding-top: $verticalPadding #{$important};
 	    }
 	    .padding-bottom {
-	        padding-bottom: $verticalPadding $important;
+	        padding-bottom: $verticalPadding #{$important};
 	    }
 	    .padding-top {
-	        padding-top: $verticalPadding $important;
+	        padding-top: $verticalPadding #{$important};
 	    }
 	    .padding-horizontal {
-	        padding-left: $horizontalPadding $important;
-	        padding-right: $horizontalPadding $important;
+	        padding-left: $horizontalPadding #{$important};
+	        padding-right: $horizontalPadding #{$important};
 	    }
 	    .padding-left {
-	        padding-left: $horizontalPadding $important;
+	        padding-left: $horizontalPadding #{$important};
 	    }
 	    .padding-right {
-	        padding-right: $horizontalPadding $important;
+	        padding-right: $horizontalPadding #{$important};
 	    }
 	}
 }
