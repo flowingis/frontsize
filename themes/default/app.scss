@@ -6,38 +6,38 @@
 // ========================================================================================================================================================================
 
 // font sizes for h# elements 
-$h1: 32px;
-$h2: 28px;
-$h3: 24px;
-$h4: 20px;
-$h5: 18px;
-$h6: 16px;
+$h1 : 32px;
+$h2 : 28px;
+$h3 : 24px;
+$h4 : 20px;
+$h5 : 18px;
+$h6 : 16px;
 
 // Font sizes
-$font-size: 16px;
+$font-size:       16px;
 $font-small-size: 13px;
 
-$font-sans: 'helvetica neue', helvetica, arial, sans-serif;
-$font-serif: georgia, 'times new roman', times, serif;
-$font-monospace: menlo, monaco, 'courier new', monospace;
-$font-small: 'lucida grande', tahoma, verdana, arial, sans-serif;
+$font-sans       : 'helvetica neue', helvetica, arial, sans-serif;
+$font-serif      : georgia, 'times new roman', times, serif;
+$font-monospace  : menlo, monaco, 'courier new', monospace;
+$font-small      : 'lucida grande', tahoma, verdana, arial, sans-serif;
 
 $font-default-color: #7b8284;
-$font-default: $font-sans;
-$font-heading: $font-sans;
-$font-line-height:	1.25;
+$font-default      : $font-sans;
+$font-heading      : $font-sans;
+$font-line-height  :	1.25;
 
 $global-step: 24px;
 
 $font-line-height: $global-step;
-$font-weight: 300;
-$font-color: #898989;
+$font-weight     : 300;
+$font-color      : #898989;
 
 
 // Global padding configuration
 $horizontal-padding: $global-step;
-$vertical-padding: $global-step;
-$global-padding: $vertical-padding $horizontal-padding;
+$vertical-padding  : $global-step;
+$global-padding    : $vertical-padding $horizontal-padding;
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -74,6 +74,15 @@ $use-tablet-landscape:     true;
 $use-hd-ready:             true;
 $use-hd-full:              true;
 $use-viewport-states:      true;
+
+$use-state-margin      : true;
+$use-state-padding     : true;
+$use-state-positioning : true;
+$use-state-sizing      : true;
+$use-state-selectors   : true;
+$use-state-table       : true;
+$use-state-text        : true;
+$use-state-visibility  : true;
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================

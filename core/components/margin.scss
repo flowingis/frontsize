@@ -119,24 +119,24 @@
         #{$selector}-margin {
             margin: $verticalMargin $horizontalMargin $important;
         }
-        #{$selector}-vertical-margin {
+        #{$selector}-margin-vertical {
             margin-bottom: $verticalMargin $important;
             margin-top: $verticalMargin $important;
         }
-        #{$selector}-bottom-margin {
+        #{$selector}-margin-bottom {
             margin-bottom: $verticalMargin $important;
         }
-        #{$selector}-top-margin {
+        #{$selector}-margin-top {
             margin-top: $verticalMargin $important;
         }
-        #{$selector}-horizontal-margin {
+        #{$selector}-margin-horizontal {
             margin-left: $horizontalMargin $important;
             margin-right: $horizontalMargin $important;
         }
-        #{$selector}-left-margin {
+        #{$selector}-margin-left {
             margin-left: $horizontalMargin $important;
         }
-        #{$selector}-right-margin {
+        #{$selector}-margin-right {
             margin-right: $horizontalMargin $important;
         }
     }
@@ -144,24 +144,24 @@
         .with-margin {
             margin: $verticalMargin $horizontalMargin $important;
         }
-        .vertical-margin {
+        .margin-vertical {
             margin-bottom: $verticalMargin $important;
             margin-top: $verticalMargin $important;
         }
-        .bottom-margin {
+        .margin-bottom {
             margin-bottom: $verticalMargin $important;
         }
-        .top-margin {
+        .margin-top {
             margin-top: $verticalMargin $important;
         }
-        .horizontal-margin {
+        .margin-horizontal {
             margin-left: $horizontalMargin $important;
             margin-right: $horizontalMargin $important;
         }
-        .left-margin {
+        .margin-left {
             margin-left: $horizontalMargin $important;
         }
-        .right-margin {
+        .margin-right {
             margin-right: $horizontalMargin $important;
         } 
     }

@@ -1,0 +1,191 @@
+$important: important();
+
+@mixin initPositioningSelectors(){
+	@if $use-state-positioning == true {
+		.gain-margin {
+			width: auto #{$important};
+			margin-left: -$horizontal-padding #{$important};
+			margin-right: -$horizontal-padding #{$important};
+		}
+
+		.gain-left {
+		    margin-left: -$horizontal-padding #{$important};
+		}
+
+		.gain-right {
+		    margin-right: -$horizontal-padding #{$important};
+		}
+
+		.to-center {
+			margin-left: auto #{$important};
+			margin-right: auto #{$important};
+		}
+
+		.to-left {
+			float: left #{$important};
+		}
+
+		.to-right {
+			float: right #{$important};
+		}
+
+		.to-middle {
+		    position: relative;
+		    top: 50%;
+		    @include translateY(-50%);
+		}
+
+		.clear {
+			// manually go down to the next row
+			clear: both #{$important};
+		}
+
+		.relative {
+			position: relative #{$important};
+		}
+
+		.absolute {
+			position: absolute #{$important};
+			float: none;
+			z-index: 1;
+		}
+
+		.fixed {
+		    position: fixed;
+		    z-index: 1;
+		}
+
+		.to-bottom {
+		    bottom: 0;
+		}
+		.to-top {
+		    top: 0;
+		}
+		.to-right {
+		    right: 0;
+		}
+		.to-left {
+		    left: 0;
+		}
+
+		.fit,
+		.fit-window {
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		}
+
+		.fit {
+		    position: absolute #{$important};
+		}
+
+		.fit-window {
+		    position: fixed #{$important};
+		}
+
+		.move-bottom-left {
+			position: absolute #{$important};
+			bottom:0;
+			left:0;
+		}
+
+		.move-bottom-right {
+			position: absolute #{$important};
+			bottom:0;
+			right:0;
+		}
+
+		.move-top-left {
+			position: absolute #{$important};
+			top:0;
+			left:0;
+		}
+
+		.move-top-right {
+			position: absolute #{$important};
+			top:0;
+			right:0;
+		}
+
+		@media #{$till-hd-full} {
+			// Full HD
+			.to-center-till-hd-full		{ margin: auto #{$important}; }
+			.to-left-till-hd-full		{ float: left #{$important}; }
+			.to-right-till-hd-full		{ float: right #{$important}; }
+		}
+
+		@media #{$till-hd-ready} {
+			// HD Ready
+			.to-center-till-hd-ready			{ margin: auto #{$important}; }
+			.to-left-till-hd-ready				{ float: left #{$important}; }
+			.to-right-till-hd-ready				{ float: right #{$important}; }
+		}
+
+		@media #{$till-tablet-landscape} {
+			// Tablet landscape
+			.to-center-till-tablet-landscape		{ margin: auto #{$important}; }
+			.to-left-till-tablet-landscape			{ float: left #{$important}; }
+			.to-right-till-tablet-landscape			{ float: right #{$important}; }
+		}
+
+		@media #{$till-tablet-portrait} {
+			// Tablet portrait
+			.to-center-till-tablet-portrait			{ margin: auto #{$important}; }
+			.to-left-till-tablet-portrait			{ float: left #{$important}; }
+			.to-right-till-tablet-portrait			{ float: right #{$important}; }
+		}
+
+		@media #{$till-smartphone-landscape} {
+			// Smartphone landscape
+			.to-center-till-smartphone-landscape		{ margin: auto #{$important}; }
+			.to-left-till-smartphone-landscape			{ float: left #{$important}; }
+			.to-right-till-smartphone-landscape			{ float: right #{$important}; }
+		}
+
+		// Media queries for selectors active from a specific resolution or higher
+		@media #{$from-smartphone-portrait} {
+			// Smartphone portrait
+			.to-center-from-smartphone-portrait		{ margin: auto #{$important}; }
+			.to-left-from-smartphone-portrait		{ float: left #{$important}; }
+			.to-right-from-smartphone-portrait		{ float: right #{$important}; }
+		}
+
+		@media #{$from-smartphone-landscape} {
+			// Smartphone landscape
+			.to-center-from-smartphone-landscape		{ margin: auto #{$important}; }
+			.to-left-from-smartphone-landscape			{ float: left #{$important}; }
+			.to-right-from-smartphone-landscape			{ float: right #{$important}; }
+		}
+
+		@media #{$from-tablet-portrait} {
+			// Tablet portrait
+			.to-center-from-tablet-portrait		{ margin: auto #{$important}; }
+			.to-left-from-tablet-portrait		{ float: left #{$important}; }
+			.to-right-from-tablet-portrait		{ float: right #{$important}; }
+		}
+
+		@media #{$from-tablet-landscape} {
+			// Tablet landscape
+			.to-center-from-tablet-landscape		{ margin: auto #{$important}; }
+			.to-left-from-tablet-landscape			{ float: left #{$important}; }
+			.to-right-from-tablet-landscape			{ float: right #{$important}; }
+		}
+
+		@media #{$from-hd-ready} {
+			// HD Ready
+			.to-center-from-hd-ready		{ margin: auto #{$important}; }
+			.to-left-from-hd-ready			{ float: left #{$important}; }
+			.to-right-from-hd-ready			{ float: right #{$important}; }
+		}
+
+		@media #{$from-hd-full} {
+			// Full HD
+			.to-center-from-hd-full		{ margin: auto #{$important}; }
+			.to-left-from-hd-full		{ float: left #{$important}; }
+			.to-right-from-hd-full		{ float: right #{$important}; }
+		}
+	}
+}
+
+@include initPositioningSelectors();

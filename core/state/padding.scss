@@ -1,0 +1,39 @@
+$important: important();
+
+@mixin initPaddingSelectors(){
+    @if $use-state-padding == true {
+        .no-padding {
+            padding: 0 $important;
+        }
+
+        .no-top-padding {
+            padding-top: 0 $important;
+        }
+
+        .no-bottom-padding {
+            padding-bottom: 0 $important;
+        }
+
+        .no-vertical-padding {
+            padding-top: 0 $important;
+            padding-bottom: 0 $important;
+        }
+
+        .no-left-padding {
+            padding-left: 0 $important;
+        }
+
+        .no-right-padding {
+            padding-right: 0 $important;
+        }
+
+        .no-horizontal-padding {
+            padding-left: 0 $important;
+            padding-right: 0 $important;
+        }
+
+        @include addPaddingSelector(false, $vertical-padding, $horizontal-padding);
+    }
+}
+
+@include initPaddingSelectors();

@@ -5,11 +5,11 @@ module.exports = function(grunt) {
 			development: {
 				options: {
 					compress          : false,
-                    cleancss          : false,
+                    cleancss          : false/*,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.map.css"
+                    sourceMapFilename : "test/frontsize.map.css"*/
 				},
 				files: {
 					"test/frontsize.css" : "compile.scss"
@@ -18,11 +18,11 @@ module.exports = function(grunt) {
             test: {
                 options: {
                     compress          : false,
-                    cleancss          : false,
+                    cleancss          : false/*,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.test.map.css"
+                    sourceMapFilename : "test/frontsize.test.map.css"*/
                 },
                 files: {
                     "test/frontsize.test.css" : "test.scss"
@@ -31,14 +31,14 @@ module.exports = function(grunt) {
             testAutoprefixer: {
                 options: {
                     compress          : false,
-                    cleancss          : false,
+                    cleancss          : false/*,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
                     sourceMapFilename : "test/frontsize.autoprefixer.map.css",
                     modifyVars: {
                         "use-css-prefix": false
-                    }
+                    }*/
                 },
                 files: {
                     "test/frontsize.test.autoprefixed.css" : "test_autoprefixed.scss"

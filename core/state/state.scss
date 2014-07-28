@@ -1,0 +1,25 @@
+$important: important();
+
+@mixin initStateSelectors(){
+	@if $use-state-selectors == true {
+		.pointer {
+			cursor: pointer #{$important};
+		}
+
+		.selected {
+			cursor: default #{$important};
+		}
+
+		.disabled {
+			cursor: default;
+			opacity: $state-disabled-opacity #{$important};
+			@include transition(opacity 0.25s ease-out);
+			@include user-select(none);
+		    * {
+		        @include user-select(none);
+		    }
+		}
+	}
+}
+
+@include initStateSelectors();
