@@ -152,15 +152,15 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("test", [
         "sass:test",
-        "csso:test",
+        /*"csso:test",*/
         "csslint:test"
     ]);
 
     grunt.registerTask("testAutoprefixer", [
         "sass:testAutoprefixer",
         "autoprefixer",
-        "csso:testAutoprefixer",
-        "csso:autoprefixer",
+        /*"csso:testAutoprefixer",
+        "csso:autoprefixer",*/
         "csslint:test"
     ]);
 
@@ -171,8 +171,8 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask("production", [
-        "sass:development",
-        "csso:production"
+        "sass:development"/*,
+        "csso:production"*/
     ]);
 
 };

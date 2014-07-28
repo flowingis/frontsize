@@ -4,27 +4,21 @@
 
 */
 
-// test compile skips normalize to keep it untouched
-// @import (less) "core/lib/normalize.css";
+@charset "UTF-8";
 
 @import "themes/default/app";
-/*@import "core/components/functions";
+@import "core/lib/normalize";
+@import "core/components/functions";
+@import "core/components/margin";
+@import "core/components/padding";
 @import "core/components/prefixes";
+@import "core/components/print";
+@import "core/components/typography";
+
 @import "core/layout/base";
 @import "core/core";
-@import "core/components/helpers";
-@import "core/components/retina";
-@import "core/components/widgets";
-@import "core/components/media_queries";
-@import "core/components/print";
-@import "core/layout/state";
-@import "themes/default/import";
 
-// External libraries
-//@import (less) "core/lib/normalize.css";
-/*! Frontsize */
-// Frontsize dependances
-@import "core/core";
+@import "core/components/media_queries";
 
 @import "core/helpers/background";
 @import "core/helpers/background_retina";
@@ -37,15 +31,16 @@
 @import "core/helpers/text";
 @import "core/helpers/transition";
 
-@import "core/components/functions";
-@import "core/components/margin";
 @import "core/components/media_queries";
-@import "core/components/padding";
-@import "core/components/prefixes";
 @import "core/components/print";
-@import "core/components/typography";
 
-@import "core/layout/base";
-@import "core/layout/state";
+@import "core/state/margin";
+@import "core/state/padding";
+@import "core/state/positioning";
+@import "core/state/sizing";
+@import "core/state/state";
+@import "core/state/table";
+@import "core/state/text";
+@import "core/state/visibility";
 
 @import "themes/default/import";
