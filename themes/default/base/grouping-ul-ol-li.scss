@@ -13,8 +13,8 @@
 
 ol,
 ul {
-    padding: 0;
-    margin: 0;
+    padding : 0;
+    margin : 0;
 }
 
 // The li element represents a list item.
@@ -27,5 +27,5 @@ ul {
 
 li {
     padding: 0;
-    margin: 0 0 0 1.25em;
+    margin: 0 0 0 (#{$global-step} + (#{$global-step} / 4));
 }
