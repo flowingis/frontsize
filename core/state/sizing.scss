@@ -80,6 +80,16 @@ $important: important();
 			height: auto #{$important};
 		}
 
+		.same-same {
+	        //make more floating divs equal height
+		    overflow: hidden #{$important};
+	  
+		    > * {
+			    padding-bottom: 1000px #{$important};
+			    margin-bottom: -1000px #{$important};
+		    }
+	    }
+
 		@media #{$till-hd-full} {
 			// Full HD
 			.fill-till-hd-full			{ width: 100% #{$important}; }
