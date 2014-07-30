@@ -722,7 +722,7 @@
 }
 
 @mixin appearance($appearence:normal, $forcePrefixes:true) {
-	@if $use-css-prefix == false and  $forcePrefixes == true{
+	@if $use-css-prefix == false{
 		-webkit-appearance:#{$appearence};
 		-khtml-appearance: #{$appearence};
 	    -moz-appearance: normal;
@@ -730,7 +730,7 @@
 		// -o-appearance: @appearence;     // not working for elements radio and checkbox
 	}
 	@else{
-		@if $use-css-prefix == true and  $forcePrefixes == false{
+		@if $use-css-prefix == true{
 			-webkit-appearance: #{$appearence};
 			-khtml-appearance: #{$appearence};
 			-moz-appearance: normal;

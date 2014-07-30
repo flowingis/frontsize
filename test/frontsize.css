@@ -2282,6 +2282,11 @@ input[type="checkbox"] {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  -webkit-appearance: none;
+  -khtml-appearance: none;
+  -moz-appearance: normal;
+  -ms-appearance: none;
+  -o-appearance: none;
   appearance: none;
   position: relative;
   top: 8px;
@@ -2327,6 +2332,11 @@ input[type="checkbox"] {
     cursor: pointer; }
 
 input[type="file"] {
+  -webkit-appearance: none;
+  -khtml-appearance: none;
+  -moz-appearance: normal;
+  -ms-appearance: none;
+  -o-appearance: none;
   appearance: none;
   display: inline-block;
   padding: 0.5em 1em;
@@ -2425,6 +2435,11 @@ input[type="radio"] {
   -o-user-select: none;
   user-select: none;
   cursor: pointer;
+  -webkit-appearance: none;
+  -khtml-appearance: none;
+  -moz-appearance: normal;
+  -ms-appearance: none;
+  -o-appearance: none;
   appearance: none;
   position: relative;
   top: 6px;
@@ -2821,6 +2836,11 @@ progress {
 */
 select,
 keygen {
+  -webkit-appearance: none;
+  -khtml-appearance: none;
+  -moz-appearance: normal;
+  -ms-appearance: none;
+  -o-appearance: none;
   appearance: none;
   cursor: pointer;
   padding: 0.25em 1.75em 0.25em 0.5em;
