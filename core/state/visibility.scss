@@ -16,9 +16,9 @@ $important: important();
         }
 
         @media #{$only-hd} {
-            //.only-on-hd               { display:none; }
-            .only-on-tablet             { display:none; }
-            .only-on-smartphone         { display:none; }
+            //.only-on-hd               { display: none; }
+            .only-on-tablet             { display: none; }
+            .only-on-smartphone         { display: none; }
             .not-on-hd                  { display: none; }
         }
 
@@ -137,7 +137,7 @@ $important: important();
 
         @media #{$from-smartphone-landscape} {
             // Smartphone landscape
-            .not-from-smartphone-landscape { display:none; position:fixed; }
+            .not-from-smartphone-landscape { display:none #{$important}; }
         }
 
         @media #{$from-tablet-portrait} {
