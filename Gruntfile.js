@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
-		// running `grunt sass` will compile once
 		sass: {
 			development: {
 				options: {
@@ -75,8 +74,7 @@ module.exports = function(grunt) {
                     "**/*.scss"
                 ],
                 tasks: [
-                    "sass:development"/*,
-                    "csso:production"*/
+                    "sass:development"
                 ]
             }
 		},
