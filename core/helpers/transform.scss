@@ -1,0 +1,61 @@
+@mixin matrix($matrix6:"0,0,0,0,0,0") {
+	@include transform(matrix(#{$matrix6}));
+}
+@mixin matrix3d($matrix16:"0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0") {
+	@include transform(matrix3d(#{$matrix16}));
+}
+@mixin translate($coordinatesXY:"0,0") {
+	@include transform(translate(#{$coordinatesXY}));
+}
+@mixin translate3d($coordinatesXYZ:"0,0,0") {
+	@include transform(translate3d(#{$coordinatesXYZ}));
+}
+@mixin translateX($x:0) {
+	@include transform(translateX(#{$x}));
+}
+@mixin translateY($y:0) {
+	@include transform(translateY(#{$y}));
+}
+@mixin translateZ($z:0) {
+	@include transform(translateZ(#{$z}));
+}
+@mixin scale($scale:0) {
+	@include transform(scale(#{$scale}));
+}
+@mixin scaleX($scale:0) {
+	@include transform(scaleX(#{$scale}));
+}
+@mixin scaleY($scale:0) {
+	@include transform(scaleY(#{$scale}));
+}
+@mixin scaleZ($scale:0) {
+	@include transform(scaleZ(#{$scale}));
+}
+@mixin rotate($angle:0) {
+	@include transform(rotate(#{$angle}));
+}
+@mixin rotateX($angle:0) {
+	@include transform(rotateX(#{$angle}));
+}
+@mixin rotateY($angle:0) {
+	@include transform(rotateY(#{$angle}));
+}
+@mixin rotateZ($angle:0) {
+	@include transform(rotateZ(#{$angle}));
+}
+@mixin rotate3d($rotation:"0,0,0,0deg") {
+	// x, y, z, angle
+	@include transform(rotate3d(#{$rotation}));
+}
+@mixin skew($angles:"0deg,0deg") {
+	@include transform(skew(#{$angles}));
+}
+@mixin skewX($angle:0deg) {
+	@include transform(skewX(#{$angle}));
+}
+@mixin skewY($angle:0deg) {
+	@include transform(skewY(#{$angle}));
+}
+@mixin perspective($perspective:0) {
+	@include transform(perspective(#{$perspective}));
+}

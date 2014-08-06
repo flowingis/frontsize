@@ -2701,9 +2701,12 @@ input[type="date"] {
   input[type="number"]:disabled,
   input[type="date"]:disabled {
     cursor: default;
-    -khtml-opacity: 0.5;
-    -moz-opacity: 0.5;
-    opacity: 0.5; }
+    -webkit-filter: opacity(0.5);
+    -khtml-filter: opacity(0.5);
+    -moz-filter: opacity(0.5);
+    -ms-filter: opacity(0.5);
+    -o-filter: opacity(0.5);
+    filter: opacity(0.5); }
 
 textarea {
   width: 100%;
