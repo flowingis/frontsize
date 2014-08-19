@@ -126,12 +126,6 @@ module.exports = function(grunt) {
 
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("prefix", [ 
-        "sass:test", 
-        "autoprefixer:default",
-        "csslint:testPrefixed" 
-    ]);
-
     grunt.registerTask("test_all", [
         "test",
         "testAutoprefixer",
