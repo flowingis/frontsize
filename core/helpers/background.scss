@@ -122,11 +122,11 @@
 		}
 	}
 }
-@mixin icon($backgroundImage, $width, $height:$width) {
+@mixin icon($backgroundImage, $width, $height:$width, $backgroundPosition:50% 50%) {
 	@include size($width, $height);
 	@include backgroundImage($backgroundImage);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: $backgroundPosition;
 }
 
 @mixin fillImage($backgroundImage, $path:$root-path){
