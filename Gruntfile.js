@@ -4,9 +4,8 @@ module.exports = function(grunt) {
 			development: {
 				options: {
 					compress          : false,
-                    cleancss          : false/*,
-                    sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.css.map"*/
+                    cleancss          : false,
+                    sourcemap         : 'test/frontsize.min.css.map'
 				},
 				files: {
 					"test/frontsize.css" : "compile.scss"
@@ -15,9 +14,8 @@ module.exports = function(grunt) {
             test: {
                 options: {
                     compress          : false,
-                    cleancss          : false/*,
-                    sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.test.css.map"*/
+                    cleancss          : false,
+                    sourcemap         : 'test/frontsize.min.css.map'
                 },
                 files: {
                     "test/frontsize.test.css" : "test.scss"
@@ -26,9 +24,8 @@ module.exports = function(grunt) {
             testAutoprefixer: {
                 options: {
                     compress          : false,
-                    cleancss          : false/*,
-                    sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.autoprefixer.css.map"*/
+                    cleancss          : false,
+                    sourcemap         : 'test/frontsize.min.css.map'
                 },
                 files: {
                     "test/frontsize.test.autoprefixer.css" : "test_autoprefixer.scss"
