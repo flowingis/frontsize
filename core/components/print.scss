@@ -10,7 +10,7 @@
 		background-image: none !important;
 		background-color: white !important;
 		text-shadow: 0 0 0 white !important;
-		$shadow:0 0 0 white !important;
+		$shadow: 0 0 0 white !important;
 		@include box-shadow($shadow);
 		$border:0 !important;
 		@include border-radius($border);

@@ -1,0 +1,42 @@
+@mixin backface-visibility($visibility:visible) {
+	// The backface-visibility property defines whether or not an element should be visible when not facing the screen.
+	// This property is useful when an element is rotated, and you do not want to see its backside.
+	// Url - http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp
+	// Values: visible | hidden
+	@if $use-css-prefix == true {
+		-webkit-backface-visibility: #{$visibility};
+		-khtml-backface-visibility: #{$visibility};
+		-moz-backface-visibility: #{$visibility};
+		-ms-backface-visibility: #{$visibility};
+		-o-backface-visibility: #{$visibility};
+	}
+	backface-visibility: #{$visibility};
+}
+
+@mixin transform($transform:none) {
+	// The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+	// Possible values: none|transform-functions
+	// Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
+	@if $use-css-prefix == true {
+		-webkit-transform: #{$transform};
+		-khtml-transform: #{$transform};
+		-moz-transform: #{$transform};
+		-ms-transform: #{$transform};
+		-o-transform: #{$transform};
+	}
+	transform: #{$transform};
+}
+
+@mixin transform-style($style:flat) {
+	// The transform-style property specifies how nested elements are rendered in 3D space.
+	// Url - http://www.w3schools.com/cssref/css3_pr_transform-style.asp
+	// Values: flat | preserve-3d
+	@if $use-css-prefix == true {
+		-webkit-transform-style: #{$style};
+		-khtml-transform-style: #{$style};
+		-moz-transform-style: #{$style};
+		-ms-transform-style: #{$style};
+		-o-transform-style: #{$style};
+	}
+	transform-style: #{$style};
+}

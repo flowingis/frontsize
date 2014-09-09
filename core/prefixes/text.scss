@@ -1,0 +1,64 @@
+@mixin hyphens($hyphens:none) {
+	// Sets how to split words to improve the layout of paragraphs
+	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
+	// Values: none | both | horizontal | vertical
+	@if $use-css-prefix == true {
+		-webkit-hyphens: #{$hyphens};
+		-khtml-hyphens: #{$hyphens};
+		-moz-hyphens: #{$hyphens};
+		-ms-hyphens: #{$hyphens};
+		-o-hyphens: #{$hyphens};
+	}
+	hyphens: #{$hyphens};
+}
+
+@mixin text-overflow($overflow:ellipsis) {
+	@if $use-css-prefix == true {
+		-ms-text-overflow: #{$overflow};
+	}
+	text-overflow: #{$overflow};
+}
+
+@mixin text-fill-color($color:transparent) {
+	@if $use-css-prefix == true {
+		-webkit-text-fill-color: #{$color};
+		-khtml-text-fill-color: #{$color};
+		-moz-text-fill-color: #{$color};
+		-ms-text-fill-color: #{$color};
+		-o-text-fill-color: #{$color};
+	}
+	text-fill-color: #{$color};
+}
+
+@mixin text-stroke-color($color:black) {
+	@if $use-css-prefix == true {
+		-webkit-text-stroke-color: #{$color};
+		-khtml-text-stroke-color: #{$color};
+		-moz-text-stroke-color: #{$color};
+		-ms-text-stroke-color: #{$color};
+		-o-text-stroke-color: #{$color};
+	}
+	text-stroke-color: #{$color};
+}
+
+@mixin text-stroke-width($width:1px) {
+	@if $use-css-prefix == true {
+		-webkit-text-stroke-width: #{$width};
+		-khtml-text-stroke-width: #{$width};
+		-moz-text-stroke-width: #{$width};
+		-ms-text-stroke-width: #{$width};
+		-o-text-stroke-width: #{$width};
+	}
+	text-stroke-width: #{$width};
+}
+
+@mixin text-stroke($textStroke:"1px black") {
+	@if $use-css-prefix == true {
+		-webkit-text-stroke: #{$textStroke};
+		-khtml-text-stroke: #{$textStroke};
+		-moz-text-stroke: #{$textStroke};
+		-ms-text-stroke: #{$textStroke};
+		-o-text-stroke: #{$textStroke};
+	}
+	text-stroke: #{$textStroke};
+}

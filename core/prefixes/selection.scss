@@ -1,0 +1,39 @@
+@mixin globalSelection($text-color:inherit, $background-color:inherit) {
+	// Sets the color of the text selection area and the color of the text selected
+	@if $use-css-prefix == true {
+		::-moz-selection {
+			background: $background-color;
+			color: $text-color;
+		}
+		img::-moz-selection	{
+			background: transparent;
+		}
+		::-moz-focus-inner {
+			border: 0;
+		}
+	}
+	::selection {
+		background: $background-color; 
+		color: $text-color;
+	}
+	img::selection {
+		background: transparent;
+	}
+}
+
+@mixin selection($text-color:inherit, $background-color:inherit) {
+	// Sets the color of the text selection area and the color of the text selected
+	@if $use-css-prefix == true {
+		&::-moz-selection {
+			background: $background-color;
+			color: $text-color;
+		}
+		&::-moz-focus-inner {
+			border: 0;
+		}
+	}
+	&::selection {
+		background: $background-color;
+		color: $text-color;
+	}
+}

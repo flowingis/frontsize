@@ -1,0 +1,20 @@
+@mixin image-resolution($resolution:1dppx) {
+	// http://www.w3.org/TR/css3-images/#image-resolution
+	// Values: from-image | snap | dpi
+	@if $use-css-prefix == true {
+		-webkit-image-resolution: #{$resolution};
+		-khtml-image-resolution: #{$resolution};
+		-moz-image-resolution: #{$resolution};
+		-ms-image-resolution: #{$resolution};
+		-o-image-resolution: #{$resolution};
+	}
+	image-resolution:#{$resolution};
+}
+
+@mixin interpolation-mode($interpolation: bicubic) {
+	@if $use-css-prefix == true {
+		-ms-interpolation-mode: $interpolation;
+	}
+	// This property is not listed in CSS3 specification
+	// interpolation-mode: $interpolation;
+}

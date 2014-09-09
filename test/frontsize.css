@@ -1692,7 +1692,7 @@ nav ul {
   -o-border-radius: 100px;
   border-radius: 100px;
   background-color: #e2e4e3;
-  background: -webkit-gradient(#e2e4e3);
+  background: -webkit-gradient(#E2E4E3);
   background: -webkit-linear-gradient(top, #fcfdfc 0%, #c5cec9 100%);
   background: -khtml-linear-gradient(top, #fcfdfc 0%, #c5cec9 100%);
   background: -moz-linear-gradient(top, #fcfdfc 0%, #c5cec9 100%);
@@ -2165,7 +2165,7 @@ nav ul {
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid #CCCCCC;
     border-color: #cccccc; }
   .tabs .tab {
     display: inline-block;
@@ -2725,7 +2725,6 @@ textarea {
   -ms-resize: vertical;
   -o-resize: vertical;
   resize: vertical;
-  overflow: auto;
   min-height: 100px;
   max-height: 200px; }
 

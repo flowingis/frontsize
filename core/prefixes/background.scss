@@ -1,0 +1,42 @@
+@mixin linear-gradient($gradient:"top, #FFFFFF, #000000") {
+	@if $use-css-prefix == true {
+		background: -webkit-linear-gradient(#{$gradient});
+		background: -khtml-linear-gradient(#{$gradient});
+		background: -moz-linear-gradient(#{$gradient});
+		background: -ms-linear-gradient(#{$gradient});
+		background: -o-linear-gradient(#{$gradient});
+	}
+	background: linear-gradient(#{$gradient});
+}
+
+@mixin background-origin($origin:padding-box) {
+	// The background-origin property specifies what the background-position property should be relative to.
+	// Url - http://www.w3schools.com/cssref/css3_pr_background-origin.asp
+	// Values: padding-box | border-box | content-box;
+	// Code snippet:
+	// .background-origin(border-box);
+	@if $use-css-prefix == true {
+		-webkit-background-origin: #{$origin};
+		-khtml-background-origin: #{$origin};
+		-moz-background-origin: #{$origin};
+		-ms-background-origin: #{$origin};
+		-o-background-origin: #{$origin};
+	}
+	background-origin: #{$origin};
+}
+
+@mixin background-clip($clip:border-box) {
+	// The background-clip property specifies the painting area of the background.
+	// Url - http://www.w3schools.com/cssref/css3_pr_background-clip.asp
+	// Values: border-box | padding-box | content-box;
+	// Code snippet:
+	// .background-clip(border-box);
+	@if $use-css-prefix == true {
+		-webkit-background-clip: #{$clip};
+		-khtml-background-clip: #{$clip};
+		-moz-background-clip: #{$clip};
+		-ms-background-clip: #{$clip};
+		-o-background-clip: #{$clip};
+	}
+	background-clip: #{$clip};
+}

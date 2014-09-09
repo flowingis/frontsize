@@ -1,0 +1,77 @@
+@mixin column-count($count:auto) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-count.asp
+	@if $use-css-prefix == true {
+		-webkit-column-count: #{$count};
+		-khtml-column-count: #{$count};
+		-moz-column-count: #{$count};
+		-ms-column-count: #{$count};
+		-o-column-count: #{$count};
+	}
+	column-count: #{$count};
+}
+
+@mixin column-gap($gap:normal) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-gap.asp
+	@if $use-css-prefix == true {
+		-webkit-column-gap: #{$gap};
+		-khtml-column-gap: #{$gap};
+		-moz-column-gap: #{$gap};
+		-ms-column-gap: #{$gap};
+		-o-column-gap: #{$gap};
+	}
+	column-gap: #{$gap};
+}
+
+@mixin column-rule($rule:medium none black) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-rule.asp
+	@if $use-css-prefix == true {
+		-webkit-column-rule: #{$rule};
+		-khtml-column-rule: #{$rule};
+		-moz-column-rule: #{$rule};
+		-ms-column-rule: #{$rule};
+		-o-column-rule: #{$rule};
+	}
+	column-rule: #{$rule};
+}
+
+@mixin column-span($span:1) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-span.asp
+	// The column-span property specifies how many columns an element should span across.
+	// The CSS column-span property allows content to span across multiple columns on a multi-column layout.
+	// This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
+	// Values: 1 | none | all;
+	@if $use-css-prefix == true {
+		-webkit-column-span: #{$span};
+		-khtml-column-span: #{$span};
+		-moz-column-span: #{$span};
+		-ms-column-span: #{$span};
+		-o-column-span: #{$span};
+	}
+	column-span: #{$span};
+}
+
+@mixin column-width($rule:auto) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-width.asp
+	// The column-width property specifies the width of the columns.
+	@if $use-css-prefix == true {
+		-webkit-column-width: #{$rule};
+		-khtml-column-width: #{$rule};
+		-moz-column-width: #{$rule};
+		-ms-column-width: #{$rule};
+		-o-column-width: #{$rule};
+	}
+	column-width: #{$rule};
+}
+
+@mixin columns($columns:auto auto) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_columns.asp
+	// The columns property is a shorthand property for setting column-width and column-count.
+	@if $use-css-prefix == true {
+		-webkit-columns: #{$columns};
+		-khtml-columns: #{$columns};
+		-moz-columns: #{$columns};
+		-ms-columns: #{$columns};
+		-o-columns: #{$columns};
+	}
+	columns: #{$columns};
+}

@@ -1,0 +1,13 @@
+@mixin marks($marks:none) {
+	// This property specifies what sort of marks should be rendered just outside the rendered page box.
+	// The characteristics and position of the marks will be browser dependent.
+	// Values: inherit | none | crop | cross | crop cross
+	@if $use-css-prefix == true {
+		-webkit-marks: #{$marks};
+		-khtml-marks: #{$marks};
+		-moz-marks: #{$marks};
+		-ms-marks: #{$marks};
+		-o-marks: #{$marks};
+	}
+	marks:#{$marks};
+}

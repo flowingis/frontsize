@@ -1,0 +1,157 @@
+@mixin box-align($align:stretch) {
+	// The box-align property specifies how to align the child elements of a box.
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-align.asp
+	// Values: start | end | center | baseline | stretch
+	@if $use-css-prefix == true {
+		-webkit-box-align: #{$align};
+		-khtml-box-align: #{$align};
+		-moz-box-align: #{$align};
+		-ms-box-align: #{$align};
+		-o-box-align: #{$align};
+	}
+	box-align: #{$align};
+}
+
+@mixin box-direction($direction:normal) {
+	// The box-direction property specifies the direction in which child elements of a box element are laid out.
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-direction.asp
+	// Values: normal | reverse | inherit
+	@if $use-css-prefix == true {
+		-webkit-box-direction: #{$direction};
+		-khtml-box-direction: #{$direction};
+		-moz-box-direction: #{$direction};
+		-ms-box-direction: #{$direction};
+		-o-box-direction: #{$direction};
+	}
+	box-direction: #{$direction};
+}
+
+@mixin box-flex($flexibility:0.0) {
+	// The box-flex property specifies whether the child elements of a box is flexible or inflexible in size.
+	// Tip: Elements that are flexible can shrink or grow as the box shrinks and grows. Whenever there is extra space in a box, flexible elements are expanded to fill that space.
+	// Values: 0.0 | 0.5 | 1 | etc.
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children {
+	//         .box-flex();
+	//     }
+	// }
+	@if $use-css-prefix == true {
+		-webkit-box-flex: #{$flexibility};
+		-khtml-box-flex: #{$flexibility};
+		-moz-box-flex: #{$flexibility};
+		-ms-box-flex: #{$flexibility};
+		-o-box-flex: #{$flexibility};
+	}
+	box-flex: #{$flexibility};
+}
+
+@mixin box-ordinal-group($order:1) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-ordinal-group.asp
+	// The box-ordinal-group property specifies the display order of the child elements of a box.
+	// Elements with a lower value are displayed before those with a higher value.
+	// Note: The display order of the elements with the same group value depend on their source order.
+	// Values: integers
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
+	@if $use-css-prefix == true {
+		-webkit-box-ordinal-group: #{$order};
+		-khtml-box-ordinal-group: #{$order};
+		-moz-box-ordinal-group: #{$order};
+		-ms-box-ordinal-group: #{$order};
+		-o-box-ordinal-group: #{$order};
+		-ms-flex-order: #{$order};
+	}
+	box-ordinal-group: #{$order};
+}
+
+@mixin box-orient($orient:inline-axis) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-orient.asp
+	// The box-orient property specifies whether the children of a box should be laid out horizontally or vertically.
+	// Tip: Children within a horizontal box are displayed from left to right, and children within a vertical box are displayed top to bottom. However, the box-direction and box-ordinal-group properties can change this ordering.
+	// Values: horizontal | vertical | inline-axis | block-axis | inherit
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
+	@if $use-css-prefix == true {
+		-webkit-box-orient: #{$orient};
+		-khtml-box-orient: #{$orient};
+		-moz-box-orient: #{$orient};
+		-ms-flex-orient: #{$orient};
+		-ms-box-orient: #{$orient};
+		-o-box-orient: #{$orient};
+	}
+	box-orient: #{$orient};
+}
+
+@mixin box-pack($pack) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-pack.asp
+	// The box-pack property specifies where child elements of a box are placed when the box is larger than the size of the children.
+	// This property specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes.
+	// Values: start | end | center | justify
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .displayBox();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
+	@if $use-css-prefix == true {
+		-webkit-box-pack: #{$pack};
+		-khtml-box-pack: #{$pack};
+		-moz-box-pack: #{$pack};
+		-ms-flex-pack: #{$pack};
+		-ms-box-pack: #{$pack};
+		-o-box-pack: #{$pack};
+	}
+	box-pack: #{$pack};
+}
+
+@mixin box-sizing($sizing:content-box) {
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+	// The box-sizing property allows you to define certain elements to fit an area in a certain way.
+	// For example, if you want two bordered boxes side by side, it can be achieved through setting box-sizing to "border-box". This forces the browser to render the box with the specified width and height, and place the border and padding inside the box.
+	// Values: content-box | border-box | inherit
+	@if $use-css-prefix == true {
+		-webkit-box-sizing: #{$sizing};
+		-khtml-box-sizing: #{$sizing};
+		-moz-box-sizing: #{$sizing};
+		-ms-box-sizing: #{$sizing};
+		-o-box-sizing: #{$sizing};
+	}
+	box-sizing: #{$sizing};
+}
+
+@mixin box-shadow($params:0 0 1px rgba(0,0,0,.3)) {
+	// Sets the shadow of the element
+	// .box-shadow(x y blur [expand] color [inset]);
+	// .box-shadow(1px 2px 4px rgba(0,0,0,.3));
+	// .box-shadow(0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5););
+	@if $use-css-prefix == true {
+		-webkit-box-shadow: #{$params};
+		-khtml-box-shadow: #{$params};
+		-moz-box-shadow: #{$params};
+		-ms-box-shadow: #{$params};
+		-o-box-shadow: #{$params};
+	}
+	box-shadow: #{$params};
+}

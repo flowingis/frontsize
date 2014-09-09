@@ -1,0 +1,30 @@
+@mixin border-image($params) {
+	// Specify an image as the border around an element
+	// Url - http://www.w3schools.com/cssref/css3_pr_border-image.asp
+	// Defaut usage
+	// .border-image(url(border.png) 30 30 round);
+	@if $use-css-prefix == true {
+		-webkit-border-image: #{$params};
+		-khtml-border-image: #{$params};
+		-moz-border-image: #{$params};
+		-ms-border-image: #{$params};
+		-o-border-image: #{$params};
+	}
+	border-image: #{$params};
+}
+
+@mixin border-radius($radius:6px) {
+	// sets a radius to the angles of the element
+	// Default usage
+	// .border-radius(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
+	// .border-radius(4px);
+	// .border-radius(4px 6px 8px 10px);
+	@if $use-css-prefix == true {
+		-webkit-border-radius: #{$radius};
+		-khtml-border-radius: #{$radius};
+		-moz-border-radius: #{$radius};
+		-ms-border-radius: #{$radius};
+		-o-border-radius: #{$radius};
+	}
+	border-radius: #{$radius};
+}

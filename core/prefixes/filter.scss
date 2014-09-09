@@ -1,0 +1,10 @@
+@mixin filter($filter) {
+	@if $use-css-prefix == true {
+		-webkit-filter: #{$filter};
+		-khtml-filter: #{$filter};
+		-moz-filter: #{$filter};
+		-ms-filter: #{$filter};
+		-o-filter: #{$filter};
+	}
+	filter: #{$filter};
+}

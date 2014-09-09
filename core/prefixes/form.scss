@@ -1,0 +1,13 @@
+@mixin resize($resize:none) {
+	// The resize property specifies whether or not an element is resizable by the user.
+	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
+	// Values: none | both | horizontal | vertical
+	@if $use-css-prefix == true {
+		-webkit-resize: #{$resize};
+		-khtml-resize: #{$resize};
+		-moz-resize: #{$resize};
+		-ms-resize: #{$resize};
+		-o-resize: #{$resize};
+	}
+	resize: #{$resize};
+}

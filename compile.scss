@@ -14,8 +14,24 @@ Website:   https://github.com/AlessandroMinoccheri
 @import "core/lib/normalize";
 @import "core/components/functions";
 @import "core/components/margin";
+@import "core/prefixes/animation";
+@import "core/prefixes/background";
+@import "core/prefixes/border";
+@import "core/prefixes/box";
+@import "core/prefixes/column";
+@import "core/prefixes/display";
+@import "core/prefixes/filter";
+@import "core/prefixes/font";
+@import "core/prefixes/form";
+@import "core/prefixes/image";
+@import "core/prefixes/outline";
+@import "core/prefixes/placeholder";
+@import "core/prefixes/print";
+@import "core/prefixes/selection";
+@import "core/prefixes/text";
+@import "core/prefixes/transform";
+@import "core/prefixes/transition";
 @import "core/components/padding";
-@import "core/components/prefixes";
 @import "core/components/print";
 @import "core/components/typography";
 

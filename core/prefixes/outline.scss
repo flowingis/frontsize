@@ -1,0 +1,10 @@
+@mixin outline-radius($radius:6px) {
+	@if $use-css-prefix == true {
+		-webkit-outline-radius: #{$radius};
+		-khtml-outline-radius: #{$radius};
+		-moz-outline-radius: #{$radius};
+		-ms-outline-radius: #{$radius};
+		-o-outline-radius: #{$radius};
+	}
+	outline-radius: #{$radius};
+}

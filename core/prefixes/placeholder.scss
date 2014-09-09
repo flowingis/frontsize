@@ -1,0 +1,109 @@
+@mixin globalPlaceholder($color:#999999, $focused:#CCCCCC, $fontFamily:$font-default) {
+	// sets the color of the input text placeholder attribute
+	@if $use-css-prefix == true {
+		::-webkit-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus::-webkit-input-placeholder {
+			color: $focused;
+		}
+		:-khtml-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus:-khtml-input-placeholder {
+			color: $focused;
+		}
+		:-moz-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus:-moz-placeholder {
+			color: $focused;
+		}
+		::-moz-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus::-moz-placeholder {
+			color: $focused;
+		}
+		:-ms-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus:-ms-input-placeholder {
+			color: $focused;
+		}
+		:-o-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		input:focus:-o-input-placeholder {
+			color: $focused;
+		}
+	}
+	:input-placeholder {
+		color: $color;
+		font-family: $fontFamily;
+	}
+	input:focus:input-placeholder {
+		color: $focused;
+	}
+}
+
+@mixin input-placeholder($color:#999999, $focused:#CCCCCC, $fontFamily:$font-default) {
+	// sets the color of the input text placeholder attribute
+	@if $use-css-prefix == true {
+		&::-webkit-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus::-webkit-input-placeholder {
+			color: $focused;
+		}
+		&:-khtml-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus:-khtml-input-placeholder {
+			color: $focused;
+		}
+		&:-moz-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus:-moz-placeholder {
+			color: $focused;
+		}
+		&::-moz-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus::-moz-placeholder {
+			color: $focused;
+		}
+		&:-ms-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus:-ms-input-placeholder {
+			color: $focused;
+		}
+		&:-o-input-placeholder {
+			color: $color;
+			font-family: $fontFamily;
+		}
+		&:focus:-o-input-placeholder {
+			color: $focused;
+		}
+	}
+	&:input-placeholder { 
+		color: $color;
+		font-family: $fontFamily;
+	}
+	&:focus:input-placeholder { 
+		color: $focused;
+	}
+}

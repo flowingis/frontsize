@@ -1,0 +1,87 @@
+@mixin animation($animation:animation-name 1s){
+	@if $use-css-prefix == true{ 
+  	   -webkit-animation: $animation;
+  	   -khtml-animation: $animation;
+  	   -moz-animation: $animation;
+  	   -ms-animation: $animation;
+  	   -o-animation: $animation;
+  	}
+  	animation: $animation;
+}
+
+@mixin animation-name($animation:animation-name){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-name: $animation;
+	    -khtml-animation-name: $animation;
+	    -moz-animation-name: $animation;
+	    -ms-animation-name: $animation;
+	    -o-animation-name: $animation;
+	}
+    animation-name: $animation;
+}
+
+@mixin animation-duration($animation:2s){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-duration: $animation;
+	    -khtml-animation-duration: $animation;
+	    -moz-animation-duration: $animation;
+	    -ms-animation-duration: $animation;
+	    -o-animation-duration: $animation;
+	}
+    animation-duration: $animation;
+}
+
+@mixin animation-timing-function($animation:linear){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-timing-function: $animation;
+	    -khtml-animation-timing-function: $animation;
+	    -moz-animation-timing-function: $animation;
+	    -ms-animation-timing-function: $animation;
+	    -o-animation-timing-function: $animation;
+	}
+    animation-timing-function: $animation;
+}
+
+@mixin animation-delay($animation:2s){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-delay: $animation;
+	    -khtml-animation-delay: $animation;
+	    -moz-animation-delay: $animation;
+	    -ms-animation-delay: $animation;
+	    -o-animation-delay: $animation;
+	}
+    animation-delay: $animation;
+}
+
+@mixin animation-iteration-count($animation:infinite){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-iteration-count: $animation;
+	    -khtml-animation-iteration-count: $animation;
+	    -moz-animation-iteration-count: $animation;
+	    -ms-animation-iteration-count: $animation;
+	    -o-animation-iteration-count: $animation;
+	}
+    animation-iteration-count: $animation;
+}
+
+@mixin animation-direction($animation:alternate){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-direction: $animation;
+	    -khtml-animation-direction: $animation;
+	    -moz-animation-direction: $animation;
+	    -ms-animation-direction: $animation;
+	    -o-animation-direction: $animation;
+	}
+    animation-direction: $animation;
+}
+
+@mixin animation-play-state($animation:running){
+	@if $use-css-prefix == true{ 
+	    -webkit-animation-play-state: $animation;
+	    -khtml-animation-play-state: $animation;
+	    -moz-animation-play-state: $animation;
+	    -ms-animation-play-state: $animation;
+	    -o-animation-play-state: $animation;
+	}
+    animation-play-state: $animation;
+}

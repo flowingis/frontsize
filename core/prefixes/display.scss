@@ -1,0 +1,53 @@
+@mixin appearance($appearence:normal, $forcePrefixes:true) {
+	@if $use-css-prefix == false{
+		-webkit-appearance:#{$appearence};
+		-khtml-appearance: #{$appearence};
+	    -moz-appearance: normal;
+		-ms-appearance: #{$appearence};
+		// -o-appearance: @appearence;     // not working for elements radio and checkbox
+	}
+	@else{
+		@if $use-css-prefix == true{
+			-webkit-appearance: #{$appearence};
+			-khtml-appearance: #{$appearence};
+			-moz-appearance: normal;
+			-ms-appearance: #{$appearence};
+			-o-appearance: #{$appearence};
+		}
+	}
+	// The appearance property allows you to make an element look like a standard user interface element.
+    // Url - http://css-tricks.com/almanac/properties/a/appearance/
+    // Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
+    // Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
+    // Code snippet:
+    // .appearance(button);
+    appearance: #{$appearence};
+}
+
+@mixin display($display) {
+	@if $use-css-prefix == true  and $display == "box" {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -khtml-box;
+		display: -moz-box;
+		display: -o-box;
+	}
+	@else{
+		@if $display != "box" {
+			display: $display;
+		}
+	}
+}
+
+@mixin opacity($opacity:1) {
+	@if $use-css-prefix == true {
+		-khtml-opacity: #{$opacity};
+		-moz-opacity: #{$opacity};
+		@if $use-ie-filters == true {
+			$msOpacity:(#{$opacity} * 100);
+			-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$msOpacity});
+			filter:alpha(opacity=#{$msOpacity});
+		}
+	}
+	opacity:#{$opacity};
+}
