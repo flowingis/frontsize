@@ -11,6 +11,19 @@ module.exports = function(grunt) {
 					"test/frontsize.css" : "compile.scss"
 				}
 			},
+            production: {
+                options: {
+                    compress          : true,
+                    cleancss          : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "test/frontsize.min.css.map"
+                },
+                files: {
+                    "test/frontsize.min.css" : "compile.scss"
+                }
+            },
             test: {
                 options: {
                     compress          : false,
@@ -88,19 +101,19 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                  csslintrc: '.csslintrc'
+                    csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.test.css']
             },
             testMin: {
                 options: {
-                  csslintrc: '.csslintrc'
+                    csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.test.min.css']
             },
             testPrefixed: {
                 options: {
-                  csslintrc: '.csslintrc'
+                    csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.prefixed.css']
 
@@ -123,7 +136,7 @@ module.exports = function(grunt) {
 
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("test_all", [
+    grunt.registerTask("production", [
         "test",
         "testAutoprefixer",
         "test_min",
@@ -132,26 +145,17 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("test", [
         "sass:test",
-        /*"csso:test",*/
         "csslint:test"
     ]);
 
     grunt.registerTask("testAutoprefixer", [
         "sass:testAutoprefixer",
         "autoprefixer",
-        /*"csso:testAutoprefixer",
-        "csso:autoprefixer",*/
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
         "sass:test",
-        "csso:test",
         "csslint:testMin"
     ]);
-
-    grunt.registerTask("production", [
-        "sass:development"
-    ]);
-
 };

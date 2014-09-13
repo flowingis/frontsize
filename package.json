@@ -1,27 +1,40 @@
 {
-    "name": "frontsize-sass",
-    "version": "0.0.0",
-    "dependencies": {},
-    "devDependencies": {
-        "matchdep": "*",
+    "name"              : "frontsize-sass",
+    "version"           : "2.0.0",
+    "description"       : "A CSS front-end framework built to build and ease your life.",
+    "author"            : "Alessandro Minoccheri",
+    "license"           : "MIT",
+    "keywords": [
+        "css",
+        "front-end",
+        "sass",
+        "framework",
+        "responsive",
+        "theme"
+    ],
+    "main" : "compile.scss",
+    "devDependencies"   : {
 
-        "phantomjs": "*",
-        "resemblejs": "*",
-        "casperjs": "*",
-        "csslint": "*",
+        "matchdep"      : "*",
 
-        "sass": "*",
-        "grunt": "~0.4.1",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-sass": "*",
-        "grunt-contrib-csslint": "*",
-        "grunt-autoprefixer": "*",
-        "grunt-csso": "*"
+        "casperjs"      : "*",
+        "phantomjs"     : "*",
+        "resemblejs"    : "*",
+        "phantomcss"    : "*",
+
+        "csslint"       : "*",
+        "sass"          : "*",
+
+        "grunt"                 : "~0.4.1",
+        "grunt-contrib-watch"   : "*",
+        "grunt-contrib-sass"    : "*",
+        "grunt-contrib-csslint" : "*",
+        "grunt-autoprefixer"    : "*"
     },
     "engines": {
-        "node": ">=0.8.0"
+        "node"  : ">=0.8.0"
     },
-    "scripts": {
-        "test": "grunt test"
+    "bugs" : {
+        "url" : "https://github.com/ideatosrl/frontsize-sass/issues"
     }
 }
