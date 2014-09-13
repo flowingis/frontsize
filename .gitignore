@@ -21,6 +21,7 @@ node_modules
 *.o
 *.so
 # *.css
+test/*.css
 
 # Packages #
 ############
