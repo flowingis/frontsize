@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		sass: {
-			development: {
+			develop: {
 				options: {
 					compress          : false,
                     cleancss          : false,
@@ -84,13 +84,15 @@ module.exports = function(grunt) {
         },
 
 		watch: {
-			development : {
+			develop : {
                 files: [
                     "*.scss",
                     "**/*.scss"
                 ],
                 tasks: [
-                    "sass:development"
+                    "sass:develop",
+                    "production",
+                    "assets"
                 ]
             }
 		},
@@ -141,6 +143,15 @@ module.exports = function(grunt) {
         "testAutoprefixer",
         "test_min",
         "production"
+    ]);
+
+    grunt.registerTask("develop", [
+        "watch:develop"
+    ]);
+
+    grunt.registerTask("assets", [
+        "clean:assets",
+        "copy:assets"
     ]);
 
 	grunt.registerTask("test", [
