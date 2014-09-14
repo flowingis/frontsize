@@ -2,16 +2,41 @@
     "name"              : "frontsize-sass",
     "version"           : "2.0.0",
     "description"       : "A CSS front-end framework built to build and ease your life.",
-    "author"            : "Alessandro Minoccheri",
+    "author"          : {
+        "name"  : "Alessandro Minoccheri",
+        "email" : "alessandro.minoccheri@gmail.com"
+    },
     "license"           : "MIT",
     "keywords": [
         "css",
         "front-end",
-        "sass",
         "framework",
         "responsive",
-        "theme"
+        "theme",
+        "compile sass",
+        "css nesting",
+        "css variable",
+        "gradients css",
+        "gradients css3",
+        "sass",
+        "sass compiler",
+        "sass css",
+        "sass mixins",
+        "lesscss",
+        "mixins",
+        "nested css",
+        "parser",
+        "preprocessor",
+        "style",
+        "styles",
+        "stylesheet",
+        "variables in css",
+        "css sass"
     ],
+    "repository": {
+        "type" : "git",
+        "url"  : "https://github.com/ideatosrl/frontsize-sass.git"
+    },
     "main" : "compile.scss",
     "devDependencies"   : {
 
@@ -26,10 +51,12 @@
         "sass"          : "*",
 
         "grunt"                 : "~0.4.1",
+        "grunt-autoprefixer"    : "*",
         "grunt-contrib-watch"   : "*",
         "grunt-contrib-sass"    : "*",
         "grunt-contrib-csslint" : "*",
-        "grunt-autoprefixer"    : "*"
+        "grunt-contrib-clean"   : "*",
+        "grunt-contrib-copy"    : "*"
     },
     "engines": {
         "node"  : ">=0.8.0"
