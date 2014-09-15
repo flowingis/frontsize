@@ -22,6 +22,8 @@ node_modules
 *.so
 # *.css
 test/*.css
+test/*.map
+test/*.diff
 
 # Packages #
 ############
