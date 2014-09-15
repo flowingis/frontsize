@@ -1,22 +1,25 @@
 @mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%) {
-	display: table;
-	width: $tableWidth;
-	> * {
-		@include asTableRow($cellPadding, $verticalAlign);
+	@if $tableWidth != false {
+    	width : $tableWidth;
 	}
+
+    display : table;
+    > * {
+        @include asTableRow($cellPadding, $verticalAlign);
+    }
 }
 
 @mixin asTableRow($cellPadding:$global-padding, $verticalAlign:middle) {
-	float: none;
-	display: table-row;
+	display : table-row;
+    float   : none;
 	> * {
 		@include asTableCell($cellPadding, $verticalAlign);
 	}
 }
 
 @mixin asTableCell($cellPadding:$global-padding, $verticalAlign:middle) {
-	float: none;
-	display: table-cell;
-	padding: $cellPadding;
-	vertical-align: $verticalAlign;
+	display        : table-cell;
+    float          : none;
+    padding        : $cellPadding;
+    vertical-align : $verticalAlign;
 }
