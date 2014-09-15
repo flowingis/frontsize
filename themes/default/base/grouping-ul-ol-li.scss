@@ -27,5 +27,5 @@ ul {
 
 li {
     padding: 0;
-    margin: 0 0 0 (#{$global-step} + (#{$global-step} / 4));
+    margin: 0 0 0 (($global-step + $global-step) / 4);
 }
