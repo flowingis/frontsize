@@ -20,8 +20,6 @@ kbd {
     font-family: $font-monospace;
     font-style: normal;
 
-    @include keyboard-commodore();
-
     kbd {
         padding: 0;
         border:none;
