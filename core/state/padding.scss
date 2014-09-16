@@ -6,11 +6,11 @@ $important: important();
             padding: 0 #{$important};
         }
 
-        .no-top-padding {
+        .no-padding-top {
             padding-top: 0 #{$important};
         }
 
-        .no-bottom-padding {
+        .no-padding-bottom {
             padding-bottom: 0 #{$important};
         }
 
@@ -19,11 +19,11 @@ $important: important();
             padding-bottom: 0 #{$important};
         }
 
-        .no-left-padding {
+        .no-padding-left {
             padding-left: 0 #{$important};
         }
 
-        .no-right-padding {
+        .no-padding-right {
             padding-right: 0 #{$important};
         }
 
