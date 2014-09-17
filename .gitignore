@@ -3,6 +3,7 @@
 bower.json
 # .csslintrc
 .csslintrc.comments.json
+/img
 
 # temp files to be ignored #
 *.html

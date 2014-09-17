@@ -1,4 +1,4 @@
-@mixin size($width:16px, $height:$width, $scale:1) {
+@mixin size($width:16px, $height:$width, $scale:1, $setBoxSizing:true) {
 	$unit_num: getUnit($width);
 	@include box-sizing(border-box);
 	@if type-of($width) == 'number' and  type-of($height) == 'number'{
@@ -16,5 +16,8 @@
 	@if type-of($width) != 'number' and  type-of($height) != 'number'{
 		width: $width;
 		height: $height;
+	}
+	@if $setBoxSizing == true{
+		@include box-sizing(border-box);
 	}
 }

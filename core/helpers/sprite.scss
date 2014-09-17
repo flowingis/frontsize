@@ -1,14 +1,16 @@
-@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $rootPath:$root-path) {
+@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $rootPath:$root-path, $setBoxsizing:true) {
 	@if $use-root-path == false{
 		@include backgroundImage($image);
+		background-repeat:no-repeat;
+    	background-size:$backgroudSize;
+    	@include size($width, $height, 1, $setBoxsizing);
 	}
 	@else{
 		@include backgroundImage($image, $rootPath);
+		background-repeat:no-repeat;
+    	background-size:$backgroudSize;
+    	@include size($width, $height, 1, $setBoxsizing);
 	}
-	background-repeat:no-repeat;
-	background-size:$backgroudSize;
-	@include size($width, $height);
-	@include box-sizing(border-box);
 }
 @mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
 	@if ($horizontalPosition == 0){

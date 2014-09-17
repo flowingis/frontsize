@@ -2,13 +2,13 @@
 	@if $use-root-path == false{
 		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight);
 		@media #{$display-retina} {
-			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight);
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, false);
 		}
 	}
 	@else{
 		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $rootPath);
 		@media #{$display-retina} {
-			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $rootPath);
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $rootPath, false);
 		}
 	}
 }

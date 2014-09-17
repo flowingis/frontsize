@@ -1481,13 +1481,7 @@ input[type="checkbox"] {
       -o-box-sizing: border-box;
       box-sizing: border-box;
       width: 32px;
-      height: 32px;
-      -webkit-box-sizing: border-box;
-      -khtml-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box; } }
+      height: 32px; } }
   input[type="checkbox"]:checked {
     background-position: -32px -0; }
   input[type="checkbox"] + * {
@@ -1543,13 +1537,7 @@ input[type="radio"] {
       -o-box-sizing: border-box;
       box-sizing: border-box;
       width: 24px;
-      height: 24px;
-      -webkit-box-sizing: border-box;
-      -khtml-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box; } }
+      height: 24px; } }
   input[type="radio"]:checked {
     background-position: -24px -0; }
 
