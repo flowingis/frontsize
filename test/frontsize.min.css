@@ -1902,18 +1902,14 @@ li {
   margin: 0 0 0 12px; }
 
 body {
-  margin: 0;
-  padding: 0;
-  color: #898989;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-  line-height: 24px;
   background-color: #FCFCFC;
-  -webkit-font-smoothing: antialiased;
-  -khtml-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -ms-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased; }
+  color: #898989;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+  padding: 0; }
 
 h1,
 h2,
