@@ -489,16 +489,6 @@ nav ul {
 /* private */
 /* private */
 /* private */
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
-  .not-retina-only {
-    display: none; } }
-@media only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1 / 11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx) {
-  .retina-only {
-    display: none; } }
-/* private */
-/* private */
-/* private */
-/* private */
 @media print {
   body {
     background: white !important;
