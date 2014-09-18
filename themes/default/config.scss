@@ -4,8 +4,8 @@
 @include setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
 @include setLineHeightScaling(body, $global-step);
 
-@include addFontsRule(small-fonts, $font-default, 14px, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);
-@include addFontRule(mini-font, $font-small, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
+//@include addFontsRule(small-fonts, $font-default, 14px, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);
+@include addFontRule(small-font, $font-small, $font-small-size);
 
 @include addContainerRow(row);
 @include addColumnsSet(12);
