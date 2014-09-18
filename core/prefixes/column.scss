@@ -10,6 +10,18 @@
 	column-count: #{$count};
 }
 
+@mixin column-fill($columnFill:auto) {
+	@if $use-css-prefix == true {
+	    -webkit-column-fill : $columnFill;
+	    -khtml-column-fill : $columnFill;
+	    -moz-column-fill : $columnFill;
+	    -ms-column-fill : $columnFill;
+	    -o-column-fill : $columnFill;
+	}
+    
+    column-fill : $columnFill;
+}
+
 @mixin column-gap($gap:normal) {
 	// Url - http://www.w3schools.com/cssref/css3_pr_column-gap.asp
 	@if $use-css-prefix == true {
