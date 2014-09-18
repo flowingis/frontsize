@@ -11,9 +11,9 @@
 	}
 }
 
-@mixin font-smoothing($antialias:antialiased, $forcePrefixes:true) {
+@mixin font-smoothing($antialias:subpixel-antialiased, $forcePrefixes:true) {
 	// added @forcePrefixes to prevent font-smoothing to be skipped when use-css-prefix is false, this is for Chrome only for now
-	@if $forcePrefixes == true{
+	@if $forcePrefixes == true and $antialias != subpixel-antialiased{
 	    -webkit-font-smoothing: #{$antialias};
 		-khtml-font-smoothing: #{$antialias};
 		-moz-font-smoothing: #{$antialias};
@@ -21,7 +21,7 @@
 		-o-font-smoothing: #{$antialias};
  	}
  	@else{
- 		@if $use-css-prefix == true and $forcePrefixes != true{
+ 		@if $use-css-prefix == true and $forcePrefixes != true and $antialias != subpixel-antialiased{
 		    -webkit-font-smoothing: #{$antialias};
 			-khtml-font-smoothing: #{$antialias};
 			-moz-font-smoothing: #{$antialias};
