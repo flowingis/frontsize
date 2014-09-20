@@ -1,21 +1,45 @@
 Frontsize 2.0.0
 =========
 
-It's a CSS front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
+It's a CSS generator front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
+
+###Why frontsize?
+
+- It passes [CSSlint][csslint] tests (see the tests [configuration][csslintc])
+- It can be useful for [migrations][migration] by it's high customizable features
+- It's totally [customizable][app]
+
+If you'd like to see more features, visit [frontsize.com][site] website.
 
 Do you prefer a [LESS][less] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
+
+Next release details
 ---
 
-**Next release details**
+**Features**
+- **added** `column-grid` system to reproduce behavior like [Pinterest](http://pinterest.com)
+- **added** missing `column-fill` CSS3 prefixes
+- **added** `flex` CSS3 prefixes
+- **added** `grid` CSS3 prefixes
 
+**Fixes**
 - **fixed** missing default `font-size` for headings
-- **changed** `.map` files now are based on CSS names automatically
+- **fixed** padding rule names with new naming convention
+- **fixed** missing default `font-weight` and `font-size` on base body
+- **moved** `spriteRetina` mixin to a new file `sprite-retina.scss` like with `background-retina.scss` and background retina mixins
+- **replaced** filenames `_` with `-` for more file naming consistance
 - **optimized** `asTable` mixin now can skip `width` property
 
----
+**Changes**
+- **renamed** float grid system mixins with more clear names
+- **moved** grid mixins to `grids` core folder
+- **changed** `.map` files now are based on CSS names automatically
+- **changed** `addFontRule` mixin now is more easy to use
+- **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
+- **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
 
 
 Release 2.0.0 details
@@ -93,10 +117,13 @@ Release 2.0.0 details
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
-[docs]:    https://github.com/ideatosrl/frontsize-less/wiki
-[ideato]:  http://www.ideato.it
-[minompi]: https://twitter.com/minompi
-[sass]:    https://github.com/ideatosrl/frontsize-sass
-[less]:    https://github.com/ideatosrl/frontsize-less
-[site]:    http://frontsize.com
-[vitto]:   https://twitter.com/vttrx
+[ideato]:    http://www.ideato.it
+[minompi]:   https://twitter.com/minompi
+[vitto]:     https://twitter.com/vttrx
+[site]:      http://frontsize.com
+[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
+[less]:      https://github.com/ideatosrl/frontsize-less
+[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
+[csslintc]:  https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
+[app]:       https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
+[csslint]:   https://github.com/CSSLint/csslint
