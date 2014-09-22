@@ -7,10 +7,9 @@
 //@include addFontsRule(small-fonts, $font-default, 14px, antialiased, $font-default, 14px, antialiased, $font-default, 14px, antialiased);
 @include addFontRule(small-font, $font-small, $font-small-size);
 
-@include addContainerRow(row);
-@include addColumnsSet(12);
-@include addMarginOffset(12);
+@include addFloatGridContainer(row);
+@include addFloatGridColumns(12);
+@include addFloatGridOffset(12);
 
-// set the margins
-// put .global-steps & .global-steps-padding always at the bottom of the configuration
+// put .addViewportsSteps at the bottom of the configuration
 @include addViewportsSteps(use-steps, 500px, 100px, 50px, 0);

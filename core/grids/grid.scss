@@ -1,0 +1,51 @@
+
+// NOT TESTED YET
+// NOT FINISHED
+
+// http://stackoverflow.com/questions/9015928/is-there-a-working-implementation-of-css3-grid-layout-for-webkit
+// http://updates.html5rocks.com/2014/03/Get-on-the-CSS-Grid
+// http://sydcss-grid.appspot.com/
+// http://dev.w3.org/csswg/css-grid/#source-independence
+
+// <style type="text/css">
+//   #grid {
+//       display: grid;
+//
+//       // Two columns: the first sized to content, the second receives
+//       // the remaining space, but is never smaller than the minimum
+//       // size of the board or the game controls, which occupy this
+//       // column.
+//
+//       grid-template-columns: auto minmax(min-content, 1fr);
+//
+//       // Three rows: the first and last sized to content, the middle
+//       // row receives the remaining space, but is never smaller than
+//       // the minimum height of the board or stats areas.
+//       grid-template-rows: auto minmax(min-content, 1fr) auto
+//   }
+//   // Each part of the game is positioned between grid lines by
+//   // referencing the starting grid line and then specifying, if more
+//   // than one, the number of rows or columns spanned to determine
+//   // the ending grid line, which establishes bounds for the part.
+//   #title    { grid-column: 1; grid-row: 1 }
+//   #score    { grid-column: 1; grid-row: 3 }
+//   #stats    { grid-column: 1; grid-row: 2; justify-self: start }
+//   #board    { grid-column: 2; grid-row: 1 / span 2; }
+//   #controls { grid-column: 2; grid-row: 3; align-self: center }
+// </style>
+// <div id="grid">
+//   <div id="title">Game Title</div>
+//   <div id="score">Score</div>
+//   <div id="stats">Stats</div>
+//   <div id="board">Board</div>
+//   <div id="controls">Controls</div>
+// </div>
+
+
+@mixin addGrid($selector) {
+    .#{$selector} {
+        @include display(grid);
+        @include grid-template-columns(auto minmax(min-content, 1fr));
+        @include grid-template-rows(auto minmax(min-content, 1fr) auto);
+    }
+}

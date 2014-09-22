@@ -1,0 +1,174 @@
+// http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+@mixin addFlexGridContainer(
+    $selector                  ,
+    $hdFullColums              : 4,
+    $hdReadyColums             : 4,
+    $tabletLandscapeColums     : 3,
+    $tabletPortraitColums      : 2,
+    $smartphoneLandscapeColums : 1,
+    $smartphonePortraitColums  : 1
+    ) {
+
+    // set @hdColumns to [false] instead an [integer] to disable automatic columns
+    $enableColumns : $hdFullColums;
+
+    .#{$selector} {
+        @include display(flex);
+        @include flex-wrap(wrap);
+    }
+
+    .#{$selector} > * {
+        @include _setFlexGridColumnBehavior();
+    }
+
+    @include _setFlexGridViewprtColumns($from-smartphone-portrait,  $smartphonePortraitColums,  $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-smartphone-landscape, $smartphoneLandscapeColums, $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-tablet-portrait,      $tabletPortraitColums,      $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-tablet-landscape,     $tabletLandscapeColums,     $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-hd-ready,             $hdReadyColums,             $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-hd-full,              $hdFullColums,              $selector, $enableColumns);
+
+}
+
+@mixin addFlexGridColumns(
+    $hdSteps                  : 12,
+    $tabletSteps              : $hdSteps,
+    $smartphoneSteps          : $tabletSteps,
+    $hdViewportPrefix         : hd-flex-,
+    $tabletViewportPrefix     : tablet-flex-,
+    $smartphoneViewportPrefix : smartphone-flex-,
+    $fillFromViewport         : "smartphone-landscape",
+    $viewTotalColumns         : true,
+    $columnsSeparator         : -of-,
+    $useHdRules               : true,
+    $useTabletRules           : true,
+    $useSmartphoneRules       : true
+    ) {
+
+    @include _addFlexGridColumnSetRule(
+        $from-smartphone-portrait,
+        $smartphoneViewportPrefix, $smartphoneSteps,
+        $tabletViewportPrefix, $tabletSteps,
+        $hdViewportPrefix, $hdSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useSmartphoneRules
+    );
+
+    @include _addFlexGridColumnSetRule(
+        $from-tablet-portrait,
+        $tabletViewportPrefix, $tabletSteps,
+        $hdViewportPrefix, $hdSteps,
+        $smartphoneViewportPrefix, $smartphoneSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useTabletRules
+    );
+
+    @include _addFlexGridColumnSetRule(
+        $from-hd-ready,
+        $hdViewportPrefix, $hdSteps,
+        $tabletViewportPrefix, $tabletSteps,
+        $smartphoneViewportPrefix, $smartphoneSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useHdRules
+    );
+
+}
+
+@mixin _setFlexGridViewprtColumns($mediaQueryRule, $columns, $selector, $enableColumns) {
+    @if $enableColumns == false {
+        @media #{$mediaQueryRule} {
+            .#{$selector} > * {
+                @include flex-basis(#{100 / $columns}#{"%"});
+            }
+        }
+    }
+}
+
+@mixin _addFlexGridColumnSetRule(
+    $viewport,
+    $firstChoiceViewportPrefix, $firstChoiceSteps,
+    $secondChoiceViewportPrefix, $secondChoiceSteps,
+    $thirdChoiceViewportPrefix, $thirdChoiceSteps,
+    $viewTotalColumns, $columnsSeparator,
+    $useRules
+    ) {
+    @media #{$viewport} {
+        // Smartphone portrait
+        @include _addFlexGridColumnSet($thirdChoiceViewportPrefix,  $thirdChoiceSteps,  $viewTotalColumns, $columnsSeparator);
+        @include _addFlexGridColumnSet($secondChoiceViewportPrefix, $secondChoiceSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFlexGridColumnSet($firstChoiceViewportPrefix,  $firstChoiceSteps,  $viewTotalColumns, $columnsSeparator);
+    }
+}
+
+@mixin _addFlexGridColumnSet($prefix, $totalSteps, $viewTotalColumns, $columnsSeparator) {
+    $startIndex : $totalSteps;
+    @include _loopFlexGridColumnSet($totalSteps, $prefix, $startIndex, "", $viewTotalColumns, $columnsSeparator);
+}
+
+@mixin loopColumnSet ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include setColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                    @include box-sizing(border-box);
+                }
+            }
+            
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include setColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                    @include box-sizing(border-box);
+                }
+            }
+            
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _setFlexGridColumnBehavior() {
+    @include box-sizing(border-box);
+    @include flex-grow(1);
+}
+
+@mixin _setFlexGridColumnStep($currentColumn, $totalColumns) {
+    @include flex-basis(#{(#{100 * $currentColumn}) /$totalColumns}#{"%"});
+}

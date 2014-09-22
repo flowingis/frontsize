@@ -16,6 +16,10 @@ Website:   https://github.com/AlessandroMinoccheri
 
 @charset "UTF-8";
 
+@import "core/grids/column-grid";
+@import "core/grids/flex-grid";
+@import "core/grids/float-grid";
+@import "core/grids/grid";
 @import "themes/default/app";
 @import "core/lib/normalize";
 @import "core/components/functions";
