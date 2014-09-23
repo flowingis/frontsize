@@ -1,0 +1,103 @@
+// http://stackoverflow.com/questions/9015928/is-there-a-working-implementation-of-css3-grid-layout-for-webkit
+// http://updates.html5rocks.com/2014/03/Get-on-the-CSS-Grid
+// http://sydcss-grid.appspot.com/
+
+@mixin grid-template-areas($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-template-areas: $params;
+        -khtml-grid-template-areas: $params;
+        -moz-grid-template-areas: $params;
+        -ms-grid-template-areas: $params;
+        -o-grid-template-areas: $params;
+    }
+    // specifies named areas which are not associated with
+    // any particular grid item.
+    // Also useful to visualize the grid
+    grid-template-areas: $params;
+}
+
+@mixin grid-template-rows($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-template-rows: $params;
+        -khtml-grid-template-rows: $params;
+        -moz-grid-template-rows: $params;
+        -ms-grid-template-rows: $params;
+        -o-grid-template-rows: $params;
+    }
+    // is a space separated track list which includes
+    // line names and sizing functions of the grid rows
+    grid-template-rows: $params;
+}
+
+@mixin grid-template-columns($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-template-columns: $params;
+        -khtml-grid-template-columns: $params;
+        -moz-grid-template-columns: $params;
+        -ms-grid-template-columns: $params;
+        -o-grid-template-columns: $params;
+    }
+    // specifies the column information
+    // as for the rows property
+    grid-template-columns: $params;
+}
+
+@mixin grid-area($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-area: $params;
+        -khtml-grid-area: $params;
+        -moz-grid-area: $params;
+        -ms-grid-area: $params;
+        -o-grid-area: $params;
+    }
+
+    grid-area: $params;
+}
+
+@mixin grid-row($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-row: $params;
+        -khtml-grid-row: $params;
+        -moz-grid-row: $params;
+        -ms-grid-row: $params;
+        -o-grid-row: $params;
+    }
+
+    grid-row: $params;
+}
+
+@mixin grid-column($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-column: $params;
+        -khtml-grid-column: $params;
+        -moz-grid-column: $params;
+        -ms-grid-column: $params;
+        -o-grid-column: $params;
+    }
+
+    grid-column: $params;
+}
+
+@mixin grid-column-start($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-column-start: $params;
+        -khtml-grid-column-start: $params;
+        -moz-grid-column-start: $params;
+        -ms-grid-column-start: $params;
+        -o-grid-column-start: $params;
+    }
+
+    grid-column-start: $params;
+}
+
+@mixin grid-column-end($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-grid-column-end: $params;
+        -khtml-grid-column-end: $params;
+        -moz-grid-column-end: $params;
+        -ms-grid-column-end: $params;
+        -o-grid-column-end: $params;
+    }
+    
+    grid-column-end: $params;
+}

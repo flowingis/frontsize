@@ -1,0 +1,107 @@
+@mixin flex-direction($params) {
+    @if $use-css-prefix == true {
+        -webkit-flex-direction: $params;
+        -khtml-flex-direction: $params;
+        -moz-flex-direction: $params;
+        -ms-flex-direction: $params;
+        -o-flex-direction: $params;
+    }
+    
+    flex-direction: $params;
+}
+
+@mixin flex-direction($params) {
+    @if $use-css-prefix == true {
+        -webkit-flex-direction: $params;
+        -khtml-flex-direction: $params;
+        -moz-flex-direction: $params;
+        -ms-flex-direction: $params;
+        -o-flex-direction: $params;
+    }
+    
+    flex-direction: $params;
+}
+
+@mixin order($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-order: $params;
+        -khtml-order: $params;
+        -moz-order: $params;
+        -ms-order: $params;
+        -o-order: $params;
+    }
+
+    order: $params;
+}
+
+@mixin flex-grow($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex-grow: $params;
+        -khtml-flex-grow: $params;
+        -moz-flex-grow: $params;
+        -ms-flex-grow: $params;
+        -o-flex-grow: $params;
+    }
+    
+    flex-grow: $params;
+}
+
+@mixin flex-wrap($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex-wrap: $params;
+        -khtml-flex-wrap: $params;
+        -moz-flex-wrap: $params;
+        -ms-flex-wrap: $params;
+        -o-flex-wrap: $params;
+    }
+
+    flex-wrap: $params;
+}
+
+@mixin flex-shrink($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex-shrink: $params;
+        -khtml-flex-shrink: $params;
+        -moz-flex-shrink: $params;
+        -ms-flex-shrink: $params;
+        -o-flex-shrink: $params;
+    }
+
+    flex-shrink: $params;
+}
+
+@mixin flex-basis($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex-basis: $params;
+        -khtml-flex-basis: $params;
+        -moz-flex-basis: $params;
+        -ms-flex-basis: $params;
+        -o-flex-basis: $params;
+    }
+
+    flex-basis: $params;
+}
+
+@mixin flex-flow($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex-flow: $params;
+        -khtml-flex-flow: $params;
+        -moz-flex-flow: $params;
+        -ms-flex-flow: $params;
+        -o-flex-flow: $params;
+    }
+
+    flex-flow: $params;
+}
+
+@mixin flex($params) {
+ 	@if $use-css-prefix == true {
+        -webkit-flex: $params;
+        -khtml-flex: $params;
+        -moz-flex: $params;
+        -ms-flex: $params;
+        -o-flex: $params;
+    }
+    
+    flex: $params;
+}
