@@ -33,8 +33,78 @@
 		display: -o-box;
 	}
 	@else{
+		@if $use-css-prefix == true  and $display == "grid" {
+			display: -webkit-grid;
+		    display: -ms-grid;
+		    display: -khtml-grid;
+		    display: -moz-grid;
+		    display: -o-grid;
+		    display: grid;
+		}
+
 		@if $display != "box" {
 			display: $display;
 		}
 	}
 }
+
+@mixin align-self($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-align-self: $params;
+        -khtml-align-self: $params;
+        -moz-align-self: $params;
+        -ms-align-self: $params;
+        -o-align-self: $params;
+    }
+    // this is also used by flexbox
+    // http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    align-self: $params;
+}
+
+@mixin align-items($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-align-items: $params;
+        -khtml-align-items: $params;
+        -moz-align-items: $params;
+        -ms-align-items: $params;
+        -o-align-items: $params;
+    }
+
+    align-items: $params;
+}
+
+@mixin align-content($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-align-content: $params;
+        -khtml-align-content: $params;
+        -moz-align-content: $params;
+        -ms-align-content: $params;
+        -o-align-content: $params;
+    }
+
+    align-content: $params;
+}
+
+@mixin justify-self($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-justify-self: $params;
+        -khtml-justify-self: $params;
+        -moz-justify-self: $params;
+        -ms-justify-self: $params;
+        -o-justify-self: $params;
+    }
+
+    justify-self: $params;
+}
+
+@mixin justify-content($params:none) {
+ 	@if $use-css-prefix == true {
+        -webkit-justify-content: $params;
+        -khtml-justify-content: $params;
+        -moz-justify-content: $params;
+        -ms-justify-content: $params;
+        -o-justify-content: $params;
+    }
+    justify-content: $params;
+}
+
