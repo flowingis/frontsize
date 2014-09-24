@@ -353,12 +353,6 @@ table {
 /* private */
 /* private */
 /* private */
-/* private */
-/* private */
-/* private */
-/* private */
-/* private */
-/* private */
 @media print {
   body {
     background: white !important;
@@ -536,96 +530,96 @@ nav ul {
   footer {
     clear: both !important; } }
 .no-margin {
-  margin: 0 !important; }
+  margin: 0 important(); }
 
 .no-margin-top {
-  margin-top: 0 !important; }
+  margin-top: 0 important(); }
 
 .no-margin-bottom {
-  margin-bottom: 0 !important; }
+  margin-bottom: 0 important(); }
 
 .no-margin-vertical {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important; }
+  margin-top: 0 important();
+  margin-bottom: 0 important(); }
 
 .no-margin-left {
-  margin-left: 0 !important; }
+  margin-left: 0 important(); }
 
 .no-margin-right {
-  margin-right: 0 !important; }
+  margin-right: 0 important(); }
 
 .no-margin-horizontal {
-  margin-left: 0 !important;
-  margin-right: 0 !important; }
+  margin-left: 0 important();
+  margin-right: 0 important(); }
 
 .with-margin {
-  margin: 24px 24px !important; }
+  margin: 24px 24px important(); }
 
 .margin-vertical {
-  margin-bottom: 24px !important;
-  margin-top: 24px !important; }
+  margin-bottom: 24px important();
+  margin-top: 24px important(); }
 
 .margin-bottom {
-  margin-bottom: 24px !important; }
+  margin-bottom: 24px important(); }
 
 .margin-top {
-  margin-top: 24px !important; }
+  margin-top: 24px important(); }
 
 .margin-horizontal {
-  margin-left: 24px !important;
-  margin-right: 24px !important; }
+  margin-left: 24px important();
+  margin-right: 24px important(); }
 
 .margin-left {
-  margin-left: 24px !important; }
+  margin-left: 24px important(); }
 
 .margin-right {
-  margin-right: 24px !important; }
+  margin-right: 24px important(); }
 
 .no-padding {
-  padding: 0 !important; }
+  padding: 0 important(); }
 
 .no-padding-top {
-  padding-top: 0 !important; }
+  padding-top: 0 important(); }
 
 .no-padding-bottom {
-  padding-bottom: 0 !important; }
+  padding-bottom: 0 important(); }
 
 .no-vertical-padding {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important; }
+  padding-top: 0 important();
+  padding-bottom: 0 important(); }
 
 .no-padding-left {
-  padding-left: 0 !important; }
+  padding-left: 0 important(); }
 
 .no-padding-right {
-  padding-right: 0 !important; }
+  padding-right: 0 important(); }
 
 .no-horizontal-padding {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
+  padding-left: 0 important();
+  padding-right: 0 important(); }
 
 .with-padding {
-  padding: 24px 24px !important; }
+  padding: 24px 24px important(); }
 
 .padding-vertical {
-  padding-bottom: 24px !important;
-  padding-top: 24px !important; }
+  padding-bottom: 24px important();
+  padding-top: 24px important(); }
 
 .padding-bottom {
-  padding-bottom: 24px !important; }
+  padding-bottom: 24px important(); }
 
 .padding-top {
-  padding-top: 24px !important; }
+  padding-top: 24px important(); }
 
 .padding-horizontal {
-  padding-left: 24px !important;
-  padding-right: 24px !important; }
+  padding-left: 24px important();
+  padding-right: 24px important(); }
 
 .padding-left {
-  padding-left: 24px !important; }
+  padding-left: 24px important(); }
 
 .padding-right {
-  padding-right: 24px !important; }
+  padding-right: 24px important(); }
 
 @media print {
   .not-on-print {
@@ -646,25 +640,25 @@ nav ul {
   .on-print-only {
     display: none; } }
 .gain-margin {
-  width: auto !important;
-  margin-left: -24px !important;
-  margin-right: -24px !important; }
+  width: auto important();
+  margin-left: -24px important();
+  margin-right: -24px important(); }
 
 .gain-left {
-  margin-left: -24px !important; }
+  margin-left: -24px important(); }
 
 .gain-right {
-  margin-right: -24px !important; }
+  margin-right: -24px important(); }
 
 .to-center {
-  margin-left: auto !important;
-  margin-right: auto !important; }
+  margin-left: auto important();
+  margin-right: auto important(); }
 
 .to-left {
-  float: left !important; }
+  float: left important(); }
 
 .to-right {
-  float: right !important; }
+  float: right important(); }
 
 .to-middle {
   position: relative;
@@ -677,13 +671,13 @@ nav ul {
   transform: translateY(-50%); }
 
 .clear {
-  clear: both !important; }
+  clear: both important(); }
 
 .relative {
-  position: relative !important; }
+  position: relative important(); }
 
 .absolute {
-  position: absolute !important;
+  position: absolute important();
   float: none;
   z-index: 1; }
 
@@ -711,130 +705,130 @@ nav ul {
   left: 0; }
 
 .fit {
-  position: absolute !important; }
+  position: absolute important(); }
 
 .fit-window {
-  position: fixed !important; }
+  position: fixed important(); }
 
 .move-bottom-left {
-  position: absolute !important;
+  position: absolute important();
   bottom: 0;
   left: 0; }
 
 .move-bottom-right {
-  position: absolute !important;
+  position: absolute important();
   bottom: 0;
   right: 0; }
 
 .move-top-left {
-  position: absolute !important;
+  position: absolute important();
   top: 0;
   left: 0; }
 
 .move-top-right {
-  position: absolute !important;
+  position: absolute important();
   top: 0;
   right: 0; }
 
 @media only screen and (max-width: 1799px) {
   .to-center-till-hd-full {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-till-hd-full {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-till-hd-full {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (max-width: 1279px) {
   .to-center-till-hd-ready {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-till-hd-ready {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-till-hd-ready {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (max-width: 1023px), only print {
   .to-center-till-tablet-landscape {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-till-tablet-landscape {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-till-tablet-landscape {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (max-width: 767px) {
   .to-center-till-tablet-portrait {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-till-tablet-portrait {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-till-tablet-portrait {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (max-width: 479px) {
   .to-center-till-smartphone-landscape {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-till-smartphone-landscape {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-till-smartphone-landscape {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 1px) {
   .to-center-from-smartphone-portrait {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-smartphone-portrait {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-smartphone-portrait {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 480px) {
   .to-center-from-smartphone-landscape {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-smartphone-landscape {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-smartphone-landscape {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 768px), only print {
   .to-center-from-tablet-portrait {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-tablet-portrait {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-tablet-portrait {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 1024px) {
   .to-center-from-tablet-landscape {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-tablet-landscape {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-tablet-landscape {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 1280px) {
   .to-center-from-hd-ready {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-hd-ready {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-hd-ready {
-    float: right !important; } }
+    float: right important(); } }
 @media only screen and (min-width: 1800px) {
   .to-center-from-hd-full {
-    margin: auto !important; }
+    margin: auto important(); }
 
   .to-left-from-hd-full {
-    float: left !important; }
+    float: left important(); }
 
   .to-right-from-hd-full {
-    float: right !important; } }
+    float: right important(); } }
 .wrap {
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
@@ -859,40 +853,40 @@ nav ul {
   float: none; }
 
 .inline {
-  width: auto !important;
-  display: inline-block !important; }
+  width: auto important();
+  display: inline-block important(); }
 
 .block {
-  display: block !important; }
+  display: block important(); }
 
 .full,
 .fill {
-  width: 100% !important; }
+  width: 100% important(); }
 
 .little {
-  width: 25% !important; }
+  width: 25% important(); }
 
 .half {
-  width: 50% !important; }
+  width: 50% important(); }
 
 .almost {
-  width: 75% !important; }
+  width: 75% important(); }
 
 .auto {
-  width: auto!important; }
+  width: autoimportant(); }
 
 .overflow-auto {
-  overflow: auto !important; }
+  overflow: auto important(); }
 
 .visible {
-  overflow: visible !important; }
+  overflow: visible important(); }
 
 .cut {
-  overflow: hidden !important; }
+  overflow: hidden important(); }
 
 .fluid {
   height: auto;
-  max-width: 100% !important;
+  max-width: 100% important();
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -900,90 +894,90 @@ nav ul {
   -o-box-sizing: border-box;
   box-sizing: border-box; }
   .fluid img {
-    max-width: 100% !important;
-    height: auto !important; }
+    max-width: 100% important();
+    height: auto important(); }
   .fluid.fill img {
     width: 100%; }
 
 .not-fluid {
-  width: auto !important;
-  height: auto !important; }
+  width: auto important();
+  height: auto important(); }
 
 .same-same {
-  overflow: hidden !important; }
+  overflow: hidden important(); }
   .same-same > * {
-    padding-bottom: 1000px !important;
-    margin-bottom: -1000px !important; }
+    padding-bottom: 1000px important();
+    margin-bottom: -1000px important(); }
 
 @media only screen and (max-width: 1799px) {
   .fill-till-hd-full {
-    width: 100% !important; }
+    width: 100% important(); }
 
   .almost-till-hd-full {
-    width: 75% !important; }
+    width: 75% important(); }
 
   .half-till-hd-full {
-    width: 50% !important; }
+    width: 50% important(); }
 
   .little-till-hd-full {
-    width: 25% !important; } }
+    width: 25% important(); } }
 @media only screen and (max-width: 1279px) {
   .fill-till-hd-ready {
-    width: 100% !important; }
+    width: 100% important(); }
 
   .almost-till-hd-ready {
-    width: 75% !important; }
+    width: 75% important(); }
 
   .half-till-hd-ready {
-    width: 50% !important; }
+    width: 50% important(); }
 
   .little-till-hd-ready {
-    width: 25% !important; } }
+    width: 25% important(); } }
 @media only screen and (max-width: 1023px), only print {
   .fill-till-tablet-landscape {
-    width: 100% !important; }
+    width: 100% important(); }
 
   .almost-till-tablet-landscape {
-    width: 75% !important; }
+    width: 75% important(); }
 
   .half-till-tablet-landscape {
-    width: 50% !important; }
+    width: 50% important(); }
 
   .little-till-tablet-landscape {
-    width: 25% !important; } }
+    width: 25% important(); } }
 @media only screen and (max-width: 767px) {
   .fill-till-tablet-portrait {
-    width: 100% !important; }
+    width: 100% important(); }
 
   .almost-till-tablet-portrait {
-    width: 75% !important; }
+    width: 75% important(); }
 
   .half-till-tablet-portrait {
-    width: 50% !important; }
+    width: 50% important(); }
 
   .little-till-tablet-portrait {
-    width: 25% !important; } }
+    width: 25% important(); } }
 @media only screen and (max-width: 479px) {
   .fill-till-smartphone-landscape {
-    width: 100% !important; }
+    width: 100% important(); }
 
   .almost-till-smartphone-landscape {
-    width: 75% !important; }
+    width: 75% important(); }
 
   .half-till-smartphone-landscape {
-    width: 50% !important; }
+    width: 50% important(); }
 
   .little-till-smartphone-landscape {
-    width: 25% !important; } }
+    width: 25% important(); } }
 .pointer {
-  cursor: pointer !important; }
+  cursor: pointer important(); }
 
 .selected {
-  cursor: default !important; }
+  cursor: default important(); }
 
 .disabled {
   cursor: default;
-  opacity: 0.5 !important;
+  opacity: 0.5 important();
   -webkit-transition: opacity 0.25s ease-out;
   -khtml-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
@@ -1061,67 +1055,67 @@ nav ul {
   vertical-align: bottom; }
 
 .text-center {
-  text-align: center !important; }
+  text-align: center important(); }
 
 .text-right {
-  text-align: right !important; }
+  text-align: right important(); }
 
 .text-left {
-  text-align: left !important; }
+  text-align: left important(); }
 
 .text-justify {
-  text-align: justify !important; }
+  text-align: justify important(); }
 
 .text-crop {
-  overflow: hidden !important;
-  white-space: nowrap !important;
-  text-overflow: ellipsis !important; }
+  overflow: hidden important();
+  white-space: nowrap important();
+  text-overflow: ellipsis important(); }
 
 .uppercase {
-  text-transform: uppercase !important; }
+  text-transform: uppercase important(); }
 
 .lowercase {
-  text-transform: lowercase !important; }
+  text-transform: lowercase important(); }
 
 .capitalize {
-  text-transform: capitalize !important; }
+  text-transform: capitalize important(); }
 
 .underline {
-  text-decoration: underline !important; }
+  text-decoration: underline important(); }
 
 .line-through {
-  text-decoration: line-through !important; }
+  text-decoration: line-through important(); }
 
 .up-first-letter-only {
-  text-transform: lowercase !important; }
+  text-transform: lowercase important(); }
 
 .up-first-letter:first-letter,
 .up-first-letter-only:first-letter {
-  text-transform: uppercase !important; }
+  text-transform: uppercase important(); }
 
 .italic {
-  font-style: italic !important; }
+  font-style: italic important(); }
 
 .bold {
-  font-weight: bold !important; }
+  font-weight: bold important(); }
 
 .normal {
-  font-weight: normal !important; }
+  font-weight: normal important(); }
 
 .font-sans {
-  font-family: "helvetica neue", helvetica, arial, sans-serif !important; }
+  font-family: "helvetica neue", helvetica, arial, sans-serif important(); }
 
 .font-serif {
-  font-family: georgia, "times new roman", times, serif !important; }
+  font-family: georgia, "times new roman", times, serif important(); }
 
 .font-monospace {
-  font-family: menlo, monaco, "courier new", monospace !important; }
+  font-family: menlo, monaco, "courier new", monospace important(); }
 
 .font-heading {
-  font-family: "helvetica neue", helvetica, arial, sans-serif !important; }
+  font-family: "helvetica neue", helvetica, arial, sans-serif important(); }
 
 .font-small {
-  font-family: "lucida grande", tahoma, verdana, arial, sans-serif !important; }
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif important(); }
 
 .comma-separated > *:after {
   content: ",\00a0"; }
@@ -1139,115 +1133,115 @@ nav ul {
   user-select: none; }
 
 .no-wrap {
-  white-space: nowrap !important; }
+  white-space: nowrap important(); }
 
 .no-line-height {
-  line-height: 0 !important; }
+  line-height: 0 important(); }
 
 .line-height {
   line-height: 24px; }
 
 @media only screen and (max-width: 1799px) {
   .text-left-till-hd-full {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-center-till-hd-full {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-right-till-hd-full {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (max-width: 1279px) {
   .text-left-till-hd-ready {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-center-till-hd-ready {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-right-till-hd-ready {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (max-width: 1023px), only print {
   .text-left-till-tablet-landscape {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-center-till-tablet-landscape {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-right-till-tablet-landscape {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (max-width: 767px) {
   .text-left-till-tablet-portrait {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-center-till-tablet-portrait {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-right-till-tablet-portrait {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (max-width: 479px) {
   .text-left-till-smartphone-landscape {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-center-till-smartphone-landscape {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-right-till-smartphone-landscape {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 1px) {
   .text-center-from-smartphone-portrait {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-smartphone-portrait {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-smartphone-portrait {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 480px) {
   .text-center-from-smartphone-landscape {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-smartphone-landscape {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-smartphone-landscape {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 768px), only print {
   .text-center-from-tablet-portrait {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-tablet-portrait {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-tablet-portrait {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 1024px) {
   .text-center-from-tablet-landscape {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-tablet-landscape {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-tablet-landscape {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 1280px) {
   .text-center-from-hd-ready {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-hd-ready {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-hd-ready {
-    text-align: right !important; } }
+    text-align: right important(); } }
 @media only screen and (min-width: 1800px) {
   .text-center-from-hd-full {
-    text-align: center !important; }
+    text-align: center important(); }
 
   .text-left-from-hd-full {
-    text-align: left !important; }
+    text-align: left important(); }
 
   .text-right-from-hd-full {
-    text-align: right !important; } }
+    text-align: right important(); } }
 .faded {
-  opacity: 0.5 !important;
+  opacity: 0.5 important();
   -webkit-transition: opacity 0.25s ease-out;
   -khtml-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
@@ -1256,10 +1250,10 @@ nav ul {
   transition: opacity 0.25s ease-out; }
 
 .invisible {
-  opacity: 0 !important; }
+  opacity: 0 important(); }
 
 .hidden {
-  display: none !important; }
+  display: none important(); }
 
 @media only screen and (min-width: 1280px) {
   .only-on-tablet {
@@ -1401,37 +1395,37 @@ nav ul {
     display: none; } }
 @media only screen and (max-width: 1799px) {
   .not-till-hd-full {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (max-width: 1279px) {
   .not-till-hd-ready {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (max-width: 1023px), only print {
   .not-till-tablet-landscape {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (max-width: 767px) {
   .not-till-tablet-portrait {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (max-width: 479px) {
   .not-till-smartphone-landscape {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 1px) {
   .not-from-smartphone-portrait {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 480px) {
   .not-from-smartphone-landscape {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 768px), only print {
   .not-from-tablet-portrait {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 1024px) {
   .not-from-tablet-landscape {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 1280px) {
   .not-from-hd-ready {
-    display: none !important; } }
+    display: none important(); } }
 @media only screen and (min-width: 1800px) {
   .not-from-hd-full {
-    display: none !important; } }
+    display: none important(); } }
 img {
   -ms-interpolation-mode: bicubic; }
 

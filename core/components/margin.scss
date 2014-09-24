@@ -1,70 +1,36 @@
 @mixin addMarginRule($selector, $hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
-    // Media queries for selectors active from a specific resolution or higher
-    @include addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin);
-    @include addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin);
-    @include addMarginRuleTabletPortrait($selector, $tabletPortraitMargin);
-    @include addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin);
-    @include addMarginRuleHdReady($selector, $hdReadyMargin);
-    @include addMarginRuleHdFull($selector, $hdFullMargin);
+    @include _addMarginRule($from-smartphone-portrait,  $selector, $smartphonePortraitMargin);
+    @include _addMarginRule($from-smartphone-landscape, $selector, $smartphoneLandscapeMargin);
+    @include _addMarginRule($from-tablet-portrait,      $selector, $tabletPortraitMargin);
+    @include _addMarginRule($from-tablet-landscape,     $selector, $tabletLandscapeMargin);
+    @include _addMarginRule($from-hd-ready,             $selector, $hdReadyMargin);
+    @include _addMarginRule($from-hd-full,              $selector, $hdFullMargin);
 }
-/* private */@mixin addMarginRuleSmartphonePortrait($selector, $smartphonePortraitMargin) {
-    @if $use-smartphone-portrait == true {
-        @media #{$from-smartphone-portrait} {
-            // Smartphone portrait
-            .#{$selector} { margin: $smartphonePortraitMargin; }
-        }
-    }
-}
-/* private */@mixin addMarginRuleSmartphoneLandscape($selector, $smartphoneLandscapeMargin) {
-    @if $use-smartphone-landscape == true {
-        @media #{$from-smartphone-landscape} {
-            // Smartphone landscape
-            .#{$selector} { margin: $smartphoneLandscapeMargin; }
-        }
-    }
-}
-/* private */@mixin addMarginRuleTabletPortrait($selector, $tabletPortraitMargin) {
-    @if $use-tablet-portrait == true {
-        @media #{$from-tablet-portrait} {
-            // Tablet portrait
-            .#{$selector} { margin: $tabletPortraitMargin; }
-        }
-    }
-}
-/* private */@mixin addMarginRuleTabletLandscape($selector, $tabletLandscapeMargin) {
-    @if $use-tablet-landscape == true {
-        @media #{$from-tablet-landscape} {
-            // Tablet landscape
-            .#{$selector} { margin: $tabletLandscapeMargin; }
-        }
-    }
-}
-/* private */@mixin addMarginRuleHdReady($selector, $hdReadyMargin) {
-    @if $use-hd-ready == true {
-        @media #{$from-hd-ready} {
-            // HD Ready
-            .#{$selector} { margin: $hdReadyMargin; }
-        }
-    }
-}
-/* private */@mixin addMarginRuleHdFull($selector, $hdFullMargin) {
-    @if $use-hd-full == true {
-        @media #{$from-hd-full} {
-            // Full HD
-            .#{$selector} { margin: $hdFullMargin; }
+
+@mixin _addMarginRule($viewport, $selector, $margin) {
+    @media #{$viewport} {
+        .#{$selector} {
+            margin : $margin;
         }
     }
 }
 
 @mixin setViewportsMargin($hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
     // Media queries for selectors active from a specific resolution or higher
-    @include setViewportsMarginSmartphonePortrait($smartphonePortraitMargin);
-    @include setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin);
-    @include setViewportsMarginTabletPortrait($tabletPortraitMargin);
-    @include setViewportsMarginTabletLandscape($tabletLandscapeMargin);
-    @include setViewportsMarginHdReady($hdReadyMargin);
-    @include setViewportsMarginHdFull($hdFullMargin);
+    @include _setViewportsMargin($from-smartphone-portrait,  $smartphonePortraitMargin);
+    @include _setViewportsMargin($from-smartphone-landscape, $smartphoneLandscapeMargin);
+    @include _setViewportsMargin($from-tablet-portrait,      $tabletPortraitMargin);
+    @include _setViewportsMargin($from-tablet-landscape,     $tabletLandscapeMargin);
+    @include _setViewportsMargin($from-hd-ready,             $hdReadyMargin);
+    @include _setViewportsMargin($from-hd-full,              $hdFullMargin);
 }
+
+@mixin _setViewportsMargin($viewport, $margin) {
+    @media #{$viewport} {
+        margin : $margin;
+    }
+}
+
 /* private */@mixin setViewportsMarginSmartphonePortrait($smartphonePortraitMargin) {
     @if $use-smartphone-portrait == true {
         @media #{$from-smartphone-portrait} {

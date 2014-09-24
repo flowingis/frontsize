@@ -6,7 +6,7 @@
 	@return (unit($num));
 }
 
-@function important(){
+@function _important(){
 	@if $state-important == true{
 		@return ("!important");
 	}
