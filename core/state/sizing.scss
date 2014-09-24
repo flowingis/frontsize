@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initSizingSelectors(){
+@mixin _initSizingSelectors(){
 	@if $use-state-sizing == true{
 		.wrap {
 			// avoid the unwanted width over the 100% of the size of the container
@@ -12,7 +12,7 @@ $important: important();
 		}
 
 		.full {
-			@include _setColumnBehavior(false);
+			@include _setColumnBehavior(false, none, false);
 			float: none;
 		}
 
@@ -132,4 +132,4 @@ $important: important();
 	}
 }
 
-@include initSizingSelectors();
+@include _initSizingSelectors();
