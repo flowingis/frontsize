@@ -85,8 +85,8 @@ $important: important();
 		    overflow: hidden #{$important};
 	  
 		    > * {
-			    padding-bottom: 1000px #{$important};
-			    margin-bottom: -1000px #{$important};
+			    padding-bottom : 1000px #{$important};
+			    margin-bottom  : -1000px #{$important};
 		    }
 	    }
 
