@@ -2033,28 +2033,22 @@ span {
 
 @media only screen and (min-width: 1px) {
   body {
-    font-size: 16px;
-    line-height: 24px; } }
+    font-size: 16px; } }
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 16px;
-    line-height: 24px; } }
+    font-size: 16px; } }
 @media only screen and (min-width: 768px), only print {
   body {
-    font-size: 16px;
-    line-height: 24px; } }
+    font-size: 16px; } }
 @media only screen and (min-width: 1024px) {
   body {
-    font-size: 16px;
-    line-height: 24px; } }
+    font-size: 16px; } }
 @media only screen and (min-width: 1280px) {
   body {
-    font-size: 18px;
-    line-height: 24px; } }
+    font-size: 18px; } }
 @media only screen and (min-width: 1800px) {
   body {
-    font-size: 20px;
-    line-height: 24px; } }
+    font-size: 20px; } }
 @media only screen and (min-width: 1px) {
   body {
     line-height: 24px; } }
@@ -2073,7 +2067,7 @@ span {
 @media only screen and (min-width: 1800px) {
   body {
     line-height: 24px; } }
-.small-font {
+small-font {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   line-height: 24px; }
 
