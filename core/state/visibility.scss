@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initVisibilitySelectors(){
+@mixin _initVisibilitySelectors(){
     @if $use-state-visibility == true {
         .faded {
             opacity: $state-faded-opacity #{$important};
@@ -162,4 +162,4 @@ $important: important();
     }
 }
 
-@include initVisibilitySelectors();
+@include _initVisibilitySelectors();

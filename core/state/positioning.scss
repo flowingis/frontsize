@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initPositioningSelectors(){
+@mixin _initPositioningSelectors(){
 	@if $use-state-positioning == true {
 		.gain-margin {
 			width: auto #{$important};
@@ -188,4 +188,4 @@ $important: important();
 	}
 }
 
-@include initPositioningSelectors();
+@include _initPositioningSelectors();

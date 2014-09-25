@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initStateSelectors(){
+@mixin _initStateSelectors(){
 	@if $use-state-selectors == true {
 		.pointer {
 			cursor: pointer #{$important};
@@ -22,4 +22,4 @@ $important: important();
 	}
 }
 
-@include initStateSelectors();
+@include _initStateSelectors();

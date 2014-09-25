@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initPaddingSelectors(){
+@mixin _initPaddingSelectors(){
     @if $use-state-padding == true {
         .no-padding {
             padding: 0 #{$important};
@@ -36,4 +36,4 @@ $important: important();
     }
 }
 
-@include initPaddingSelectors();
+@include _initPaddingSelectors();

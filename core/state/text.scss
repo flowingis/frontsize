@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initTextSelectors(){
+@mixin _initTextSelectors(){
     @if $use-state-text == true {
         .text-center {
             // manually center all the contents inside
@@ -197,4 +197,4 @@ $important: important();
     }
 }
 
-@include initTextSelectors();
+@include _initTextSelectors();

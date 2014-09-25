@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initTableSelectors(){
+@mixin _initTableSelectors(){
     @if $use-state-table == true {
         .table {
             @include asTable($state-table-padding, middle, 100%);
@@ -28,4 +28,4 @@ $important: important();
     }
 }
 
-@include initTableSelectors();
+@include _initTableSelectors();

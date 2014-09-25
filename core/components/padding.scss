@@ -1,5 +1,12 @@
-@mixin addPaddingRule($selector, $hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
-	// Media queries for selectors active from a specific resolution or higher
+@mixin addPaddingRule(
+	$selector, 
+	$hdFullPadding:6em, 
+	$hdReadyPadding:5em, 
+	$tabletLandscapePadding:4em, 
+	$tabletPortraitPadding:3em, 
+	$smartphoneLandscapePadding:2em, 
+	$smartphonePortraitPadding:1em) {
+
     @include _addPaddingRule($from-smartphone-portrait,  $selector, $smartphonePortraitPadding);
     @include _addPaddingRule($from-smartphone-landscape, $selector, $smartphoneLandscapePadding);
     @include _addPaddingRule($from-tablet-portrait,      $selector, $tabletPortraitPadding);
@@ -18,8 +25,14 @@
 	}
 }
 
-@mixin setViewportsPadding($hdFullPadding:6em, $hdReadyPadding:5em, $tabletLandscapePadding:4em, $tabletPortraitPadding:3em, $smartphoneLandscapePadding:2em, $smartphonePortraitPadding:1em) {
-	// Media queries for selectors active from a specific resolution or higher
+@mixin setViewportsPadding(
+	$hdFullPadding:6em,
+	$hdReadyPadding:5em,
+	$tabletLandscapePadding:4em,
+	$tabletPortraitPadding:3em,
+	$smartphoneLandscapePadding:2em,
+	$smartphonePortraitPadding:1em) {
+
 	@include _setViewportsPadding($from-smartphone-portrait,  $smartphonePortraitPadding);
     @include _setViewportsPadding($from-smartphone-landscape, $smartphoneLandscapePadding);
     @include _setViewportsPadding($from-tablet-portrait,      $tabletPortraitPadding);
@@ -36,7 +49,11 @@
 	}
 }
 
-@mixin addPaddingSelector($selector:false, $verticalPadding:$vertical-padding, $horizontalPadding:$horizontal-padding){
+@mixin addPaddingSelector(
+	$selector:false,
+	$verticalPadding:$vertical-padding,
+	$horizontalPadding:$horizontal-padding){
+	
 	@if selector == false {
 	    #{$selector}-padding {
 	        padding: $verticalPadding $horizontalPadding #{$important};

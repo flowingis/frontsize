@@ -1,6 +1,6 @@
 $important: important();
 
-@mixin initMarginSelectors(){
+@mixin _initMarginSelectors(){
     @if $use-state-margin == true {
         .no-margin {
             margin: 0 #{$important};
@@ -35,4 +35,4 @@ $important: important();
         @include addMarginSelector(false, $vertical-padding, $horizontal-padding);
     }
 }
-@include initMarginSelectors();
+@include _initMarginSelectors();

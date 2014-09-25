@@ -16,6 +16,9 @@ Website:   https://github.com/AlessandroMinoccheri
 
 @charset "UTF-8";
 
+// External libraries NOT INCLUDED FOR TESTS
+// @import "core/lib/normalize.css";
+
 @import "core/grids/column-grid";
 @import "core/grids/flex-grid";
 @import "core/grids/float-grid";
