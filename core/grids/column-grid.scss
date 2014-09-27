@@ -1,5 +1,14 @@
-@mixin addTextColumnGrid($selector, $hdFullCount:4, $hdReadyCount:3, $tabletLandscapeCount:3, $tabletPortraitCount:2, $smartphoneLandscapeCount:1, $smartphonePortraitCount:1, $columnGap:0, $childrenDisplay:inline-block) {
-
+@mixin addTextColumnGrid(
+    $selector                 : text-column-grid,
+    $hdFullCount              : 4,
+    $hdReadyCount             : 3,
+    $tabletLandscapeCount     : 3,
+    $tabletPortraitCount      : 2,
+    $smartphoneLandscapeCount : 1,
+    $smartphonePortraitCount  : 1,
+    $columnGap                : $global-step,
+    $childrenDisplay          : inline-block){
+    
     .#{$selector} {
         @include column-gap($columnGap);
         @include column-fill(balance);
