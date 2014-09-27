@@ -1,4 +1,4 @@
-@mixin addColumnGrid($selector, $hdFullCount:4, $hdReadyCount:3, $tabletLandscapeCount:3, $tabletPortraitCount:2, $smartphoneLandscapeCount:1, $smartphonePortraitCount:1, $columnGap:0, $childrenDisplay:inline-block) {
+@mixin addTextColumnGrid($selector, $hdFullCount:4, $hdReadyCount:3, $tabletLandscapeCount:3, $tabletPortraitCount:2, $smartphoneLandscapeCount:1, $smartphonePortraitCount:1, $columnGap:0, $childrenDisplay:inline-block) {
 
     .#{$selector} {
         @include column-gap($columnGap);
@@ -12,15 +12,15 @@
         width         : 100%;
     }
 
-    @include _addColumnGrid($from-smartphone-portrait,  $selector, $smartphonePortraitCount,  $use-smartphone-portrait);
-    @include _addColumnGrid($from-smartphone-landscape, $selector, $smartphoneLandscapeCount, $use-smartphone-landscape);
-    @include _addColumnGrid($from-tablet-portrait,      $selector, $tabletPortraitCount,      $use-tablet-portrait);
-    @include _addColumnGrid($from-tablet-landscape,     $selector, $tabletLandscapeCount,     $use-tablet-landscape);
-    @include _addColumnGrid($from-hd-ready,             $selector, $hdReadyCount,             $use-hd-ready);
-    @include _addColumnGrid($from-hd-full,              $selector, $hdFullCount,              $use-hd-full);
+    @include _addTextColumnGrid($from-smartphone-portrait,  $selector, $smartphonePortraitCount,  $use-smartphone-portrait);
+    @include _addTextColumnGrid($from-smartphone-landscape, $selector, $smartphoneLandscapeCount, $use-smartphone-landscape);
+    @include _addTextColumnGrid($from-tablet-portrait,      $selector, $tabletPortraitCount,      $use-tablet-portrait);
+    @include _addTextColumnGrid($from-tablet-landscape,     $selector, $tabletLandscapeCount,     $use-tablet-landscape);
+    @include _addTextColumnGrid($from-hd-ready,             $selector, $hdReadyCount,             $use-hd-ready);
+    @include _addTextColumnGrid($from-hd-full,              $selector, $hdFullCount,              $use-hd-full);
 }
 
-@mixin _addColumnGrid($viewport, $selector, $count, $viewportEnabled){
+@mixin _addTextColumnGrid($viewport, $selector, $count, $viewportEnabled){
     @if $viewportEnabled == true {
         @media #{$viewport} {
             .#{$selector} {
