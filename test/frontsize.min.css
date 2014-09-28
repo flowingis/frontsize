@@ -2062,12 +2062,7 @@ span {
   body {
     line-height: 24px; } }
 small-font {
-  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-  -webkit-font-smoothing: false;
-  -khtml-font-smoothing: false;
-  -moz-font-smoothing: false;
-  -ms-font-smoothing: false;
-  -o-font-smoothing: false; }
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif; }
 
 @media only screen and (min-width: 1800px) {
   .small-font {
