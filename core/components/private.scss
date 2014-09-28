@@ -1,0 +1,8 @@
+@function _important(){
+	@if $state-important == true{
+		@return ("!important");
+	}
+	@else{
+		@return ("");
+	}
+}

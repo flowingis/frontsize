@@ -1,0 +1,18 @@
+@function removeUnit($num) {
+    @return ($num / ($num * 0 + 1));
+}
+
+@function getUnit($num){
+	@return (unit($num));
+}
+
+@mixin property($property, $value:false, $default:false) {
+    @if $value != false {
+    	#{$property}: $value;
+    }
+    @else{
+    	@if $default != false {
+    		#{$property}: $default;
+    	}
+    }
+}
