@@ -19,10 +19,10 @@ Website:   https://github.com/AlessandroMinoccheri
 // External libraries NOT INCLUDED FOR TESTS
 // @import "core/lib/normalize.css";
 
-@import "core/grids/column-grid";
 @import "core/grids/flex-grid";
 @import "core/grids/float-grid";
 @import "core/grids/grid";
+@import "core/grids/text-column-grid";
 @import "themes/default/app";
 @import "core/lib/normalize";
 @import "core/components/public";

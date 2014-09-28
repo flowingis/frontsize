@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
         compileFile     : "compile.scss",
-        compileFileTest : "compile_test.scss",
+        compileFileTest : "compile-test.scss",
         themeName       : "default",
         themeImg        : "themes/default/img/",
         testCss         : "test/frontsize.test.css",
