@@ -1,4 +1,13 @@
-@mixin setLineHeightScaling($selector:body, $hdFull:$font-line-height, $hdReady:$font-line-height, $tabletLandscape:$font-line-height, $tabletPortrait:$font-line-height, $smartphoneLandscape:$font-line-height, $smartphonePortrait:$font-line-height) {
+@mixin setLineHeightScaling(
+    $selector               : body,
+    $hdFull                 : $font-line-height,
+    $hdReady                : $font-line-height,
+    $tabletLandscape        : $font-line-height,
+    $tabletPortrait         : $font-line-height,
+    $smartphoneLandscape    : $font-line-height,
+    $smartphonePortrait     : $font-line-height
+    ) {
+
     @include _setLineHeightScaling($from-smartphone-portrait,  $selector, $smartphonePortrait,  $use-smartphone-portrait);
     @include _setLineHeightScaling($from-smartphone-landscape, $selector, $smartphoneLandscape, $use-smartphone-landscape);
     @include _setLineHeightScaling($from-tablet-portrait,      $selector, $tabletPortrait,      $use-tablet-portrait);
@@ -58,8 +67,8 @@
 	@if $viewportEnabled == true {
 	    @media #{$viewport} {
 	        .#{$selector} {
-	            font-family : $fontFamily;
-	            font-size   : $fontSize;
+                @include property(font-family, $fontFamily);
+                @include property(font-size, $fontSize);
 	        }
 	    }
     }
@@ -121,13 +130,13 @@
     $tabletPortraitFontSize      : $tabletLandscapeFontSize,
     $smartphoneLandscapeFontSize : $tabletPortraitFontSize,
     $smartphonePortraitFontSize  : $smartphoneLandscapeFontSize,
-    $lineHeightMultiplier        : $global-step,
-    $antialias                   : subpixel-antialiased
+    $lineHeightMultiplier        : false,
+    $antialias                   : false
     ) {
     // Media queries for selectors active from the smaller resolution to a specific one
     #{$selector} {
         font-family : $fontFamily;
-        line-height : $lineHeightMultiplier;
+        @include property(line-height, $lineHeightMultiplier);
         @include font-smoothing($antialias);
     }
 
