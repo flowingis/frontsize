@@ -1,4 +1,9 @@
-@mixin backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath:$root-path) {
+@mixin backgroundRetina(
+	$defaultImage   ,
+    $retinaImage    : $defaultImage,
+    $backgroundSize : false,
+    $rootPath:$root-path
+    ) {
 	@if $use-root-path == false{
 		//@background-size: auto | px | % |  cover | contain
     //.backgroundRetina("path/image-low-res.png", "path/image-high-res.png");
@@ -11,7 +16,8 @@
 
 @mixin _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath) {
     @include backgroundImage($defaultImage, $rootPath);
-    background-size:$backgroundSize;
+    @include property(background-size, $backgroundSize, 0 0);
+
     @media #{$display-retina} {
         @include backgroundImage($retinaImage, $rootPath);
     }
@@ -30,15 +36,16 @@
 	$retinaSmartphoneLandscapeBackground,
 	$defaultSmartphonePortraitBackground,
 	$retinaSmartphonePortraitBackground,
-	$backgroundSize,
-	$rootPath:$root-path
+	$backgroundSize	:cover,
+	$rootPath		:$root-path
 	)  {
+
+	@include property(background-size, $backgroundSize);
+
 	@if $use-root-path == false{
-		background-size:$backgroundSize;
 		@include _backgroundRetinaResponsive($defaultHdFullBackground, $retinaHdFullBackground, $defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $backgroundSize, '');
 	}
 	@else{
-		background-size:$backgroundSize;
 		@include _backgroundRetinaResponsive($defaultHdFullBackground, $retinaHdFullBackground, $defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $backgroundSize, $rootPath);
 	}
 }
@@ -91,7 +98,14 @@
 	background-position: center;
 }
 
-@mixin backgroundRetinaIcon($defaultImage, $retinaImage:$defaultImage, $width:100%, $height:$width, $rootPath:$root-path) {
+@mixin backgroundRetinaIcon(
+	$defaultImage ,
+    $retinaImage  : $defaultImage,
+    $width        : 100%,
+    $height       : $width,
+    $rootPath	  : $root-path
+    ) {
+
 	@if $use-root-path == false{
 		@include backgroundImage($defaultImage);
 		background-size:$width $height;
@@ -110,16 +124,24 @@
 	}
 }
 
-@mixin fillRetinaImage($standardImage, $retinaImage, $backgroundSize, $rootPath:$root-path) {
+@mixin fillRetinaImage(
+	$standardImage  ,
+    $retinaImage    : $standardImage,
+    $backgroundSize : false,
+    $rootPath		: $root-path
+    ) {
+
     @if $use-root-path == false{
     	@include fillImage($standardImage);
-	    background-size:$backgroundSize;
+	    @include property(background-size, $backgroundSize);
+
 	    @media #{$display-retina} {
 	        @include fillImage($retinaImage);
 	    }
     }@else{
     	@include fillImage($standardImage, $rootPath);
-	    background-size:$backgroundSize;
+	    @include property(background-size, $backgroundSize);
+
 	    @media #{$display-retina} {
 	        @include fillImage($retinaImage, $rootPath);
 	    }

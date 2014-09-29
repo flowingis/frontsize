@@ -1,5 +1,13 @@
-@mixin addMarginRule($selector, $hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
-    @include _addMarginRule($from-smartphone-portrait,  $selector, $smartphonePortraitMargin);
+@mixin addMarginRule(
+    $selector                  ,
+    $hdFullMargin              : ($global-step * 5),
+    $hdReadyMargin             : ($global-step * 4),
+    $tabletLandscapeMargin     : ($global-step * 3),
+    $tabletPortraitMargin      : ($global-step * 2),
+    $smartphoneLandscapeMargin : $global-step,
+    $smartphonePortraitMargin  : ($global-step / 2)
+    ) {
+
     @include _addMarginRule($from-smartphone-landscape, $selector, $smartphoneLandscapeMargin);
     @include _addMarginRule($from-tablet-portrait,      $selector, $tabletPortraitMargin);
     @include _addMarginRule($from-tablet-landscape,     $selector, $tabletLandscapeMargin);
@@ -15,7 +23,15 @@
     }
 }
 
-@mixin setViewportsMargin($hdFullMargin:6em, $hdReadyMargin:5em, $tabletLandscapeMargin:4em, $tabletPortraitMargin:3em, $smartphoneLandscapeMargin:2em, $smartphonePortraitMargin:1em) {
+@mixin setViewportsMargin(
+    $hdFullMargin              : ($global-step * 5),
+    $hdReadyMargin             : ($global-step * 4),
+    $tabletLandscapeMargin     : ($global-step * 3),
+    $tabletPortraitMargin      : ($global-step * 2),
+    $smartphoneLandscapeMargin : $global-step,
+    $smartphonePortraitMargin  : ($global-step / 2)
+    ) {
+
     // Media queries for selectors active from a specific resolution or higher
     @include _setViewportsMargin($from-smartphone-portrait,  $smartphonePortraitMargin);
     @include _setViewportsMargin($from-smartphone-landscape, $smartphoneLandscapeMargin);
@@ -31,56 +47,12 @@
     }
 }
 
-/* private */@mixin setViewportsMarginSmartphonePortrait($smartphonePortraitMargin) {
-    @if $use-smartphone-portrait == true {
-        @media #{$from-smartphone-portrait} {
-            // Smartphone portrait
-            margin: $smartphonePortraitMargin;
-        }
-    }
-}
-/* private */@mixin setViewportsMarginSmartphoneLandscape($smartphoneLandscapeMargin) {
-    @if $use-smartphone-landscape == true {
-        @media #{$from-smartphone-landscape} {
-            // Smartphone landscape
-            margin: $smartphoneLandscapeMargin;
-        }
-    }
-}
-/* private */@mixin setViewportsMarginTabletPortrait($tabletPortraitMargin) {
-    @if $use-tablet-portrait == true {
-        @media #{$from-tablet-portrait} {
-            // Tablet portrait
-            margin: $tabletPortraitMargin;
-        }
-    }
-}
-/* private */@mixin setViewportsMarginTabletLandscape($tabletLandscapeMargin) {
-    @if $use-tablet-landscape == true {
-        @media #{$from-tablet-landscape} {
-            // Tablet landscape
-            margin: $tabletLandscapeMargin;
-        }
-    }
-}
-/* private */@mixin setViewportsMarginHdReady($hdReadyMargin) {
-    @if $use-hd-ready == true {
-        @media #{$from-hd-ready} {
-            // HD Ready
-            margin: $hdReadyMargin;
-        }
-    }
-}
-/* private */@mixin setViewportsMarginHdFull($hdFullMargin) {
-    @if $use-hd-full == true {
-        @media #{$from-hd-full} {
-            // Full HD
-            margin: $hdFullMargin;
-        }
-    }
-}
+@mixin addMarginSelector(
+    $selector         : false,
+    $verticalMargin   : $vertical-margin,
+    $horizontalMargin : $horizontal-margin
+    ) {
 
-@mixin addMarginSelector($selector:false, $verticalMargin:$vertical-margin, $horizontalMargin:$horizontal-margin){
     @if $selector != false{
         #{$selector}-margin {
             margin: $verticalMargin $horizontalMargin #{$important};

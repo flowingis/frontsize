@@ -347,22 +347,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* private */
-/* private */
-/* private */
-/* private */
-/* private */
-/* private */
 @media print {
   body {
-    background: white !important;
+    background: none !important;
     color: black !important; }
 
   * {
     color: black !important;
-    border: 0 solid white !important;
     background-image: none !important;
     background-color: white !important;
+    border: 0 solid white !important;
     text-shadow: 0 0 0 white !important;
     -webkit-box-shadow: 0 0 0 white !important;
     -khtml-box-shadow: 0 0 0 white !important;
@@ -381,9 +375,9 @@ table {
     color: black !important; }
 
   a {
-    text-decoration: none !important;
     color: black !important;
-    border-bottom: 1px solid grey !important; }
+    border-bottom: 1px solid grey !important;
+    text-decoration: none !important; }
 
   @page {
     margin: 1cm; }
@@ -479,14 +473,14 @@ nav ul {
     display: none; } }
 @media print {
   body {
-    background: white !important;
+    background: none !important;
     color: black !important; }
 
   * {
     color: black !important;
-    border: 0 solid white !important;
     background-image: none !important;
     background-color: white !important;
+    border: 0 solid white !important;
     text-shadow: 0 0 0 white !important;
     -webkit-box-shadow: 0 0 0 white !important;
     -khtml-box-shadow: 0 0 0 white !important;
@@ -505,9 +499,9 @@ nav ul {
     color: black !important; }
 
   a {
-    text-decoration: none !important;
     color: black !important;
-    border-bottom: 1px solid grey !important; }
+    border-bottom: 1px solid grey !important;
+    text-decoration: none !important; }
 
   @page {
     margin: 1cm; }

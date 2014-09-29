@@ -6,3 +6,23 @@
 		@return ("");
 	}
 }
+
+@mixin _addStep($selector:step, $width:false) {
+    @if $width == false {
+	    .#{$selector} {
+	        display: block;
+	        margin-left: auto;
+	        margin-right: auto;
+	        @include box-sizing(border-box);
+	    }
+	}
+    @else{
+	    .#{$selector} {
+	        display: block;
+	        width: $width;
+	        margin-left: auto;
+	        margin-right: auto;
+	        @include box-sizing(border-box);
+	    }
+	}
+}

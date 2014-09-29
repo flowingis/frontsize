@@ -1,29 +1,31 @@
 @media print {
 	body { 
-		background: white !important;
-		color: black !important;
+		background : none !important;
+        color      : black !important;
 	}
 
 	* {
-		color: black !important;
-		border: 0 solid white !important;
-		background-image: none !important;
-		background-color: white !important;
-		text-shadow: 0 0 0 white !important;
-		$shadow: 0 0 0 white !important;
-		@include box-shadow($shadow);
-		$border:0 !important;
-		@include border-radius($border);
+		$shadow : 0 0 0 white !important;
+        $border :0 !important;
+
+        color            : black !important;
+        background-image : none !important;
+        background-color : white !important;
+        border           : 0 solid white !important;
+        text-shadow      : 0 0 0 white !important;
+
+        @include box-shadow($shadow);
+        @include border-radius($border);
 	}
 
 	p {
-		color: black !important;
+		color : black !important;
 	}
 
 	a {
-		text-decoration: none !important;
-		color: black !important;
-		border-bottom: 1px solid grey !important;
+		color           : black !important;
+        border-bottom   : 1px solid grey !important;
+        text-decoration : none !important;
 	}
 
 	@page {
@@ -31,19 +33,19 @@
 	}
 
 	h1, h2, h3, h4, h5, h6, p {
-		orphans: 3;
-		widows: 3;
+		orphans : 3;
+		widows : 3;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		page-break-after: avoid;
+		page-break-after : avoid;
 	}
 
 	code {
-		border:1px solid grey !important;
+		border : 1px solid grey !important;
 	}
 
 	footer {
-		clear:both !important;
+		clear : both !important;
 	}
 }
