@@ -17,7 +17,7 @@ Website:   https://github.com/AlessandroMinoccheri
 @charset "UTF-8";
 
 // External libraries NOT INCLUDED FOR TESTS
-// @import "core/lib/normalize.css";
+// @import "core/vendor/normalize.css";
 
 @import "core/grids/flex-grid";
 @import "core/grids/float-grid";
@@ -52,7 +52,7 @@ Website:   https://github.com/AlessandroMinoccheri
 @import "core/components/print";
 @import "core/components/typography";
 
-@import "core/layout/base";
+@import "core/base/base";
 @import "core/core";
 
 @import "core/helpers/background";

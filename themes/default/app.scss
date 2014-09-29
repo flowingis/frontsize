@@ -117,7 +117,9 @@ $use-ie-filters: false;
 $use-fallback-colors: true;
 
 $use-root-path: true;
-//$rootpath: 'css/frontsize/${theme}/img/';
+// $rootpath: 'css/frontsize/#{$theme}/img/';
+// $img-path : "#{$root-path}img/";
+// $fonts-path : "#{$root-path}fonts/";
 $root-path: "/css/frontsize-less/themes/#{$theme}/img/";
 
 $use-core-widgets: true
