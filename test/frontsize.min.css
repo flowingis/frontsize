@@ -1437,12 +1437,6 @@ input[type="checkbox"] {
   background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-1x.png");
   background-repeat: no-repeat;
   background-size: 64px 32px;
-  -webkit-box-sizing: border-box;
-  -khtml-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
   width: 32px;
   height: 32px;
   -webkit-box-sizing: border-box;
@@ -1456,12 +1450,6 @@ input[type="checkbox"] {
       background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-2x.png");
       background-repeat: no-repeat;
       background-size: 64px 32px;
-      -webkit-box-sizing: border-box;
-      -khtml-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box;
       width: 32px;
       height: 32px; } }
   input[type="checkbox"]:checked {
@@ -1493,12 +1481,6 @@ input[type="radio"] {
   background-image: url("/css/frontsize-less/themes/default/img/input-radio-1x.png");
   background-repeat: no-repeat;
   background-size: 48px 24px;
-  -webkit-box-sizing: border-box;
-  -khtml-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
   width: 24px;
   height: 24px;
   -webkit-box-sizing: border-box;
@@ -1512,12 +1494,6 @@ input[type="radio"] {
       background-image: url("/css/frontsize-less/themes/default/img/input-radio-2x.png");
       background-repeat: no-repeat;
       background-size: 48px 24px;
-      -webkit-box-sizing: border-box;
-      -khtml-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -o-box-sizing: border-box;
-      box-sizing: border-box;
       width: 24px;
       height: 24px; } }
   input[type="radio"]:checked {
