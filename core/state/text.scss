@@ -1,4 +1,4 @@
-$important: important();
+$important: _important();
 
 @mixin _initTextSelectors(){
     @if $use-state-text == true {

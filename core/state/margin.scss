@@ -1,4 +1,4 @@
-$important: important();
+$important: _important();
 
 @mixin _initMarginSelectors(){
     @if $use-state-margin == true {
