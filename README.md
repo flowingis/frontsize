@@ -38,6 +38,8 @@ Next release details
 - **moved** grid mixins to `grids` core folder
 - **changed** `.map` files now are based on CSS names automatically
 - **changed** `addFontRule` mixin now is more easy to use
+- **changed** float grid private mixins naming convention to be more easy to be recognized
+- **optimized** background retina mixins, removed useless duplicate code now works smarter
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
 
@@ -122,8 +124,9 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [vitto]:     https://twitter.com/vttrx
 [site]:      http://frontsize.com
 [migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
+[sass]:      https://github.com/ideatosrl/frontsize-sass
 [less]:      https://github.com/ideatosrl/frontsize-less
 [docs]:      https://github.com/ideatosrl/frontsize-less/wiki
-[csslintc]:  https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
-[app]:       https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
+[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
+[app]:       https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
 [csslint]:   https://github.com/CSSLint/csslint
