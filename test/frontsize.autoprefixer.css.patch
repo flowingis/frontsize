@@ -1,0 +1,368 @@
+Index: test/frontsize.autoprefixer.css
+===================================================================
+--- test/frontsize.autoprefixer.css
++++ test/frontsize.autoprefixer.css
+@@ -130,9 +130,10 @@
+  * Address differences between Firefox and other browsers.
+  */
+ hr {
+   -moz-box-sizing: content-box;
++  -webkit-box-sizing: content-box;
++          box-sizing: content-box;
+-  box-sizing: content-box;
+   height: 0; }
+ 
+ /**
+  * Address styling not present in IE 8/9.
+@@ -292,9 +293,11 @@
+  * 2. Remove excess padding in IE 8/9/10.
+  */
+ input[type="checkbox"],
+ input[type="radio"] {
++  -webkit-box-sizing: border-box;
++     -moz-box-sizing: border-box;
++          box-sizing: border-box;
+-  box-sizing: border-box;
+   /* 1 */
+   padding: 0;
+   /* 2 */ }
+ 
+@@ -359,16 +362,12 @@
+     border: 0 solid white !important;
+     text-shadow: 0 0 0 white !important;
+     -webkit-box-shadow: 0 0 0 white !important;
+     -khtml-box-shadow: 0 0 0 white !important;
+-    -moz-box-shadow: 0 0 0 white !important;
+     -ms-box-shadow: 0 0 0 white !important;
+     -o-box-shadow: 0 0 0 white !important;
+     box-shadow: 0 0 0 white !important;
+-    -webkit-border-radius: 0 !important;
+     -khtml-border-radius: 0 !important;
+-    -moz-border-radius: 0 !important;
+-    -ms-border-radius: 0 !important;
+     -o-border-radius: 0 !important;
+     border-radius: 0 !important; }
+ 
+   p {
+@@ -483,16 +482,12 @@
+     border: 0 solid white !important;
+     text-shadow: 0 0 0 white !important;
+     -webkit-box-shadow: 0 0 0 white !important;
+     -khtml-box-shadow: 0 0 0 white !important;
+-    -moz-box-shadow: 0 0 0 white !important;
+     -ms-box-shadow: 0 0 0 white !important;
+     -o-box-shadow: 0 0 0 white !important;
+     box-shadow: 0 0 0 white !important;
+-    -webkit-border-radius: 0 !important;
+     -khtml-border-radius: 0 !important;
+-    -moz-border-radius: 0 !important;
+-    -ms-border-radius: 0 !important;
+     -o-border-radius: 0 !important;
+     border-radius: 0 !important; }
+ 
+   p {
+@@ -652,11 +647,9 @@
+   position: relative;
+   top: 50%;
+   -webkit-transform: translateY(-50%);
+   -khtml-transform: translateY(-50%);
+-  -moz-transform: translateY(-50%);
+   -ms-transform: translateY(-50%);
+-  -o-transform: translateY(-50%);
+   transform: translateY(-50%); }
+ 
+ .clear {
+   clear: both !important; }
+@@ -967,26 +960,21 @@
+   cursor: default;
+   opacity: 0.5 !important;
+   -webkit-transition: opacity 0.25s ease-out;
+   -khtml-transition: opacity 0.25s ease-out;
+-  -moz-transition: opacity 0.25s ease-out;
+-  -ms-transition: opacity 0.25s ease-out;
+-  -o-transition: opacity 0.25s ease-out;
+   transition: opacity 0.25s ease-out;
+   -webkit-touch-callout: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+-  -o-user-select: none;
+   user-select: none; }
+   .disabled * {
+     -webkit-touch-callout: none;
+     -khtml-user-select: none;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+-    -o-user-select: none;
+     user-select: none; }
+ 
+ .table {
+   width: 100%;
+@@ -1116,9 +1104,8 @@
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+-  -o-user-select: none;
+   user-select: none; }
+ 
+ .no-wrap {
+   white-space: nowrap !important; }
+@@ -1231,11 +1218,8 @@
+ .faded {
+   opacity: 0.5 !important;
+   -webkit-transition: opacity 0.25s ease-out;
+   -khtml-transition: opacity 0.25s ease-out;
+-  -moz-transition: opacity 0.25s ease-out;
+-  -ms-transition: opacity 0.25s ease-out;
+-  -o-transition: opacity 0.25s ease-out;
+   transition: opacity 0.25s ease-out; }
+ 
+ .invisible {
+   opacity: 0 !important; }
+@@ -1423,9 +1407,8 @@
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+-  -o-user-select: none;
+   user-select: none;
+   -webkit-appearance: none;
+   -khtml-appearance: none;
+   -moz-appearance: normal;
+@@ -1435,9 +1418,10 @@
+   position: relative;
+   top: 8px;
+   background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-1x.png");
+   background-repeat: no-repeat;
++  -webkit-background-size: 64px 32px;
++          background-size: 64px 32px;
+-  background-size: 64px 32px;
+   width: 32px;
+   height: 32px;
+   -webkit-box-sizing: border-box;
+   -khtml-box-sizing: border-box;
+@@ -1448,9 +1432,10 @@
+   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
+     input[type="checkbox"] {
+       background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-2x.png");
+       background-repeat: no-repeat;
++      -webkit-background-size: 64px 32px;
++              background-size: 64px 32px;
+-      background-size: 64px 32px;
+       width: 32px;
+       height: 32px; } }
+   input[type="checkbox"]:checked {
+     background-position: -32px -0; }
+@@ -1466,9 +1451,8 @@
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+-  -o-user-select: none;
+   user-select: none;
+   cursor: pointer;
+   -webkit-appearance: none;
+   -khtml-appearance: none;
+@@ -1479,9 +1463,10 @@
+   position: relative;
+   top: 6px;
+   background-image: url("/css/frontsize-less/themes/default/img/input-radio-1x.png");
+   background-repeat: no-repeat;
++  -webkit-background-size: 48px 24px;
++          background-size: 48px 24px;
+-  background-size: 48px 24px;
+   width: 24px;
+   height: 24px;
+   -webkit-box-sizing: border-box;
+   -khtml-box-sizing: border-box;
+@@ -1492,9 +1477,10 @@
+   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
+     input[type="radio"] {
+       background-image: url("/css/frontsize-less/themes/default/img/input-radio-2x.png");
+       background-repeat: no-repeat;
++      -webkit-background-size: 48px 24px;
++              background-size: 48px 24px;
+-      background-size: 48px 24px;
+       width: 24px;
+       height: 24px; } }
+   input[type="radio"]:checked {
+     background-position: -24px -0; }
+@@ -1525,17 +1511,13 @@
+   border-color: black;
+   background-color: black;
+   -webkit-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
+   -khtml-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
+-  -moz-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
+   -ms-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
+   -o-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
+   box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
++  -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-box-shadow .25s ease-in-out;
+-  -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+   -khtml-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+-  -moz-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+-  -ms-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+-  -o-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+   transition: border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out; }
+   textarea:focus,
+   input[type="text"]:focus,
+   input[type="email"]:focus,
+@@ -1664,9 +1646,8 @@
+     background-color: white;
+     border-color: black;
+     -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
+     -khtml-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
+-    -moz-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
+     -ms-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
+     -o-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
+     box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15); }
+   textarea:disabled,
+@@ -1679,9 +1660,8 @@
+     -webkit-filter: opacity(0.5);
+     -khtml-filter: opacity(0.5);
+     -moz-filter: opacity(0.5);
+     -ms-filter: opacity(0.5);
+-    -o-filter: opacity(0.5);
+     filter: opacity(0.5); }
+ 
+ textarea {
+   width: 100%;
+@@ -1713,9 +1693,8 @@
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+-  -o-user-select: none;
+   user-select: none; }
+   label textarea,
+   label input {
+     margin: 0; }
+@@ -1734,21 +1713,16 @@
+   font-weight: normal;
+   border: 2px solid #898989;
+   background-color: #fcfcfc;
+   background-image: url("/css/frontsize-less/themes/default/img/input-select-1x.png");
++  -webkit-background-size: 16px 16px;
++          background-size: 16px 16px;
+-  background-size: 16px 16px;
+   background-repeat: no-repeat;
+   background-position: right 0.5em center;
+   -webkit-transition: background-color 0.25s ease-in-out;
+   -khtml-transition: background-color 0.25s ease-in-out;
+-  -moz-transition: background-color 0.25s ease-in-out;
+-  -ms-transition: background-color 0.25s ease-in-out;
+-  -o-transition: background-color 0.25s ease-in-out;
+   transition: background-color 0.25s ease-in-out;
+-  -webkit-border-radius: 10px;
+   -khtml-border-radius: 10px;
+-  -moz-border-radius: 10px;
+-  -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+   border-radius: 10px; }
+   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
+     select,
+@@ -1785,9 +1759,8 @@
+   -khtml-user-select: text;
+   -webkit-user-select: text;
+   -moz-user-select: text;
+   -ms-user-select: text;
+-  -o-user-select: text;
+   user-select: text; }
+ 
+ pre {
+   font-family: menlo, monaco, "courier new", monospace;
+@@ -1799,17 +1772,13 @@
+   border: 1px solid;
+   border-color: black;
+   border-top-color: black;
+   background-color: #202020;
+-  -webkit-border-radius: 4px;
+   -khtml-border-radius: 4px;
+-  -moz-border-radius: 4px;
+-  -ms-border-radius: 4px;
+   -o-border-radius: 4px;
+   border-radius: 4px;
+   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+   -khtml-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+   -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+   -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
+   pre kbd {
+@@ -1819,17 +1788,15 @@
+     -khtml-user-select: inherit;
+     -webkit-user-select: inherit;
+     -moz-user-select: inherit;
+     -ms-user-select: inherit;
+-    -o-user-select: inherit;
+     user-select: inherit;
+     padding: 0;
+     border: none;
+     background-color: transparent;
+     background: none;
+     -webkit-box-shadow: none;
+     -khtml-box-shadow: none;
+-    -moz-box-shadow: none;
+     -ms-box-shadow: none;
+     -o-box-shadow: none;
+     box-shadow: none;
+     text-shadow: none;
+@@ -1842,9 +1809,8 @@
+     border-color: transparent;
+     background-color: transparent;
+     -webkit-box-shadow: none;
+     -khtml-box-shadow: none;
+-    -moz-box-shadow: none;
+     -ms-box-shadow: none;
+     -o-box-shadow: none;
+     box-shadow: none; }
+   pre.with-small-fonts {
+@@ -1924,11 +1890,8 @@
+   color: #898989;
+   border-bottom: 2px solid;
+   -webkit-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+   -khtml-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+-  -moz-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+-  -ms-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+-  -o-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+   transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out; }
+   a[title]:hover {
+     text-decoration: none; }
+   a:hover, a.hover, a.selected, a.active {
+@@ -1953,17 +1916,13 @@
+   border: 1px solid;
+   border-color: black;
+   border-top-color: black;
+   background-color: black;
+-  -webkit-border-radius: 4px;
+   -khtml-border-radius: 4px;
+-  -moz-border-radius: 4px;
+-  -ms-border-radius: 4px;
+   -o-border-radius: 4px;
+   border-radius: 4px;
+   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+   -khtml-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+   -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+   -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); }
+   code.code-black,
+@@ -1978,9 +1937,8 @@
+   color: inherit;
+   background-color: yellow;
+   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
+   -khtml-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
+-  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
+   -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
+   -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75); }
+ 
+@@ -2997,6 +2955,4 @@
+     max-width: 1180px; } }
+ @media only screen and (min-width: 1800px) {
+   .use-steps {
+     max-width: 1300px; } }
+-
+-/*# sourceMappingURL=frontsize.autoprefixer.css.map */
