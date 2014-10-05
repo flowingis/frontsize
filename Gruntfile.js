@@ -32,8 +32,7 @@ module.exports = function(grunt) {
 		sass: {
             production: {
                 options: {
-                    cleancss          : false/*,
-                    sourcemap         : "<%= productionCss %>.map"*/
+                    cleancss          : false
                 },
                 files: {
                     "<%= productionCss %>" : "<%= compileFile %>"
@@ -41,8 +40,7 @@ module.exports = function(grunt) {
             },
             autoprefixer: {
                 options: {
-                    cleancss          : false/*,
-                    sourcemap         : "<%= autoprefixerCss %>.map"*/
+                    cleancss          : false
                 },
                 files: {
                     "<%= autoprefixerCss %>" : "<%= compileFile %>"
@@ -50,8 +48,7 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                    cleancss          : false/*,
-                    sourcemap         : "<%= testCss %>.map"*/
+                    cleancss          : false
                 },
                 files: {
                     "<%= testCss %>" : "<%= compileFileTest %>"

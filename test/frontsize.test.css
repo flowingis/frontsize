@@ -12,7 +12,6 @@ Date:      2014-09-09
 Author:    Alessandro Minoccheri
 Website:   https://github.com/AlessandroMinoccheri
 */
-/*@import "core/vendor/normalize";*/
 @media print {
   body {
     background: none !important;
