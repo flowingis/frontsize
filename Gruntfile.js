@@ -2,17 +2,19 @@
 
 Available grunt commands
 
-$ grunt watch:develop
-$ grunt watch:fullDev
-$ grunt watch:autoprefix
-$ grunt watch:fullAutoprefix
-$ grunt watch:all
+$ grunt watch:assets     # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt watch:frontsize  # Compiles Frontsize
+$ grunt watch:frnAssets  # Compiles Frontsize and copy images
+$ grunt watch:autoprefix # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
+$ grunt watch:autoAssets # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
+$ grunt watch:all        # Performs assets, frontsize and autoprefix tasks
 
-$ grunt develop
-$ grunt fullDev
-$ grunt autoprefix
-$ grunt fullAutoprefix
-$ grunt all
+$ grunt assets           # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt frontsize        # Compiles Frontsize
+$ grunt frnAssets        # Compiles Frontsize and copy images
+$ grunt autoprefix       # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
+$ grunt autoAssets       # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
+$ grunt all              # Performs assets, frontsize and autoprefix tasks
 
 */
 
@@ -68,21 +70,21 @@ module.exports = function(grunt) {
         },
 
 		watch: {
-            develop : {
+            frontsize : {
                 files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "develop" ]
+                tasks: [ "frontsize" ]
             },
-            fullDev : {
+            devAssets : {
                 files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "fullDev" ]
+                tasks: [ "devAssets" ]
             },
             autoprefix : {
                 files: [ "*.scss", "**/*.scss" ],
                 tasks: [ "autoprefix" ]
             },
-            fullAutoprefix : {
+            autoAssets : {
                 files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "fullAutoprefix" ]
+                tasks: [ "autoAssets" ]
             },
             all : {
                 files: [ "*.scss", "**/*.scss" ],
@@ -127,12 +129,12 @@ module.exports = function(grunt) {
 
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("develop", [
+    grunt.registerTask("frontsize", [
         "sass:production",
         "test"
     ]);
 
-    grunt.registerTask("fullDev", [
+    grunt.registerTask("devAssets", [
         "sass:production",
         "test",
         "assets"
@@ -144,7 +146,7 @@ module.exports = function(grunt) {
         "autoprefixer"
     ]);
 
-    grunt.registerTask("fullAutoprefix", [
+    grunt.registerTask("autoAssets", [
         "sass:autoprefixer",
         "test",
         "autoprefixer",

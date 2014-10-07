@@ -7,7 +7,8 @@
     $smartphoneLandscapeCount : 1,
     $smartphonePortraitCount  : 1,
     $columnGap                : $global-step,
-    $childrenDisplay          : inline-block){
+    $childrenDisplay          : inline-block
+    ){
     
     .#{$selector} {
         @include column-gap($columnGap);
