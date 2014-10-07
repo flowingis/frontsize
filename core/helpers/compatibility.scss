@@ -3,8 +3,9 @@
         #{$property}: transparent;
     }
     @else{
-	    @if type-of($color) == color and alpha($fallbackColor) > 0 and $use-fallback-colors == true{
+	    @if type-of($color) == color and alpha($fallbackColor) > 0 and alpha($fallbackColor) < 1 and $use-fallback-colors == true{
 	        #{$property}: rgb(red($fallbackColor), green($fallbackColor), blue($fallbackColor));
+	        #{$property}: rgba(red($fallbackColor), green($fallbackColor), blue($fallbackColor), alpha($fallbackColor));
 	    }
 	    @else{
 	    	@if type-of($color) == color{
