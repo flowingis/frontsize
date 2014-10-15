@@ -24,6 +24,7 @@ Next release details
 - **added** missing `column-fill` CSS3 prefixes
 - **added** `flex` CSS3 prefixes
 - **added** `grid` CSS3 prefixes
+- **added** `viewport-height` state selector
 
 **Fixes**
 - **fixed** missing default `font-size` for headings
