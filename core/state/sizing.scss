@@ -2,6 +2,10 @@ $important: _important();
 
 @mixin _initSizingSelectors(){
 	@if $use-state-sizing == true{
+		.viewport-height {
+        	height: 100vh #{$important};
+    	}
+
 		.wrap {
 			// avoid the unwanted width over the 100% of the size of the container
 			@include box-sizing(border-box);

@@ -482,6 +482,9 @@ nav ul {
 @media not print {
   .on-print-only {
     display: none; } }
+.viewport-height {
+  height: 100vh !important; }
+
 .wrap {
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
