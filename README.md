@@ -25,6 +25,9 @@ Next release details
 - **added** `flex` CSS3 prefixes
 - **added** `grid` CSS3 prefixes
 - **added** `viewport-height` state selector
+- **added** new grid system `addFlexGridContainer` and `addFlexGridColumns`
+- **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
+- **added** `tone` mixin to tone colors easily
 
 **Fixes**
 - **fixed** missing default `font-size` for headings
