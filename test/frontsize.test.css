@@ -483,6 +483,7 @@ nav ul {
   .on-print-only {
     display: none; } }
 .viewport-height {
+  height: 480px !important;
   height: 100vh !important; }
 
 .wrap {

@@ -818,6 +818,7 @@ nav ul {
   .to-right-from-hd-full {
     float: right !important; } }
 .viewport-height {
+  height: 480px !important;
   height: 100vh !important; }
 
 .wrap {

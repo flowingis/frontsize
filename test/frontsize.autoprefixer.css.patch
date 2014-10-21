@@ -73,7 +73,7 @@ Index: test/frontsize.autoprefixer.css
  
  .clear {
    clear: both !important; }
-@@ -970,26 +963,21 @@
+@@ -971,26 +964,21 @@
    cursor: default;
    opacity: 0.5 !important;
    -webkit-transition: opacity 0.25s ease-out;
@@ -100,7 +100,7 @@ Index: test/frontsize.autoprefixer.css
  
  .table {
    width: 100%;
-@@ -1119,9 +1107,8 @@
+@@ -1120,9 +1108,8 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
    -moz-user-select: none;
@@ -110,7 +110,7 @@ Index: test/frontsize.autoprefixer.css
  
  .no-wrap {
    white-space: nowrap !important; }
-@@ -1234,11 +1221,8 @@
+@@ -1235,11 +1222,8 @@
  .faded {
    opacity: 0.5 !important;
    -webkit-transition: opacity 0.25s ease-out;
@@ -122,7 +122,7 @@ Index: test/frontsize.autoprefixer.css
  
  .invisible {
    opacity: 0 !important; }
-@@ -1426,9 +1410,8 @@
+@@ -1427,9 +1411,8 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
    -moz-user-select: none;
@@ -132,7 +132,7 @@ Index: test/frontsize.autoprefixer.css
    -webkit-appearance: none;
    -khtml-appearance: none;
    -moz-appearance: normal;
-@@ -1438,9 +1421,10 @@
+@@ -1439,9 +1422,10 @@
    position: relative;
    top: 8px;
    background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-1x.png");
@@ -144,7 +144,7 @@ Index: test/frontsize.autoprefixer.css
    height: 32px;
    -webkit-box-sizing: border-box;
    -khtml-box-sizing: border-box;
-@@ -1451,9 +1435,10 @@
+@@ -1452,9 +1436,10 @@
    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
      input[type="checkbox"] {
        background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-2x.png");
@@ -156,7 +156,7 @@ Index: test/frontsize.autoprefixer.css
        height: 32px; } }
    input[type="checkbox"]:checked {
      background-position: -32px -0; }
-@@ -1469,9 +1454,8 @@
+@@ -1470,9 +1455,8 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
    -moz-user-select: none;
@@ -166,7 +166,7 @@ Index: test/frontsize.autoprefixer.css
    cursor: pointer;
    -webkit-appearance: none;
    -khtml-appearance: none;
-@@ -1482,9 +1466,10 @@
+@@ -1483,9 +1467,10 @@
    position: relative;
    top: 6px;
    background-image: url("/css/frontsize-less/themes/default/img/input-radio-1x.png");
@@ -178,7 +178,7 @@ Index: test/frontsize.autoprefixer.css
    height: 24px;
    -webkit-box-sizing: border-box;
    -khtml-box-sizing: border-box;
-@@ -1495,9 +1480,10 @@
+@@ -1496,9 +1481,10 @@
    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
      input[type="radio"] {
        background-image: url("/css/frontsize-less/themes/default/img/input-radio-2x.png");
@@ -190,7 +190,7 @@ Index: test/frontsize.autoprefixer.css
        height: 24px; } }
    input[type="radio"]:checked {
      background-position: -24px -0; }
-@@ -1528,17 +1514,13 @@
+@@ -1529,17 +1515,13 @@
    border-color: black;
    background-color: black;
    -webkit-box-shadow: inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0);
@@ -209,7 +209,7 @@ Index: test/frontsize.autoprefixer.css
    textarea:focus,
    input[type="text"]:focus,
    input[type="email"]:focus,
-@@ -1667,9 +1649,8 @@
+@@ -1668,9 +1650,8 @@
      background-color: white;
      border-color: black;
      -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
@@ -219,7 +219,7 @@ Index: test/frontsize.autoprefixer.css
      -o-box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15);
      box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15); }
    textarea:disabled,
-@@ -1682,9 +1663,8 @@
+@@ -1683,9 +1664,8 @@
      -webkit-filter: opacity(0.5);
      -khtml-filter: opacity(0.5);
      -moz-filter: opacity(0.5);
@@ -229,7 +229,7 @@ Index: test/frontsize.autoprefixer.css
  
  textarea {
    width: 100%;
-@@ -1716,9 +1696,8 @@
+@@ -1717,9 +1697,8 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
    -moz-user-select: none;
@@ -239,7 +239,7 @@ Index: test/frontsize.autoprefixer.css
    label textarea,
    label input {
      margin: 0; }
-@@ -1737,21 +1716,16 @@
+@@ -1738,21 +1717,16 @@
    font-weight: normal;
    border: 2px solid #898989;
    background-color: #fcfcfc;
@@ -263,7 +263,7 @@ Index: test/frontsize.autoprefixer.css
    border-radius: 10px; }
    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
      select,
-@@ -1788,9 +1762,8 @@
+@@ -1789,9 +1763,8 @@
    -khtml-user-select: text;
    -webkit-user-select: text;
    -moz-user-select: text;
@@ -273,7 +273,7 @@ Index: test/frontsize.autoprefixer.css
  
  pre {
    font-family: menlo, monaco, "courier new", monospace;
-@@ -1802,17 +1775,13 @@
+@@ -1803,17 +1776,13 @@
    border: 1px solid;
    background-color: #202020;
    border-color: black;
@@ -291,7 +291,7 @@ Index: test/frontsize.autoprefixer.css
    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
    pre kbd {
-@@ -1820,13 +1789,11 @@
+@@ -1821,13 +1790,11 @@
      -khtml-user-select: inherit;
      -webkit-user-select: inherit;
      -moz-user-select: inherit;
@@ -305,7 +305,7 @@ Index: test/frontsize.autoprefixer.css
      -o-box-shadow: none;
      box-shadow: none;
      color: #999999;
-@@ -1845,9 +1812,8 @@
+@@ -1846,9 +1813,8 @@
      border-color: transparent;
      background-color: transparent;
      -webkit-box-shadow: none;
@@ -315,7 +315,7 @@ Index: test/frontsize.autoprefixer.css
      -o-box-shadow: none;
      box-shadow: none; }
    pre.with-small-fonts {
-@@ -1927,11 +1893,8 @@
+@@ -1928,11 +1894,8 @@
    text-decoration: none;
    border-bottom: 2px solid;
    -webkit-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -327,7 +327,7 @@ Index: test/frontsize.autoprefixer.css
    a[title]:hover {
      text-decoration: none; }
    a:hover, a.hover, a.selected, a.active {
-@@ -1956,17 +1919,13 @@
+@@ -1957,17 +1920,13 @@
    border: 1px solid;
    border-color: black;
    border-top-color: black;
@@ -345,7 +345,7 @@ Index: test/frontsize.autoprefixer.css
    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); }
    code.code-black,
-@@ -1981,9 +1940,8 @@
+@@ -1982,9 +1941,8 @@
    color: inherit;
    background-color: yellow;
    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
@@ -355,7 +355,7 @@ Index: test/frontsize.autoprefixer.css
    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
    box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75); }
  
-@@ -3000,6 +2958,4 @@
+@@ -3001,6 +2959,4 @@
      max-width: 1180px; } }
  @media only screen and (min-width: 1800px) {
    .use-steps {
