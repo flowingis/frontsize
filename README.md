@@ -28,6 +28,7 @@ Next release details
 - **added** new grid system `addFlexGridContainer` and `addFlexGridColumns`
 - **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
 - **added** `tone` mixin to tone colors easily
+- **added** `viewport-height` state selector
 
 **Fixes**
 - **fixed** missing default `font-size` for headings
