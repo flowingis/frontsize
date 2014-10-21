@@ -2,6 +2,7 @@ $important: _important();
 
 @mixin _initSizingSelectors(){
 	@if $use-state-sizing == true{
+
 		.viewport-height {
         	height: 100vh #{$important};
     	}
