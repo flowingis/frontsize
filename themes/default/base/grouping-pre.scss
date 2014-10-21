@@ -6,38 +6,40 @@
 // Url - http://html5doctor.com/element-index/#pre
 
 pre {
+
     $color: white;
     
-    font-family: $font-monospace;
-    padding: 1em;
-    overflow: auto;
+    font-family      : $font-monospace;
+    padding          : $global-step;
+    overflow         : auto;
+    white-space      : pre;
+    color            : $color;
+    text-shadow      : none;
+    border           : 1px solid;
+    background-color : #202020;
 
-    white-space: pre;
-    color: $color;
-    text-shadow: none;
-
-    border:1px solid;
     @include fallbackColor(border-color, rgba(0,0,0,.03));
     @include fallbackColor(border-top-color, rgba(0,0,0,.075));
-    background-color: #202020;
 
     @include border-radius(4px);
     @include box-shadow(0 1px 0 rgba(255,255,255,.6));
 
     kbd {
-        color:darken($color, 40%);
-        cursor: inherit;
         @include user-select(inherit);
-        padding: 0;
-        border:none;
-        background-color: transparent;
-        background: none;
         @include box-shadow(none);
-        text-shadow: none;
-        position: static;
+
+        color            : darken($color, 40%);
+        cursor           : inherit;
+        padding          : 0;
+        border           : none;
+        background-color : transparent;
+        background       : none;
+        text-shadow      : none;
+        position         : static;
+
         &:active {
-            margin-bottom:0;
-            border:none;
+            margin-bottom : 0;
+            border        : none;
         }
     }
 

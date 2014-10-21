@@ -1516,7 +1516,7 @@ input[type="password"],
 input[type="number"],
 input[type="date"] {
   width: 100%;
-  padding: 0.5em;
+  padding: 12px;
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1735,7 +1735,7 @@ keygen {
   -o-appearance: none;
   appearance: none;
   cursor: pointer;
-  padding: 0.25em 1.75em 0.25em 0.5em;
+  padding: 6px 42px 6px 12px;
   color: #898989;
   font-weight: normal;
   border: 2px solid #898989;
@@ -1743,7 +1743,7 @@ keygen {
   background-image: url("/css/frontsize-less/themes/default/img/input-select-1x.png");
   background-size: 16px 16px;
   background-repeat: no-repeat;
-  background-position: right 0.5em center;
+  background-position: right 12px center;
   -webkit-transition: background-color 0.25s ease-in-out;
   -khtml-transition: background-color 0.25s ease-in-out;
   -moz-transition: background-color 0.25s ease-in-out;
@@ -1799,17 +1799,17 @@ p {
 
 pre {
   font-family: menlo, monaco, "courier new", monospace;
-  padding: 1em;
+  padding: 24px;
   overflow: auto;
   white-space: pre;
   color: white;
   text-shadow: none;
   border: 1px solid;
+  background-color: #202020;
   border-color: black;
   border-color: rgba(0, 0, 0, 0.03);
   border-top-color: black;
   border-top-color: rgba(0, 0, 0, 0.075);
-  background-color: #202020;
   -webkit-border-radius: 4px;
   -khtml-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1823,8 +1823,6 @@ pre {
   -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
   pre kbd {
-    color: #999999;
-    cursor: inherit;
     -webkit-touch-callout: inherit;
     -khtml-user-select: inherit;
     -webkit-user-select: inherit;
@@ -1832,16 +1830,18 @@ pre {
     -ms-user-select: inherit;
     -o-user-select: inherit;
     user-select: inherit;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    background: none;
     -webkit-box-shadow: none;
     -khtml-box-shadow: none;
     -moz-box-shadow: none;
     -ms-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
+    color: #999999;
+    cursor: inherit;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background: none;
     text-shadow: none;
     position: static; }
     pre kbd:active {
@@ -1889,7 +1889,7 @@ h6 {
   font-weight: bold;
   color: black;
   line-height: 1;
-  margin: 0 0 0.5em 0; }
+  margin: 0 0 12px 0; }
 
 h1 {
   font-size: 32px; }
@@ -1911,7 +1911,7 @@ h6 {
 
 td {
   text-align: left;
-  padding: 0.5em; }
+  padding: 12px; }
 
 tbody tr:nth-child(odd) td {
   background-color: #e6e6e6; }
@@ -1929,9 +1929,9 @@ table {
 
 a {
   display: inline-block;
+  color: #898989;
   line-height: 24px;
   text-decoration: none;
-  color: #898989;
   border-bottom: 2px solid;
   -webkit-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
   -khtml-transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -1957,8 +1957,8 @@ code,
 .code,
 var,
 .var {
+  padding: 0 6px;
   font-family: menlo, monaco, "courier new", monospace;
-  padding: 0 0.25em;
   color: inherit;
   border: 1px solid;
   border-color: black;

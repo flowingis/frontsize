@@ -12,36 +12,40 @@
 // Url - http://html5doctor.com/element-index/#a
 
 a {
+
+    $color     : $font-color;
+    $animation : 0.3s ease-in-out;
+
+    display         : inline-block;
+    color           : $color;
+    line-height     : $font-line-height;
+    text-decoration : none;
+    border-bottom   : 2px solid;
+
     $color: $font-color;
 
-    display: inline-block;
-    line-height: $font-line-height;
-    text-decoration: none;
-    color:$color;
-
-    border-bottom:2px solid;
     @include fallbackColor(border-bottom-color, fade($color, 30%));
 
     $animation:0.3s ease-in-out;
     @include transition("border-bottom #{$animation}, color #{$animation}");
     
     &[title]:hover {
-        text-decoration: none;
+        text-decoration : none;
     }
 
     &:hover,
     &.hover,
     &.selected,
     &.active {
-        color:saturate(darken($color, 10%), 7%);
-        border-bottom-color: $color;
+        color : saturate(darken($color, 10%), 7%);
+        border-bottom-color : $color;
     }
     
     &.selected {
-        cursor: default;
+        cursor : default;
     }
 
     img {
-        border: none;
+        border : none;
     }
 }

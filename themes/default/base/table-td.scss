@@ -4,24 +4,24 @@
 // Url - http://html5doctor.com/element-index/#td
 
 td {
-    text-align: left;
-    padding: 0.5em;
+    text-align  : left;
+    padding     : ($global-step / 2);
 }
 
 tbody {
 
-    $colorOdd: rgb(230,230,230);
-    $colorEven: rgb(200,200,200);
+    $colorOdd  : rgb(230,230,230);
+    $colorEven : rgb(200,200,200);
 
     tr {
         &:nth-child(odd) {
             td {
-                background-color: $colorOdd;
+                background-color : $colorOdd;
             }
         }
         &:nth-child(even) {
             td {
-                background-color: $colorEven;
+                background-color : $colorEven;
             }
         }
     }
@@ -30,12 +30,12 @@ tbody {
         tr {
             &:nth-child(odd) {
                 td {
-                    background-color: white;
+                    background-color : white;
                 }
             }
             &:nth-child(even) {
                 td {
-                    background-color: white;
+                    background-color : white;
                 }
             }
         }

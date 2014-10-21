@@ -14,19 +14,19 @@
 
 code,
 .code {
-    overflow: scroll;
+    overflow : scroll;
 }
 
 code,
 .code,
 var,
 .var {
-    font-family: $font-monospace;
-    padding: 0 0.25em;
+   
+    padding     : 0 ($global-step / 4);
+    font-family : $font-monospace;
+    color       : inherit;
+    border      : 1px solid;
 
-    color: inherit;
-    
-    border:1px solid;
     @include fallbackColor(border-color, rgba(0,0,0,.03));
     @include fallbackColor(border-top-color, rgba(0,0,0,.075));
     @include fallbackColor(background-color, rgba(0,0,0,0.075));
@@ -35,8 +35,8 @@ var,
     @include box-shadow(0 1px 0 rgba(255,255,255,0.2));
 
     &.code-black {
-        background-color: #202020;
-        text-shadow: none;
-        color: white;
+        background-color    : #202020;
+        text-shadow         : none;
+        color               : white;
     }
 }

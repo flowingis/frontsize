@@ -49,7 +49,7 @@
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
 	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
 }
-@mixin backgroundImage($backgroundImage, $path:$root-path){
+@mixin backgroundImage($backgroundImage, $path:$path-img){
 	@if $use-root-path == false{
 		background-image: url("#{$backgroundImage}");
 	}
@@ -129,7 +129,7 @@
 	background-position: $backgroundPosition;
 }
 
-@mixin fillImage($backgroundImage, $path:$root-path){
+@mixin fillImage($backgroundImage, $path:$path-img){
 	@if $use-root-path == false{
 		fill: url('#{$backgroundImage}');
 	}

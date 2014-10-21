@@ -17,19 +17,20 @@
 
 kbd {
 
-    font-family: $font-monospace;
-    font-style: normal;
+    font-family : $font-monospace;
+    font-style  : normal;
 
     kbd {
-        padding: 0;
-        border:none;
-        background-color: transparent;
-        background: none;
+        padding          : 0;
+        border           : none;
+        background-color : transparent;
+        background       : none;
+        position         :  static;
+
         @include box-shadow(none);
-        position: static;
         &:active {
-            margin-bottom:0;
-            border:none;
+            margin-bottom   : 0;
+            border          : none;
         }
     }
 }

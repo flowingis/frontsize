@@ -1,4 +1,4 @@
-@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $rootPath:$root-path, $setBoxsizing:true) {
+@mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $path:$path-img, $setBoxsizing:true) {
 	@if $use-root-path == false{
 		@include backgroundImage($image);
 		background-repeat:no-repeat;
@@ -6,7 +6,7 @@
     	@include size($width, $height, 1, $setBoxsizing);
 	}
 	@else{
-		@include backgroundImage($image, $rootPath);
+		@include backgroundImage($image, $path);
 		background-repeat:no-repeat;
     	background-size:$backgroudSize;
     	@include size($width, $height, 1, $setBoxsizing);

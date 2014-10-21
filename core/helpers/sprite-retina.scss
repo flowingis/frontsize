@@ -1,4 +1,4 @@
-@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0, $rootPath:$root-path) {
+@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0, $path:$path-img) {
 	@if $use-root-path == false{
 		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight);
 		@media #{$display-retina} {
@@ -6,9 +6,9 @@
 		}
 	}
 	@else{
-		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $rootPath);
+		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $path);
 		@media #{$display-retina} {
-			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $rootPath, false);
+			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $path, false);
 		}
 	}
 }

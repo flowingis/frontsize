@@ -6,7 +6,7 @@
 
 input[type="checkbox"] {
     
-    $size:32px;
+    $size : 32px;
     cursor: pointer;
 
     @include user-select(none);

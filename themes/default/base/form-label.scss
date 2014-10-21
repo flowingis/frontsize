@@ -13,13 +13,13 @@
 
 label {
 
-    width: 100%;
-    display: inline-block;
+    width   : 100%;
+    display : inline-block;
     @include box-sizing(border-box);
     @include user-select(none);
 
     textarea,
     input {
-        margin: 0;
+        margin : 0;
     }
 }

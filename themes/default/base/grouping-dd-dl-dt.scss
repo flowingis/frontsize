@@ -19,14 +19,14 @@
 // Url - http://html5doctor.com/element-index/#dt
 
 dl {
-    margin: 0;
-    padding: 0;
+    margin	: 0;
+    padding	: 0;
 }
 
 dt {
-    font-weight: bold;
+    font-weight : bold;
 }
 
 dd, dt {
-    margin-bottom: 1.25em;
+    margin-bottom : ($global-step * 1.25);
 }

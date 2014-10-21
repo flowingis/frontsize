@@ -4,7 +4,7 @@
 // Url - http://html5doctor.com/element-index/#th
 
 th {
-    text-align: center;
-    font-weight: bold;
-    padding: 0.5em;
+    text-align	: center;
+    font-weight	: bold;
+    padding		: ($global-step / 2);
 }

@@ -30,7 +30,7 @@
 	@include box-shadow("0 0 1px rgba(0,0,0,#{$outlineOpacity}), #{$boxShadow}");
 }
 
-@mixin borderImage($borderImage, $path:$root-path){
+@mixin borderImage($borderImage, $path:$path-img){
 	@if $use-root-path == false {
 		$path : '';
     	@include border-image(url("#{$path}#{$borderImage}"));

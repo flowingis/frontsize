@@ -11,12 +11,13 @@
 
 abbr,
 abbr[title] {
-	$borderColor: #FCFCFC;
-	border-bottom: 2px dotted $borderColor;
-	cursor: help;
+
+	$borderColor	: #FCFCFC;
+	border-bottom	: 2px dotted $borderColor;
+	cursor			: help;
 	@include transition(border 0.25s ease-in-out);
 	&:hover {
-		border-bottom: 2px solid darken($borderColor,10%);
-		text-decoration: none;
+		border-bottom	: 2px solid darken($borderColor,10%);
+		text-decoration : none;
 	}
 }

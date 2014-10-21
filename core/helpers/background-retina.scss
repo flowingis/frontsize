@@ -2,24 +2,24 @@
 	$defaultImage   ,
     $retinaImage    : $defaultImage,
     $backgroundSize : false,
-    $rootPath:$root-path
+    $path:$path-img
     ) {
 	@if $use-root-path == false{
 		//@background-size: auto | px | % |  cover | contain
     //.backgroundRetina("path/image-low-res.png", "path/image-high-res.png");
-		@include _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath);
+		@include _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $path);
 	}
 	@else{
-		@include _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath);
+		@include _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $path);
 	}
 }
 
-@mixin _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $rootPath) {
-    @include backgroundImage($defaultImage, $rootPath);
+@mixin _backgroundRetina($defaultImage, $retinaImage, $backgroundSize, $path) {
+    @include backgroundImage($defaultImage, $path);
     @include property(background-size, $backgroundSize, 0 0);
 
     @media #{$display-retina} {
-        @include backgroundImage($retinaImage, $rootPath);
+        @include backgroundImage($retinaImage, $path);
     }
 }
 
@@ -37,7 +37,7 @@
 	$defaultSmartphonePortraitBackground,
 	$retinaSmartphonePortraitBackground,
 	$backgroundSize	:cover,
-	$rootPath		:$root-path
+	$path		:$path-img
 	)  {
 
 	@include property(background-size, $backgroundSize);
@@ -46,7 +46,7 @@
 		@include _backgroundRetinaResponsive($defaultHdFullBackground, $retinaHdFullBackground, $defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $backgroundSize, '');
 	}
 	@else{
-		@include _backgroundRetinaResponsive($defaultHdFullBackground, $retinaHdFullBackground, $defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $backgroundSize, $rootPath);
+		@include _backgroundRetinaResponsive($defaultHdFullBackground, $retinaHdFullBackground, $defaultHdReadyRetinaBackground, $retinaHdReadyRetinaBackground, $defaultTabletLandscapeBackground, $retinaTabletLandscapeBackground, $defaultTabletPortraitBackground, $retinaTabletPortraitBackground, $defaultSmartphoneLandscapeBackground, $retinaSmartphoneLandscapeBackground, $defaultSmartphonePortraitBackground, $retinaSmartphonePortraitBackground, $backgroundSize, $path);
 	}
 }
 
@@ -87,13 +87,13 @@
    	}
 }
 
-@mixin iconRetina($defaultImage, $retinaImage, $width, $height:$width, $rootPath:$root-path) {
+@mixin iconRetina($defaultImage, $retinaImage, $width, $height:$width, $path:$path-img) {
 	@include size($width, $height);
 	@if $use-root-path == false{
 		@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height);
 	}
 	@else{
-		@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height, $rootPath);
+		@include backgroundRetinaIcon($defaultImage, $retinaImage, $width, $height, $path);
 	}
 	background-position: center;
 }
@@ -103,7 +103,7 @@
     $retinaImage  : $defaultImage,
     $width        : 100%,
     $height       : $width,
-    $rootPath	  : $root-path
+    $path	  : $path-img
     ) {
 
 	@if $use-root-path == false{
@@ -115,11 +115,11 @@
 		}
 	}
 	@else{
-		@include backgroundImage($defaultImage, $rootPath);
+		@include backgroundImage($defaultImage, $path);
 		background-size:$width $height;
 		background-repeat: no-repeat;
 		@media #{$display-retina} {
-			@include backgroundImage($retinaImage, $rootPath);
+			@include backgroundImage($retinaImage, $path);
 		}
 	}
 }
@@ -128,7 +128,7 @@
 	$standardImage  ,
     $retinaImage    : $standardImage,
     $backgroundSize : false,
-    $rootPath		: $root-path
+    $path		: $path-img
     ) {
 
     @if $use-root-path == false{
@@ -139,11 +139,11 @@
 	        @include fillImage($retinaImage);
 	    }
     }@else{
-    	@include fillImage($standardImage, $rootPath);
+    	@include fillImage($standardImage, $path);
 	    @include property(background-size, $backgroundSize);
 
 	    @media #{$display-retina} {
-	        @include fillImage($retinaImage, $rootPath);
+	        @include fillImage($retinaImage, $path);
 	    }
     }
 }

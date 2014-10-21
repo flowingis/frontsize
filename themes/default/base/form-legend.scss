@@ -23,11 +23,11 @@
 // Url - http://html5doctor.com/element-index/#legend
 
 legend {
-    $backgroundColor: desaturate(lighten($font-color, 45%), 2%);
-    $round: 20px;
-	font-weight: bold;
-	background-color: $backgroundColor;
-	padding:($vertical-padding / 1.5) $horizontal-padding;
-	margin-left: -($horizontal-padding);
+    $backgroundColor	: desaturate(lighten($font-color, 45%), 2%);
+    $round              : 20px;
+	font-weight         : bold;
+	background-color	: $backgroundColor;
+	padding				: ($vertical-padding / 1.5) $horizontal-padding;
+	margin-left			: -($horizontal-padding);
 	@include border-radius("#{$round} #{$round} 0 0");
 }

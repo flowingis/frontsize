@@ -9,7 +9,7 @@
 // Url - http://html5doctor.com/element-index/#mark
 
 mark {
-    color:inherit;
-    background-color: rgb(255,255,0);
+    color				: inherit;
+    background-color	: rgb(255,255,0);
     @include box-shadow("0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75)");
 }

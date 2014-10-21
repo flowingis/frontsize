@@ -31,6 +31,7 @@ $global-step: 24px;
 $font-line-height: $global-step;
 $font-weight     : 300;
 $font-color      : #898989;
+$body-color       : #FCFCFC;
 
 
 // Global padding configuration
@@ -114,12 +115,15 @@ $use-css-prefix: true;
 $use-ie-filters: false;
 
 $use-fallback-colors: true;
+$fallback-color-base : $body-color;
 
 $use-root-path: true;
-// $rootpath: 'css/frontsize/#{$theme}/img/';
-// $img-path : "#{$root-path}img/";
-// $fonts-path : "#{$root-path}fonts/";
-$root-path: "/css/frontsize-less/themes/#{$theme}/img/";
+// $path: 'css/frontsize/#{$theme}/img/';
+// $img-path : "#{$path-img}img/";
+// $fonts-path : "#{$path-img}fonts/";
+$root-path : "/css/frontsize-less/themes/default";
+$path-img  : "/css/frontsize-less/themes/default/img/";
+$path-font : "/css/frontsize-less/themes/default/fonts/";
 
 $use-core-widgets: true
 

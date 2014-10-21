@@ -9,10 +9,10 @@
 
 blockquote {
 
-    padding: $global-padding;
-    font-style: italic;
-    border-left: 4px solid lighten($font-color, 20%);
-    background-color: lighten($font-color, 45%);
+    padding             : $global-padding;
+    font-style          : italic;
+    border-left         : 4px solid lighten($font-color, 20%);
+    background-color    : lighten($font-color, 45%);
 
     &:before {
         content: '«';
