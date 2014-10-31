@@ -2007,15 +2007,10 @@ mark {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75); }
 
 small {
-  font-size: 13px; }
+  font-size: 12px; }
 
 span {
   display: inline-block; }
-
-.debug {
-  border: 1px solid #c8c800 !important; }
-  .debug * {
-    border: 1px solid #c8c800 !important; }
 
 @media only screen and (min-width: 1px) {
   body {
@@ -2058,22 +2053,22 @@ small-font {
 
 @media only screen and (min-width: 1800px) {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 @media only screen and (max-width: 1799px) {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 @media only screen and (max-width: 1279px) {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 @media only screen and (max-width: 1023px), only print {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 @media only screen and (max-width: 767px) {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 @media only screen and (max-width: 479px) {
   .small-font {
-    font-size: 13px !important; } }
+    font-size: 12px !important; } }
 .row,
 .row * {
   -webkit-box-sizing: border-box;

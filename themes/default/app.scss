@@ -1,9 +1,3 @@
-// ========================================================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ==              FONTS                ===================================================================================================================================
-// ==              VARS                 ===================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ========================================================================================================================================================================
 
 // font sizes for h# elements 
 $h1 : 32px;
@@ -15,7 +9,7 @@ $h6 : 16px;
 
 // Font sizes
 $font-size:       16px;
-$font-small-size: 13px;
+$font-small-size: 12px;
 
 $font-sans       : 'helvetica neue', helvetica, arial, sans-serif;
 $font-serif      : georgia, 'times new roman', times, serif;
@@ -48,7 +42,7 @@ $global-padding    : $vertical-padding $horizontal-padding;
 $state-important: true;
 $state-faded-opacity: 0.5;
 $state-disabled-opacity: 0.5;
-$state-table-padding: 12px;
+$state-table-padding: ($global-step / 2);
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -58,12 +52,12 @@ $state-table-padding: 12px;
 // ========================================================================================================================================================================
 
 // set different width for the smartphones, tablets and hd resolutions
-$smartphone-portrait-step:	320px;	// smartphones portrait		320~380
-$smartphone-landscape-step:	480px;	// smartphones landscape	480~568~685
-$tablet-portrait-step:		768px;	// tablet portrait			768
-$tablet-landscape-step:		1024px;	// tablet landscape			1024
-$hd-ready-step:				1280px;	// HD Ready					1280 (720p)
-$hd-full-step:				1800px;	// Full HD					1920 (1080p)
+$smartphone-portrait-step  : 320px;  // smartphones portrait  320~380
+$smartphone-landscape-step : 480px;  // smartphones landscape 480~568~685
+$tablet-portrait-step      : 768px;  // tablet portrait       768
+$tablet-landscape-step     : 1024px; // tablet landscape      1024
+$hd-ready-step             : 1280px; // HD Ready              1280 (720p)
+$hd-full-step              : 1800px; // Full HD               1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
 $use-viewport-states:      true;
