@@ -20,17 +20,17 @@ Next release details
 ---
 
 **Features**
-- **added** `column-grid` system to reproduce behavior like [Pinterest](http://pinterest.com)
 - **added** missing `column-fill` CSS3 prefixes
 - **added** `flex` CSS3 prefixes
 - **added** `grid` CSS3 prefixes
-- **added** `viewport-height` state selector
 - **added** new grid system `addFlexGridContainer` and `addFlexGridColumns`
 - **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
 - **added** `tone` mixin to tone colors easily
 - **added** `viewport-height` state selector
+- **added** `fonts` folders and added app var `@path-font`
 
 **Fixes**
+- **optimized** tons of core code
 - **fixed** missing default `font-size` for headings
 - **fixed** padding rule names with new naming convention
 - **fixed** missing default `font-weight` and `font-size` on base body
@@ -47,7 +47,10 @@ Next release details
 - **optimized** background retina mixins, removed useless duplicate code now works smarter
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
-
+- **changed** column rules mixin names to new ones where is specified the grid type `addFlexGridContainer` and `addFlexGridColumns`
+- **changed** `fallbackColor` automatic fallback with a mix with a app color
+- **removed** `extra` folder
+- **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
 
 Release 2.0.0 details
 ---
@@ -85,7 +88,7 @@ Release 2.0.0 details
 - **added** `fillImage` mixin to set `fill` property to the background images for SVG generated HTML elements
 - **added** `fillRetinaImage` mixin to set `fill` property to the background images for SVG generated HTML elements on standard and retina resolutions
 - **added** Filters and Transforms helpers for CSS3
-- **added** `.map` files to grunt scss exporter
+- **added** `.map` files to grunt sass exporter
 - **added** `font-feature-settings` CSS3 property to prefixes mixins
 - **added** `animation` CSS3 property to prefixes mixins
 
@@ -124,14 +127,14 @@ Release 2.0.0 details
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
-[ideato]:    http://www.ideato.it
-[minompi]:   https://twitter.com/minompi
-[vitto]:     https://twitter.com/vttrx
-[site]:      http://frontsize.com
-[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
-[sass]:      https://github.com/ideatosrl/frontsize-sass
-[less]:      https://github.com/ideatosrl/frontsize-less
-[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
-[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
 [app]:       https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
 [csslint]:   https://github.com/CSSLint/csslint
+[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
+[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
+[ideato]:    http://www.ideato.it
+[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
+[minompi]:   https://twitter.com/minompi
+[sass]:      https://github.com/ideatosrl/frontsize-sass
+[less]:      https://github.com/ideatosrl/frontsize-less
+[site]:      http://frontsize.com
+[vitto]:     https://twitter.com/vttrx
