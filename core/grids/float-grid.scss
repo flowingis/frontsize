@@ -101,6 +101,18 @@
             margin-left: 0;
         }
     }
+
+    @include _addClearRule($only-smartphone, $smartphoneViewportPrefix);
+    @include _addClearRule($only-tablet, $tabletViewportPrefix);
+    @include _addClearRule($only-hd, $hdViewportPrefix);
+}
+
+@mixin _addClearRule($rule, $prefix) {
+    @media #{$rule} {
+        .#{$prefix}clear {
+            clear: both;
+        }
+    }
 }
 
 @mixin _checkAutoClear(

@@ -355,7 +355,7 @@ Index: test/frontsize.autoprefixer.css
    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
    box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75); }
  
-@@ -3014,6 +2972,4 @@
+@@ -3023,6 +2981,4 @@
      max-width: 1180px; } }
  @media only screen and (min-width: 1800px) {
    .use-steps {

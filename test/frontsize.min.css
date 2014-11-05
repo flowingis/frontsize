@@ -2992,6 +2992,15 @@ small-font {
 @media only screen and (min-width: 768px) and (max-width: 1279px), only print {
   .tablet-offset-disabled {
     margin-left: 0; } }
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+  .smartphone-offset-clear {
+    clear: both; } }
+@media only screen and (min-width: 768px) and (max-width: 1279px), only print {
+  .tablet-offset-clear {
+    clear: both; } }
+@media only screen and (min-width: 1280px) {
+  .hd-offset-clear {
+    clear: both; } }
 .use-steps {
   display: block;
   margin-left: auto;
