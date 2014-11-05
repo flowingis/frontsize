@@ -28,7 +28,7 @@ Next release details
 - **added** `tone` mixin to tone colors easily
 - **added** `viewport-height` state selector
 - **added** `fonts` folders and added app var `@path-font`
-- **added** Added selective `viewport-clear` rule for every viewport group
+- **added** selective `viewport-clear` rule for every viewport group
 
 **Fixes**
 - **optimized** tons of core code
