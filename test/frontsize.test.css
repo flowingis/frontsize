@@ -46,6 +46,7 @@ Website:   https://github.com/AlessandroMinoccheri
 
   @page {
     margin: 1cm; }
+
   h1, h2, h3, h4, h5, h6, p {
     orphans: 3;
     widows: 3; }
@@ -170,6 +171,7 @@ nav ul {
 
   @page {
     margin: 1cm; }
+
   h1, h2, h3, h4, h5, h6, p {
     orphans: 3;
     widows: 3; }
@@ -1122,7 +1124,7 @@ input[type="checkbox"] {
       width: 32px;
       height: 32px; } }
   input[type="checkbox"]:checked {
-    background-position: -32px -0; }
+    background-position: 0 -32px; }
   input[type="checkbox"] + * {
     cursor: pointer; }
 
@@ -1166,7 +1168,7 @@ input[type="radio"] {
       width: 24px;
       height: 24px; } }
   input[type="radio"]:checked {
-    background-position: -24px -0; }
+    background-position: 0 -24px; }
 
 /*button,
 input[type="reset"],
@@ -1529,7 +1531,7 @@ li {
   margin: 0 0 0 12px; }
 
 body {
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   color: #898989;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
   font-size: 16px;
@@ -2671,5 +2673,3 @@ small-font {
 @media only screen and (min-width: 1800px) {
   .use-steps {
     max-width: 1300px; } }
-
-/*# sourceMappingURL=frontsize.test.css.map */

@@ -1,11 +1,19 @@
-@mixin spriteRetina($defaultImage, $retinaImage, $width, $height:$width, $imageWidth:0, $imageHeight:0, $path:$path-img) {
+@mixin spriteRetina(
+    $defaultImage  ,
+    $retinaImage   ,
+    $width         : $spriteLastWidth,
+    $height        : $spriteLastHeight,
+    $imageWidth    : 0,
+    $imageHeight   : 0,
+    $path          : $path-img
+    ) {
 	@if $use-root-path == false{
-		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight);
+		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $path);
 		@media #{$display-retina} {
 			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, false);
 		}
 	}
-	@else{
+	@else {
 		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $path);
 		@media #{$display-retina} {
 			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $path, false);

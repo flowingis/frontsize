@@ -1,45 +1,49 @@
 @mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $path:$path-img, $setBoxsizing:true) {
 	@if $use-root-path == false{
-		@include backgroundImage($image);
-		background-repeat:no-repeat;
-    	background-size:$backgroudSize;
-    	@include size($width, $height, 1, $setBoxsizing);
+		@include backgroundImage($image, $path);
 	}
 	@else{
 		@include backgroundImage($image, $path);
-		background-repeat:no-repeat;
-    	background-size:$backgroudSize;
-    	@include size($width, $height, 1, $setBoxsizing);
-	}
-}
-@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width){
-	@if ($horizontalPosition == 0){
-		$horizontalPosition : $horizontalPosition;
-	}
-	@else{
-		$horizontalPosition : $horizontalPosition*$width;
 	}
 
-	@if $verticalPosition == 0{
-		$verticalPosition : $verticalPosition;
+    $spriteLastWidth  : $width;
+    $spriteLastHeight : $height;
+    background-repeat : no-repeat;
+    background-size   : $backgroudSize;
+    @include size($width, $height, 1, $setBoxsizing);
+}
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:$spriteLastWidth, $height:$spriteLastHeight){
+	@if ($horizontalPosition == 0) and ($verticalPosition != 0){
+        background-position : 0 (-#{($verticalPosition*$height)}); 
 	}
 	@else{
-		$verticalPosition : $verticalPosition*$height;
+        @if ($verticalPosition == 0) and ($horizontalPosition != 0){
+		    background-position : 0 (-#{($horizontalPosition*$width)}); 
+        }
+        @else {
+            @if ($verticalPosition == 0) and ($horizontalPosition == 0){
+                background-position : 0 0;
+            }
+            @else {
+                @if ($verticalPosition != 0) and ($horizontalPosition != 0){
+                    background-position : (-#{($horizontalPosition*$width)}) (-#{($verticalPosition*$height)});
+                }
+            }
+        }
 	}
-	background-position: (-#{($horizontalPosition)}) (-#{$verticalPosition});
 }
 
 @mixin spriteCoordinates($positionX:0, $positionY:0) {
 	background-position: (-$positionX) (-$positionY);
 }
 
-@mixin scaleBackgroundSize($scale, $width, $height:$width) {
+@mixin scaleBackgroundSize($scale, $width:$spriteLastWidth, $height:$spriteLastHeight) {
     background-size: ($width*$scale) ($height*$scale);
 }
 
-@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:0, $height:$width) {
+@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:$spriteLastWidth, $height:$spriteLastHeight, $scale:1) {
 	&.#{$selector} {
-        @include spritePosition($horizontalPosition, $verticalPosition, $width, $height);
+        @include spritePosition($horizontalPosition, $verticalPosition, ($width*$scale), ($height*$scale));
     }
 }
 

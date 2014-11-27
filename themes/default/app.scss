@@ -119,7 +119,10 @@ $root-path : "/css/frontsize-less/themes/default";
 $path-img  : "/css/frontsize-less/themes/default/img/";
 $path-font : "/css/frontsize-less/themes/default/fonts/";
 
-$use-core-widgets: true
+$use-core-widgets: true;
+
+$spriteLastWidth : 0;
+$spriteLastHeight : 0;
 
 
 // if $use-root-path located in app.less is set to true use it with:
