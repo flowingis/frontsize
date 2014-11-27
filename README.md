@@ -20,6 +20,7 @@ Next release details
 ---
 
 **Features**
+- **added** `spritePosition` now get `sprite` size properties automatically without the need to pass them manually
 - **added** missing `column-fill` CSS3 prefixes
 - **added** `flex` CSS3 prefixes
 - **added** `grid` CSS3 prefixes
