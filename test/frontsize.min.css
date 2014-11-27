@@ -3026,3 +3026,20 @@ small-font {
 @media only screen and (min-width: 1800px) {
   .use-steps {
     max-width: 1300px; } }
+.widget-example {
+  display: inline-block;
+  color: red; }
+
+.widget-example-2 {
+  background-image: url("/css/frontsize-less/themes/default/img/example-image.png");
+  background-repeat: no-repeat;
+  background-size: 512px 512px;
+  width: 32px;
+  height: 32px;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-position: -64px -64px; }
