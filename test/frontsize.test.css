@@ -2674,10 +2674,6 @@ small-font {
   .use-steps {
     max-width: 1300px; } }
 .widget-example {
-  display: inline-block;
-  color: red; }
-
-.widget-example-2 {
   background-image: url("/css/frontsize-less/themes/default/img/example-image.png");
   background-repeat: no-repeat;
   background-size: 512px 512px;
