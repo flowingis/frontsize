@@ -46,7 +46,6 @@ Website:   https://github.com/AlessandroMinoccheri
 
   @page {
     margin: 1cm; }
-
   h1, h2, h3, h4, h5, h6, p {
     orphans: 3;
     widows: 3; }
@@ -171,7 +170,6 @@ nav ul {
 
   @page {
     margin: 1cm; }
-
   h1, h2, h3, h4, h5, h6, p {
     orphans: 3;
     widows: 3; }
@@ -1105,7 +1103,7 @@ input[type="checkbox"] {
   appearance: none;
   position: relative;
   top: 8px;
-  background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-1x.png");
+  background-image: url("/css/frontsize-sass/themes/default/img/input-checkbox-1x.png");
   background-repeat: no-repeat;
   background-size: 64px 32px;
   width: 32px;
@@ -1118,7 +1116,7 @@ input[type="checkbox"] {
   box-sizing: border-box; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
     input[type="checkbox"] {
-      background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-2x.png");
+      background-image: url("/css/frontsize-sass/themes/default/img/input-checkbox-2x.png");
       background-repeat: no-repeat;
       background-size: 64px 32px;
       width: 32px;
@@ -1149,7 +1147,7 @@ input[type="radio"] {
   appearance: none;
   position: relative;
   top: 6px;
-  background-image: url("/css/frontsize-less/themes/default/img/input-radio-1x.png");
+  background-image: url("/css/frontsize-sass/themes/default/img/input-radio-1x.png");
   background-repeat: no-repeat;
   background-size: 48px 24px;
   width: 24px;
@@ -1162,7 +1160,7 @@ input[type="radio"] {
   box-sizing: border-box; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
     input[type="radio"] {
-      background-image: url("/css/frontsize-less/themes/default/img/input-radio-2x.png");
+      background-image: url("/css/frontsize-sass/themes/default/img/input-radio-2x.png");
       background-repeat: no-repeat;
       background-size: 48px 24px;
       width: 24px;
@@ -1405,7 +1403,7 @@ keygen {
   font-weight: normal;
   border: 2px solid #898989;
   background-color: #fcfcfc;
-  background-image: url("/css/frontsize-less/themes/default/img/input-select-1x.png");
+  background-image: url("/css/frontsize-sass/themes/default/img/input-select-1x.png");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: right 12px center;
@@ -1424,7 +1422,7 @@ keygen {
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
     select,
     keygen {
-      background-image: url("/css/frontsize-less/themes/default/img/input-select-2x.png"); } }
+      background-image: url("/css/frontsize-sass/themes/default/img/input-select-2x.png"); } }
   select:hover,
   keygen:hover {
     background-color: white; }
@@ -1531,7 +1529,7 @@ li {
   margin: 0 0 0 12px; }
 
 body {
-  background-color: #fcfcfc;
+  background-color: #FCFCFC;
   color: #898989;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
   font-size: 16px;
@@ -2674,7 +2672,7 @@ small-font {
   .use-steps {
     max-width: 1300px; } }
 .widget-example {
-  background-image: url("/css/frontsize-less/themes/default/img/example-image.png");
+  background-image: url("/css/frontsize-sass/themes/default/img/example-image.png");
   background-repeat: no-repeat;
   background-size: 512px 512px;
   width: 32px;
@@ -2685,4 +2683,6 @@ small-font {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  background-position: -64px -64px; }
+  background-position: -0 -0; }
+
+/*# sourceMappingURL=frontsize.test.css.map */

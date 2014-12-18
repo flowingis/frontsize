@@ -135,7 +135,7 @@ Index: test/frontsize.autoprefixer.css
 @@ -1457,9 +1440,10 @@
    position: relative;
    top: 8px;
-   background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-1x.png");
+   background-image: url("/css/frontsize-sass/themes/default/img/input-checkbox-1x.png");
    background-repeat: no-repeat;
 +  -webkit-background-size: 64px 32px;
 +          background-size: 64px 32px;
@@ -147,7 +147,7 @@ Index: test/frontsize.autoprefixer.css
 @@ -1470,9 +1454,10 @@
    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
      input[type="checkbox"] {
-       background-image: url("/css/frontsize-less/themes/default/img/input-checkbox-2x.png");
+       background-image: url("/css/frontsize-sass/themes/default/img/input-checkbox-2x.png");
        background-repeat: no-repeat;
 +      -webkit-background-size: 64px 32px;
 +              background-size: 64px 32px;
@@ -155,7 +155,7 @@ Index: test/frontsize.autoprefixer.css
        width: 32px;
        height: 32px; } }
    input[type="checkbox"]:checked {
-     background-position: -32px -0; }
+     background-position: 0 -32px; }
 @@ -1488,9 +1473,8 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
@@ -169,7 +169,7 @@ Index: test/frontsize.autoprefixer.css
 @@ -1501,9 +1485,10 @@
    position: relative;
    top: 6px;
-   background-image: url("/css/frontsize-less/themes/default/img/input-radio-1x.png");
+   background-image: url("/css/frontsize-sass/themes/default/img/input-radio-1x.png");
    background-repeat: no-repeat;
 +  -webkit-background-size: 48px 24px;
 +          background-size: 48px 24px;
@@ -181,7 +181,7 @@ Index: test/frontsize.autoprefixer.css
 @@ -1514,9 +1499,10 @@
    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
      input[type="radio"] {
-       background-image: url("/css/frontsize-less/themes/default/img/input-radio-2x.png");
+       background-image: url("/css/frontsize-sass/themes/default/img/input-radio-2x.png");
        background-repeat: no-repeat;
 +      -webkit-background-size: 48px 24px;
 +              background-size: 48px 24px;
@@ -189,7 +189,7 @@ Index: test/frontsize.autoprefixer.css
        width: 24px;
        height: 24px; } }
    input[type="radio"]:checked {
-     background-position: -24px -0; }
+     background-position: 0 -24px; }
 @@ -1547,17 +1533,13 @@
    border-color: black;
    background-color: black;
@@ -243,7 +243,7 @@ Index: test/frontsize.autoprefixer.css
    font-weight: normal;
    border: 2px solid #898989;
    background-color: #fcfcfc;
-   background-image: url("/css/frontsize-less/themes/default/img/input-select-1x.png");
+   background-image: url("/css/frontsize-sass/themes/default/img/input-select-1x.png");
 +  -webkit-background-size: 16px 16px;
 +          background-size: 16px 16px;
 -  background-size: 16px 16px;
@@ -355,10 +355,22 @@ Index: test/frontsize.autoprefixer.css
    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75);
    box-shadow: 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75); }
  
-@@ -3023,6 +2981,4 @@
-     max-width: 1180px; } }
- @media only screen and (min-width: 1800px) {
-   .use-steps {
+@@ -3026,9 +2984,10 @@
      max-width: 1300px; } }
+ .widget-example {
+   background-image: url("/css/frontsize-sass/themes/default/img/example-image.png");
+   background-repeat: no-repeat;
++  -webkit-background-size: 512px 512px;
++          background-size: 512px 512px;
+-  background-size: 512px 512px;
+   width: 32px;
+   height: 32px;
+   -webkit-box-sizing: border-box;
+   -khtml-box-sizing: border-box;
+@@ -3036,6 +2995,4 @@
+   -ms-box-sizing: border-box;
+   -o-box-sizing: border-box;
+   box-sizing: border-box;
+   background-position: -0 -0; }
 -
 -/*# sourceMappingURL=frontsize.autoprefixer.css.map */
