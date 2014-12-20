@@ -1,51 +1,57 @@
-@media print {
-	body { 
-		background : none !important;
-        color      : black !important;
-	}
+@mixin _initPrint() {
+    @if $use-print-viewport == true {
+        @media print {
+        	body { 
+        		background : none !important;
+                color      : black !important;
+        	}
 
-	* {
-		$shadow : 0 0 0 white !important;
-        $border :0 !important;
+        	* {
+        		$shadow : 0 0 0 white !important;
+                $border :0 !important;
 
-        color            : black !important;
-        background-image : none !important;
-        background-color : white !important;
-        border           : 0 solid white !important;
-        text-shadow      : 0 0 0 white !important;
+                color            : black !important;
+                background-image : none !important;
+                background-color : white !important;
+                border           : 0 solid white !important;
+                text-shadow      : 0 0 0 white !important;
 
-        @include box-shadow($shadow);
-        @include border-radius($border);
-	}
+                @include box-shadow($shadow);
+                @include border-radius($border);
+        	}
 
-	p {
-		color : black !important;
-	}
+        	p {
+        		color : black !important;
+        	}
 
-	a {
-		color           : black !important;
-        border-bottom   : 1px solid grey !important;
-        text-decoration : none !important;
-	}
+        	a {
+        		color           : black !important;
+                border-bottom   : 1px solid grey !important;
+                text-decoration : none !important;
+        	}
 
-	@page {
-		margin: 1cm;
-	}
+        	@page {
+        		margin: 1cm;
+        	}
 
-	h1, h2, h3, h4, h5, h6, p {
-		orphans : 3;
-		widows : 3;
-	}
+        	h1, h2, h3, h4, h5, h6, p {
+        		orphans : 3;
+        		widows : 3;
+        	}
 
-	h1, h2, h3, h4, h5, h6 {
-		page-break-after : avoid;
-	}
+        	h1, h2, h3, h4, h5, h6 {
+        		page-break-after : avoid;
+        	}
 
-	code {
-		border : 1px solid grey !important;
-	}
+        	code {
+        		border : 1px solid grey !important;
+        	}
 
-	footer {
-		clear : both !important;
-	}
+        	footer {
+        		clear : both !important;
+        	}
+        }
+    }
 }
+
+@include _initPrint();

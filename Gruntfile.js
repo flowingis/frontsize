@@ -21,16 +21,23 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 'use strict';
 
 module.exports = function(grunt) {
+
+    //frontsize : grunt.file.readJSON('frontsize.json'),
+
 	grunt.initConfig({
 
         compileFile     : 'compile.scss',
         compileFileTest : 'compile-test.scss',
         themeName       : 'default',
         themeImg        : 'themes/default/img/',
-        testCss         : 'test/frontsize.test.css',
-        autoprefixerCss : 'test/frontsize.autoprefixer.css',
-        productionCss   : 'test/frontsize.min.css',
-        productionImg   : 'img/theme/',
+        path            : 'test/',
+        testCss         : '<%= path %>/frontsize.test.css',
+        autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
+        minifiedCss     : '<%= path %>/frontsize.min.css',
+        productionImg   : '<%= path %>/img/theme/',
+
+        productionCss   : '<%= path %>/frontsize.3.0.0.min.css',
+        prodAutoCss     : '<%= path %>/frontsize.3.0.0.autoprefixer.min.css',
 
 		sass: {
             production: {
