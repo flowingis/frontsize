@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         compileFileTest : 'compile-test.scss',
         themeName       : 'default',
         themeImg        : 'themes/default/img/',
-        path            : 'test/',
+        path            : 'test',
         testCss         : '<%= path %>/frontsize.test.css',
         autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
         minifiedCss     : '<%= path %>/frontsize.min.css',
