@@ -18,18 +18,19 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 
 */
 
+'use strict';
 
 module.exports = function(grunt) {
 	grunt.initConfig({
 
-        compileFile     : "compile.scss",
-        compileFileTest : "compile-test.scss",
-        themeName       : "default",
-        themeImg        : "themes/default/img/",
-        testCss         : "test/frontsize.test.css",
-        autoprefixerCss : "test/frontsize.autoprefixer.css",
-        productionCss   : "test/frontsize.min.css",
-        productionImg   : "img/theme/",
+        compileFile     : 'compile.scss',
+        compileFileTest : 'compile-test.scss',
+        themeName       : 'default',
+        themeImg        : 'themes/default/img/',
+        testCss         : 'test/frontsize.test.css',
+        autoprefixerCss : 'test/frontsize.autoprefixer.css',
+        productionCss   : 'test/frontsize.min.css',
+        productionImg   : 'img/theme/',
 
 		sass: {
             production: {
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    "<%= productionCss %>" : "<%= compileFile %>"
+                    '<%= productionCss %>' : '<%= compileFile %>'
                 }
             },
             autoprefixer: {
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    "<%= autoprefixerCss %>" : "<%= compileFile %>"
+                    '<%= autoprefixerCss %>' : '<%= compileFile %>'
                 }
             },
             test: {
@@ -53,7 +54,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    "<%= testCss %>" : "<%= compileFileTest %>"
+                    '<%= testCss %>' : '<%= compileFileTest %>'
                 }
             }
 		},
@@ -64,31 +65,31 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src  : "<%= autoprefixerCss %>",
-                    dest : "<%= autoprefixerCss %>"
+                    src  : '<%= autoprefixerCss %>',
+                    dest : '<%= autoprefixerCss %'
               }  
         },
 
 		watch: {
             frontsize : {
-                files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "frontsize" ]
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'frontsize' ]
             },
             devAssets : {
-                files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "devAssets" ]
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'devAssets' ]
             },
             autoprefix : {
-                files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "autoprefix" ]
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'autoprefix' ]
             },
             autoAssets : {
-                files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "autoAssets" ]
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'autoAssets' ]
             },
             all : {
-                files: [ "*.scss", "**/*.scss" ],
-                tasks: [ "all" ]
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'all' ]
             }
 		},
 
@@ -107,7 +108,7 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    "<%= productionImg %>*"
+                    '<%= productionImg %>*'
                 ]
             }
         },
@@ -118,56 +119,56 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ "<%= themeImg %>*" ],
-                        dest    : "<%= productionImg %>",
-                        filter  : "isFile"
+                        src     : [ '<%= themeImg %>*' ],
+                        dest    : '<%= productionImg %>',
+                        filter  : 'isFile'
                     }
                 ]
             }
         }
 	});
 
-	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("frontsize", [
-        "sass:production",
-        "test"
+    grunt.registerTask('frontsize', [
+        'sass:production',
+        'test'
     ]);
 
-    grunt.registerTask("devAssets", [
-        "sass:production",
-        "test",
-        "assets"
+    grunt.registerTask('devAssets', [
+        'sass:production',
+        'test',
+        'assets'
     ]);
 
-    grunt.registerTask("autoprefix", [
-        "sass:autoprefixer",
-        "test",
-        "autoprefixer"
+    grunt.registerTask('autoprefix', [
+        'sass:autoprefixer',
+        'test',
+        'autoprefixer'
     ]);
 
-    grunt.registerTask("autoAssets", [
-        "sass:autoprefixer",
-        "test",
-        "autoprefixer",
-        "assets"
+    grunt.registerTask('autoAssets', [
+        'sass:autoprefixer',
+        'test',
+        'autoprefixer',
+        'assets'
     ]);
 
-    grunt.registerTask("all", [
-        "sass:production",
-        "sass:autoprefixer",
-        "test",
-        "autoprefixer",
-        "assets"
+    grunt.registerTask('all', [
+        'sass:production',
+        'sass:autoprefixer',
+        'test',
+        'autoprefixer',
+        'assets'
     ]);
 
-    grunt.registerTask("assets", [
-        "clean:assets",
-        "copy:assets"
+    grunt.registerTask('assets', [
+        'clean:assets',
+        'copy:assets'
     ]);
 
-    grunt.registerTask("test", [
-        "sass:test",
-        "csslint:test"
+    grunt.registerTask('test', [
+        'sass:test',
+        'csslint:test'
     ]);
 };
