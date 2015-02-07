@@ -22,22 +22,8 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 
 module.exports = function(grunt) {
 
-    //frontsize : grunt.file.readJSON('frontsize.json'),
-
 	grunt.initConfig({
-
-        compileFile     : 'compile.scss',
-        compileFileTest : 'compile-test.scss',
-        themeName       : 'default',
-        themeImg        : 'themes/default/img/',
-        path            : 'test',
-        testCss         : '<%= path %>/frontsize.test.css',
-        autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
-        minifiedCss     : '<%= path %>/frontsize.min.css',
-        productionImg   : '<%= path %>/img/theme/',
-
-        productionCss   : '<%= path %>/frontsize.3.0.0.min.css',
-        prodAutoCss     : '<%= path %>/frontsize.3.0.0.autoprefixer.min.css',
+        f : grunt.file.readJSON('frontsize.json'),
 
 		sass: {
             production: {
@@ -45,7 +31,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    '<%= productionCss %>' : '<%= compileFile %>'
+                    '<%= f.productionCss %>' : '<%= f.compile %>'
                 }
             },
             autoprefixer: {
@@ -53,7 +39,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    '<%= autoprefixerCss %>' : '<%= compileFile %>'
+                    '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
                 }
             },
             test: {
@@ -61,7 +47,7 @@ module.exports = function(grunt) {
                     cleancss          : false
                 },
                 files: {
-                    '<%= testCss %>' : '<%= compileFileTest %>'
+                    '<%= f.testCss %>' : '<%= f.compileTest %>'
                 }
             }
 		},
@@ -72,8 +58,8 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src  : '<%= autoprefixerCss %>',
-                    dest : '<%= autoprefixerCss %'
+                    src  : '<%= f.autoprefixerCss %>',
+                    dest : '<%= f.autoprefixerCss %'
               }  
         },
 
@@ -115,7 +101,7 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    '<%= productionImg %>*'
+                    '<%= f.productionImg %>*'
                 ]
             }
         },
@@ -126,8 +112,8 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= themeImg %>*' ],
-                        dest    : '<%= productionImg %>',
+                        src     : [ 'themes/<%= f.themeName %>/img/*' ],
+                        dest    : '<%= f.productionImg %>',
                         filter  : 'isFile'
                     }
                 ]

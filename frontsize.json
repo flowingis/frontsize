@@ -1,0 +1,12 @@
+{
+    "compile"         : "compile.scss",
+    "compileTest"     : "compile-test.scss",
+    "themeName"       : "default",
+    "productionImg"   : "production/img/theme/",
+    "productionCss"   : "production/css/",
+
+    "testCss"         : "test/frontsize.test.css",
+    "autoprefixerCss" : "test/frontsize.autoprefixer.min.css",
+    "minifiedCss"     : "test/frontsize.min.css",
+    "css"             : "production/css/frontsize.3.0.0.min.css"
+}
