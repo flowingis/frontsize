@@ -22,13 +22,14 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 
 module.exports = function(grunt) {
 
-	grunt.initConfig({
+    grunt.initConfig({
         f : grunt.file.readJSON('frontsize.json'),
 
-		sass: {
+        sass: {
             production: {
                 options: {
-                    cleancss          : false
+                    sourcemap : 'auto',
+                    cleancss : false
                 },
                 files: {
                     '<%= f.productionCss %>' : '<%= f.compile %>'
@@ -36,7 +37,8 @@ module.exports = function(grunt) {
             },
             autoprefixer: {
                 options: {
-                    cleancss          : false
+                    sourcemap : 'auto',
+                    cleancss : false
                 },
                 files: {
                     '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
@@ -44,13 +46,13 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                    cleancss          : false
+                    cleancss : false
                 },
                 files: {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'
                 }
             }
-		},
+        },
 
         autoprefixer: {
               options: {
@@ -60,13 +62,17 @@ module.exports = function(grunt) {
               test: {
                     src  : '<%= f.autoprefixerCss %>',
                     dest : '<%= f.autoprefixerCss %'
-              }  
+              }
         },
 
-		watch: {
+        watch: {
             frontsize : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frontsize' ]
+            },
+            frnAssets : {
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'frnAssets' ]
             },
             devAssets : {
                 files: [ '*.scss', '**/*.scss' ],
@@ -84,7 +90,7 @@ module.exports = function(grunt) {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'all' ]
             }
-		},
+        },
 
         csslint: {
             options: {
@@ -101,7 +107,8 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    '<%= f.productionImg %>*'
+                    '<%= f.copyProductionImg %>*',
+                    '<%= f.copyProductionFonts %>*'
                 ]
             }
         },
@@ -113,19 +120,32 @@ module.exports = function(grunt) {
                         expand  : true,
                         flatten : true,
                         src     : [ 'themes/<%= f.themeName %>/img/*' ],
-                        dest    : '<%= f.productionImg %>',
+                        dest    : '<%= f.copyProductionImg %>',
+                        filter  : 'isFile'
+                    },{
+                        expand  : true,
+                        flatten : true,
+                        src     : [ 'themes/<%= f.themeName %>/fonts/*' ],
+                        dest    : '<%= f.copyProductionFonts %>',
                         filter  : 'isFile'
                     }
                 ]
             }
         }
-	});
+    });
 
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.registerTask('frontsize', [
         'sass:production',
         'test'
+    ]);
+
+    grunt.registerTask('frnAssets', [
+        'less:production',
+        'test',
+        'clean',
+        'assets'
     ]);
 
     grunt.registerTask('devAssets', [

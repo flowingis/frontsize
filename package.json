@@ -1,14 +1,14 @@
 {
-    "name"              : "frontsize-sass",
-    "version"           : "2.0.0",
-    "description"       : "A CSS front-end framework built to build and ease your life.",
-    "author"          : {
+    "name"        : "frontsize-sass",
+    "version"     : "2.0.0",
+    "description" : "A CSS front-end framework built to build and ease your life.",
+    "author"      : {
         "name"  : "Alessandro Minoccheri",
         "email" : "alessandro.minoccheri@gmail.com"
     },
-    "license"           : "MIT",
-    "homepage"        : "http://frontsize.com",
-    "keywords": [
+    "license"  : "MIT",
+    "homepage" : "http://frontsize.com",
+    "keywords" : [
         "css",
         "front-end",
         "framework",
@@ -34,24 +34,24 @@
         "variables in css",
         "css sass"
     ],
-    "repository": {
+    "repository" : {
         "type" : "git",
         "url"  : "https://github.com/ideatosrl/frontsize-sass.git"
     },
     "main" : "compile.scss",
-    "devDependencies"   : {
+    "devDependencies" : {
 
-        "matchdep"      : "*",
+        "matchdep"   : "0.3.0",
 
-        "casperjs"      : "*",
-        "phantomjs"     : "*",
-        "resemblejs"    : "*",
-        "phantomcss"    : "*",
+        "casperjs"   : "1.1.0-beta3",
+        "phantomjs"  : "1.9.2",
+        "resemblejs" : "*",
+        "phantomcss" : "*",
 
-        "csslint"       : "*",
-        "sass"          : "*",
+        "csslint"    : "*",
+        "sass"       : "*",
 
-        "grunt"                 : "~0.4.1",
+        "grunt"                 : "~0.4.5",
         "grunt-autoprefixer"    : "*",
         "grunt-contrib-watch"   : "*",
         "grunt-contrib-sass"    : "*",
@@ -59,7 +59,7 @@
         "grunt-contrib-clean"   : "*",
         "grunt-contrib-copy"    : "*"
     },
-    "engines": {
+    "engines" : {
         "node"  : ">=0.8.0"
     },
     "bugs" : {
