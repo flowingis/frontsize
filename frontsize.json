@@ -1,12 +1,15 @@
 {
-    "compile"         : "compile.scss",
-    "compileTest"     : "compile-test.scss",
-    "themeName"       : "default",
-    "productionImg"   : "production/img/theme/",
-    "productionCss"   : "production/css/",
+    "compile"             : "compile.less",
+    "compileTest"         : "compile-test.less",
+    "themeName"           : "default",
+    "copyProductionImg"   : "../_site/img/theme/",
+    "copyProductionFonts" : "../_site/fonts/",
+    "uncssProductionCss"  : "../_site/css/",
 
     "testCss"         : "test/frontsize.test.css",
     "autoprefixerCss" : "test/frontsize.autoprefixer.min.css",
     "minifiedCss"     : "test/frontsize.min.css",
-    "css"             : "production/css/frontsize.3.0.0.min.css"
+    "css"             : "../_site/css/frontsize-3.0.0.min.css",
+    "cssImg"          : "/img/theme/",
+    "cssFonts"        : "/fonts/"
 }
