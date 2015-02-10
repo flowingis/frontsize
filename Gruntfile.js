@@ -25,30 +25,30 @@ module.exports = function(grunt) {
     grunt.initConfig({
         f : grunt.file.readJSON('frontsize.json'),
 
-        sass: {
-            production: {
-                options: {
+        sass : {
+            production : {
+                options : {
                     sourcemap : 'auto',
                     cleancss : false
                 },
-                files: {
-                    '<%= f.productionCss %>' : '<%= f.compile %>'
+                files : {
+                    '<%= f.css %>' : '<%= f.compile %>'
                 }
             },
-            autoprefixer: {
-                options: {
+            autoprefixer : {
+                options : {
                     sourcemap : 'auto',
                     cleancss : false
                 },
-                files: {
+                files : {
                     '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
                 }
             },
-            test: {
-                options: {
+            test : {
+                options : {
                     cleancss : false
                 },
-                files: {
+                files : {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'
                 }
             }
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
                 options: {
                     csslintrc: '.csslintrc'
                 },
-                src: ['test/frontsize.test.css']
+                src: [ '<%= f.testCss %>' ]
             }
         },
 

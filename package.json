@@ -1,11 +1,16 @@
 {
     "name"        : "frontsize-sass",
     "version"     : "2.0.0",
-    "description" : "A CSS front-end framework built to build and ease your life.",
-    "author"      : {
-        "name"  : "Alessandro Minoccheri",
-        "email" : "alessandro.minoccheri@gmail.com"
-    },
+    "description" : "A front-end framework built to build CSS and ease your life.",
+    "authors"     : [
+        {
+            "name"  : "Alessandro Minoccheri",
+            "email" : "alessandro.minoccheri@gmail.com"
+        },{
+            "name"  : "Vittorio Vittori",
+            "email" : "me@vittoriovittori.com"
+        }
+    ],
     "license"  : "MIT",
     "homepage" : "http://frontsize.com",
     "keywords" : [
@@ -44,7 +49,7 @@
         "matchdep"   : "0.3.0",
 
         "casperjs"   : "1.1.0-beta3",
-        "phantomjs"  : "1.9.2",
+        "phantomjs"  : "~1.9.2",
         "resemblejs" : "*",
         "phantomcss" : "*",
 

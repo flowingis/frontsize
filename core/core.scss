@@ -1,3 +1,12 @@
+/*!
+Frontsize: http://frontsize.com
+GitHub:    https://github.com/ideatosrl/frontsize-sass
+License:   MIT Licence
+Version:   3.0.0
+Date:      2015
+Authors:   Vittorio Vittori, Alessandro Minoccheri
+*/
+
 @charset "UTF-8";
 
 @import "vars";
@@ -7,7 +16,6 @@
 @import "core/grids/grid";
 @import "core/grids/text-column-grid";
 @import "themes/default/app";
-@import "core/vendor/normalize";
 @import "core/components/public";
 @import "core/components/private";
 @import "core/components/margin";
