@@ -11,11 +11,39 @@ Version:   3.0.0
 Date:      2015
 Authors:   Vittorio Vittori, Alessandro Minoccheri
 */
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
-  .not-retina-only {
-    display: none; } }
-@media only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1 / 11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx) {
-  .retina-only {
-    display: none; } }
+.small-font {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif; }
+
+@media only screen and (min-width: 1800px) {
+  .small-font {
+    font-size: 12px !important; } }
+@media only screen and (max-width: 1799px) {
+  .small-font {
+    font-size: 12px !important; } }
+@media only screen and (max-width: 1279px) {
+  .small-font {
+    font-size: 12px !important; } }
+@media only screen and (max-width: 1023px), only print {
+  .small-font {
+    font-size: 12px !important; } }
+@media only screen and (max-width: 767px) {
+  .small-font {
+    font-size: 12px !important; } }
+@media only screen and (max-width: 479px) {
+  .small-font {
+    font-size: 12px !important; } }
+body {
+  background-color: #F5F0D6;
+  color: #545454;
+  font-family: "open sans", "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  padding: 0; }
+
+.site-header {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #545454; }
 
 /*# sourceMappingURL=frontsize.test.css.map */

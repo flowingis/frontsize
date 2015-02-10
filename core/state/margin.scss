@@ -1,38 +1,35 @@
 $important: _important();
 
-@mixin _initMarginSelectors(){
-    @if $use-state-margin == true {
-        .no-margin {
-            margin: 0 #{$important};
-        }
-
-        .no-margin-top {
-            margin-top: 0 #{$important};
-        }
-
-        .no-margin-bottom {
-            margin-bottom: 0 #{$important};
-        }
-
-        .no-margin-vertical {
-            margin-top: 0 #{$important};
-            margin-bottom: 0 #{$important};
-        }
-
-        .no-margin-left {
-            margin-left: 0 #{$important};
-        }
-
-        .no-margin-right {
-            margin-right: 0 #{$important};
-        }
-
-        .no-margin-horizontal {
-            margin-left: 0 #{$important};
-            margin-right: 0 #{$important};
-        }
-
-        @include addMarginSelector(false, $vertical-padding, $horizontal-padding);
+@if $use-state-margin == true {
+    .no-margin {
+        margin: 0 #{$important};
     }
+
+    .no-margin-top {
+        margin-top: 0 #{$important};
+    }
+
+    .no-margin-bottom {
+        margin-bottom: 0 #{$important};
+    }
+
+    .no-margin-vertical {
+        margin-top: 0 #{$important};
+        margin-bottom: 0 #{$important};
+    }
+
+    .no-margin-left {
+        margin-left: 0 #{$important};
+    }
+
+    .no-margin-right {
+        margin-right: 0 #{$important};
+    }
+
+    .no-margin-horizontal {
+        margin-left: 0 #{$important};
+        margin-right: 0 #{$important};
+    }
+
+    @include addMarginSelector(false, $vertical-padding, $horizontal-padding);
 }
-@include _initMarginSelectors();

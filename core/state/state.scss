@@ -1,25 +1,22 @@
 $important: _important();
 
-@mixin _initStateSelectors(){
-	@if $use-state-selectors == true {
-		.pointer {
-			cursor: pointer #{$important};
-		}
+@if $use-state-selectors == true {
+    .pointer {
+        cursor: pointer #{$important};
+    }
 
-		.selected {
-			cursor: default #{$important};
-		}
+    .selected {
+        cursor: default #{$important};
+    }
 
-		.disabled {
-			cursor: default;
-			opacity: $state-disabled-opacity #{$important};
-			@include transition(opacity 0.25s ease-out);
-			@include user-select(none);
-		    * {
-		        @include user-select(none);
-		    }
-		}
-	}
+    .disabled {
+        cursor: default;
+        opacity: $state-disabled-opacity #{$important};
+        @include transition(opacity 0.25s ease-out);
+        @include user-select(none);
+        * {
+            @include user-select(none);
+        }
+    }
 }
 
-@include _initStateSelectors();

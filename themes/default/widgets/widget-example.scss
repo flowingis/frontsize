@@ -1,4 +1,0 @@
-.widget-example {
-    @include sprite('example-image.png', 32px, 32px, 512px 512px);
-    @include spritePosition(2,2);
-}

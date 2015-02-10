@@ -1,0 +1,14 @@
+.site-header {
+    padding-bottom : $global-step;
+    border-bottom  : $border;
+
+    @include element(logo) {
+        // @include setFloatGridColumn(4,4,4);
+    }
+
+    @include element(title) {
+        // @include setFloatGridColumn(8,8,8);
+    }
+}
+
+

@@ -1,39 +1,36 @@
 $important: _important();
 
-@mixin _initPaddingSelectors(){
-    @if $use-state-padding == true {
-        .no-padding {
-            padding: 0 #{$important};
-        }
-
-        .no-padding-top {
-            padding-top: 0 #{$important};
-        }
-
-        .no-padding-bottom {
-            padding-bottom: 0 #{$important};
-        }
-
-        .no-vertical-padding {
-            padding-top: 0 #{$important};
-            padding-bottom: 0 #{$important};
-        }
-
-        .no-padding-left {
-            padding-left: 0 #{$important};
-        }
-
-        .no-padding-right {
-            padding-right: 0 #{$important};
-        }
-
-        .no-horizontal-padding {
-            padding-left: 0 #{$important};
-            padding-right: 0 #{$important};
-        }
-
-        @include addPaddingSelector(false, $vertical-padding, $horizontal-padding);
+@if $use-state-padding == true {
+    .no-padding {
+        padding: 0 #{$important};
     }
+
+    .no-padding-top {
+        padding-top: 0 #{$important};
+    }
+
+    .no-padding-bottom {
+        padding-bottom: 0 #{$important};
+    }
+
+    .no-vertical-padding {
+        padding-top: 0 #{$important};
+        padding-bottom: 0 #{$important};
+    }
+
+    .no-padding-left {
+        padding-left: 0 #{$important};
+    }
+
+    .no-padding-right {
+        padding-right: 0 #{$important};
+    }
+
+    .no-horizontal-padding {
+        padding-left: 0 #{$important};
+        padding-right: 0 #{$important};
+    }
+
+    @include addPaddingSelector(false, $vertical-padding, $horizontal-padding);
 }
 
-@include _initPaddingSelectors();

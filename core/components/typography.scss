@@ -134,7 +134,7 @@
     $antialias                   : false
     ) {
     // Media queries for selectors active from the smaller resolution to a specific one
-    #{$selector} {
+    .#{$selector} {
         font-family : $fontFamily;
         @include property(line-height, $lineHeightMultiplier);
         @include font-smoothing($antialias);

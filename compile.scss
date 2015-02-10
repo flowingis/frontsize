@@ -1,4 +1,2 @@
-// External libraries NOT INCLUDED FOR TESTS
-@import "core/vendor/normalize.css";
-@import "themes/default/import";
-@import "core/core";
+@import "core/vendor/normalize.css"; // External libraries NOT INCLUDED FOR TESTS
+@import "compile-test";

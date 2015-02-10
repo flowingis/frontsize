@@ -1,8 +1,8 @@
 @mixin spriteRetina(
     $defaultImage  ,
     $retinaImage   ,
-    $width         : $spriteLastWidth,
-    $height        : $spriteLastHeight,
+    $width         : $_spriteLastWidth,
+    $height        : $_spriteLastHeight,
     $imageWidth    : 0,
     $imageHeight   : 0,
     $path          : $path-img

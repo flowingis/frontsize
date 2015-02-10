@@ -1,32 +1,30 @@
-@mixin _initPrintSelectors() {
-	@if $use-state-print == true {
-		@media print {
+@if $use-state-print == true {
+    @media print {
 
-			.not-on-print {
-				display: none !important;
-			}
+        .not-on-print {
+            display: none !important;
+        }
 
-			.little-on-print {
-				width: 25% !important;
-			}
+        .little-on-print {
+            width: 25% !important;
+        }
 
-			.half-on-print {
-				width: 50% !important;
-			}
+        .half-on-print {
+            width: 50% !important;
+        }
 
-			.almost-on-print {
-				width: 75% !important;
-			}
+        .almost-on-print {
+            width: 75% !important;
+        }
 
-			.fill-on-print {
-				width: 100% !important;
-			}
-		}
+        .fill-on-print {
+            width: 100% !important;
+        }
+    }
 
-		@media not print {
-			.on-print-only {
-				display: none;
-			}
-		}
-	}
+    @media not print {
+        .on-print-only {
+            display: none;
+        }
+    }
 }

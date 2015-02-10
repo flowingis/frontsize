@@ -1,24 +1,24 @@
 @mixin sprite($image, $width, $height:$width, $backgroudSize:auto, $path:$path-img, $setBoxsizing:true) {
-	@if $use-root-path == false{
-		@include backgroundImage($image, $path);
-	}
-	@else{
-		@include backgroundImage($image, $path);
-	}
+    @if $use-root-path == false{
+        @include backgroundImage($image, $path);
+    }
+    @else{
+        @include backgroundImage($image, $path);
+    }
 
-    $spriteLastWidth  : $width;
-    $spriteLastHeight : $height;
+    $_spriteLastWidth  : $width;
+    $_spriteLastHeight : $height;
     background-repeat : no-repeat;
     background-size   : $backgroudSize;
     @include size($width, $height, 1, $setBoxsizing);
 }
-@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:$spriteLastWidth, $height:$spriteLastHeight){
-	@if ($horizontalPosition == 0) and ($verticalPosition != 0){
-        background-position : 0 (-#{($verticalPosition*$height)}); 
-	}
-	@else{
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:$_spriteLastWidth, $height:$_spriteLastHeight){
+    @if ($horizontalPosition == 0) and ($verticalPosition != 0){
+        background-position : 0 (-#{($verticalPosition*$height)});
+    }
+    @else{
         @if ($verticalPosition == 0) and ($horizontalPosition != 0){
-		    background-position : 0 (-#{($horizontalPosition*$width)}); 
+            background-position : 0 (-#{($horizontalPosition*$width)});
         }
         @else {
             @if ($verticalPosition == 0) and ($horizontalPosition == 0){
@@ -30,19 +30,19 @@
                 }
             }
         }
-	}
+    }
 }
 
 @mixin spriteCoordinates($positionX:0, $positionY:0) {
-	background-position: (-$positionX) (-$positionY);
+    background-position: (-$positionX) (-$positionY);
 }
 
-@mixin scaleBackgroundSize($scale, $width:$spriteLastWidth, $height:$spriteLastHeight) {
+@mixin scaleBackgroundSize($scale, $width:$_spriteLastWidth, $height:$_spriteLastHeight) {
     background-size: ($width*$scale) ($height*$scale);
 }
 
-@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:$spriteLastWidth, $height:$spriteLastHeight, $scale:1) {
-	&.#{$selector} {
+@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:$_spriteLastWidth, $height:$_spriteLastHeight, $scale:1) {
+    &.#{$selector} {
         @include spritePosition($horizontalPosition, $verticalPosition, ($width*$scale), ($height*$scale));
     }
 }

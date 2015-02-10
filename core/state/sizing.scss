@@ -1,141 +1,137 @@
 $important: _important();
 
-@mixin _initSizingSelectors(){
-	@if $use-state-sizing == true{
+@if $use-state-sizing == true{
 
-		.viewport-height {
-        	height : $smartphone-landscape-step #{$important};
-	        height : 100vh #{$important};
-    	}
+    .viewport-height {
+        height : $smartphone-landscape-step #{$important};
+        height : 100vh #{$important};
+    }
 
-		.wrap {
-			// avoid the unwanted width over the 100% of the size of the container
-			@include box-sizing(border-box);
-		}
+    .wrap {
+        // avoid the unwanted width over the 100% of the size of the container
+        @include box-sizing(border-box);
+    }
 
-		.wrap-content {
-			@include box-sizing(content-box);
-		}
+    .wrap-content {
+        @include box-sizing(content-box);
+    }
 
-		.full {
-			@include _setColumnBehavior(false, none, false);
-			float: none;
-		}
+    .full {
+        @include _setColumnBehavior(false, none, false);
+        float: none;
+    }
 
-		.inline {
-			width: auto #{$important};
-			display: inline-block #{$important};
-		}
+    .inline {
+        width: auto #{$important};
+        display: inline-block #{$important};
+    }
 
-		.block {
-			display: block #{$important};
-		}
+    .block {
+        display: block #{$important};
+    }
 
-		.full,
-		.fill {
-			width: 100% #{$important};
-		}
+    .full,
+    .fill {
+        width: 100% #{$important};
+    }
 
-		.little {
-			width: 25% #{$important};
-		}
+    .little {
+        width: 25% #{$important};
+    }
 
-		.half {
-			width: 50% #{$important};
-		}
+    .half {
+        width: 50% #{$important};
+    }
 
-		.almost {
-			width: 75% #{$important};
-		}
+    .almost {
+        width: 75% #{$important};
+    }
 
-		.auto {
-	        width: auto#{$important};
-	    }
+    .auto {
+        width: auto#{$important};
+    }
 
-	    .overflow-auto {
-		    overflow: auto #{$important};
-		}
+    .overflow-auto {
+        overflow: auto #{$important};
+    }
 
-		.visible {
-			overflow: visible #{$important};
-		}
+    .visible {
+        overflow: visible #{$important};
+    }
 
-		.cut {
-			overflow: hidden #{$important};
-		}
+    .cut {
+        overflow: hidden #{$important};
+    }
 
-		.fluid {
-			// make an image responsive
-			height: auto;
-			max-width: 100% #{$important};
-			@include box-sizing(border-box);
-			img {
-				max-width: 100% #{$important};
-				height: auto #{$important};
-			}
-			&.fill {
-				img {
-					width: 100%;
-				}
-			}
-		}
+    .fluid {
+        // make an image responsive
+        height: auto;
+        max-width: 100% #{$important};
+        @include box-sizing(border-box);
+        img {
+            max-width: 100% #{$important};
+            height: auto #{$important};
+        }
+        &.fill {
+            img {
+                width: 100%;
+            }
+        }
+    }
 
-		.not-fluid {
-			// set an image with it's default behavior
-			width: auto #{$important};
-			height: auto #{$important};
-		}
+    .not-fluid {
+        // set an image with it's default behavior
+        width: auto #{$important};
+        height: auto #{$important};
+    }
 
-		.same-same {
-	        //make more floating divs equal height
-		    overflow: hidden #{$important};
-	  
-		    > * {
-			    padding-bottom : 1000px #{$important};
-			    margin-bottom  : -1000px #{$important};
-		    }
-	    }
+    .same-same {
+        //make more floating divs equal height
+        overflow: hidden #{$important};
 
-		@media #{$till-hd-full} {
-			// Full HD
-			.fill-till-hd-full			{ width: 100% #{$important}; }
-			.almost-till-hd-full		{ width: 75% #{$important}; }
-			.half-till-hd-full			{ width: 50% #{$important}; }
-			.little-till-hd-full		{ width: 25% #{$important}; }
-		}
+        > * {
+            padding-bottom : 1000px #{$important};
+            margin-bottom  : -1000px #{$important};
+        }
+    }
 
-		@media #{$till-hd-ready} {
-			// HD Ready
-			.fill-till-hd-ready					{ width: 100% #{$important}; }
-			.almost-till-hd-ready				{ width: 75% #{$important}; }
-			.half-till-hd-ready					{ width: 50% #{$important}; }
-			.little-till-hd-ready				{ width: 25% #{$important}; }
-		}
+    @media #{$till-hd-full} {
+        // Full HD
+        .fill-till-hd-full          { width: 100% #{$important}; }
+        .almost-till-hd-full        { width: 75% #{$important}; }
+        .half-till-hd-full          { width: 50% #{$important}; }
+        .little-till-hd-full        { width: 25% #{$important}; }
+    }
 
-		@media #{$till-tablet-landscape} {
-			// Tablet landscape
-			.fill-till-tablet-landscape				{ width: 100% #{$important}; }
-			.almost-till-tablet-landscape			{ width: 75% #{$important}; }
-			.half-till-tablet-landscape				{ width: 50% #{$important}; }
-			.little-till-tablet-landscape			{ width: 25% #{$important}; }
-		}
+    @media #{$till-hd-ready} {
+        // HD Ready
+        .fill-till-hd-ready                 { width: 100% #{$important}; }
+        .almost-till-hd-ready               { width: 75% #{$important}; }
+        .half-till-hd-ready                 { width: 50% #{$important}; }
+        .little-till-hd-ready               { width: 25% #{$important}; }
+    }
 
-		@media #{$till-tablet-portrait} {
-			// Tablet portrait
-			.fill-till-tablet-portrait				{ width: 100% #{$important}; }
-			.almost-till-tablet-portrait			{ width: 75% #{$important}; }
-			.half-till-tablet-portrait				{ width: 50% #{$important}; }
-			.little-till-tablet-portrait			{ width: 25% #{$important}; }
-		}
+    @media #{$till-tablet-landscape} {
+        // Tablet landscape
+        .fill-till-tablet-landscape             { width: 100% #{$important}; }
+        .almost-till-tablet-landscape           { width: 75% #{$important}; }
+        .half-till-tablet-landscape             { width: 50% #{$important}; }
+        .little-till-tablet-landscape           { width: 25% #{$important}; }
+    }
 
-		@media #{$till-smartphone-landscape} {
-			// Smartphone landscape
-			.fill-till-smartphone-landscape				{ width: 100% #{$important}; }
-			.almost-till-smartphone-landscape			{ width: 75% #{$important}; }
-			.half-till-smartphone-landscape				{ width: 50% #{$important}; }
-			.little-till-smartphone-landscape			{ width: 25% #{$important}; }
-		}
-	}
+    @media #{$till-tablet-portrait} {
+        // Tablet portrait
+        .fill-till-tablet-portrait              { width: 100% #{$important}; }
+        .almost-till-tablet-portrait            { width: 75% #{$important}; }
+        .half-till-tablet-portrait              { width: 50% #{$important}; }
+        .little-till-tablet-portrait            { width: 25% #{$important}; }
+    }
+
+    @media #{$till-smartphone-landscape} {
+        // Smartphone landscape
+        .fill-till-smartphone-landscape             { width: 100% #{$important}; }
+        .almost-till-smartphone-landscape           { width: 75% #{$important}; }
+        .half-till-smartphone-landscape             { width: 50% #{$important}; }
+        .little-till-smartphone-landscape           { width: 25% #{$important}; }
+    }
 }
-
-@include _initSizingSelectors();

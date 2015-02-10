@@ -1,15 +1,3 @@
-@media #{$display-retina} {
-    .not-retina-only {
-        display:none;
-    }
-}
-
-@media #{$display-standard} {
-    .retina-only {
-        display:none;
-    }
-}
-
 @mixin addViewportsSteps(
 	$selector              : use-steps,
     $hdFullMargin          : 500px,

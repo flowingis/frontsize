@@ -62,6 +62,34 @@
     }
 }
 
+@mixin setFloatGridColumn(
+    $mobilePortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $tabletLandscapeStep : 0,
+    $hdReadyStep         : 0,
+    $hdFullStep          : 0,
+    $totalSteps          : 12
+    ) {
+
+    width: 100%;
+
+    @include _setFloatGridColumn($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-tablet-portrait,      $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-tablet-landscape,     $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-hd-ready,             $hdReadyStep,         $totalSteps);
+    @include _setFloatGridColumn($from-hd-full,              $hdFullStep,          $totalSteps);
+}
+
+@mixin _setFloatGridColumn($rule, $step, $totalColumns) {
+    @if $step != false or $step != 0 {
+        @media #{$rule} {
+            @include _setFloatGridColumnStep($step, $totalColumns);
+        }
+    }
+}
+
 @mixin addFloatGridOffset(
     $hdSteps                  : 12,
     $tabletSteps              : $hdSteps,
@@ -193,7 +221,7 @@
                     @include _setColumnBehavior();
                 }
             }
-            
+
             $index: $index - 1;
         }
     }
@@ -219,11 +247,11 @@
                     @include _setColumnBehavior();
                 }
             }
-            
+
             $index: $index - 1;
         }
     }
-} 
+}
 
 @mixin _addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
     $startIndex: $totalSteps;
@@ -252,7 +280,7 @@
             @if $index == 0{
                 //
             }
-            
+
             $index: $index - 1;
         }
     }
@@ -276,7 +304,7 @@
             @if $index == 0{
                 //
             }
-            
+
             $index: $index - 1;
         }
     }
@@ -401,11 +429,11 @@
                 }
             }
 
-            
+
             $index: $index - 1;
         }
     }
-} 
+}
 
 @mixin _setFloatGridColumns($columns) {
     width:(100%/$columns);
@@ -415,7 +443,7 @@
 }
 
 @mixin _setFloatGridColumnStep($step, $columns) {
-    width:((100% * $step)/$columns);
+    width:((100% * $step) / $columns);
 }
 
 @mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:true) {

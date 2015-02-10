@@ -1,31 +1,27 @@
 $important: _important();
 
-@mixin _initTableSelectors(){
-    @if $use-state-table == true {
-        .table {
-            @include asTable($state-table-padding, middle, 100%);
-        }
+@if $use-state-table == true {
+    .table {
+        @include asTable($state-table-padding, middle, 100%);
+    }
 
-        .table-top {
-            @include asTable($state-table-padding, top, 100%);
-        }
+    .table-top {
+        @include asTable($state-table-padding, top, 100%);
+    }
 
-        .table-inline {
-            @include asTable($state-table-padding, middle, auto);
-        }
+    .table-inline {
+        @include asTable($state-table-padding, middle, auto);
+    }
 
-        .cell {
-            @include asTableCell(0, middle);
-        }
+    .cell {
+        @include asTableCell(0, middle);
+    }
 
-        .cell-top {
-            @include asTableCell(0, top);
-        }
+    .cell-top {
+        @include asTableCell(0, top);
+    }
 
-        .cell-bottom {
-            @include asTableCell(0, bottom);
-        }
+    .cell-bottom {
+        @include asTableCell(0, bottom);
     }
 }
-
-@include _initTableSelectors();
