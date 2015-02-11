@@ -10,7 +10,9 @@
 //@include setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
 //@include setLineHeightScaling(body, $global-step);
 
-@include addFontRule(small-font, $font-small, $font-small-size);
+@include font('open sans', 'OpenSans-Bold',    700);
+@include font('open sans', 'OpenSans-Regular', 400);
+@include font('open sans', 'OpenSans-Light',   200);
 
 //@include addFloatGridContainer(row);
 //@include addFloatGridColumns(12);

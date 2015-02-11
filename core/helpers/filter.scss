@@ -1,11 +1,11 @@
 // Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
 @mixin blur($blur:0) {
-	@include filter(blur(#{$blur}));
+    @include filter(blur(#{$blur}));
 }
 
 @mixin grayscale($grayscale:0%){
-	@if $use-ie-filters == true {
-    	filter: gray; /* IE 6-9 */
+    @if $use-ie-filters == true {
+        filter: gray; /* IE 6-9 */
     }
 }
 @mixin greyscale($greyscale:0%) {

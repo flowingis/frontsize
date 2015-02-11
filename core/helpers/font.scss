@@ -1,0 +1,13 @@
+@mixin font($fontFamily, $fileName, $fontWeight:false, $path:$path-font) {
+    @font-face {
+        font-family: $fontFamily;
+        @if ($fontWeight) {
+            font-weight: $fontWeight;
+        }
+        src: url('#{$path}#{$fileName}.eot?#iefix') format('embedded-opentype'),
+             url('#{$path}#{$fileName}.woff2') format('woff2'),
+             url('#{$path}#{$fileName}.woff') format('woff'),
+             url('#{$path}#{$fileName}.ttf') format('truetype'),
+             url('#{$path}#{$fileName}.svg#{$fontFamily}') format('svg');
+    }
+}
