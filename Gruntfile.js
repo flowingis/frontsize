@@ -66,6 +66,9 @@ module.exports = function(grunt) {
         },
 
         watch: {
+            options : {
+                atBegin : true
+            },
             frontsize : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frontsize' ]
@@ -119,13 +122,13 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ 'themes/<%= f.themeName %>/img/*' ],
+                        src     : [ '<%= f.projectPath %>themes<%= f.themeName %>/img/*' ],
                         dest    : '<%= f.copyProductionImg %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ 'themes/<%= f.themeName %>/fonts/*' ],
+                        src     : [ '<%= f.projectPath %>themes<%= f.themeName %>/fonts/*' ],
                         dest    : '<%= f.copyProductionFonts %>',
                         filter  : 'isFile'
                     }
@@ -142,7 +145,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('frnAssets', [
-        'less:production',
+        'sass:production',
         'test',
         'clean',
         'assets'

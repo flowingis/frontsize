@@ -62,6 +62,29 @@
     }
 }
 
+@mixin setFloatGridContainer(
+    $hdFullSteps              : 0,
+    $hdReadySteps             : $hdFullSteps,
+    $tabletLandscapeSteps     : $hdReadySteps,
+    $tabletPortraitSteps      : $tabletLandscapeSteps,
+    $smartphoneLandscapeSteps : 1,
+    $smartphonePortraitSteps  : 1
+    ) {
+
+    padding-top : $vertical-padding;
+    width       : 100%;
+    overflow    : auto;
+    clear       : both;
+
+    @include box-sizing(border-box);
+
+    * {
+        @include box-sizing(border-box);
+    }
+
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps);
+}
+
 @mixin setFloatGridColumn(
     $mobilePortraitStep  : 0,
     $mobileLandscapeStep : 0,
@@ -73,6 +96,7 @@
     ) {
 
     width: 100%;
+    @include _setColumnBehavior();
 
     @include _setFloatGridColumn($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
     @include _setFloatGridColumn($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
@@ -83,7 +107,7 @@
 }
 
 @mixin _setFloatGridColumn($rule, $step, $totalColumns) {
-    @if $step != false or $step != 0 {
+    @if $step != false and $step != 0 {
         @media #{$rule} {
             @include _setFloatGridColumnStep($step, $totalColumns);
         }
@@ -150,16 +174,24 @@
     $tabletPortraitSteps,
     $smartphoneLandscapeSteps,
     $smartphonePortraitSteps,
-    $selector
+    $selector:false
     ){
     @if $hdFullSteps > 0 {
         // Media queries for selectors active from a specific resolution or higher
-        .#{$selector} > * {
-            min-height: 1px;
-            @include _setColumnBehavior();
-            @include _setFloatGridColumnStep(1, $hdFullSteps);
-        }
 
+        @if $selector != false {
+            .#{$selector} > * {
+                min-height: 1px;
+                @include _setColumnBehavior();
+                @include _setFloatGridColumnStep(1, $hdFullSteps);
+            }
+        } @else {
+            > * {
+                min-height: 1px;
+                @include _setColumnBehavior();
+                @include _setFloatGridColumnStep(1, $hdFullSteps);
+            }
+        }
         @include _checkAutoClearViewport($only-smartphone-portrait,  $smartphonePortraitSteps,  $selector);
         @include _checkAutoClearViewport($only-smartphone-landscape, $smartphoneLandscapeSteps, $selector);
         @include _checkAutoClearViewport($only-tablet-portrait,      $tabletPortraitSteps,      $selector);
@@ -169,10 +201,16 @@
     }
 }
 
-@mixin _checkAutoClearViewport($viewport, $steps, $selector) {
+@mixin _checkAutoClearViewport($viewport, $steps, $selector:false) {
     @media #{$viewport} {
-        .#{$selector} > * {
-            @include _setFloatGridColumns($steps);
+        @if $selector != false {
+            .#{$selector} > * {
+                @include _setFloatGridColumns($steps);
+            }
+        } @else {
+            > * {
+                @include _setFloatGridColumns($steps);
+            }
         }
     }
 }

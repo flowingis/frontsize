@@ -5,6 +5,7 @@
     "copyProductionImg"   : "test/img/theme/",
     "copyProductionFonts" : "test/fonts/",
     "uncssProductionCss"  : "test/css/",
+    "projectPath"         : "./",
 
     "testCss"         : "test/frontsize.test.css",
     "autoprefixerCss" : "test/frontsize.autoprefixer.min.css",
