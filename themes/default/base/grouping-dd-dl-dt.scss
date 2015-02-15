@@ -27,6 +27,7 @@ dt {
     font-weight : bold;
 }
 
-dd, dt {
+dd,
+dt {
     margin-bottom : ($global-step * 1.25);
 }

@@ -61,7 +61,7 @@ module.exports = function(grunt) {
               },
               test: {
                     src  : '<%= f.autoprefixerCss %>',
-                    dest : '<%= f.autoprefixerCss %'
+                    dest : '<%= f.autoprefixerCss %>'
               }
         },
 

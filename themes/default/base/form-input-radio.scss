@@ -9,10 +9,8 @@ input[type="radio"] {
     cursor: pointer;
 
     @include appearance(none);
-    //-moz-appearance: radio;
 
     $size:24px;
-    //@include size($size);
     @include moveTop(($size / 4));
 
     $imageWidth:($size * 2);
