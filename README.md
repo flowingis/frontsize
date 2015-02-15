@@ -15,6 +15,8 @@ Do you prefer a [LESS][less] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
+If you would like to use BEM, you need to install the latest version of SASS.
+
 
 Next release details
 ---
