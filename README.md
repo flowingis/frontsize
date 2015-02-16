@@ -1,6 +1,8 @@
 Frontsize 2.0.0
 =========
 
+[![Join the chat at https://gitter.im/ideatosrl/frontsize-sass](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ideatosrl/frontsize-sass?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 It's a CSS generator front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
 ###Why frontsize?
