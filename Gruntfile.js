@@ -48,7 +48,6 @@ module.exports = function(grunt) {
             },
             test : {
                 options : {
-                    sourcemap : 'auto',
                     cleancss : false,
                     style : 'expanded'
                 },
@@ -65,7 +64,7 @@ module.exports = function(grunt) {
               },
               test: {
                     src  : '<%= f.autoprefixerCss %>',
-                    dest : '<%= f.autoprefixerCss %>'
+                    dest : '<%= f.autoprefixerCss %'
               }
         },
 
@@ -126,19 +125,40 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.projectPath %>themes<%= f.themeName %>/img/*' ],
+                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/img/*' ],
                         dest    : '<%= f.copyProductionImg %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.projectPath %>themes<%= f.themeName %>/fonts/*' ],
+                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/fonts/*' ],
                         dest    : '<%= f.copyProductionFonts %>',
                         filter  : 'isFile'
                     }
                 ]
             }
-        }
+        },
+
+        stylestats: {
+            options: {
+                size                   : true,
+                gzippedSize            : false,
+                simplicity             : true,
+                rules                  : true,
+                selectors              : true,
+                lowestCohesion         : true,
+                lowestCohesionSelector : true,
+                totalUniqueFontSizes   : true,
+                uniqueFontSize         : true,
+                totalUniqueColors      : true,
+                uniqueColor            : true,
+                idSelectors            : true,
+                universalSelectors     : true,
+                importantKeywords      : true,
+                mediaQueries           : true
+            },
+            src: [ '<%= f.testCss %>' ]
+          }
     });
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -152,7 +172,8 @@ module.exports = function(grunt) {
         'sass:production',
         'test',
         'clean',
-        'assets'
+        'assets',
+        'stylestats'
     ]);
 
     grunt.registerTask('devAssets', [
@@ -189,6 +210,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'sass:test',
-        'csslint:test'
+        'csslint:test',
+        'stylestats'
     ]);
 };

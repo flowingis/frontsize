@@ -1,6 +1,6 @@
 {
     "name"        : "frontsize-sass",
-    "version"     : "2.0.0",
+    "version"     : "3.0.0",
     "description" : "A front-end framework built to build CSS and ease your life.",
     "authors"     : [
         {
@@ -49,8 +49,9 @@
         "matchdep"   : "0.3.0",
 
         "casperjs"   : "1.1.0-beta3",
-        "phantomjs"  : "1.9.7-14",
-        "phantomcss" : "~0.9.3",
+        "phantomjs"  : "~1.9.2",
+        "resemblejs" : "*",
+        "phantomcss" : "*",
 
         "csslint"    : "*",
         "sass"       : "*",
@@ -61,7 +62,8 @@
         "grunt-contrib-sass"    : "*",
         "grunt-contrib-csslint" : "*",
         "grunt-contrib-clean"   : "*",
-        "grunt-contrib-copy"    : "*"
+        "grunt-contrib-copy"    : "*",
+        "grunt-stylestats"      : "~0.1.3"
     },
     "engines" : {
         "node"  : ">=0.8.0"
