@@ -10,7 +10,5 @@
     "testCss"         : "test/frontsize.test.css",
     "autoprefixerCss" : "test/frontsize.autoprefixer.min.css",
     "minifiedCss"     : "test/frontsize.min.css",
-    "css"             : "test/frontsize-3.0.0.min.css",
-    "cssImg"          : "/img/theme/",
-    "cssFonts"        : "/fonts/"
+    "css"             : "test/frontsize-3.0.0.min.css"
 }
