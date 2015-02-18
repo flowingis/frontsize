@@ -17,7 +17,7 @@ The project was originally developed in [LESS][less], but soon only the SASS ver
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
-If you would like to use the BEM dedicated mixins, you need to install the latest version of SASS.
+If you'd like to use the BEM dedicated mixins, you need to install 3.4.X version of SASS at least.
 
 
 Next release details
