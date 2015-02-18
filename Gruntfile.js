@@ -29,7 +29,8 @@ module.exports = function(grunt) {
             production : {
                 options : {
                     sourcemap : 'auto',
-                    cleancss : false
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.css %>' : '<%= f.compile %>'
@@ -38,7 +39,8 @@ module.exports = function(grunt) {
             autoprefixer : {
                 options : {
                     sourcemap : 'auto',
-                    cleancss : false
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
@@ -46,7 +48,9 @@ module.exports = function(grunt) {
             },
             test : {
                 options : {
-                    cleancss : false
+                    sourcemap : 'auto',
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'

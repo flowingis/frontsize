@@ -12,10 +12,10 @@ $font-size:       16px;
 $font-small-size: 12px;
 
 // Fonts families global vars
-$font-sans      : 'open sans', 'helvetica neue', helvetica, arial, sans-serif;
-$font-serif     : georgia, 'times new roman', times, serif;
-$font-monospace : menlo, monaco, 'courier new', monospace;
-$font-small     : 'lucida grande', tahoma, verdana, arial, sans-serif;
+$font-sans      : "open sans", "helvetica neue", helvetica, arial, sans-serif;
+$font-serif     : georgia, "times new roman", times, serif;
+$font-monospace : menlo, monaco, "courier new", monospace;
+$font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
 
 // Default fonts used inside the core
 $font-default : $font-sans;
@@ -75,9 +75,9 @@ $use-ie-filters : false;
 $use-fallback-colors : true;
 
 $use-root-path: true;
-$root-path : 'production/img/theme';
-$path-img  : '#{$root-path}/img/';
-$path-font : '#{$root-path}/fonts/';
+$root-path : "production/img/theme";
+$path-img  : "#{$root-path}/img/";
+$path-font : "#{$root-path}/fonts/";
 
 $use-core-widgets: true;
 

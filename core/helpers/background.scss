@@ -2,8 +2,8 @@
 	@if $use-ie-filters == true{
 		$first: fade($firstColor, 100%);
     	$last: fade($lastColor, 100%);
-    	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$firstColor}', endColorstr='#{$lastColor}', GradientType=0);
-	} 
+    	filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$firstColor}", endColorstr="#{$lastColor}", GradientType=0);
+	}
 }
 
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
@@ -131,9 +131,9 @@
 
 @mixin fillImage($backgroundImage, $path:$path-img){
 	@if $use-root-path == false{
-		fill: url('#{$backgroundImage}');
+		fill: url("#{$backgroundImage}");
 	}
 	@else{
-		fill: url('#{$path}#{$backgroundImage}');
+		fill: url("#{$path}#{$backgroundImage}");
 	}
 }
