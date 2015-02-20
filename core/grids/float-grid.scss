@@ -114,6 +114,34 @@
     }
 }
 
+@mixin setFloatGridOffset(
+    $mobilePortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $tabletLandscapeStep : 0,
+    $hdReadyStep         : 0,
+    $hdFullStep          : 0,
+    $totalSteps          : 12
+    ) {
+
+    margin-left: 0;
+
+    @include _setFloatGridOffset($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-tablet-portrait,      $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-tablet-landscape,     $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-hd-ready,             $hdReadyStep,         $totalSteps);
+    @include _setFloatGridOffset($from-hd-full,              $hdFullStep,          $totalSteps);
+}
+
+@mixin _setFloatGridOffset($rule, $step, $totalColumns) {
+    @if $step != false and $step != 0 {
+        @media #{$rule} {
+            @include _setColumnMarginOffsetStep($step, $totalColumns)
+        }
+    }
+}
+
 @mixin addFloatGridOffset(
     $hdSteps                  : 12,
     $tabletSteps              : $hdSteps,
