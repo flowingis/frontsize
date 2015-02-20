@@ -3,7 +3,7 @@ Frontsize 2.0.0
 
 [![Join the chat at https://gitter.im/ideatosrl/frontsize-sass](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ideatosrl/frontsize-sass?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-It's a CSS generator front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
+It's a CSS generator written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
 ###Why frontsize?
 
@@ -13,11 +13,11 @@ It's a CSS generator front-end framework written to make websites easy to read o
 
 If you'd like to see more features, visit [frontsize.com][site] website.
 
-Do you prefer a [LESS][less] version?
+The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
-If you would like to use BEM, you need to install the latest version of SASS.
+If you'd like to use the BEM dedicated mixins, you need to install 3.4.X version of SASS at least.
 
 
 Next release details
