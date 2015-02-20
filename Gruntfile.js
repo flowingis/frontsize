@@ -116,6 +116,12 @@ module.exports = function(grunt) {
                     '<%= f.copyProductionImg %>*',
                     '<%= f.copyProductionFonts %>*'
                 ]
+            },
+            removeEmpty: {
+                src:[
+                    '<%= f.copyProductionImg %>empty',
+                    '<%= f.copyProductionFonts %>empty',
+                ]
             }
         },
 
@@ -205,7 +211,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('assets', [
         'clean:assets',
-        'copy:assets'
+        'copy:assets',
+        'clean:removeEmpty'
     ]);
 
     grunt.registerTask('test', [
