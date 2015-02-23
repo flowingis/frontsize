@@ -15,11 +15,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-family	: $font-heading;
-    font-weight	: bold;
-    color		: black;
-    line-height	: 1;
-    margin		: 0 0 ($global-step / 2) 0;
+    font-family : $font-heading;
+    font-weight : bold;
+    line-height : 1;
+    margin      : 0 0 ($global-step / 2) 0;
 }
 
 h1 { font-size : $h1; }

@@ -17,17 +17,17 @@
 }
 
 @mixin _setLineHeightScaling($viewport, $selector, $lineHeight, $viewportEnabled) {
-	@if $viewportEnabled == true {
-	    @media #{$viewport} {
-	        #{$selector} {
-	            line-height : $lineHeight;
-	        }
-	    }
-	}
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            #{$selector} {
+                line-height : $lineHeight;
+            }
+        }
+    }
 }
 
 @mixin setFontScaling($selector, $hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $smartphoneLandscape:$font-size, $smartphonePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
-	@include _setFontScaling($from-smartphone-portrait,  $selector, $smartphonePortrait,  $use-smartphone-portrait);
+    @include _setFontScaling($from-smartphone-portrait,  $selector, $smartphonePortrait,  $use-smartphone-portrait);
     @include _setFontScaling($from-smartphone-landscape, $selector, $smartphoneLandscape, $use-smartphone-landscape);
     @include _setFontScaling($from-tablet-portrait,      $selector, $tabletPortrait,      $use-tablet-portrait);
     @include _setFontScaling($from-tablet-landscape,     $selector, $tabletLandscape,     $use-tablet-landscape);
@@ -36,11 +36,11 @@
 }
 
 @mixin _setFontScaling($viewport, $selector, $fontSize, $viewportEnabled) {
-	@if $viewportEnabled == true {
-	    @media #{$viewport} {
-	        #{$selector} {
-	            font-size : $fontSize;
-	        }
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            #{$selector} {
+                font-size : $fontSize;
+            }
         }
     }
 }
@@ -64,13 +64,13 @@
 }
 
 @mixin _addMultipleFontsRule($viewport, $selector, $fontFamily, $fontSize, $viewportEnabled) {
-	@if $viewportEnabled == true {
-	    @media #{$viewport} {
-	        .#{$selector} {
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            .#{$selector} {
                 @include property(font-family, $fontFamily);
                 @include property(font-size, $fontSize);
-	        }
-	    }
+            }
+        }
     }
 }
 
@@ -94,31 +94,31 @@
 }
 
 @mixin _setHeadingFont($viewport, $multiplier, $margin, $viewportEnabled) {
-	@if $viewportEnabled == true {
-	    @media #{$viewport} {
-	        h1 {
-	            font-size : round(#{$h1 * $multiplier}#{"px"});
-	        }
-	        h2 {
-	            font-size : round(#{$h2 * $multiplier}#{"px"});
-	        }
-	        h3 {
-	            font-size : round(#{$h3 * $multiplier}#{"px"});
-	        }
-	        h4 {
-	            font-size : round(#{$h4 * $multiplier}#{"px"});
-	        }
-	        h5 {
-	            font-size : round(#{$h5 * $multiplier}#{"px"});
-	        }
-	        h6 {
-	            font-size : round(#{$h6 * $multiplier}#{"px"});
-	        }
-	        h1, h2, h3, h4, h5, h6 {
-	            margin-bottom : round(#{$margin * $multiplier}#{"px"});
-	        }
-	    }
-	}
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            h1 {
+                font-size : round(#{$h1 * $multiplier}#{"px"});
+            }
+            h2 {
+                font-size : round(#{$h2 * $multiplier}#{"px"});
+            }
+            h3 {
+                font-size : round(#{$h3 * $multiplier}#{"px"});
+            }
+            h4 {
+                font-size : round(#{$h4 * $multiplier}#{"px"});
+            }
+            h5 {
+                font-size : round(#{$h5 * $multiplier}#{"px"});
+            }
+            h6 {
+                font-size : round(#{$h6 * $multiplier}#{"px"});
+            }
+            h1, h2, h3, h4, h5, h6 {
+                margin-bottom : round(#{$margin * $multiplier}#{"px"});
+            }
+        }
+    }
 }
 
 @mixin addFontRule(
@@ -149,13 +149,13 @@
 }
 
 @mixin _addFontRule($viewport, $selector, $fontSize, $viewportEnabled) {
-	@if $viewportEnabled == true {
-	    @media #{$viewport} {
-	        .#{$selector} {
-	            font-size : $fontSize !important;
-	        }
-	    }
-	}
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            .#{$selector} {
+                font-size : $fontSize !important;
+            }
+        }
+    }
 }
 
 @mixin setViewportsFontSize(
@@ -181,16 +181,16 @@
 }
 
 @mixin _setViewportsFontSize($viewport, $fontSize, $useImportant, $viewportEnabled) {
-	@if $viewportEnabled == true and $useImportant == true {
-	    @media #{$viewport} {
-	        font-size : $fontSize !important;
-	    }
-	}
-	@else{
-		@if $viewportEnabled == true and $useImportant != true {
-		    @media #{$viewport} {
-		        font-size : $fontSize;
-		    }
-		}
-	}
+    @if $viewportEnabled == true and $useImportant == true {
+        @media #{$viewport} {
+            font-size : $fontSize !important;
+        }
+    }
+    @else{
+        @if $viewportEnabled == true and $useImportant != true {
+            @media #{$viewport} {
+                font-size : $fontSize;
+            }
+        }
+    }
 }

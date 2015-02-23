@@ -24,6 +24,7 @@ Next release details
 ---
 
 **Features**
+- **added** new `font` mixin to load fonts from theme
 - **added** `spritePosition` now get `sprite` size properties automatically without the need to pass them manually
 - **added** missing `column-fill` CSS3 prefixes
 - **added** `flex` CSS3 prefixes
@@ -43,6 +44,8 @@ Next release details
 - **moved** `spriteRetina` mixin to a new file `sprite-retina.scss` like with `background-retina.scss` and background retina mixins
 - **replaced** filenames `_` with `-` for more file naming consistance
 - **optimized** `asTable` mixin now can skip `width` property
+- **fixed** h1-h6 base file with more flexible font setting
+- **updated** retina display media query
 
 **Changes**
 - **renamed** float grid system mixins with more clear names

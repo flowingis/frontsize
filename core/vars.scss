@@ -35,7 +35,7 @@ $till-hd-ready:                     "only screen and (max-width: #{$_to-hd-ready
 $till-hd-full:                      "only screen and (max-width: #{$_to-hd-full-step})";
 
 $display-retina-browser-compatible: "only screen and (min-device-pixel-ratio: 2)";
-$display-retina:                    "only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
+$display-retina:                    "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
 $display-standard:                  "only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
 
 $retina-from-smartphone-portrait:   "#{$from-smartphone-portrait},   #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
@@ -46,3 +46,6 @@ $retina-from-hd-ready:              "#{$from-hd-ready},              #{$display-
 $retina-from-hd-full:               "#{$from-hd-full},               #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
 
 $print-viewport: $only-tablet-portrait;
+
+
+

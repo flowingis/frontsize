@@ -1,4 +1,22 @@
-@mixin font($fontFamily, $fileName, $fontWeight:false, $path:$path-font) {
+@mixin font($fontFamily, $fileName, $fontWeight:false, $retinaFileName:false, $path:$path-font) {
+
+    @if ($retinaFileName == false) {
+        @include _font($fontFamily, $fileName, $fontWeight, $path);
+    } @else {
+        // WARNING
+        // using retina alternative family will not work if you load fonts from google too
+        // so comment this on the header and load fonts locally
+        // <!--link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700,300,400' rel='stylesheet' type='text/css'-->
+        @media #{$display-standard} {
+            @include _font($fontFamily, $fileName, $fontWeight, $path);
+        }
+        @media #{$display-retina} {
+            @include _font($fontFamily, $retinaFileName, $fontWeight, $path);
+        }
+    }
+}
+
+@mixin _font($fontFamily, $fileName, $fontWeight, $path) {
     @font-face {
         font-family: $fontFamily;
         @if ($fontWeight) {
