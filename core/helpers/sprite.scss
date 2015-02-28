@@ -18,7 +18,7 @@
     }
     @else{
         @if ($verticalPosition == 0) and ($horizontalPosition != 0){
-            background-position : 0 (-#{($horizontalPosition*$width)});
+            background-position :  (-#{($horizontalPosition*$width)}) 0;
         }
         @else {
             @if ($verticalPosition == 0) and ($horizontalPosition == 0){
