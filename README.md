@@ -37,7 +37,7 @@ Next release details
 - **added** selective `viewport-clear` rule for every viewport group
 - **added** mixin `setFloatGridRow` for BEM
 - **added** mixin `setFloatGridContainer` for BEM
-- **added** mixin `fallbackBackgroundSize` to handle fallback `background-size` property
+- **added** mixin `fallbackBackgroundSize` to handle fallback `background-size property
 
 **Fixes**
 - **optimized** tons of core code
