@@ -1,78 +1,78 @@
 @mixin user-select($select:text) {
-	// it disables text selection
-	// Values: none | text | toggle | element | elements | all | inherit	
-	@if $use-css-prefix == true{
-		-webkit-touch-callout: #{$select};
-		-khtml-user-select: #{$select};
-		-webkit-user-select: #{$select};
-		-moz-user-select: #{$select};
-		-ms-user-select: #{$select};
-		-o-user-select: #{$select};
-	}   
-	user-select: #{$select};
+    // it disables text selection
+    // Values: none | text | toggle | element | elements | all | inherit
+    @if $use-css-prefix == true{
+        -webkit-touch-callout: #{$select};
+        -khtml-user-select: #{$select};
+        -webkit-user-select: #{$select};
+        -moz-user-select: #{$select};
+        -ms-user-select: #{$select};
+        -o-user-select: #{$select};
+    }
+    user-select: #{$select};
 }
 
 @mixin transition($transition:0.3s ease-in-out initial) {
- 	@if $use-css-prefix == true{
- 		-webkit-transition: #{$transition};
-		-khtml-transition: #{$transition};
-		-moz-transition: #{$transition};
-		-ms-transition: #{$transition};
-		-o-transition: #{$transition};
- 	}
- 	transition: #{$transition};
+    @if $use-css-prefix == true{
+        -webkit-transition: #{$transition};
+        -khtml-transition: #{$transition};
+        -moz-transition: #{$transition};
+        -ms-transition: #{$transition};
+        -o-transition: #{$transition};
+    }
+    transition: #{$transition};
 }
 
 @mixin transition-delay($delay:0.5s) {
     @if $use-css-prefix == true {
-		-webkit-transition-delay: #{$delay};
-		-khtml-transition-delay: #{$delay};
-		-moz-transition-delay: #{$delay};
-		-ms-transition-delay: #{$delay};
-		-o-transition-delay: #{$delay};
-	}
-	transition-delay: #{$delay};
+        -webkit-transition-delay: #{$delay};
+        -khtml-transition-delay: #{$delay};
+        -moz-transition-delay: #{$delay};
+        -ms-transition-delay: #{$delay};
+        -o-transition-delay: #{$delay};
+    }
+    transition-delay: #{$delay};
 }
 
 @mixin transition-duration($duration:0.5s) {
     @if $use-css-prefix == true {
-		-webkit-transition-duration: #{$duration};
-		-khtml-transition-duration: #{$duration};
-		-moz-transition-duration: #{$duration};
-		-ms-transition-duration: #{$duration};
-		-o-transition-duration: #{$duration};
-	}
-	transition-duration: #{$duration};
+        -webkit-transition-duration: #{$duration};
+        -khtml-transition-duration: #{$duration};
+        -moz-transition-duration: #{$duration};
+        -ms-transition-duration: #{$duration};
+        -o-transition-duration: #{$duration};
+    }
+    transition-duration: #{$duration};
 }
 
 @mixin transition-property($property:all) {
-	@if $use-css-prefix == true and $property != "transform"{
-		-webkit-transition-property: #{$property};
-		-khtml-transition-property: #{$property};
-		-moz-transition-property: #{$property};
-		-ms-transition-property: #{$property};
-		-o-transition-property: #{$property};
-	}
-	@if $use-css-prefix == true and $property == "transform" {
-		-webkit-transition-property:-webkit-transform;
-		-khtml-transition-property:-khtml-transform;
-		-moz-transition-property:-moz-transform;
-		-ms-transition-property:-ms-transform;
-		-o-transition-property:-o-transform;
-		transition-property:transform;
-	}
-	@if $property != "transform"{
-		transition-property: #{$property};
-	}
+    @if $use-css-prefix == true and $property != "transform"{
+        -webkit-transition-property: #{$property};
+        -khtml-transition-property: #{$property};
+        -moz-transition-property: #{$property};
+        -ms-transition-property: #{$property};
+        -o-transition-property: #{$property};
+    }
+    @if $use-css-prefix == true and $property == "transform" {
+        -webkit-transition-property:-webkit-transform;
+        -khtml-transition-property:-khtml-transform;
+        -moz-transition-property:-moz-transform;
+        -ms-transition-property:-ms-transform;
+        -o-transition-property:-o-transform;
+        transition-property:transform;
+    }
+    @if $property != "transform"{
+        transition-property: #{$property};
+    }
 }
 
 @mixin transition-timing-function($easing:ease-in-out) {
     @if $use-css-prefix == true {
-		-webkit-transition-timing-function: #{$easing};
-		-khtml-transition-timing-function: #{$easing};
-		-moz-transition-timing-function: #{$easing};
-		-ms-transition-timing-function: #{$easing};
-		-o-transition-timing-function: #{$easing};
-	}
-	transition-timing-function: #{$easing};
+        -webkit-transition-timing-function: #{$easing};
+        -khtml-transition-timing-function: #{$easing};
+        -moz-transition-timing-function: #{$easing};
+        -ms-transition-timing-function: #{$easing};
+        -o-transition-timing-function: #{$easing};
+    }
+    transition-timing-function: #{$easing};
 }

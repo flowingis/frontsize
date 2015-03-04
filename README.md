@@ -35,6 +35,9 @@ Next release details
 - **added** `viewport-height` state selector
 - **added** `fonts` folders and added app var `@path-font`
 - **added** selective `viewport-clear` rule for every viewport group
+- **added** mixin `setFloatGridRow` for BEM
+- **added** mixin `setFloatGridContainer` for BEM
+- **added** mixin `fallbackBackgroundSize` to handle fallback `background-size` property
 
 **Fixes**
 - **optimized** tons of core code
@@ -60,6 +63,7 @@ Next release details
 - **changed** `fallbackColor` automatic fallback with a mix with a app color
 - **removed** `extra` folder
 - **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
+- **changed** `$use-fallback-colors` to `$use-fallbacks` to set a global settings for fallback mixins
 
 Release 2.0.0 details
 ---

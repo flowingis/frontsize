@@ -86,17 +86,30 @@
 }
 
 @mixin setFloatGridColumn(
-    $mobilePortraitStep  : 0,
-    $mobileLandscapeStep : 0,
-    $tabletPortraitStep  : 0,
-    $tabletLandscapeStep : 0,
-    $hdReadyStep         : 0,
+    $usePadding          : false,
     $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
     $totalSteps          : 12
     ) {
 
+    @if $usePadding != false and $usePadding != true {
+        @if $mobilePortraitStep != 0 {
+            $totalSteps : $mobilePortraitStep;
+        }
+        $mobilePortraitStep  : $mobileLandscapeStep;
+        $mobileLandscapeStep : $tabletPortraitStep;
+        $tabletPortraitStep  : $tabletLandscapeStep;
+        $tabletLandscapeStep : $hdReadyStep;
+        $hdReadyStep         : $hdFullStep;
+        $hdFullStep          : $usePadding;
+    }
+
     width: 100%;
-    @include _setColumnBehavior();
+    @include _setColumnBehavior(true, left, true, $usePadding);
 
     @include _setFloatGridColumn($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
     @include _setFloatGridColumn($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
@@ -512,10 +525,12 @@
     width:((100% * $step) / $columns);
 }
 
-@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:true) {
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
-    padding-bottom: $vertical-padding;
+@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:true, $usePadding:true) {
+    @if $usePadding == true {
+        padding-left: $horizontal-padding;
+        padding-right: $horizontal-padding;
+        padding-bottom: $vertical-padding;
+    }
     float: left;
     @if $usePosition == true {
         position: relative;

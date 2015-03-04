@@ -1,19 +1,28 @@
 @mixin fallbackColor($property, $color, $fallbackColor: $color){
-    @if type-of($color) == color 
+    @if type-of($color) == color
     and alpha($fallbackColor) == 0
-    and $use-fallback-colors == true {
-    	#{$property}: transparent;
-	}
-	@else{
-		@if type-of($color) == color
-		and alpha($fallbackColor) > 0
-		and $use-fallback-colors == true {
-			#{$property}: rgb(red($fallbackColor), green($fallbackColor), blue($fallbackColor));
-		}
-		@else{
-			@if type-of($color) == color {
-    			#{$property}: $color;
-			}
-		}
-	}
+    and $use-fallbacks == true {
+        #{$property}: transparent;
+    }
+    @else {
+        @if type-of($color) == color
+        and alpha($fallbackColor) > 0
+        and $use-fallbacks == true {
+            #{$property}: rgb(red($fallbackColor), green($fallbackColor), blue($fallbackColor));
+        }
+        @else{
+            @if type-of($color) == color {
+                #{$property}: $color;
+            }
+        }
+    }
+}
+
+@mixin fallbackBackgroundSize($backgroundSize, $backgroundSizeAlt:false, $backgroundPosition: 50% 50%) {
+    @if $use-fallbacks == true and $backgroundSizeAlt != false {
+        background-position: $backgroundPosition;
+        background-size: $backgroundSizeAlt;
+    }
+
+    background-size: $backgroundSize;
 }

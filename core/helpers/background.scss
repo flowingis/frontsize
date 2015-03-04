@@ -1,139 +1,139 @@
 @mixin ieVerticalGradient($firstColor, $lastColor) {
-	@if $use-ie-filters == true{
-		$first: fade($firstColor, 100%);
-    	$last: fade($lastColor, 100%);
-    	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$firstColor}', endColorstr='#{$lastColor}', GradientType=0);
-	} 
+    @if $use-ie-filters == true{
+        $first: fade($firstColor, 100%);
+        $last: fade($lastColor, 100%);
+        filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$firstColor}', endColorstr='#{$lastColor}', GradientType=0);
+    }
 }
 
 @mixin verticalGradient($color:#cbcbcb, $strenght:5%) {
-	@if $use-fallback-colors == true {
-		background-color: rgb(red($color), green($color), blue($color));
-	}
-	@if $use-css-prefix == true {
-		background: -webkit-gradient(#{$color});
-	}
-	@if($strenght > 0%){
-		$lighten: saturate(lighten($color,$strenght),($strenght/2));
-		$darken: saturate(darken($color,$strenght),($strenght/2));
-		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
-		@include ieVerticalGradient($lighten, $darken);
-	}
-	@else{
-		$lighten: saturate(darken($color,abs($strenght)),(abs($strenght/2)));
-		$darken: saturate(lighten($color,abs($strenght)),(abs($strenght/2)));
-		@include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
-		@include ieVerticalGradient($lighten, $darken);
-	}
+    @if $use-fallbacks == true {
+        background-color: rgb(red($color), green($color), blue($color));
+    }
+    @if $use-css-prefix == true {
+        background: -webkit-gradient(#{$color});
+    }
+    @if($strenght > 0%){
+        $lighten: saturate(lighten($color,$strenght),($strenght/2));
+        $darken: saturate(darken($color,$strenght),($strenght/2));
+        @include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
+        @include ieVerticalGradient($lighten, $darken);
+    }
+    @else{
+        $lighten: saturate(darken($color,abs($strenght)),(abs($strenght/2)));
+        $darken: saturate(lighten($color,abs($strenght)),(abs($strenght/2)));
+        @include linear-gradient("top, #{$lighten} 0%, #{$darken} 100%");
+        @include ieVerticalGradient($lighten, $darken);
+    }
 }
 @mixin verticalGradientColors($firstColor:#000000, $lastColor:#FFFFFF) {
-	@if $use-fallback-colors == true {
-		$color: mix($firstColor, $lastColor, 100%);
-		background-color: rgb(red($color), green($color), blue($color));
-	}
-	@include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
-	@include ieVerticalGradient($firstColor, $lastColor);
+    @if $use-fallbacks == true {
+        $color: mix($firstColor, $lastColor, 100%);
+        background-color: rgb(red($color), green($color), blue($color));
+    }
+    @include linear-gradient("top, #{$firstColor} 0%, #{$lastColor} 100%");
+    @include ieVerticalGradient($firstColor, $lastColor);
 }
 
 @mixin glossGradient($color: #0A75Bf, $strength: 10%, $borderSize: 0){
-	@if $use-fallback-colors == true {
-		background-color: rgb(red($color), green($color), blue($color));
-	}
-	@if $borderSize != 0{
-		border: $borderSize solid $color;
-	}
-	@include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
-	@include ieVerticalGradient(lighten(#{$color}, #{$strength}/2), lighten(#{$color}, #{$strength}));
+    @if $use-fallbacks == true {
+        background-color: rgb(red($color), green($color), blue($color));
+    }
+    @if $borderSize != 0{
+        border: $borderSize solid $color;
+    }
+    @include linear-gradient("bottom, lighten(#{$color}, #{$strength}/2) 0%, #{$color} 50%, lighten(#{$color}, #{$strength}) 51%, lighten(#{$color}, #{$strength}/2) 100%");
+    @include ieVerticalGradient(lighten(#{$color}, #{$strength}/2), lighten(#{$color}, #{$strength}));
 }
 
 @mixin glossGradient($top: rgb(200,200,200), $middle: rgb(100,100,100), $bottom: rgb(150,150,150)) {
-	@include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
+    @include linear-gradient("bottom, #{$top} 0%, #{$middle} 50%, #{$bottom} 100%");
 }
 @mixin backgroundImage($backgroundImage, $path:$path-img){
-	@if $use-root-path == false{
-		background-image: url("#{$backgroundImage}");
-	}
-	@else{
-		background-image: url("#{$path}#{$backgroundImage}");
-	}
+    @if $use-root-path == false{
+        background-image: url("#{$backgroundImage}");
+    }
+    @else{
+        background-image: url("#{$path}#{$backgroundImage}");
+    }
 }
 
 @mixin backgroundResponsive($hdFullBackground, $hdReadyBackground, $tabletLandscapeBackground, $tabletPortraitBackground, $smartphoneLandscapeBackground, $smartphonePortraitBackground) {
-	// .backgroundResponsive(
-	//     "path/hd-full/background.png",
-	//     "path/hd-ready/background.png",
-	//     "path/tablet-landscape/background.png",
-	//     "path/tablet-portrait/background.png",
-	//     "path/smartphone-landscape/background.png",
-	//     "path/smartphone-portrait/background.png"
-	// );
-	@include backgroundHdFull($hdFullBackground);
-	@include backgroundHdReady($hdReadyBackground);
-	@include backgroundTabletLandscape($tabletLandscapeBackground);
-	@include backgroundTabletPortrait($tabletPortraitBackground);
-	@include backgroundSmartphoneLandscape($smartphoneLandscapeBackground);
-	@include backgroundSmartphonePortrait($smartphonePortraitBackground);
+    // .backgroundResponsive(
+    //     "path/hd-full/background.png",
+    //     "path/hd-ready/background.png",
+    //     "path/tablet-landscape/background.png",
+    //     "path/tablet-portrait/background.png",
+    //     "path/smartphone-landscape/background.png",
+    //     "path/smartphone-portrait/background.png"
+    // );
+    @include backgroundHdFull($hdFullBackground);
+    @include backgroundHdReady($hdReadyBackground);
+    @include backgroundTabletLandscape($tabletLandscapeBackground);
+    @include backgroundTabletPortrait($tabletPortraitBackground);
+    @include backgroundSmartphoneLandscape($smartphoneLandscapeBackground);
+    @include backgroundSmartphonePortrait($smartphonePortraitBackground);
 }
 @mixin backgroundHdFull($hdFullBackground) {
-	@if ($use-hd-full == true){
-		@media #{$from-hd-full} {
-			// Full HD
-			@include backgroundImage($hdFullBackground);
-		}
-	}
+    @if ($use-hd-full == true){
+        @media #{$from-hd-full} {
+            // Full HD
+            @include backgroundImage($hdFullBackground);
+        }
+    }
 }
 @mixin backgroundHdReady($hdReadyBackground) {
-	@if ($use-hd-ready == true){
-		@media #{$from-hd-ready} {
-			// HD Ready
-			@include backgroundImage($hdReadyBackground);
-		}
-	}
+    @if ($use-hd-ready == true){
+        @media #{$from-hd-ready} {
+            // HD Ready
+            @include backgroundImage($hdReadyBackground);
+        }
+    }
 }
 @mixin backgroundTabletLandscape($tabletLandscapeBackground) {
-	@if ($use-tablet-landscape == true){
-		@media #{$from-tablet-landscape} {
-			// Tablet landscape
-			@include backgroundImage($tabletLandscapeBackground);
-		}
-	}
+    @if ($use-tablet-landscape == true){
+        @media #{$from-tablet-landscape} {
+            // Tablet landscape
+            @include backgroundImage($tabletLandscapeBackground);
+        }
+    }
 }
 @mixin backgroundTabletPortrait($tabletPortraitBackground) {
-	@if ($use-tablet-portrait == true){
-		@media #{$from-tablet-portrait} {
-			// Tablet portrait
-			@include backgroundImage($tabletPortraitBackground);
-		}
-	}
+    @if ($use-tablet-portrait == true){
+        @media #{$from-tablet-portrait} {
+            // Tablet portrait
+            @include backgroundImage($tabletPortraitBackground);
+        }
+    }
 }
 @mixin backgroundSmartphoneLandscape($smartphoneLandscapeBackground) {
-	@if ($use-smartphone-landscape == true){
-		@media #{$from-smartphone-landscape} {
-			// Smartphone landscape
-			@include backgroundImage($smartphoneLandscapeBackground);
-		}
-	}
+    @if ($use-smartphone-landscape == true){
+        @media #{$from-smartphone-landscape} {
+            // Smartphone landscape
+            @include backgroundImage($smartphoneLandscapeBackground);
+        }
+    }
 }
 @mixin backgroundSmartphonePortrait($smartphonePortraitBackground) {
-	@if ($use-smartphone-portrait == true){
-		@media #{$from-smartphone-portrait} {
-			// Smartphone portrait
-			@include backgroundImage($smartphonePortraitBackground);
-		}
-	}
+    @if ($use-smartphone-portrait == true){
+        @media #{$from-smartphone-portrait} {
+            // Smartphone portrait
+            @include backgroundImage($smartphonePortraitBackground);
+        }
+    }
 }
 @mixin icon($backgroundImage, $width, $height:$width, $backgroundPosition:50% 50%) {
-	@include size($width, $height);
-	@include backgroundImage($backgroundImage);
-	background-repeat: no-repeat;
-	background-position: $backgroundPosition;
+    @include size($width, $height);
+    @include backgroundImage($backgroundImage);
+    background-repeat: no-repeat;
+    background-position: $backgroundPosition;
 }
 
 @mixin fillImage($backgroundImage, $path:$path-img){
-	@if $use-root-path == false{
-		fill: url('#{$backgroundImage}');
-	}
-	@else{
-		fill: url('#{$path}#{$backgroundImage}');
-	}
+    @if $use-root-path == false{
+        fill: url('#{$backgroundImage}');
+    }
+    @else{
+        fill: url('#{$path}#{$backgroundImage}');
+    }
 }
