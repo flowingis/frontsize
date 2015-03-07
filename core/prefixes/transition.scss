@@ -1,7 +1,14 @@
+@function prefix($value) {
+    @if $use-css-prefix == true {
+        @return _values($value);
+    }
+    @return $value
+}
+
 @mixin user-select($select:text) {
     // it disables text selection
     // Values: none | text | toggle | element | elements | all | inherit
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-touch-callout: #{$select};
         -khtml-user-select: #{$select};
         -webkit-user-select: #{$select};
@@ -12,15 +19,28 @@
     user-select: #{$select};
 }
 
-@mixin transition($transition:0.3s ease-in-out initial) {
-    @if $use-css-prefix == true{
-        -webkit-transition: #{$transition};
-        -khtml-transition: #{$transition};
-        -moz-transition: #{$transition};
-        -ms-transition: #{$transition};
-        -o-transition: #{$transition};
+@mixin transition($transitions:0.3s ease-in-out initial, $effect:false) {
+    $t:"";
+    @if type-of($transitions) == list and $effect != false {
+        @each $transition in $transitions {
+            $i: index($transitions, $transition);
+            @if $i < 2 {
+                $t: $transition + " " + $effect;
+            } @else {
+                $t: $t + ", " + $transition + " " + $effect;
+            }
+        }
+    } @else {
+        $t:$transitions;
     }
-    transition: #{$transition};
+    @if $use-css-prefix == true {
+        -webkit-transition: #{$t};
+        -khtml-transition: #{$t};
+        -moz-transition: #{$t};
+        -ms-transition: #{$t};
+        -o-transition: #{$t};
+    }
+    transition: #{$t};
 }
 
 @mixin transition-delay($delay:0.5s) {

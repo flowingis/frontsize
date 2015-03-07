@@ -38,6 +38,8 @@ Next release details
 - **added** mixin `setFloatGridRow` for BEM
 - **added** mixin `setFloatGridContainer` for BEM
 - **added** mixin `fallbackBackgroundSize` to handle fallback `background-size property
+- **added** function `prefix` which returns prefixed property lists
+- **added** `cssmin` grunt module to the node stack
 
 **Fixes**
 - **optimized** tons of core code
@@ -64,6 +66,7 @@ Next release details
 - **removed** `extra` folder
 - **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
 - **changed** `$use-fallback-colors` to `$use-fallbacks` to set a global settings for fallback mixins
+- **changed** `transition` mixin now supports multi prefixed props, and optionally one effect for all props
 
 Release 2.0.0 details
 ---

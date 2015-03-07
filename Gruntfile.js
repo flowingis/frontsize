@@ -110,6 +110,19 @@ module.exports = function(grunt) {
             }
         },
 
+        cssmin: {
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1,
+                report:'min'
+            },
+            target: {
+                files: {
+                    '<%= f.css %>': ['<%= f.css %>']
+                }
+            }
+        },
+
         clean: {
             assets: {
                 src: [
@@ -171,42 +184,45 @@ module.exports = function(grunt) {
 
     grunt.registerTask('frontsize', [
         'sass:production',
-        'test'
+        'test',
+        'minify'
     ]);
 
     grunt.registerTask('frnAssets', [
         'sass:production',
-        'test',
         'clean',
         'assets',
-        'stylestats'
+        'test',
+        'minify'
     ]);
 
     grunt.registerTask('devAssets', [
         'sass:production',
+        'assets',
         'test',
-        'assets'
+        'minify'
     ]);
 
     grunt.registerTask('autoprefix', [
         'sass:autoprefixer',
-        'test',
-        'autoprefixer'
+        'autoprefixer',
+        'test'
     ]);
 
     grunt.registerTask('autoAssets', [
         'sass:autoprefixer',
-        'test',
         'autoprefixer',
-        'assets'
+        'assets',
+        'test'
     ]);
 
     grunt.registerTask('all', [
         'sass:production',
         'sass:autoprefixer',
-        'test',
         'autoprefixer',
-        'assets'
+        'assets',
+        'test',
+        'minify'
     ]);
 
     grunt.registerTask('assets', [
@@ -215,9 +231,13 @@ module.exports = function(grunt) {
         'clean:removeEmpty'
     ]);
 
+    grunt.registerTask('minify', [
+        'cssmin',
+        'stylestats'
+    ]);
+
     grunt.registerTask('test', [
         'sass:test',
-        'csslint:test',
-        'stylestats'
+        'csslint:test'
     ]);
 };

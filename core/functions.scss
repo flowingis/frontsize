@@ -1,0 +1,7 @@
+@function _values($value) {
+    @if $value == "filter" {
+        @return "filter" "-webkit-filter";
+    } @else {
+        @return $value;
+    }
+}
