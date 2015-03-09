@@ -1,3 +1,113 @@
+/// Generates a container for the float grid
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Float grid
+/// @access public
+/// @param {string} $selector                 [row]                   - The selector name of the container
+/// @param {int}    $hdFullSteps              [0]                     - Number of columns per row on Full HD
+/// @param {int}    $hdReadySteps             [$hdFullSteps]          - Number of columns per row on HD Ready
+/// @param {int}    $tabletLandscapeSteps     [$hdReadySteps]         - Number of columns per row on Tablet landscape
+/// @param {int}    $tabletPortraitSteps      [$tabletLandscapeSteps] - Number of columns per row on Tablet portrait
+/// @param {int}    $smartphoneLandscapeSteps [1]                     - Number of columns per row on Smartphone landscape
+/// @param {int}    $smartphonePortraitSteps  [1]                     - Number of columns per row on Smartphone portrait
+/// @example scss Default usage, it generates a `row` selector rule which will NOT treat child elements as columns
+///   @include addFloatGridContainer();
+/// @example css CSS generated
+/// .row,
+/// .row * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row {
+///   padding-top: 20px;
+///   width: 100%;
+///   overflow: auto;
+///   clear: both;
+/// }
+///
+/// @example scss Generates a `row-container` selector rule with 4 HD columns steps, 3 tablet columns steps and 1 column mobile steps
+///   @include addFloatGridContainer(row-container, 4, 4, 3, 3);
+/// @example css CSS generated
+/// .row-container,
+/// .row-container * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row-container {
+///   padding-top: 20px;
+///   width: 100%;
+///   overflow: auto;
+///   clear: both;
+/// }
+///
+/// .row-container > * {
+///   min-height: 1px;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   width: 25%;
+/// }
+///
+/// \@media only screen and (min-width: 1px) and (max-width: 479px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) and (max-width: 767px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1023px), only print {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) and (max-width: 1799px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+
 
 @mixin addFloatGridContainer(
     $selector                 : row,
@@ -22,7 +132,24 @@
     @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector);
 }
 
-@mixin addFloatGridColumns($hdSteps:12, $tabletSteps:$hdSteps, $smartphoneSteps:$tabletSteps, $hdViewportPrefix:"hd-", $tabletViewportPrefix:"tablet-", $smartphoneViewportPrefix:"smartphone-", $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-", $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
+/// Generates a columns set for the float grid
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Float grid
+/// @access public
+/// @param {int}     $hdSteps                  [12]                  - Column steps for HD viewports
+/// @param {int}     $tabletSteps              [$hdSteps]            - Column steps for Tablet viewports
+/// @param {int}     $smartphoneSteps          [$tabletSteps]        - Column steps for Mobile viewports
+/// @param {string}  $hdViewportPrefix         ["hd-"]               - Columns rule HD viewport prefix
+/// @param {string}  $tabletViewportPrefix     ["tablet-"]           - Columns rule Tablet viewport prefix
+/// @param {string}  $smartphoneViewportPrefix ["mobile-"]           - Columns rule Mobile viewport prefix
+/// @param {string}  $fillFromViewport         ["mobile-landscape"]  - The viewport step where columns will be set to `width:100%`
+/// @param {boolean} $viewTotalColumns         [true]                - Choose to see or not to see total columns at the end of the rule name
+/// @param {int}     $columnsSeparator         ["-of-"]              - Columns separator, only applied if `$viewTotalColumns` is `true`
+/// @param {int}     $useHdRules               [true]                - Enables HD viewports to be generated
+/// @param {int}     $useTabletRules           [true]                - Enables Tablet viewports to be generated
+/// @param {int}     $useSmartphoneRules       [true]                - Enables Mobile viewports to be generated
+
+@mixin addFloatGridColumns($hdSteps:12, $tabletSteps:$hdSteps, $smartphoneSteps:$tabletSteps, $hdViewportPrefix:"hd-", $tabletViewportPrefix:"tablet-", $smartphoneViewportPrefix:"mobile-", $fillFromViewport:"mobile-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-", $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
 
     @media #{$from-smartphone-portrait} {
         // Smartphone portrait
@@ -223,7 +350,7 @@
         @if $selector != false {
             .#{$selector} > * {
                 min-height: 1px;
-                @include _setColumnBehavior();
+                @include _setColumnBehavior(true, left, false, true);
                 @include _setFloatGridColumnStep(1, $hdFullSteps);
             }
         } @else {
@@ -440,7 +567,7 @@
                 }
             }
 
-            @if $index == 0 and $fill == "smartphone-landscape" {
+            @if $index == 0 and $fill == "mobile-landscape" {
                 @media #{$till-tablet-portrait} {
                     // Tablet landscape
                     #{$nextRule} {
@@ -449,7 +576,7 @@
                 }
             }
 
-            @if $index == 0 and $fill == "smartphone-portrait" {
+            @if $index == 0 and $fill == "mobile-portrait" {
                 @media #{$till-smartphone-landscape} {
                     // Tablet landscape
                     #{$nextRule} {
@@ -490,7 +617,7 @@
                 }
             }
 
-            @if $index == 0 and $fill == "smartphone-landscape" {
+            @if $index == 0 and $fill == "mobile-landscape" {
                 @media #{$till-tablet-portrait} {
                     // Tablet landscape
                     #{$nextRule} {
@@ -499,7 +626,7 @@
                 }
             }
 
-            @if $index == 0 and $fill == "smartphone-portrait" {
+            @if $index == 0 and $fill == "mobile-portrait" {
                 @media #{$till-smartphone-landscape} {
                     // Tablet landscape
                     #{$nextRule} {

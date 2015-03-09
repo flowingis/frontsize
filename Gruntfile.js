@@ -95,6 +95,10 @@ module.exports = function(grunt) {
             all : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'all' ]
+            },
+            sassdoc : {
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'sassdoc' ]
             }
         },
 
@@ -177,6 +181,31 @@ module.exports = function(grunt) {
                 mediaQueries           : true
             },
             src: [ '<%= f.testCss %>' ]
+          },
+
+          sassdoc: {
+            default: {
+                options: {
+                    dest : 'docs',
+                    display: {
+                        access    : ['public', 'private'],
+                        alias     : true,
+                        watermark : true,
+                    }
+                },
+                theme                : 'default',
+                package              : 'package.json',
+                autofill             : 'content',
+                verbose              : false,
+                strict               : true,
+                'no-update-notifier' : false,
+                groups  : { undefined : 'general' },
+                exclude : [
+                    '.sass-cache',
+                    'node_modules',
+                    'test'
+                ]
+            }
           }
     });
 

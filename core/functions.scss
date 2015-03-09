@@ -1,12 +1,10 @@
-
-/// @author Vittorio Vittori
-/// @group Functions
-/// @access private
-/// @param {string} $propery - Name of the property
-
 @function _values($value) {
-    @if $value == "filter" {
-        @return "filter" "-webkit-filter";
+    @if $use-css-prefix == true {
+        @if $value == "filter" {
+            @return "filter" "-webkit-filter";
+        } @else {
+            @return $value;
+        }
     } @else {
         @return $value;
     }
