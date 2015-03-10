@@ -16,7 +16,8 @@
 
 //@include addFloatGridContainer(row);
 
-@include addFloatGridColumns(12);
+//@include addFloatGridColumns(12);
+//@include addFloatGridColumns(4, 2, 2, "l", "m", "s", "mobile-landscape", false);
 //@include addFloatGridOffset(12);
 
 // put .addViewportsSteps at the bottom of the configuration

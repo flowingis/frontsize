@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         f : grunt.file.readJSON('frontsize.json'),
+        s : grunt.file.readJSON('sassdoc.json'),
 
         sass : {
             production : {
@@ -96,9 +97,9 @@ module.exports = function(grunt) {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'all' ]
             },
-            sassdoc : {
+            docs : {
                 files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'sassdoc' ]
+                tasks: [ 'docs' ]
             }
         },
 
@@ -181,32 +182,21 @@ module.exports = function(grunt) {
                 mediaQueries           : true
             },
             src: [ '<%= f.testCss %>' ]
-          },
+        },
 
-          sassdoc: {
-            default: {
-                options: {
-                    dest : 'docs',
-                    display: {
-                        access    : ['public', 'private'],
-                        alias     : true,
-                        watermark : true,
-                    }
-                },
-                theme                : 'default',
-                package              : 'package.json',
-                autofill             : 'content',
-                verbose              : false,
-                strict               : true,
-                'no-update-notifier' : false,
-                groups  : { undefined : 'general' },
-                exclude : [
-                    '.sass-cache',
-                    'node_modules',
-                    'test'
-                ]
-            }
-          }
+        sassdoc: {
+            options : {
+                theme           : '<%= s.theme %>',
+                package         : '<%= s.package %>',
+                basePath        : '<%= s.basePath %>',
+                googleAnalytics : '<%= s.googleAnalytics %>',
+                tracking        : '<%= s.tracking %>',
+                groups : {
+                    'undefined' : 'General'
+                }
+            },
+            src : ['./core/**/*.scss', './themes/**/*.scss']
+        }
     });
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -269,4 +259,9 @@ module.exports = function(grunt) {
         'sass:test',
         'csslint:test'
     ]);
+
+    grunt.registerTask('docs', [
+        'sassdoc'
+    ]);
+
 };
