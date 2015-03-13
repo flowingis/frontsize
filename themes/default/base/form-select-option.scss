@@ -28,7 +28,7 @@ keygen {
     @include appearance(none);
 
     cursor           : pointer;
-    padding          : ($global-step / 4) ($global-step * 1.75) ($global-step / 4) ($global-step / 2);
+    padding          : ($spacing / 4) ($spacing * 1.75) ($spacing / 4) ($spacing / 2);
     color            : $font-color;
     font-weight      : normal;
     border           : 2px solid $font-color;
@@ -37,11 +37,11 @@ keygen {
     $size : 16px;
 
     @include backgroundRetinaIcon("input-select-1x.png", "input-select-2x.png", $size);
-    background-position: right ($global-step / 2) center;
+    background-position: right ($spacing / 2) center;
 
     @include transition(background-color 0.25s ease-in-out);
     @include border-radius(10px);
-    
+
     &:hover {
         background-color: white;
     }

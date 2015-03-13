@@ -6,10 +6,10 @@
     $tabletPortraitCount      : 2,
     $smartphoneLandscapeCount : 1,
     $smartphonePortraitCount  : 1,
-    $columnGap                : $global-step,
+    $columnGap                : $spacing,
     $childrenDisplay          : inline-block
     ){
-    
+
     .#{$selector} {
         @include column-gap($columnGap);
         @include column-fill(balance);

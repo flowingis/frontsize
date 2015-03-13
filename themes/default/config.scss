@@ -21,24 +21,24 @@ $font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
 $font-default : $font-sans;
 $font-heading : $font-sans;
 
-$global-step : 20px;
+$spacing : 20px;
 
-$font-line-height    : $global-step;
+$font-line-height    : $spacing;
 $font-weight         : 400;
 $font-color          : #545454;
 $body-color          : #F5F0D6;
 $fallback-color-base : $body-color;
 
 // Global padding configuration
-$horizontal-padding : $global-step;
-$vertical-padding   : $global-step;
+$horizontal-padding : $spacing;
+$vertical-padding   : $spacing;
 $global-padding     : $vertical-padding $horizontal-padding;
 
 // State selectors configuration
 $state-important        : true;
 $state-faded-opacity    : 0.5;
 $state-disabled-opacity : 0.5;
-$state-table-padding    : round($global-step / 2);
+$state-table-padding    : round($spacing / 2);
 
 // set different width for the smartphones, tablets and hd resolutions
 $smartphone-portrait-step  : 320px;  // smartphones portrait  320~380

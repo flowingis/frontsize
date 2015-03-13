@@ -15,7 +15,7 @@ input[type="date"] {
     $placeholderColor: $color;
 
     width:   100%;
-    padding: ($global-step / 2);
+    padding: ($spacing / 2);
 
     @include disableOutline();
     @include box-sizing(border-box);

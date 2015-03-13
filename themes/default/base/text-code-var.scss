@@ -21,8 +21,8 @@ code,
 .code,
 var,
 .var {
-   
-    padding     : 0 ($global-step / 4);
+
+    padding     : 0 ($spacing / 4);
     font-family : $font-monospace;
     color       : inherit;
     border      : 1px solid;

@@ -82,7 +82,7 @@
     $tabletPortraitMultiplier      : 1,
     $smartphoneLandscapeMultiplier : 1,
     $smartphonePortraitMultiplier  : 1,
-    $marginBottom                  : (#{$global-step / 4}#{"px"})
+    $marginBottom                  : (#{$spacing / 4}#{"px"})
     ) {
 
     @include _setHeadingFont($from-smartphone-portrait,  $smartphonePortraitMultiplier,  $marginBottom, $use-smartphone-portrait);

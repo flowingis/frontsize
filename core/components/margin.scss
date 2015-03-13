@@ -1,11 +1,11 @@
 @mixin addMarginRule(
     $selector                  ,
-    $hdFullMargin              : ($global-step * 5),
-    $hdReadyMargin             : ($global-step * 4),
-    $tabletLandscapeMargin     : ($global-step * 3),
-    $tabletPortraitMargin      : ($global-step * 2),
-    $smartphoneLandscapeMargin : $global-step,
-    $smartphonePortraitMargin  : ($global-step / 2)
+    $hdFullMargin              : ($spacing * 5),
+    $hdReadyMargin             : ($spacing * 4),
+    $tabletLandscapeMargin     : ($spacing * 3),
+    $tabletPortraitMargin      : ($spacing * 2),
+    $smartphoneLandscapeMargin : $spacing,
+    $smartphonePortraitMargin  : ($spacing / 2)
     ) {
 
     @include _addMarginRule($from-smartphone-landscape, $selector, $smartphoneLandscapeMargin);
@@ -24,12 +24,12 @@
 }
 
 @mixin setViewportsMargin(
-    $hdFullMargin              : ($global-step * 5),
-    $hdReadyMargin             : ($global-step * 4),
-    $tabletLandscapeMargin     : ($global-step * 3),
-    $tabletPortraitMargin      : ($global-step * 2),
-    $smartphoneLandscapeMargin : $global-step,
-    $smartphonePortraitMargin  : ($global-step / 2)
+    $hdFullMargin              : ($spacing * 5),
+    $hdReadyMargin             : ($spacing * 4),
+    $tabletLandscapeMargin     : ($spacing * 3),
+    $tabletPortraitMargin      : ($spacing * 2),
+    $smartphoneLandscapeMargin : $spacing,
+    $smartphonePortraitMargin  : ($spacing / 2)
     ) {
 
     // Media queries for selectors active from a specific resolution or higher
@@ -101,6 +101,6 @@
         }
         .margin-right {
             margin-right: $horizontalMargin #{$important};
-        } 
+        }
     }
 }

@@ -135,6 +135,11 @@ module.exports = function(grunt) {
                     '<%= f.copyProductionFonts %>*'
                 ]
             },
+            docs: {
+                src: [
+                    'src'
+                ]
+            },
             removeEmpty: {
                 src:[
                     '<%= f.copyProductionImg %>empty',
@@ -195,7 +200,7 @@ module.exports = function(grunt) {
                     'undefined' : 'General'
                 }
             },
-            src : ['./core/**/*.scss', './themes/**/*.scss']
+            src : './core/**/*.scss'
         }
     });
 
@@ -261,6 +266,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('docs', [
+        'clean:docs',
         'sassdoc'
     ]);
 
