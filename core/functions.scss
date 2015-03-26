@@ -1,3 +1,40 @@
+
+/// Returns the product of theme config's global var `$spacing` with the integer passed
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Frontsize functions
+/// @access public
+/// @param {int} $multiplier [1] - The multiplier for theme config's global var `$spacing`
+/// @example scss The default value of spacing pamameter si `1`
+///   .selector {
+///       padding-top: spacing(2);
+///   }
+/// @example css CSS generated if `$spacing` is `15px`
+///   .selector {
+///       padding-top: 30px;
+///   }
+
+@function spacing($multiplier:1) {
+    @return $spacing * $multiplier;
+}
+
+/// Alias for `spacing` function to a lesser verbose usage
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Frontsize functions
+/// @access public
+/// @param {int} $multiplier [1] - The multiplier for theme config's global var `$spacing`
+/// @example scss The default value of spacing pamameter si `1`
+///   .selector {
+///       padding-top: s(2);
+///   }
+/// @example css CSS generated if `$spacing` is `15px`
+///   .selector {
+///       padding-top: 30px;
+///   }
+
+@function s($multiplier:1) {
+    @return spacing($multiplier);
+}
+
 @function _values($value) {
     @if $use-css-prefix == true {
         @if $value == "filter" {
@@ -8,8 +45,4 @@
     } @else {
         @return $value;
     }
-}
-
-@function spacing($multiplier:1) {
-    @return $spacing * $multiplier;
 }
