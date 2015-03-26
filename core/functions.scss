@@ -9,3 +9,7 @@
         @return $value;
     }
 }
+
+@function spacing($multiplier:1) {
+    @return $spacing * $multiplier;
+}
