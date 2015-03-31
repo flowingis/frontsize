@@ -1,3 +1,17 @@
+@mixin block($name, $type:null) {
+    @at-root {
+        @if $type != null {
+            .#{$name}-#{$type} {
+                @content;
+            }
+        } @else {
+            .#{$name} {
+                @content;
+            }
+        }
+    }
+}
+
 /// Generates an element inside the block
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
 /// @group BEM
