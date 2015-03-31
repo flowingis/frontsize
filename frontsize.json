@@ -7,7 +7,7 @@
     "uncssProductionCss"  : "test/production/css/",
     "projectPath"         : "./",
 
-    "testCss"         : "test/csslint/frontsize.test.css",
+    "testCss"         : "test/csslint/frontsize.csslint.css",
     "autoprefixerCss" : "test/csslint/frontsize.autoprefixer.min.css",
     "css"             : "test/production/css/frontsize-3.0.0.min.css"
 }

@@ -23,6 +23,7 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 module.exports = function(grunt) {
 
     grunt.initConfig({
+
         f : grunt.file.readJSON('frontsize.json'),
         s : grunt.file.readJSON('sassdoc.json'),
 
@@ -54,6 +55,15 @@ module.exports = function(grunt) {
                 },
                 files : {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'
+                }
+            },
+            testFrontsize : {
+                options : {
+                    cleancss : false,
+                    style : 'expanded'
+                },
+                files : {
+                    'test/csslint/frontsize.test.css' : 'test/frontsize/test.scss'
                 }
             }
         },
@@ -112,6 +122,12 @@ module.exports = function(grunt) {
                     csslintrc: '.csslintrc'
                 },
                 src: [ '<%= f.testCss %>' ]
+            },
+            testFrontsize: {
+                options: {
+                    csslintrc: '.csslintrc'
+                },
+                src: [ 'test/csslint/frontsize.test.css' ]
             }
         },
 
@@ -263,6 +279,11 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
         'sass:test',
         'csslint:test'
+    ]);
+
+    grunt.registerTask('testFrontsize', [
+        'sass:testFrontsize',
+        'csslint:testFrontsize'
     ]);
 
     grunt.registerTask('docs', [

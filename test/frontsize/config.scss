@@ -1,0 +1,84 @@
+
+// font sizes for h# elements
+$h1 : 32px;
+$h2 : 28px;
+$h3 : 24px;
+$h4 : 20px;
+$h5 : 18px;
+$h6 : 16px;
+
+// Font sizes
+$font-size:       16px;
+$font-small-size: 12px;
+
+// Fonts families global vars
+$font-sans      : "open sans", "helvetica neue", helvetica, arial, sans-serif;
+$font-serif     : georgia, "times new roman", times, serif;
+$font-monospace : menlo, monaco, "courier new", monospace;
+$font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
+
+// Default fonts used inside the core
+$font-default : $font-sans;
+$font-heading : $font-sans;
+
+$spacing : 20px;
+
+$font-line-height    : $spacing;
+$font-weight         : 400;
+$font-color          : #545454;
+$body-color          : #F5F0D6;
+$fallback-color-base : $body-color;
+
+// Global padding configuration
+$horizontal-padding : $spacing;
+$vertical-padding   : $spacing;
+$global-padding     : $vertical-padding $horizontal-padding;
+
+// State selectors configuration
+$state-important        : true;
+$state-faded-opacity    : 0.5;
+$state-disabled-opacity : 0.5;
+$state-table-padding    : round($spacing / 2);
+
+// set different width for the mobile, tablets and hd resolutions
+$mobile-portrait-step  : 320px;  // mobile portrait  320~380
+$mobile-landscape-step : 480px;  // mobile landscape 480~568~685
+$tablet-portrait-step  : 768px;  // tablet portrait       768
+$tablet-landscape-step : 1024px; // tablet landscape      1024
+$hd-ready-step         : 1280px; // HD Ready              1280 (720p)
+$hd-full-step          : 1800px; // Full HD               1920 (1080p)
+
+// Granular setting for which Media Query rules are enabled
+$use-viewport-states  : true;
+$use-mobile-portrait  : true;
+$use-mobile-landscape : true;
+$use-tablet-portrait  : true;
+$use-tablet-landscape : true;
+$use-hd-ready         : true;
+$use-hd-full          : true;
+$use-viewport-states  : true;
+$use-print-viewport   : true;
+
+$use-state-margin      : true;
+$use-state-padding     : true;
+$use-state-positioning : true;
+$use-state-sizing      : true;
+$use-state-selectors   : true;
+$use-state-table       : true;
+$use-state-text        : true;
+$use-state-visibility  : true;
+$use-state-print       : true;
+
+$use-core-base  : true;
+$use-css-prefix : true;
+$use-ie-filters : true;
+$use-fallbacks  : true;
+
+$use-root-path: true;
+$root-path : "production/img/theme";
+$path-img  : "#{$root-path}/img/";
+$path-font : "#{$root-path}/fonts/";
+
+$use-core-widgets: true;
+
+

@@ -59,6 +59,7 @@ Next release details
 - **optimized** `asTable` mixin now can skip `width` property
 - **fixed** h1-h6 base file with more flexible font setting
 - **updated** retina display media query
+- **fixed** state selectors for padding
 
 **Changes**
 - **renamed** float grid system mixins with more clear names
