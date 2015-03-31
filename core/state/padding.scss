@@ -13,7 +13,7 @@ $important: _important();
         padding-bottom: 0 #{$important};
     }
 
-    .no-vertical-padding {
+    .no-padding-vertical {
         padding-top: 0 #{$important};
         padding-bottom: 0 #{$important};
     }
@@ -26,7 +26,7 @@ $important: _important();
         padding-right: 0 #{$important};
     }
 
-    .no-horizontal-padding {
+    .no-padding-horizontal {
         padding-left: 0 #{$important};
         padding-right: 0 #{$important};
     }
