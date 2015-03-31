@@ -1,6 +1,6 @@
 {
     "name"        : "frontsize-sass",
-    "version"     : "2.0.0",
+    "version"     : "3.0.0",
     "description" : "A front-end framework built to build CSS and ease your life.",
     "authors"     : [
         {
