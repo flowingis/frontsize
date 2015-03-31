@@ -58,21 +58,21 @@
     }
 }
 
-@mixin backgroundResponsive($hdFullBackground, $hdReadyBackground, $tabletLandscapeBackground, $tabletPortraitBackground, $smartphoneLandscapeBackground, $smartphonePortraitBackground) {
+@mixin backgroundResponsive($hdFullBackground, $hdReadyBackground, $tabletLandscapeBackground, $tabletPortraitBackground, $mobileLandscapeBackground, $mobilePortraitBackground) {
     // .backgroundResponsive(
     //     "path/hd-full/background.png",
     //     "path/hd-ready/background.png",
     //     "path/tablet-landscape/background.png",
     //     "path/tablet-portrait/background.png",
-    //     "path/smartphone-landscape/background.png",
-    //     "path/smartphone-portrait/background.png"
+    //     "path/mobile-landscape/background.png",
+    //     "path/mobile-portrait/background.png"
     // );
     @include backgroundHdFull($hdFullBackground);
     @include backgroundHdReady($hdReadyBackground);
     @include backgroundTabletLandscape($tabletLandscapeBackground);
     @include backgroundTabletPortrait($tabletPortraitBackground);
-    @include backgroundSmartphoneLandscape($smartphoneLandscapeBackground);
-    @include backgroundSmartphonePortrait($smartphonePortraitBackground);
+    @include backgroundMobileLandscape($mobileLandscapeBackground);
+    @include backgroundMobilePortrait($mobilePortraitBackground);
 }
 @mixin backgroundHdFull($hdFullBackground) {
     @if ($use-hd-full == true){
@@ -106,19 +106,19 @@
         }
     }
 }
-@mixin backgroundSmartphoneLandscape($smartphoneLandscapeBackground) {
-    @if ($use-smartphone-landscape == true){
-        @media #{$from-smartphone-landscape} {
-            // Smartphone landscape
-            @include backgroundImage($smartphoneLandscapeBackground);
+@mixin backgroundMobileLandscape($mobileLandscapeBackground) {
+    @if ($use-mobile-landscape == true){
+        @media #{$from-mobile-landscape} {
+            // mobile landscape
+            @include backgroundImage($mobileLandscapeBackground);
         }
     }
 }
-@mixin backgroundSmartphonePortrait($smartphonePortraitBackground) {
-    @if ($use-smartphone-portrait == true){
-        @media #{$from-smartphone-portrait} {
-            // Smartphone portrait
-            @include backgroundImage($smartphonePortraitBackground);
+@mixin backgroundMobilePortrait($mobilePortraitBackground) {
+    @if ($use-mobile-portrait == true){
+        @media #{$from-mobile-portrait} {
+            // mobile portrait
+            @include backgroundImage($mobilePortraitBackground);
         }
     }
 }

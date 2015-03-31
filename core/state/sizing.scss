@@ -3,7 +3,7 @@ $important: _important();
 @if $use-state-sizing == true{
 
     .viewport-height {
-        height : $smartphone-landscape-step #{$important};
+        height : $mobile-landscape-step #{$important};
         height : 100vh #{$important};
     }
 
@@ -127,11 +127,11 @@ $important: _important();
         .little-till-tablet-portrait            { width: 25% #{$important}; }
     }
 
-    @media #{$till-smartphone-landscape} {
-        // Smartphone landscape
-        .fill-till-smartphone-landscape             { width: 100% #{$important}; }
-        .almost-till-smartphone-landscape           { width: 75% #{$important}; }
-        .half-till-smartphone-landscape             { width: 50% #{$important}; }
-        .little-till-smartphone-landscape           { width: 25% #{$important}; }
+    @media #{$till-mobile-landscape} {
+        // Mobile landscape
+        .fill-till-mobile-landscape             { width: 100% #{$important}; }
+        .almost-till-mobile-landscape           { width: 75% #{$important}; }
+        .half-till-mobile-landscape             { width: 50% #{$important}; }
+        .little-till-mobile-landscape           { width: 25% #{$important}; }
     }
 }

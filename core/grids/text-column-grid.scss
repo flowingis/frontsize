@@ -1,13 +1,13 @@
 @mixin addTextColumnGrid(
-    $selector                 : text-column-grid,
-    $hdFullCount              : 4,
-    $hdReadyCount             : 3,
-    $tabletLandscapeCount     : 3,
-    $tabletPortraitCount      : 2,
-    $smartphoneLandscapeCount : 1,
-    $smartphonePortraitCount  : 1,
-    $columnGap                : $spacing,
-    $childrenDisplay          : inline-block
+    $selector             : text-column-grid,
+    $hdFullCount          : 4,
+    $hdReadyCount         : 3,
+    $tabletLandscapeCount : 3,
+    $tabletPortraitCount  : 2,
+    $mobileLandscapeCount : 1,
+    $mobilePortraitCount  : 1,
+    $columnGap            : $spacing,
+    $childrenDisplay      : inline-block
     ){
 
     .#{$selector} {
@@ -22,12 +22,12 @@
         width         : 100%;
     }
 
-    @include _addTextColumnGrid($from-smartphone-portrait,  $selector, $smartphonePortraitCount,  $use-smartphone-portrait);
-    @include _addTextColumnGrid($from-smartphone-landscape, $selector, $smartphoneLandscapeCount, $use-smartphone-landscape);
-    @include _addTextColumnGrid($from-tablet-portrait,      $selector, $tabletPortraitCount,      $use-tablet-portrait);
-    @include _addTextColumnGrid($from-tablet-landscape,     $selector, $tabletLandscapeCount,     $use-tablet-landscape);
-    @include _addTextColumnGrid($from-hd-ready,             $selector, $hdReadyCount,             $use-hd-ready);
-    @include _addTextColumnGrid($from-hd-full,              $selector, $hdFullCount,              $use-hd-full);
+    @include _addTextColumnGrid($from-mobile-portrait,  $selector, $mobilePortraitCount,  $use-mobile-portrait);
+    @include _addTextColumnGrid($from-mobile-landscape, $selector, $mobileLandscapeCount, $use-mobile-landscape);
+    @include _addTextColumnGrid($from-tablet-portrait,  $selector, $tabletPortraitCount,  $use-tablet-portrait);
+    @include _addTextColumnGrid($from-tablet-landscape, $selector, $tabletLandscapeCount, $use-tablet-landscape);
+    @include _addTextColumnGrid($from-hd-ready,         $selector, $hdReadyCount,         $use-hd-ready);
+    @include _addTextColumnGrid($from-hd-full,          $selector, $hdFullCount,          $use-hd-full);
 }
 
 @mixin _addTextColumnGrid($viewport, $selector, $count, $viewportEnabled){

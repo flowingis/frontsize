@@ -2,48 +2,48 @@
 $_spriteLastWidth  : 0;
 $_spriteLastHeight : 0;
 
-$_to-hd-full-step              : ($hd-full-step - 1px);
-$_to-hd-ready-step             : ($hd-ready-step - 1px);
-$_to-tablet-landscape-step     : ($tablet-landscape-step - 1px);
-$_to-tablet-portrait-step      : ($tablet-portrait-step - 1px);
-$_to-smartphone-landscape-step : ($smartphone-landscape-step - 1px);
-$_to-smartphone-portrait-step  : ($smartphone-portrait-step - 1px);
+$_to-hd-full-step          : ($hd-full-step - 1px);
+$_to-hd-ready-step         : ($hd-ready-step - 1px);
+$_to-tablet-landscape-step : ($tablet-landscape-step - 1px);
+$_to-tablet-portrait-step  : ($tablet-portrait-step - 1px);
+$_to-mobile-landscape-step : ($mobile-landscape-step - 1px);
+$_to-mobile-portrait-step  : ($mobile-portrait-step - 1px);
 
-$only-smartphone-portrait:          "only screen and (min-width: 1px) and (max-width : #{$_to-smartphone-landscape-step})";
-$only-smartphone-landscape:         "only screen and (min-width: #{$smartphone-landscape-step}) and (max-width : #{$_to-tablet-portrait-step})";
-$only-tablet-portrait:              "only screen and (min-width: #{$tablet-portrait-step}) and (max-width : #{$_to-tablet-landscape-step}), only print";
-$only-tablet-landscape:             "only screen and (min-width: #{$tablet-landscape-step}) and (max-width : #{$_to-hd-ready-step})";
-$only-hd-ready:                     "only screen and (min-width: #{$hd-ready-step}) and (max-width : #{$_to-hd-full-step})";
-$only-hd-full:                      "only screen and (min-width: #{$hd-full-step})";
+$only-mobile-portrait:          "only screen and (min-width: 1px) and (max-width : #{$_to-mobile-landscape-step})";
+$only-mobile-landscape:         "only screen and (min-width: #{$mobile-landscape-step}) and (max-width : #{$_to-tablet-portrait-step})";
+$only-tablet-portrait:          "only screen and (min-width: #{$tablet-portrait-step}) and (max-width : #{$_to-tablet-landscape-step}), only print";
+$only-tablet-landscape:         "only screen and (min-width: #{$tablet-landscape-step}) and (max-width : #{$_to-hd-ready-step})";
+$only-hd-ready:                 "only screen and (min-width: #{$hd-ready-step}) and (max-width : #{$_to-hd-full-step})";
+$only-hd-full:                  "only screen and (min-width: #{$hd-full-step})";
 
-$from-smartphone-portrait:          "only screen and (min-width: 1px)";
-$from-smartphone-landscape:         "only screen and (min-width: #{$smartphone-landscape-step})";
-$from-tablet-portrait:              "only screen and (min-width: #{$tablet-portrait-step}), only print";
-$from-tablet-landscape:             "only screen and (min-width: #{$tablet-landscape-step})";
-$from-hd-ready:                     "only screen and (min-width: #{$hd-ready-step})";
-$from-hd-full:                      $only-hd-full;
+$from-mobile-portrait:          "only screen and (min-width: 1px)";
+$from-mobile-landscape:         "only screen and (min-width: #{$mobile-landscape-step})";
+$from-tablet-portrait:          "only screen and (min-width: #{$tablet-portrait-step}), only print";
+$from-tablet-landscape:         "only screen and (min-width: #{$tablet-landscape-step})";
+$from-hd-ready:                 "only screen and (min-width: #{$hd-ready-step})";
+$from-hd-full:                  $only-hd-full;
 
-$only-smartphone:                   "only screen and (min-width: 1px) and (max-width : #{$_to-tablet-portrait-step})";
-$only-tablet:                       "only screen and (min-width: #{$tablet-portrait-step}) and (max-width : #{$_to-hd-ready-step}), only print";
-$only-hd:                           $from-hd-ready;
+$only-mobile:                   "only screen and (min-width: 1px) and (max-width : #{$_to-tablet-portrait-step})";
+$only-tablet:                   "only screen and (min-width: #{$tablet-portrait-step}) and (max-width : #{$_to-hd-ready-step}), only print";
+$only-hd:                       $from-hd-ready;
 
-$till-smartphone-portrait:          "only screen and (max-width: #{$_to-smartphone-portrait-step})"; // useless!
-$till-smartphone-landscape:         "only screen and (max-width: #{$_to-smartphone-landscape-step})";
-$till-tablet-portrait:              "only screen and (max-width: #{$_to-tablet-portrait-step})";
-$till-tablet-landscape:             "only screen and (max-width: #{$_to-tablet-landscape-step}), only print";
-$till-hd-ready:                     "only screen and (max-width: #{$_to-hd-ready-step})";
-$till-hd-full:                      "only screen and (max-width: #{$_to-hd-full-step})";
+$till-mobile-portrait:          "only screen and (max-width: #{$_to-mobile-portrait-step})"; // useless!
+$till-mobile-landscape:         "only screen and (max-width: #{$_to-mobile-landscape-step})";
+$till-tablet-portrait:          "only screen and (max-width: #{$_to-tablet-portrait-step})";
+$till-tablet-landscape:         "only screen and (max-width: #{$_to-tablet-landscape-step}), only print";
+$till-hd-ready:                 "only screen and (max-width: #{$_to-hd-ready-step})";
+$till-hd-full:                  "only screen and (max-width: #{$_to-hd-full-step})";
 
 $display-retina-browser-compatible: "only screen and (min-device-pixel-ratio: 2)";
 $display-retina:                    "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
 $display-standard:                  "only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
 
-$retina-from-smartphone-portrait:   "#{$from-smartphone-portrait},   #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
-$retina-from-smartphone-landscape:  "#{$from-smartphone-landscape},  #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
-$retina-from-tablet-portrait:       "#{$from-tablet-portrait},       #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
-$retina-from-tablet-landscape:      "#{$from-tablet-landscape},      #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
-$retina-from-hd-ready:              "#{$from-hd-ready},              #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
-$retina-from-hd-full:               "#{$from-hd-full},               #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-mobile-portrait:   "#{$from-mobile-portrait},   #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-mobile-landscape:  "#{$from-mobile-landscape},  #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-tablet-portrait:   "#{$from-tablet-portrait},   #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-tablet-landscape:  "#{$from-tablet-landscape},  #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-hd-ready:          "#{$from-hd-ready},          #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+$retina-from-hd-full:           "#{$from-hd-full},           #{$display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
 
 $print-viewport: $only-tablet-portrait;
 

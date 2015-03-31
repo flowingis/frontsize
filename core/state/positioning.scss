@@ -135,26 +135,26 @@ $important: _important();
         .to-right-till-tablet-portrait          { float: right #{$important}; }
     }
 
-    @media #{$till-smartphone-landscape} {
-        // Smartphone landscape
-        .to-center-till-smartphone-landscape        { margin: auto #{$important}; }
-        .to-left-till-smartphone-landscape          { float: left #{$important}; }
-        .to-right-till-smartphone-landscape         { float: right #{$important}; }
+    @media #{$till-mobile-landscape} {
+        // Mobile landscape
+        .to-center-till-mobile-landscape        { margin: auto #{$important}; }
+        .to-left-till-mobile-landscape          { float: left #{$important}; }
+        .to-right-till-mobile-landscape         { float: right #{$important}; }
     }
 
     // Media queries for selectors active from a specific resolution or higher
-    @media #{$from-smartphone-portrait} {
-        // Smartphone portrait
-        .to-center-from-smartphone-portrait     { margin: auto #{$important}; }
-        .to-left-from-smartphone-portrait       { float: left #{$important}; }
-        .to-right-from-smartphone-portrait      { float: right #{$important}; }
+    @media #{$from-mobile-portrait} {
+        // Mobile portrait
+        .to-center-from-mobile-portrait     { margin: auto #{$important}; }
+        .to-left-from-mobile-portrait       { float: left #{$important}; }
+        .to-right-from-mobile-portrait      { float: right #{$important}; }
     }
 
-    @media #{$from-smartphone-landscape} {
-        // Smartphone landscape
-        .to-center-from-smartphone-landscape        { margin: auto #{$important}; }
-        .to-left-from-smartphone-landscape          { float: left #{$important}; }
-        .to-right-from-smartphone-landscape         { float: right #{$important}; }
+    @media #{$from-mobile-landscape} {
+        // Mobile landscape
+        .to-center-from-mobile-landscape        { margin: auto #{$important}; }
+        .to-left-from-mobile-landscape          { float: left #{$important}; }
+        .to-right-from-mobile-landscape         { float: right #{$important}; }
     }
 
     @media #{$from-tablet-portrait} {

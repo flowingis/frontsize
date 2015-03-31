@@ -144,26 +144,26 @@ $important: _important();
         .text-right-till-tablet-portrait        { text-align: right #{$important}; }
     }
 
-    @media #{$till-smartphone-landscape} {
-        // Smartphone landscape
-        .text-left-till-smartphone-landscape        { text-align: left #{$important}; }
-        .text-center-till-smartphone-landscape      { text-align: center #{$important}; }
-        .text-right-till-smartphone-landscape       { text-align: right #{$important}; }
+    @media #{$till-mobile-landscape} {
+        // Mobile landscape
+        .text-left-till-mobile-landscape        { text-align: left #{$important}; }
+        .text-center-till-mobile-landscape      { text-align: center #{$important}; }
+        .text-right-till-mobile-landscape       { text-align: right #{$important}; }
     }
 
     // Media queries for selectors active from a specific resolution or higher
-    @media #{$from-smartphone-portrait} {
-        // Smartphone portrait
-        .text-center-from-smartphone-portrait   { text-align: center #{$important}; }
-        .text-left-from-smartphone-portrait     { text-align: left #{$important}; }
-        .text-right-from-smartphone-portrait    { text-align: right #{$important}; }
+    @media #{$from-mobile-portrait} {
+        // Mobile portrait
+        .text-center-from-mobile-portrait   { text-align: center #{$important}; }
+        .text-left-from-mobile-portrait     { text-align: left #{$important}; }
+        .text-right-from-mobile-portrait    { text-align: right #{$important}; }
     }
 
-    @media #{$from-smartphone-landscape} {
-        // Smartphone landscape
-        .text-center-from-smartphone-landscape      { text-align: center #{$important}; }
-        .text-left-from-smartphone-landscape        { text-align: left #{$important}; }
-        .text-right-from-smartphone-landscape       { text-align: right #{$important}; }
+    @media #{$from-mobile-landscape} {
+        // Mobile landscape
+        .text-center-from-mobile-landscape      { text-align: center #{$important}; }
+        .text-left-from-mobile-landscape        { text-align: left #{$important}; }
+        .text-right-from-mobile-landscape       { text-align: right #{$important}; }
     }
 
     @media #{$from-tablet-portrait} {

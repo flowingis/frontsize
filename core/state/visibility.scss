@@ -15,91 +15,91 @@ $important: _important();
     }
 
     @media #{$only-hd} {
-        //.only-on-hd               { display: none; }
-        .only-on-tablet             { display: none; }
-        .only-on-smartphone         { display: none; }
-        .not-on-hd                  { display: none; }
+        //.only-on-hd   { display: none; }
+        .only-on-tablet { display: none; }
+        .only-on-mobile { display: none; }
+        .not-on-hd      { display: none; }
     }
 
     @media #{$only-hd-full} {
         // Full HD
-        //.only-on-hd-full              { background-color:pink; }
-        .only-on-hd-ready               { display: none; }
-        .only-on-tablet-landscape       { display: none; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-hd-full                 { display: none; }
+        //.only-on-hd-full        { background-color:pink; }
+        .only-on-hd-ready         { display: none; }
+        .only-on-tablet-landscape { display: none; }
+        .only-on-tablet-portrait  { display: none; }
+        .only-on-mobile-landscape { display: none; }
+        .only-on-mobile-portrait  { display: none; }
+        .not-on-hd-full           { display: none; }
     }
 
     @media #{$only-hd-ready} {
         // HD Ready
-        .only-on-hd-full                { display: none; }
-        //.only-on-hd-ready             { background-color:aqua; }
-        .only-on-tablet-landscape       { display: none; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-hd-ready                { display: none; }
+        .only-on-hd-full          { display: none; }
+        //.only-on-hd-ready       { background-color:aqua; }
+        .only-on-tablet-landscape { display: none; }
+        .only-on-tablet-portrait  { display: none; }
+        .only-on-mobile-landscape { display: none; }
+        .only-on-mobile-portrait  { display: none; }
+        .not-on-hd-ready          { display: none; }
     }
 
     @media #{$only-tablet} {
-        .only-on-hd                 { display:none; }
-        //.only-on-tablet           { display:none; }
-        .only-on-smartphone         { display:none; }
-        .not-on-tablet              { display: none; }
+        .only-on-hd       { display:none; }
+        //.only-on-tablet { display:none; }
+        .only-on-mobile   { display:none; }
+        .not-on-tablet    { display: none; }
     }
 
     @media #{$only-tablet-landscape} {
         // Tablet landscape
-        .only-on-hd-full                { display: none; }
-        .only-on-hd-ready               { display: none; }
-        //.only-on-tablet-landscape     { background-color:yellow; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-tablet                  { display: none; }
-        .not-on-tablet-landscape        { display: none; }
+        .only-on-hd-full            { display: none; }
+        .only-on-hd-ready           { display: none; }
+        //.only-on-tablet-landscape { background-color:yellow; }
+        .only-on-tablet-portrait    { display: none; }
+        .only-on-mobile-landscape   { display: none; }
+        .only-on-mobile-portrait    { display: none; }
+        .not-on-tablet              { display: none; }
+        .not-on-tablet-landscape    { display: none; }
     }
 
     @media #{$only-tablet-portrait} {
         // Tablet portrait
-        .only-on-hd-full                { display: none; }
-        .only-on-hd-ready               { display: none; }
-        .only-on-tablet-landscape       { display: none; }
-        //.only-on-tablet-portrait      { background-color: orange; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-tablet-portrait         { display: none; }
+        .only-on-hd-full           { display: none; }
+        .only-on-hd-ready          { display: none; }
+        .only-on-tablet-landscape  { display: none; }
+        //.only-on-tablet-portrait { background-color: orange; }
+        .only-on-mobile-landscape  { display: none; }
+        .only-on-mobile-portrait   { display: none; }
+        .not-on-tablet-portrait    { display: none; }
     }
 
-    @media #{$only-smartphone} {
-        .only-on-hd                 { display:none; }
-        .only-on-tablet             { display:none; }
-        //.only-on-smartphone       { display:none; }
-        .not-on-smartphone          { display: none; }
+    @media #{$only-mobile} {
+        .only-on-hd       { display:none; }
+        .only-on-tablet   { display:none; }
+        //.only-on-mobile { display:none; }
+        .not-on-mobile    { display: none; }
     }
 
-    @media #{$only-smartphone-landscape} {
-        // Smartphone landscape
-        .only-on-hd-full                {display:none;}
-        .only-on-hd-ready               {display:none;}
-        .only-on-tablet-landscape       {display:none;}
-        .only-on-tablet-portrait        {display:none;}
-        //.only-on-smartphone-landscape {background-color:lightgrey; padding:.25em;}
-        .only-on-smartphone-portrait    {display:none;}
-        .not-on-smartphone-landscape    {display:none;}
+    @media #{$only-mobile-landscape} {
+        // Mobile landscape
+        .only-on-hd-full            {display:none;}
+        .only-on-hd-ready           {display:none;}
+        .only-on-tablet-landscape   {display:none;}
+        .only-on-tablet-portrait    {display:none;}
+        //.only-on-mobile-landscape {background-color:lightgrey; padding:.25em;}
+        .only-on-mobile-portrait    {display:none;}
+        .not-on-mobile-landscape    {display:none;}
     }
 
-    @media #{$only-smartphone-portrait} {
-        // Smartphone portrait
-        .only-on-hd-full                {display:none;}
-        .only-on-hd-ready               {display:none;}
-        .only-on-tablet-landscape       {display:none;}
-        .only-on-tablet-portrait        {display:none;}
-        .only-on-smartphone-landscape   {display:none;}
-        //.only-on-smartphone-portrait  {background-color:lightblue; padding:.25em;}
-        .not-on-smartphone-portrait     {display:none;}
+    @media #{$only-mobile-portrait} {
+        // Mobile portrait
+        .only-on-hd-full           {display:none;}
+        .only-on-hd-ready          {display:none;}
+        .only-on-tablet-landscape  {display:none;}
+        .only-on-tablet-portrait   {display:none;}
+        .only-on-mobile-landscape  {display:none;}
+        //.only-on-mobile-portrait {background-color:lightblue; padding:.25em;}
+        .not-on-mobile-portrait    {display:none;}
     }
 
     // Media queries for selectors active from smaller resolution device mobile to a specific one
@@ -123,20 +123,20 @@ $important: _important();
         .not-till-tablet-portrait { display: none #{$important}; }
     }
 
-    @media #{$till-smartphone-landscape} {
-        // Smartphone landscape
-        .not-till-smartphone-landscape { display: none #{$important}; }
+    @media #{$till-mobile-landscape} {
+        // Mobile landscape
+        .not-till-mobile-landscape { display: none #{$important}; }
     }
 
     // Media queries for selectors active from a specific resolution or higher
-    @media #{$from-smartphone-portrait} {
-        // Smartphone portrait
-        .not-from-smartphone-portrait { display:none #{$important}; }
+    @media #{$from-mobile-portrait} {
+        // Mobile portrait
+        .not-from-mobile-portrait { display:none #{$important}; }
     }
 
-    @media #{$from-smartphone-landscape} {
-        // Smartphone landscape
-        .not-from-smartphone-landscape { display:none #{$important}; }
+    @media #{$from-mobile-landscape} {
+        // Mobile landscape
+        .not-from-mobile-landscape { display:none #{$important}; }
     }
 
     @media #{$from-tablet-portrait} {

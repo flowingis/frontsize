@@ -40,24 +40,24 @@ $state-faded-opacity    : 0.5;
 $state-disabled-opacity : 0.5;
 $state-table-padding    : round($spacing / 2);
 
-// set different width for the smartphones, tablets and hd resolutions
-$smartphone-portrait-step  : 320px;  // smartphones portrait  320~380
-$smartphone-landscape-step : 480px;  // smartphones landscape 480~568~685
-$tablet-portrait-step      : 768px;  // tablet portrait       768
-$tablet-landscape-step     : 1024px; // tablet landscape      1024
-$hd-ready-step             : 1280px; // HD Ready              1280 (720p)
-$hd-full-step              : 1800px; // Full HD               1920 (1080p)
+// set different width for the mobile, tablets and hd resolutions
+$mobile-portrait-step  : 320px;  // mobile portrait  320~380
+$mobile-landscape-step : 480px;  // mobile landscape 480~568~685
+$tablet-portrait-step  : 768px;  // tablet portrait       768
+$tablet-landscape-step : 1024px; // tablet landscape      1024
+$hd-ready-step         : 1280px; // HD Ready              1280 (720p)
+$hd-full-step          : 1800px; // Full HD               1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
-$use-viewport-states:      true;
-$use-smartphone-portrait:  true;
-$use-smartphone-landscape: true;
-$use-tablet-portrait:      true;
-$use-tablet-landscape:     true;
-$use-hd-ready:             true;
-$use-hd-full:              true;
-$use-viewport-states:      true;
-$use-print-viewport:       false;
+$use-viewport-states  : true;
+$use-mobile-portrait  : true;
+$use-mobile-landscape : true;
+$use-tablet-portrait  : true;
+$use-tablet-landscape : true;
+$use-hd-ready         : true;
+$use-hd-full          : true;
+$use-viewport-states  : true;
+$use-print-viewport   : false;
 
 $use-state-margin      : false;
 $use-state-padding     : false;

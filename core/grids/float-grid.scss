@@ -7,8 +7,8 @@
 /// @param {int}    $hdReadySteps             [$hdFullSteps]          - Number of columns per row on HD Ready
 /// @param {int}    $tabletLandscapeSteps     [$hdReadySteps]         - Number of columns per row on Tablet landscape
 /// @param {int}    $tabletPortraitSteps      [$tabletLandscapeSteps] - Number of columns per row on Tablet portrait
-/// @param {int}    $smartphoneLandscapeSteps [1]                     - Number of columns per row on Smartphone landscape
-/// @param {int}    $smartphonePortraitSteps  [1]                     - Number of columns per row on Smartphone portrait
+/// @param {int}    $mobileLandscapeSteps [1]                     - Number of columns per row on mobile landscape
+/// @param {int}    $mobilePortraitSteps  [1]                     - Number of columns per row on mobile portrait
 /// @example scss Default usage, it generates a `row` selector rule which will NOT treat child elements as columns
 ///   @include addFloatGridContainer();
 /// @example css CSS generated
@@ -110,13 +110,13 @@
 
 
 @mixin addFloatGridContainer(
-    $selector                 : row,
-    $hdFullSteps              : 0,
-    $hdReadySteps             : $hdFullSteps,
-    $tabletLandscapeSteps     : $hdReadySteps,
-    $tabletPortraitSteps      : $tabletLandscapeSteps,
-    $smartphoneLandscapeSteps : 1,
-    $smartphonePortraitSteps  : 1
+    $selector             : row,
+    $hdFullSteps          : 0,
+    $hdReadySteps         : $hdFullSteps,
+    $tabletLandscapeSteps : $hdReadySteps,
+    $tabletPortraitSteps  : $tabletLandscapeSteps,
+    $mobileLandscapeSteps : 1,
+    $mobilePortraitSteps  : 1
     ) {
 
     .#{$selector},
@@ -129,25 +129,25 @@
         overflow:auto;
         clear:both;
     }
-    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector);
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps, $selector);
 }
 
 /// Generates a columns set for the float grid
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
 /// @group Grinds - Float grid
 /// @access public
-/// @param {int}     $hdSteps                  [12]                  - Column steps for HD viewports
-/// @param {int}     $tabletSteps              [$hdSteps]            - Column steps for Tablet viewports
-/// @param {int}     $smartphoneSteps          [$tabletSteps]        - Column steps for Mobile viewports
-/// @param {string}  $hdViewportPrefix         ["hd-"]               - Columns rule HD viewport prefix
-/// @param {string}  $tabletViewportPrefix     ["tablet-"]           - Columns rule Tablet viewport prefix
-/// @param {string}  $smartphoneViewportPrefix ["mobile-"]           - Columns rule Mobile viewport prefix
-/// @param {string}  $fillFromViewport         ["mobile-landscape"]  - The viewport step where columns will be set to `width:100%`
-/// @param {boolean} $viewTotalColumns         [true]                - Choose to see or not to see total columns at the end of the rule name
-/// @param {int}     $columnsSeparator         ["-of-"]              - Columns separator, only applied if `$viewTotalColumns` is `true`
-/// @param {int}     $useHdRules               [true]                - Enables HD viewports to be generated
-/// @param {int}     $useTabletRules           [true]                - Enables Tablet viewports to be generated
-/// @param {int}     $useSmartphoneRules       [true]                - Enables Mobile viewports to be generated
+/// @param {int}     $hdSteps              [12]                  - Column steps for HD viewports
+/// @param {int}     $tabletSteps          [$hdSteps]            - Column steps for Tablet viewports
+/// @param {int}     $mobileSteps          [$tabletSteps]        - Column steps for Mobile viewports
+/// @param {string}  $hdViewportPrefix     ["hd-"]               - Columns rule HD viewport prefix
+/// @param {string}  $tabletViewportPrefix ["tablet-"]           - Columns rule Tablet viewport prefix
+/// @param {string}  $mobileViewportPrefix ["mobile-"]           - Columns rule Mobile viewport prefix
+/// @param {string}  $fillFromViewport     ["mobile-landscape"]  - The viewport step where columns will be set to `width:100%`
+/// @param {boolean} $viewTotalColumns     [true]                - Choose to see or not to see total columns at the end of the rule name
+/// @param {int}     $columnsSeparator     ["-of-"]              - Columns separator, only applied if `$viewTotalColumns` is `true`
+/// @param {int}     $useHdRules           [true]                - Enables HD viewports to be generated
+/// @param {int}     $useTabletRules       [true]                - Enables Tablet viewports to be generated
+/// @param {int}     $usemobileRules       [true]                - Enables Mobile viewports to be generated
 /// @example scss Default usage, it generates a 4 column set for every viewport
 ///   @include addFloatGridColumns(4);
 /// @example css A simple 4 column set
@@ -729,36 +729,36 @@
 ///   }
 /// }
 
-@mixin addFloatGridColumns($hdSteps:12, $tabletSteps:$hdSteps, $smartphoneSteps:$tabletSteps, $hdViewportPrefix:"hd-", $tabletViewportPrefix:"tablet-", $smartphoneViewportPrefix:"mobile-", $fillFromViewport:"mobile-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-", $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
+@mixin addFloatGridColumns($hdSteps:12, $tabletSteps:$hdSteps, $mobileSteps:$tabletSteps, $hdViewportPrefix:"hd-", $tabletViewportPrefix:"tablet-", $mobileViewportPrefix:"mobile-", $fillFromViewport:"mobile-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-", $useHdRules:true, $useTabletRules:true, $usemobileRules:true) {
 
-    @media #{$from-smartphone-portrait} {
-        // Smartphone portrait
+    @media #{$from-mobile-portrait} {
+        // mobile portrait
         @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
-        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
     }
 
     @media #{$from-tablet-portrait} {
         // Tablet portrait
-        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
     }
 
     @media #{$from-hd-ready} {
         // HD Ready
-        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
     }
 
-    @include _addClearRule($only-smartphone, $smartphoneViewportPrefix);
+    @include _addClearRule($only-mobile, $mobileViewportPrefix);
     @include _addClearRule($only-tablet, $tabletViewportPrefix);
     @include _addClearRule($only-hd, $hdViewportPrefix);
 
     @include _addFillToColumnSet($tabletViewportPrefix, $tabletSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
     @include _addFillToColumnSet($hdViewportPrefix, $hdSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
-    @include _preventSmartphoneColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+    @include _preventMobileColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
 }
 
 @mixin _addClearRule($rule, $prefix) {
@@ -777,8 +777,8 @@
 /// @param {int} $hdReadySteps             [$hdFullSteps]          - Column steps for Tablet viewports
 /// @param {int} $tabletLandscapeSteps     [$hdReadySteps]         - Column steps for Mobile viewports
 /// @param {int} $tabletPortraitSteps      [$tabletLandscapeSteps] - Columns rule HD viewport prefix
-/// @param {int} $smartphoneLandscapeSteps [1]                     - Columns rule Tablet viewport prefix
-/// @param {int} $smartphonePortraitSteps  [1]                     - Columns rule Mobile viewport prefix
+/// @param {int} $mobileLandscapeSteps [1]                     - Columns rule Tablet viewport prefix
+/// @param {int} $mobilePortraitSteps  [1]                     - Columns rule Mobile viewport prefix
 
 
 @mixin setFloatGridContainer(
@@ -786,8 +786,8 @@
     $hdReadySteps             : $hdFullSteps,
     $tabletLandscapeSteps     : $hdReadySteps,
     $tabletPortraitSteps      : $tabletLandscapeSteps,
-    $smartphoneLandscapeSteps : 1,
-    $smartphonePortraitSteps  : 1
+    $mobileLandscapeSteps : 1,
+    $mobilePortraitSteps  : 1
     ) {
 
     padding-top : $vertical-padding;
@@ -801,7 +801,7 @@
         @include box-sizing(border-box);
     }
 
-    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps);
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps);
 }
 
 @mixin setFloatGridColumn(
@@ -830,12 +830,12 @@
     width: 100%;
     @include _setColumnBehavior(true, left, true, $usePadding);
 
-    @include _setFloatGridColumn($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
-    @include _setFloatGridColumn($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
-    @include _setFloatGridColumn($from-tablet-portrait,      $tabletPortraitStep,  $totalSteps);
-    @include _setFloatGridColumn($from-tablet-landscape,     $tabletLandscapeStep, $totalSteps);
-    @include _setFloatGridColumn($from-hd-ready,             $hdReadyStep,         $totalSteps);
-    @include _setFloatGridColumn($from-hd-full,              $hdFullStep,          $totalSteps);
+    @include _setFloatGridColumn($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-tablet-portrait,  $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-tablet-landscape, $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-hd-ready,         $hdReadyStep,         $totalSteps);
+    @include _setFloatGridColumn($from-hd-full,          $hdFullStep,          $totalSteps);
 }
 
 @mixin _setFloatGridColumn($rule, $step, $totalColumns) {
@@ -858,12 +858,12 @@
 
     margin-left: 0;
 
-    @include _setFloatGridOffset($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
-    @include _setFloatGridOffset($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
-    @include _setFloatGridOffset($from-tablet-portrait,      $tabletPortraitStep,  $totalSteps);
-    @include _setFloatGridOffset($from-tablet-landscape,     $tabletLandscapeStep, $totalSteps);
-    @include _setFloatGridOffset($from-hd-ready,             $hdReadyStep,         $totalSteps);
-    @include _setFloatGridOffset($from-hd-full,              $hdFullStep,          $totalSteps);
+    @include _setFloatGridOffset($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-tablet-portrait,  $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-tablet-landscape, $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-hd-ready,         $hdReadyStep,         $totalSteps);
+    @include _setFloatGridOffset($from-hd-full,          $hdFullStep,          $totalSteps);
 }
 
 @mixin _setFloatGridOffset($rule, $step, $totalColumns) {
@@ -875,41 +875,41 @@
 }
 
 @mixin addFloatGridOffset(
-    $hdSteps                  : 12,
-    $tabletSteps              : $hdSteps,
-    $smartphoneSteps          : $tabletSteps,
-    $hdViewportPrefix         : "hd-offset-",
-    $tabletViewportPrefix     : "tablet-offset-",
-    $smartphoneViewportPrefix : "smartphone-offset-",
-    $fillFromViewport         : "smartphone-landscape",
-    $viewTotalColumns         : true,
-    $columnsSeparator         : "-of-",
-    $useHdRules               : true,
-    $useTabletRules           : true,
-    $useSmartphoneRules       : true
+    $hdSteps              : 12,
+    $tabletSteps          : $hdSteps,
+    $mobileSteps          : $tabletSteps,
+    $hdViewportPrefix     : "hd-offset-",
+    $tabletViewportPrefix : "tablet-offset-",
+    $mobileViewportPrefix : "mobile-offset-",
+    $fillFromViewport     : "mobile-landscape",
+    $viewTotalColumns     : true,
+    $columnsSeparator     : "-of-",
+    $useHdRules           : true,
+    $useTabletRules       : true,
+    $useMobileRules       : true
     ) {
 
-    @media #{$from-smartphone-portrait} {
-        // Smartphone portrait
+    @media #{$from-mobile-portrait} {
+        // mobile portrait
         @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
         @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
-        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
 
-        .#{$smartphoneViewportPrefix}disabled {
+        .#{$mobileViewportPrefix}disabled {
             margin-left: 0;
         }
     }
 
     @media #{$from-tablet-portrait} {
         // Tablet portrait
-        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
         @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
         @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
     }
 
     @media #{$from-hd-ready} {
         // HD Ready
-        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
         @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
         @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
     }
@@ -932,8 +932,8 @@
     $hdReadySteps,
     $tabletLandscapeSteps,
     $tabletPortraitSteps,
-    $smartphoneLandscapeSteps,
-    $smartphonePortraitSteps,
+    $mobileLandscapeSteps,
+    $mobilePortraitSteps,
     $selector:false
     ){
     @if $hdFullSteps > 0 {
@@ -952,12 +952,12 @@
                 @include _setFloatGridColumnStep(1, $hdFullSteps);
             }
         }
-        @include _checkAutoClearViewport($only-smartphone-portrait,  $smartphonePortraitSteps,  $selector);
-        @include _checkAutoClearViewport($only-smartphone-landscape, $smartphoneLandscapeSteps, $selector);
-        @include _checkAutoClearViewport($only-tablet-portrait,      $tabletPortraitSteps,      $selector);
-        @include _checkAutoClearViewport($only-tablet-landscape,     $tabletLandscapeSteps,     $selector);
-        @include _checkAutoClearViewport($only-hd-ready,             $hdReadySteps,             $selector);
-        @include _checkAutoClearViewport($only-hd-full,              $hdFullSteps,              $selector);
+        @include _checkAutoClearViewport($only-mobile-portrait,  $mobilePortraitSteps,  $selector);
+        @include _checkAutoClearViewport($only-mobile-landscape, $mobileLandscapeSteps, $selector);
+        @include _checkAutoClearViewport($only-tablet-portrait,  $tabletPortraitSteps,  $selector);
+        @include _checkAutoClearViewport($only-tablet-landscape, $tabletLandscapeSteps, $selector);
+        @include _checkAutoClearViewport($only-hd-ready,         $hdReadySteps,         $selector);
+        @include _checkAutoClearViewport($only-hd-full,          $hdFullSteps,          $selector);
     }
 }
 
@@ -980,17 +980,17 @@
     @include _loopFloatGridColumnSet($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
 }
 
-@mixin _addFillToColumnSet($prefix, $totalSteps, $fillViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-") {
+@mixin _addFillToColumnSet($prefix, $totalSteps, $fillViewport:"mobile-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-") {
     $startIndex : $totalSteps;
     @include _loopFloatGridColumnSetFill($prefix, $totalSteps, $fillViewport, $startIndex, $viewTotalColumns, $columnsSeparator);
 }
 
-@mixin _preventSmartphoneColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
-    @if $use-smartphone-landscape == true {
+@mixin _preventMobileColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    @if $use-mobile-landscape == true {
         $startIndex : $totalSteps;
         @media #{$till-tablet-portrait} {
-            // Smartphone landscape
-            @include _loopSmartphoneColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+            // mobile landscape
+            @include _loopMobileColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
         }
     }
 }
@@ -1112,7 +1112,7 @@
     margin-left:((100% * $step)/$columns);
 }
 
-@mixin _loopSmartphoneColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
+@mixin _loopMobileColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
     @while $index >= 0{
          @if $index > 0 and $viewTotalColumns == true {
             .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
@@ -1169,7 +1169,7 @@
             }
 
             @if $index == 0 and $fill == "mobile-portrait" {
-                @media #{$till-smartphone-landscape} {
+                @media #{$till-mobile-landscape} {
                     // Tablet landscape
                     #{$nextRule} {
                         width: 100%;
@@ -1219,7 +1219,7 @@
             }
 
             @if $index == 0 and $fill == "mobile-portrait" {
-                @media #{$till-smartphone-landscape} {
+                @media #{$till-mobile-landscape} {
                     // Tablet landscape
                     #{$nextRule} {
                         width: 100%;

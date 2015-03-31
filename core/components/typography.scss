@@ -1,19 +1,19 @@
 @mixin setLineHeightScaling(
-    $selector               : body,
-    $hdFull                 : $font-line-height,
-    $hdReady                : $font-line-height,
-    $tabletLandscape        : $font-line-height,
-    $tabletPortrait         : $font-line-height,
-    $smartphoneLandscape    : $font-line-height,
-    $smartphonePortrait     : $font-line-height
+    $selector        : body,
+    $hdFull          : $font-line-height,
+    $hdReady         : $font-line-height,
+    $tabletLandscape : $font-line-height,
+    $tabletPortrait  : $font-line-height,
+    $mobileLandscape : $font-line-height,
+    $mobilePortrait  : $font-line-height
     ) {
 
-    @include _setLineHeightScaling($from-smartphone-portrait,  $selector, $smartphonePortrait,  $use-smartphone-portrait);
-    @include _setLineHeightScaling($from-smartphone-landscape, $selector, $smartphoneLandscape, $use-smartphone-landscape);
-    @include _setLineHeightScaling($from-tablet-portrait,      $selector, $tabletPortrait,      $use-tablet-portrait);
-    @include _setLineHeightScaling($from-tablet-landscape,     $selector, $tabletLandscape,     $use-tablet-landscape);
-    @include _setLineHeightScaling($from-hd-ready,             $selector, $hdReady,             $use-hd-ready);
-    @include _setLineHeightScaling($from-hd-full,              $selector, $hdFull,              $use-hd-full);
+    @include _setLineHeightScaling($from-mobile-portrait,  $selector, $mobilePortrait,  $use-mobile-portrait);
+    @include _setLineHeightScaling($from-mobile-landscape, $selector, $mobileLandscape, $use-mobile-landscape);
+    @include _setLineHeightScaling($from-tablet-portrait,  $selector, $tabletPortrait,      $use-tablet-portrait);
+    @include _setLineHeightScaling($from-tablet-landscape, $selector, $tabletLandscape,     $use-tablet-landscape);
+    @include _setLineHeightScaling($from-hd-ready,         $selector, $hdReady,             $use-hd-ready);
+    @include _setLineHeightScaling($from-hd-full,          $selector, $hdFull,              $use-hd-full);
 }
 
 @mixin _setLineHeightScaling($viewport, $selector, $lineHeight, $viewportEnabled) {
@@ -26,13 +26,13 @@
     }
 }
 
-@mixin setFontScaling($selector, $hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $smartphoneLandscape:$font-size, $smartphonePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
-    @include _setFontScaling($from-smartphone-portrait,  $selector, $smartphonePortrait,  $use-smartphone-portrait);
-    @include _setFontScaling($from-smartphone-landscape, $selector, $smartphoneLandscape, $use-smartphone-landscape);
-    @include _setFontScaling($from-tablet-portrait,      $selector, $tabletPortrait,      $use-tablet-portrait);
-    @include _setFontScaling($from-tablet-landscape,     $selector, $tabletLandscape,     $use-tablet-landscape);
-    @include _setFontScaling($from-hd-ready,             $selector, $hdReady,             $use-hd-ready);
-    @include _setFontScaling($from-hd-full,              $selector, $hdFull,              $use-hd-full);
+@mixin setFontScaling($selector, $hdFull:($font-size + ($font-size/2)), $hdReady:($font-size + ($font-size/4)), $tabletLandscape:$font-size, $tabletPortrait:$font-size, $mobileLandscape:$font-size, $mobilePortrait:$font-size, $lineHeightMultiplier:$font-line-height) {
+    @include _setFontScaling($from-mobile-portrait,  $selector, $mobilePortrait,  $use-mobile-portrait);
+    @include _setFontScaling($from-mobile-landscape, $selector, $mobileLandscape, $use-mobile-landscape);
+    @include _setFontScaling($from-tablet-portrait,  $selector, $tabletPortrait,      $use-tablet-portrait);
+    @include _setFontScaling($from-tablet-landscape, $selector, $tabletLandscape,     $use-tablet-landscape);
+    @include _setFontScaling($from-hd-ready,         $selector, $hdReady,             $use-hd-ready);
+    @include _setFontScaling($from-hd-full,          $selector, $hdFull,              $use-hd-full);
 }
 
 @mixin _setFontScaling($viewport, $selector, $fontSize, $viewportEnabled) {
@@ -47,19 +47,19 @@
 
 
 @mixin addMultipleFontsRule(
-    $selector             : with-small-fonts,
-    $fontFamilyHd         : $font-small,
-    $fontSizeHd           : 14px,
-    $fontFamilyTablet     : $font-small,
-    $fontSizeTablet       : 14px,
-    $fontFamilySmartphone : $font-small,
-    $fontSizeSmartphone   : 12px,
-    $antialias            : subpixel-antialiased
+    $selector         : with-small-fonts,
+    $fontFamilyHd     : $font-small,
+    $fontSizeHd       : 14px,
+    $fontFamilyTablet : $font-small,
+    $fontSizeTablet   : 14px,
+    $fontFamilyMobile : $font-small,
+    $fontSizeMobile   : 12px,
+    $antialias        : subpixel-antialiased
     ) {
 
-    @include _addMultipleFontsRule($from-smartphone-portrait, $selector, $fontFamilySmartphone, $fontSizeSmartphone, $use-smartphone-portrait);
-    @include _addMultipleFontsRule($from-tablet-portrait,     $selector, $fontFamilyTablet,     $fontSizeTablet,     $use-tablet-portrait);
-    @include _addMultipleFontsRule($from-hd-ready,            $selector, $fontFamilyHd,         $fontSizeHd,         $use-hd-ready);
+    @include _addMultipleFontsRule($from-mobile-portrait, $selector, $fontFamilyMobile, $fontSizeMobile, $use-mobile-portrait);
+    @include _addMultipleFontsRule($from-tablet-portrait, $selector, $fontFamilyTablet,     $fontSizeTablet,     $use-tablet-portrait);
+    @include _addMultipleFontsRule($from-hd-ready,        $selector, $fontFamilyHd,         $fontSizeHd,         $use-hd-ready);
     @include font-smoothing($antialias);
 }
 
@@ -76,21 +76,21 @@
 
 
 @mixin setHeadingFont(
-    $hdFullMultiplier              : 1.5,
-    $hdReadyMultiplier             : 1.25,
-    $tabletLandscapeMultiplier     : 1,
-    $tabletPortraitMultiplier      : 1,
-    $smartphoneLandscapeMultiplier : 1,
-    $smartphonePortraitMultiplier  : 1,
-    $marginBottom                  : (#{$spacing / 4}#{"px"})
+    $hdFullMultiplier          : 1.5,
+    $hdReadyMultiplier         : 1.25,
+    $tabletLandscapeMultiplier : 1,
+    $tabletPortraitMultiplier  : 1,
+    $mobileLandscapeMultiplier : 1,
+    $mobilePortraitMultiplier  : 1,
+    $marginBottom              : (#{$spacing / 4}#{"px"})
     ) {
 
-    @include _setHeadingFont($from-smartphone-portrait,  $smartphonePortraitMultiplier,  $marginBottom, $use-smartphone-portrait);
-    @include _setHeadingFont($from-smartphone-landscape, $smartphoneLandscapeMultiplier, $marginBottom, $use-smartphone-landscape);
-    @include _setHeadingFont($from-tablet-portrait,      $tabletPortraitMultiplier,      $marginBottom, $use-tablet-portrait);
-    @include _setHeadingFont($from-tablet-landscape,     $tabletLandscapeMultiplier,     $marginBottom, $use-tablet-landscape);
-    @include _setHeadingFont($from-hd-ready,             $hdReadyMultiplier,             $marginBottom, $use-hd-ready);
-    @include _setHeadingFont($from-hd-full,              $hdFullMultiplier,              $marginBottom, $use-hd-full);
+    @include _setHeadingFont($from-mobile-portrait,  $mobilePortraitMultiplier,  $marginBottom, $use-mobile-portrait);
+    @include _setHeadingFont($from-mobile-landscape, $mobileLandscapeMultiplier, $marginBottom, $use-mobile-landscape);
+    @include _setHeadingFont($from-tablet-portrait,  $tabletPortraitMultiplier,  $marginBottom, $use-tablet-portrait);
+    @include _setHeadingFont($from-tablet-landscape, $tabletLandscapeMultiplier, $marginBottom, $use-tablet-landscape);
+    @include _setHeadingFont($from-hd-ready,         $hdReadyMultiplier,         $marginBottom, $use-hd-ready);
+    @include _setHeadingFont($from-hd-full,          $hdFullMultiplier,          $marginBottom, $use-hd-full);
 }
 
 @mixin _setHeadingFont($viewport, $multiplier, $margin, $viewportEnabled) {
@@ -122,16 +122,16 @@
 }
 
 @mixin addFontRule(
-    $selector                    ,
-    $fontFamily                  : $font-default,
-    $hdFullFontSize              : $font-size,
-    $hdReadyFontSize             : $hdFullFontSize,
-    $tabletLandscapeFontSize     : $hdReadyFontSize,
-    $tabletPortraitFontSize      : $tabletLandscapeFontSize,
-    $smartphoneLandscapeFontSize : $tabletPortraitFontSize,
-    $smartphonePortraitFontSize  : $smartphoneLandscapeFontSize,
-    $lineHeightMultiplier        : false,
-    $antialias                   : false
+    $selector                ,
+    $fontFamily              : $font-default,
+    $hdFullFontSize          : $font-size,
+    $hdReadyFontSize         : $hdFullFontSize,
+    $tabletLandscapeFontSize : $hdReadyFontSize,
+    $tabletPortraitFontSize  : $tabletLandscapeFontSize,
+    $mobileLandscapeFontSize : $tabletPortraitFontSize,
+    $mobilePortraitFontSize  : $mobileLandscapeFontSize,
+    $lineHeightMultiplier    : false,
+    $antialias               : false
     ) {
     // Media queries for selectors active from the smaller resolution to a specific one
     .#{$selector} {
@@ -140,12 +140,12 @@
         @include font-smoothing($antialias);
     }
 
-    @include _addFontRule($from-hd-full,              $selector, $hdFullFontSize,              $use-hd-full);
-    @include _addFontRule($till-hd-full,              $selector, $hdReadyFontSize,             $use-hd-ready);
-    @include _addFontRule($till-hd-ready,             $selector, $tabletLandscapeFontSize,     $use-tablet-landscape);
-    @include _addFontRule($till-tablet-landscape,     $selector, $tabletPortraitFontSize,      $use-tablet-portrait);
-    @include _addFontRule($till-tablet-portrait,      $selector, $smartphoneLandscapeFontSize, $use-smartphone-landscape);
-    @include _addFontRule($till-smartphone-landscape, $selector, $smartphonePortraitFontSize,  $use-smartphone-portrait);
+    @include _addFontRule($from-hd-full,          $selector, $hdFullFontSize,          $use-hd-full);
+    @include _addFontRule($till-hd-full,          $selector, $hdReadyFontSize,         $use-hd-ready);
+    @include _addFontRule($till-hd-ready,         $selector, $tabletLandscapeFontSize, $use-tablet-landscape);
+    @include _addFontRule($till-tablet-landscape, $selector, $tabletPortraitFontSize,  $use-tablet-portrait);
+    @include _addFontRule($till-tablet-portrait,  $selector, $mobileLandscapeFontSize, $use-mobile-landscape);
+    @include _addFontRule($till-mobile-landscape, $selector, $mobilePortraitFontSize,  $use-mobile-portrait);
 }
 
 @mixin _addFontRule($viewport, $selector, $fontSize, $viewportEnabled) {
@@ -159,24 +159,24 @@
 }
 
 @mixin setViewportsFontSize(
-    $hdFullFontSize              : 16px,
-    $hdReadyFontSize             : 16px,
-    $tabletLandscapeFontSize     : 16px,
-    $tabletPortraitFontSize      : 16px,
-    $smartphoneLandscapeFontSize : 16px,
-    $smartphonePortraitFontSize  : 16px,
-    $lineHeightMultiplier        : $font-line-height,
-    $useImportant                : true
+    $hdFullFontSize          : 16px,
+    $hdReadyFontSize         : 16px,
+    $tabletLandscapeFontSize : 16px,
+    $tabletPortraitFontSize  : 16px,
+    $mobileLandscapeFontSize : 16px,
+    $mobilePortraitFontSize  : 16px,
+    $lineHeightMultiplier    : $font-line-height,
+    $useImportant            : true
     ) {
 
     line-height : $lineHeightMultiplier;
 
-    @include _setViewportsFontSize($from-hd-full,              $hdFullFontSize,              $useImportant, $use-hd-full);
-    @include _setViewportsFontSize($till-hd-full,              $hdReadyFontSize,             $useImportant, $use-hd-ready);
-    @include _setViewportsFontSize($till-hd-ready,             $tabletLandscapeFontSize,     $useImportant, $use-tablet-landscape);
-    @include _setViewportsFontSize($till-tablet-landscape,     $tabletPortraitFontSize,      $useImportant, $use-tablet-portrait);
-    @include _setViewportsFontSize($till-tablet-portrait,      $smartphoneLandscapeFontSize, $useImportant, $use-smartphone-landscape);
-    @include _setViewportsFontSize($till-smartphone-landscape, $smartphonePortraitFontSize,  $useImportant, $use-smartphone-portrait);
+    @include _setViewportsFontSize($from-hd-full,          $hdFullFontSize,          $useImportant, $use-hd-full);
+    @include _setViewportsFontSize($till-hd-full,          $hdReadyFontSize,         $useImportant, $use-hd-ready);
+    @include _setViewportsFontSize($till-hd-ready,         $tabletLandscapeFontSize, $useImportant, $use-tablet-landscape);
+    @include _setViewportsFontSize($till-tablet-landscape, $tabletPortraitFontSize,  $useImportant, $use-tablet-portrait);
+    @include _setViewportsFontSize($till-tablet-portrait,  $mobileLandscapeFontSize, $useImportant, $use-mobile-landscape);
+    @include _setViewportsFontSize($till-mobile-landscape, $mobilePortraitFontSize,  $useImportant, $use-mobile-portrait);
 
 }
 

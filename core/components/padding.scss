@@ -4,19 +4,19 @@
     $hdReadyPadding:5em,
     $tabletLandscapePadding:4em,
     $tabletPortraitPadding:3em,
-    $smartphoneLandscapePadding:2em,
-    $smartphonePortraitPadding:1em) {
+    $mobileLandscapePadding:2em,
+    $mobilePortraitPadding:1em) {
 
-    @include _addPaddingRule($from-smartphone-portrait,  $selector, $smartphonePortraitPadding);
-    @include _addPaddingRule($from-smartphone-landscape, $selector, $smartphoneLandscapePadding);
-    @include _addPaddingRule($from-tablet-portrait,      $selector, $tabletPortraitPadding);
-    @include _addPaddingRule($from-tablet-landscape,     $selector, $tabletLandscapePadding);
-    @include _addPaddingRule($from-hd-ready,             $selector, $hdReadyPadding);
-    @include _addPaddingRule($from-hd-full,              $selector, $hdFullPadding);
+    @include _addPaddingRule($from-mobile-portrait,  $selector, $mobilePortraitPadding);
+    @include _addPaddingRule($from-mobile-landscape, $selector, $mobileLandscapePadding);
+    @include _addPaddingRule($from-tablet-portrait,  $selector, $tabletPortraitPadding);
+    @include _addPaddingRule($from-tablet-landscape, $selector, $tabletLandscapePadding);
+    @include _addPaddingRule($from-hd-ready,         $selector, $hdReadyPadding);
+    @include _addPaddingRule($from-hd-full,          $selector, $hdFullPadding);
 }
 
 @mixin _addPaddingRule($viewport, $selector, $padding) {
-    @if $use-smartphone-portrait == true {
+    @if $use-mobile-portrait == true {
         @media #{$viewport} {
             .#{$selector} {
                 padding : $padding;
@@ -30,11 +30,11 @@
     $hdReadyPadding:5em,
     $tabletLandscapePadding:4em,
     $tabletPortraitPadding:3em,
-    $smartphoneLandscapePadding:2em,
-    $smartphonePortraitPadding:1em) {
+    $mobileLandscapePadding:2em,
+    $mobilePortraitPadding:1em) {
 
-    @include _setViewportsPadding($from-smartphone-portrait,  $smartphonePortraitPadding);
-    @include _setViewportsPadding($from-smartphone-landscape, $smartphoneLandscapePadding);
+    @include _setViewportsPadding($from-mobile-portrait,  $mobilePortraitPadding);
+    @include _setViewportsPadding($from-mobile-landscape, $mobileLandscapePadding);
     @include _setViewportsPadding($from-tablet-portrait,      $tabletPortraitPadding);
     @include _setViewportsPadding($from-tablet-landscape,     $tabletLandscapePadding);
     @include _setViewportsPadding($from-hd-ready,             $hdReadyPadding);
@@ -42,7 +42,7 @@
 }
 
 @mixin _setViewportsPadding($viewport, $padding) {
-    @if $use-smartphone-portrait == true {
+    @if $use-mobile-portrait == true {
         @media #{$viewport} {
             padding : $padding;
         }

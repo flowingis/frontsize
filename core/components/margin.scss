@@ -1,18 +1,18 @@
 @mixin addMarginRule(
-    $selector                  ,
-    $hdFullMargin              : ($spacing * 5),
-    $hdReadyMargin             : ($spacing * 4),
-    $tabletLandscapeMargin     : ($spacing * 3),
-    $tabletPortraitMargin      : ($spacing * 2),
-    $smartphoneLandscapeMargin : $spacing,
-    $smartphonePortraitMargin  : ($spacing / 2)
+    $selector              ,
+    $hdFullMargin          : ($spacing * 5),
+    $hdReadyMargin         : ($spacing * 4),
+    $tabletLandscapeMargin : ($spacing * 3),
+    $tabletPortraitMargin  : ($spacing * 2),
+    $mobileLandscapeMargin : $spacing,
+    $mobilePortraitMargin  : ($spacing / 2)
     ) {
 
-    @include _addMarginRule($from-smartphone-landscape, $selector, $smartphoneLandscapeMargin);
-    @include _addMarginRule($from-tablet-portrait,      $selector, $tabletPortraitMargin);
-    @include _addMarginRule($from-tablet-landscape,     $selector, $tabletLandscapeMargin);
-    @include _addMarginRule($from-hd-ready,             $selector, $hdReadyMargin);
-    @include _addMarginRule($from-hd-full,              $selector, $hdFullMargin);
+    @include _addMarginRule($from-mobile-landscape, $selector, $mobileLandscapeMargin);
+    @include _addMarginRule($from-tablet-portrait,  $selector, $tabletPortraitMargin);
+    @include _addMarginRule($from-tablet-landscape, $selector, $tabletLandscapeMargin);
+    @include _addMarginRule($from-hd-ready,         $selector, $hdReadyMargin);
+    @include _addMarginRule($from-hd-full,          $selector, $hdFullMargin);
 }
 
 @mixin _addMarginRule($viewport, $selector, $margin) {
@@ -24,21 +24,21 @@
 }
 
 @mixin setViewportsMargin(
-    $hdFullMargin              : ($spacing * 5),
-    $hdReadyMargin             : ($spacing * 4),
-    $tabletLandscapeMargin     : ($spacing * 3),
-    $tabletPortraitMargin      : ($spacing * 2),
-    $smartphoneLandscapeMargin : $spacing,
-    $smartphonePortraitMargin  : ($spacing / 2)
+    $hdFullMargin          : ($spacing * 5),
+    $hdReadyMargin         : ($spacing * 4),
+    $tabletLandscapeMargin : ($spacing * 3),
+    $tabletPortraitMargin  : ($spacing * 2),
+    $mobileLandscapeMargin : $spacing,
+    $mobilePortraitMargin  : ($spacing / 2)
     ) {
 
     // Media queries for selectors active from a specific resolution or higher
-    @include _setViewportsMargin($from-smartphone-portrait,  $smartphonePortraitMargin);
-    @include _setViewportsMargin($from-smartphone-landscape, $smartphoneLandscapeMargin);
-    @include _setViewportsMargin($from-tablet-portrait,      $tabletPortraitMargin);
-    @include _setViewportsMargin($from-tablet-landscape,     $tabletLandscapeMargin);
-    @include _setViewportsMargin($from-hd-ready,             $hdReadyMargin);
-    @include _setViewportsMargin($from-hd-full,              $hdFullMargin);
+    @include _setViewportsMargin($from-mobile-portrait,  $mobilePortraitMargin);
+    @include _setViewportsMargin($from-mobile-landscape, $mobileLandscapeMargin);
+    @include _setViewportsMargin($from-tablet-portrait,  $tabletPortraitMargin);
+    @include _setViewportsMargin($from-tablet-landscape, $tabletLandscapeMargin);
+    @include _setViewportsMargin($from-hd-ready,         $hdReadyMargin);
+    @include _setViewportsMargin($from-hd-full,          $hdFullMargin);
 }
 
 @mixin _setViewportsMargin($viewport, $margin) {

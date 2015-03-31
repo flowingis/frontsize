@@ -1,13 +1,13 @@
 // http://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 @mixin addFlexGridContainer(
-    $selector                  ,
-    $hdFullColums              : 4,
-    $hdReadyColums             : 4,
-    $tabletLandscapeColums     : 3,
-    $tabletPortraitColums      : 2,
-    $smartphoneLandscapeColums : 1,
-    $smartphonePortraitColums  : 1
+    $selector              ,
+    $hdFullColums          : 4,
+    $hdReadyColums         : 4,
+    $tabletLandscapeColums : 3,
+    $tabletPortraitColums  : 2,
+    $mobileLandscapeColums : 1,
+    $mobilePortraitColums  : 1
     ) {
 
     // set @hdColumns to [false] instead an [integer] to disable automatic columns
@@ -22,8 +22,8 @@
         @include _setFlexGridColumnBehavior();
     }
 
-    @include _setFlexGridViewprtColumns($from-smartphone-portrait,  $smartphonePortraitColums,  $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-smartphone-landscape, $smartphoneLandscapeColums, $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-mobile-portrait,  $mobilePortraitColums,  $selector, $enableColumns);
+    @include _setFlexGridViewprtColumns($from-mobile-landscape, $mobileLandscapeColums, $selector, $enableColumns);
     @include _setFlexGridViewprtColumns($from-tablet-portrait,      $tabletPortraitColums,      $selector, $enableColumns);
     @include _setFlexGridViewprtColumns($from-tablet-landscape,     $tabletLandscapeColums,     $selector, $enableColumns);
     @include _setFlexGridViewprtColumns($from-hd-ready,             $hdReadyColums,             $selector, $enableColumns);
@@ -32,34 +32,34 @@
 }
 
 @mixin addFlexGridColumns(
-    $hdSteps                  : 12,
-    $tabletSteps              : $hdSteps,
-    $smartphoneSteps          : $tabletSteps,
-    $hdViewportPrefix         : hd-flex-,
-    $tabletViewportPrefix     : tablet-flex-,
-    $smartphoneViewportPrefix : smartphone-flex-,
-    $fillFromViewport         : "smartphone-landscape",
-    $viewTotalColumns         : true,
-    $columnsSeparator         : -of-,
-    $useHdRules               : true,
-    $useTabletRules           : true,
-    $useSmartphoneRules       : true
+    $hdSteps              : 12,
+    $tabletSteps          : $hdSteps,
+    $mobileSteps          : $tabletSteps,
+    $hdViewportPrefix     : hd-flex-,
+    $tabletViewportPrefix : tablet-flex-,
+    $mobileViewportPrefix : mobile-flex-,
+    $fillFromViewport     : "mobile-landscape",
+    $viewTotalColumns     : true,
+    $columnsSeparator     : -of-,
+    $useHdRules           : true,
+    $useTabletRules       : true,
+    $useMobileRules       : true
     ) {
 
     @include _addFlexGridColumnSetRule(
-        $from-smartphone-portrait,
-        $smartphoneViewportPrefix, $smartphoneSteps,
+        $from-mobile-portrait,
+        $mobileViewportPrefix, $mobileSteps,
         $tabletViewportPrefix, $tabletSteps,
         $hdViewportPrefix, $hdSteps,
         $viewTotalColumns, $columnsSeparator,
-        $useSmartphoneRules
+        $useMobileRules
     );
 
     @include _addFlexGridColumnSetRule(
         $from-tablet-portrait,
         $tabletViewportPrefix, $tabletSteps,
         $hdViewportPrefix, $hdSteps,
-        $smartphoneViewportPrefix, $smartphoneSteps,
+        $mobileViewportPrefix, $mobileSteps,
         $viewTotalColumns, $columnsSeparator,
         $useTabletRules
     );
@@ -68,7 +68,7 @@
         $from-hd-ready,
         $hdViewportPrefix, $hdSteps,
         $tabletViewportPrefix, $tabletSteps,
-        $smartphoneViewportPrefix, $smartphoneSteps,
+        $mobileViewportPrefix, $mobileSteps,
         $viewTotalColumns, $columnsSeparator,
         $useHdRules
     );
@@ -94,7 +94,7 @@
     $useRules
     ) {
     @media #{$viewport} {
-        // Smartphone portrait
+        // mobile portrait
         @include _addFlexGridColumnSet($thirdChoiceViewportPrefix,  $thirdChoiceSteps,  $viewTotalColumns, $columnsSeparator);
         @include _addFlexGridColumnSet($secondChoiceViewportPrefix, $secondChoiceSteps, $viewTotalColumns, $columnsSeparator);
         @include _addFlexGridColumnSet($firstChoiceViewportPrefix,  $firstChoiceSteps,  $viewTotalColumns, $columnsSeparator);
@@ -131,7 +131,7 @@
                     @include box-sizing(border-box);
                 }
             }
-            
+
             $index: $index - 1;
         }
     }
@@ -158,7 +158,7 @@
                     @include box-sizing(border-box);
                 }
             }
-            
+
             $index: $index - 1;
         }
     }
