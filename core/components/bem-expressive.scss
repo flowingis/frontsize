@@ -1,7 +1,5 @@
-/*
-Based on @andersschmidt post
-http://codepen.io/andersschmidt/thoughts/expressive-bem-with-sass-a-different-approach
-*/
+// Based on @andersschmidt post
+// http://codepen.io/andersschmidt/thoughts/expressive-bem-with-sass-a-different-approach
 
 @mixin new($name, $type:null) {
     @include block($name, $type);
