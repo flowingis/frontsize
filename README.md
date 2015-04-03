@@ -1,6 +1,8 @@
 Frontsize 3.0.0-beta
 =========
 
+Version 3.0.0 will be available after we've fully added tests and documentation.
+
 [![Join the chat at https://gitter.im/ideatosrl/frontsize-sass](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ideatosrl/frontsize-sass?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 It's a CSS generator written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
