@@ -1,4 +1,3 @@
-/*
 .float-grid-container-example-1 {
     @include setFloatGridContainer();
 }
@@ -6,9 +5,7 @@
 .float-grid-container-example-2 {
     @include setFloatGridContainer(4,4,3,3);
 }
-*/
 
 .float-grid-column-example-1 {
     @include setFloatGridColumn();
 }
-
