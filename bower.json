@@ -1,10 +1,10 @@
 {
-  "name": "frontsize-draft",
-  "version": "2.0.0",
+  "name": "frontsize-sass",
+  "version": "3.0.0-beta",
   "homepage": "https://github.com/ideatosrl/frontsize-sass",
   "authors": [
     "Vittorio Vittori <me@vittoriovittori.com>",
-    "Alessandro Minoccheri <alessandro.minoccheri@gmail.com>",
+    "Alessandro Minoccheri <alessandro.minoccheri@gmail.com>"
   ],
   "description": "A fully customizable CSS generator to ease your life",
   "main": "compile.scss",
