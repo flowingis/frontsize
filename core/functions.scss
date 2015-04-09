@@ -39,6 +39,8 @@
     @if $use-css-prefix == true {
         @if $value == "filter" {
             @return "filter" "-webkit-filter";
+        } @elseif $value == "transform" {
+            @return "transform" "-webkit-transform";
         } @else {
             @return $value;
         }

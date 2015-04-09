@@ -34,7 +34,14 @@
         $t:$transitions;
     }
     @if $use-css-prefix == true {
-        -webkit-transition: #{$t};
+
+        $webkit: $t;
+
+        @if length(_values($t)) == 2 {
+            $webkit: nth(_values($t), 2);
+        }
+
+        -webkit-transition: #{$webkit};
         -khtml-transition: #{$t};
         -moz-transition: #{$t};
         -ms-transition: #{$t};
