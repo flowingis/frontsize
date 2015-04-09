@@ -1,23 +1,23 @@
-// .float-grid-container-example-1 {
-//     @include setFloatGridContainer();
-// }
-//
-// .float-grid-container-example-2 {
-//     @include setFloatGridContainer(4,4,3,3);
-// }
-//
-// .float-grid-column-example-1 {
-//     @include setFloatGridColumn();
-// }
-//
-// .float-grid-column-example-2 {
-//     @include setFloatGridColumn(true, 3, 3, 4, 4, 6, 6);
-// }
-//
-// .float-grid-column-offset {
-//     @include setFloatGridOffset(4, 4, 3, 2, 0, 0);
-// }
-//
+.float-grid-container-example-1 {
+    @include setFloatGridContainer();
+}
+
+.float-grid-container-example-2 {
+    @include setFloatGridContainer(4,4,3,3);
+}
+
+.float-grid-column-example-1 {
+    @include setFloatGridColumn();
+}
+
+.float-grid-column-example-2 {
+    @include setFloatGridColumn(true, 3, 3, 4, 4, 6, 6);
+}
+
+.float-grid-column-offset {
+    @include setFloatGridOffset(4, 4, 3, 2, 0, 0);
+}
+
 .float-grid-column-centered {
     @include setFloatGridColumn(true, 4, 4, 6, 6, 8, 8);
     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
