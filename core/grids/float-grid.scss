@@ -1,6 +1,6 @@
 /// Generates a container for the float grid
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Grinds - Float grid
+/// @group Grids - Float grid
 /// @access public
 /// @param {string} $selector                 [row]                   - The selector name of the container
 /// @param {int}    $hdFullSteps              [0]                     - Number of columns per row on Full HD
@@ -134,7 +134,7 @@
 
 /// Generates a columns set for the float grid
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Grinds - Float grid
+/// @group Grids - Float grid
 /// @access public
 /// @param {int}     $hdSteps              [12]                  - Column steps for HD viewports
 /// @param {int}     $tabletSteps          [$hdSteps]            - Column steps for Tablet viewports
@@ -771,7 +771,7 @@
 
 /// Apply a column set container for the float grid to the selector
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Grinds - Float grid
+/// @group Grids - Float grid
 /// @access public
 /// @param {int} $hdFullSteps          [0]                     - Column steps for HD viewports
 /// @param {int} $hdReadySteps         [$hdFullSteps]          - Column steps for HD viewports
@@ -925,14 +925,16 @@
 
 /// Apply a column cell for the float grid system
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Grinds - Float grid
+/// @group Grids - Float grid
 /// @access public
-/// @param {int} $usePadding          [0]                     - Column steps for HD viewports
-/// @param {int} $hdFullStep          [$hdFullSteps]          - Column steps for HD viewports
-/// @param {int} $hdReadyStep         [$hdReadySteps]         - Column steps for Tablet viewports
-/// @param {int} $tabletLandscapeStep [$tabletLandscapeSteps] - Column steps for Tablet viewports
-/// @param {int} $tabletPortraitStep  [1]                     - Column steps for Mobile viewports
-/// @param {int} $mobileLandscapeStep [1]                     - Column steps for Mobile viewports
+/// @param {boolean} $usePadding          [false] - Apply padding to the column
+/// @param {int} $hdFullStep          [0] - Column steps for Full HD viewports
+/// @param {int} $hdReadyStep         [0] - Column steps for HD Ready viewports
+/// @param {int} $tabletLandscapeStep [0] - Column steps for Tablet landscape viewports
+/// @param {int} $tabletPortraitStep  [0] - Column steps for Tablet portrait viewports
+/// @param {int} $mobileLandscapeStep [0] - Column steps for Mobile landscape viewports
+/// @param {int} $mobilePortraitStep  [0] - Column steps for Mobile portrait viewports
+/// @param {int} $totalSteps          [12] - Total column steps
 /// @example scss Default usage, it sets a simple column cell with `width:100%;`
 /// .float-grid-column-example-1 {
 ///     @include setFloatGridColumn();
@@ -949,9 +951,54 @@
 ///   -o-box-sizing: border-box;
 ///   box-sizing: border-box;
 /// }
-/// @example scss Default usage, it sets a simple column cell with `width:100%;`
-/// .float-grid-column-example-1 {
-///     @include setFloatGridColumn();
+/// @example scss Creates a column with padding, and three different sizes based on three different viewport step groups
+/// .float-grid-column-example-2 {
+///     @include setFloatGridColumn(true, 3, 3, 4, 4, 6, 6);
+/// }
+/// @example css CSS generated with second example
+/// .float-grid-column-example-2 {
+///   width: 100%;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-example-2 {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-example-2 {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-example-2 {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-example-2 {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-example-2 {
+///     width: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-example-2 {
+///     width: 25%;
+///   }
 /// }
 
 @mixin setFloatGridColumn(
@@ -996,13 +1043,134 @@
     }
 }
 
+/// Apply a `margin-left` percent for the float grid system based on steps defined
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int} $mobilePortraitStep  [0] - Column steps for Mobile portrait viewports
+/// @param {int} $mobileLandscapeStep [0] - Column steps for Mobile landscape viewports
+/// @param {int} $tabletPortraitStep  [0] - Column steps for Tablet portrait viewports
+/// @param {int} $tabletLandscapeStep [0] - Column steps for Tablet landscape viewports
+/// @param {int} $hdReadyStep         [0] - Column steps for HD Ready viewports
+/// @param {int} $hdFullStep          [0] - Column steps for Full HD viewports
+/// @param {int} $totalSteps          [12] - [12] - Total column steps
+/// @example scss Default usage, it sets a different `margin-left` percent based on steps defined
+/// .float-grid-column-offset {
+///     @include setFloatGridOffset(0, 0, 2, 3, 4, 4);
+/// }
+/// @example css CSS generated
+/// .float-grid-column-offset {
+///   margin-left: 0;
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-offset {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-offset {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-offset {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-offset {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// @example scss An element centered on the page
+/// .float-grid-column-centered {
+///     @include setFloatGridColumn(true, 4, 4, 6, 6, 8, 8);
+///     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
+/// }
+/// @example css CSS generated
+/// .float-grid-column-centered {
+///   width: 100%;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+///   margin-left: 0;
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-centered {
+///     width: 66.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-centered {
+///     width: 66.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-centered {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-centered {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-centered {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-centered {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-centered {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-centered {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-centered {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-centered {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-centered {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-centered {
+///     margin-left: 33.33333%;
+///   }
+/// }
+
 @mixin setFloatGridOffset(
-    $mobilePortraitStep  : 0,
-    $mobileLandscapeStep : 0,
-    $tabletPortraitStep  : 0,
-    $tabletLandscapeStep : 0,
-    $hdReadyStep         : 0,
     $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
     $totalSteps          : 12
     ) {
 

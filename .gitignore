@@ -1,13 +1,8 @@
-.csslintrc.comments.json
-/img
-
 # temp files to be ignored #
 *.html
 *.ai
 *.bak
-src
 # css
-node_modules
 
 # Compiled source #
 ###################
@@ -18,11 +13,6 @@ node_modules
 *.o
 *.so
 # *.css
-test/*.css
-test/*.map
-test/*.diff
-test/csslint/
-test/production/
 
 # Packages #
 ############
@@ -54,5 +44,16 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
+# Other #
+#########
+.csslintrc.comments.json
+node_modules
 .sass-cache
 sassdoc
+test/*.css
+test/*.map
+test/*.diff
+test/csslint/
+test/production/
+/img
+src
