@@ -14,13 +14,13 @@
 }
 
 @mixin if-its($state) {
-    & .is-#{$state} {
+    &.is-#{$state} {
         @content;
     }
 }
 
 @mixin holds($subject) {
-    & .holds-#{$subject} {
+    &.holds-#{$subject} {
         @content;
     }
 }
