@@ -224,23 +224,23 @@ module.exports = function(grunt) {
 
     grunt.registerTask('frontsize', [
         'sass:production',
-        'test',
-        'minify'
+        'minify',
+        'test'
     ]);
 
     grunt.registerTask('frnAssets', [
         'sass:production',
         'clean',
         'assets',
-        'test',
-        'minify'
+        'minify',
+        'test'
     ]);
 
     grunt.registerTask('devAssets', [
         'sass:production',
         'assets',
-        'test',
-        'minify'
+        'minify',
+        'test'
     ]);
 
     grunt.registerTask('autoprefix', [
@@ -261,14 +261,13 @@ module.exports = function(grunt) {
         'sass:autoprefixer',
         'autoprefixer',
         'assets',
-        'test',
-        'minify'
+        'minify',
+        'test'
     ]);
 
     grunt.registerTask('assets', [
         'clean:assets',
-        'copy:assets',
-        'clean:removeEmpty'
+        'copy:assets'
     ]);
 
     grunt.registerTask('minify', [
