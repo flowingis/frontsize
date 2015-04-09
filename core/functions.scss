@@ -14,7 +14,7 @@
 ///   }
 
 @function spacing($multiplier:1) {
-    @return $spacing * $multiplier;
+    @return round($spacing * $multiplier);
 }
 
 /// Alias for `spacing` function to a lesser verbose usage
