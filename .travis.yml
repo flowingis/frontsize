@@ -10,4 +10,6 @@ node_js:
   - "iojs-v1.0.4"
 before_install: npm install -g grunt-cli
 install: npm install
-before_script: grunt testFrontsize
+before_script:
+    - grunt testFrontsize
+    - sassdoc ./core ./themes
