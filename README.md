@@ -17,6 +17,17 @@ If you'd like to see more features, visit [frontsize.com][site] website.
 
 The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 
+---
+
+###Bower install
+
+This will download frontsize on `bower_components` folder, you should do that from the project's root folder.
+
+```
+bower install frontsize-sass
+```
+
+---
 
 Documentation
 ---
