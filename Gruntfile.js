@@ -2,6 +2,8 @@
 
 Available grunt commands
 
+$ grunt testFrontsize # test all frontsize api used in documentation
+
 $ grunt watch:assets     # Copy images inside frontsize/themes/default/img into production images folder
 $ grunt watch:frontsize  # Compiles Frontsize
 $ grunt watch:frnAssets  # Compiles Frontsize and copy images

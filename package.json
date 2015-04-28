@@ -72,5 +72,8 @@
     },
     "bugs" : {
         "url" : "https://github.com/ideatosrl/frontsize-sass/issues"
+    },
+    "scripts": {
+        "test" : "grunt testFrontsize"
     }
 }

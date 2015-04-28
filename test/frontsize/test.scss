@@ -23,6 +23,8 @@ $use-state-visibility  : false;
 $use-state-print       : false;
 $use-core-base         : false;
 @import "../../core/core";
-@import "widgets/float-grid";
+
+@import "widgets/bem-example";
+//@import "widgets/float-grid";
 
 //*/
