@@ -1,8 +1,0 @@
-{
-    "dest"            : "sassdoc",
-    "theme"           : "default",
-    "package"         : "package.json",
-    "basePath"        : "https://github.com/ideatosrl/frontsize-sass/tree/master/core",
-    "googleAnalytics" : "UA-XXXXX-YY",
-    "tracking"        : "<img src=\"http://piwik.example.org/piwik.php?idsite={$IDSITE}amp;rec=1\" style=\"border:0\" alt=\"\" />"
-}

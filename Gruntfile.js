@@ -2,21 +2,37 @@
 
 Available grunt commands
 
-$ grunt testFrontsize # test all frontsize api used in documentation
+# Compiles Frontsize
+# is uses [minify, lint]
+  grunt frontsize
+  grunt watch:frontsize
 
-$ grunt watch:assets     # Copy images inside frontsize/themes/default/img into production images folder
-$ grunt watch:frontsize  # Compiles Frontsize
-$ grunt watch:frnAssets  # Compiles Frontsize and copy images
-$ grunt watch:autoprefix # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
-$ grunt watch:autoAssets # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
-$ grunt watch:all        # Performs assets, frontsize and autoprefix tasks
+# Compiles Frontsize, it copy its assets and lint the CSS
+# it uses [assets, minify, lint]
+  grunt frontsize-assets
+  grunt watch:frontsize-assets
 
-$ grunt assets           # Copy images inside frontsize/themes/default/img into production images folder
-$ grunt frontsize        # Compiles Frontsize
-$ grunt frnAssets        # Compiles Frontsize and copy images
-$ grunt autoprefix       # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
-$ grunt autoAssets       # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
-$ grunt all              # Performs assets, frontsize and autoprefix tasks
+# Compiles Frontsize and applies autoprefixer to the CSS and lint the CSS
+# it uses [lint]
+  grunt autoprefix
+  grunt watch:autoprefix
+
+# Compiles Frontsize, applies autoprefixer to the CSS, it copy its assets and lint the CSS
+# it uses [autoprefixer, assets, lint]
+  grunt autoprefix-assets
+  grunt watch:autoprefix-assets
+
+# Generates the docs with SASSdoc
+  grunt docs
+  grunt watch:docs
+
+# Generates the CSS file optimized with uncss
+  grunt uncss
+  grunt watch:uncss
+
+# Tests FRONTsize theme with all mixins, it's for development
+  grunt test
+  grunt watch:test
 
 */
 
@@ -25,9 +41,8 @@ $ grunt all              # Performs assets, frontsize and autoprefix tasks
 module.exports = function(grunt) {
 
     grunt.initConfig({
-
-        f : grunt.file.readJSON('frontsize.json'),
-        s : grunt.file.readJSON('sassdoc.json'),
+        f : grunt.file.readYAML('frontsize.yml'),
+        s : grunt.file.readYAML('sassdoc.yml'),
 
         sass : {
             production : {
@@ -50,7 +65,7 @@ module.exports = function(grunt) {
                     '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
                 }
             },
-            test : {
+            lint : {
                 options : {
                     cleancss : false,
                     style : 'expanded'
@@ -59,7 +74,7 @@ module.exports = function(grunt) {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'
                 }
             },
-            testFrontsize : {
+            test : {
                 options : {
                     cleancss : false,
                     style : 'expanded'
@@ -89,29 +104,29 @@ module.exports = function(grunt) {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frontsize' ]
             },
-            frnAssets : {
+            'frontsize-assets' : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frnAssets' ]
-            },
-            devAssets : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'devAssets' ]
             },
             autoprefix : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'autoprefix' ]
             },
-            autoAssets : {
+            'autoprefix-assets' : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'autoAssets' ]
-            },
-            all : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'all' ]
             },
             docs : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'docs' ]
+            },
+            test : {
+                files: [ '*.scss', '**/*.scss' ],
+                tasks: [ 'test' ]
+            },
+            uncss : {
+                files: [ '*.html', '**/*.html' ],
+                tasks: [ 'uncss' ]
             }
         },
 
@@ -119,13 +134,13 @@ module.exports = function(grunt) {
             options: {
                 csslintrc: '.csslintrc'
             },
-            test: {
+            lint: {
                 options: {
                     csslintrc: '.csslintrc'
                 },
                 src: [ '<%= f.testCss %>' ]
             },
-            testFrontsize: {
+            test: {
                 options: {
                     csslintrc: '.csslintrc'
                 },
@@ -149,8 +164,8 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    '<%= f.copyProductionImg %>*',
-                    '<%= f.copyProductionFonts %>*'
+                    '<%= f.copyToProdImg %>*',
+                    '<%= f.copyToProdFonts %>*'
                 ]
             },
             docs: {
@@ -160,8 +175,8 @@ module.exports = function(grunt) {
             },
             removeEmpty: {
                 src:[
-                    '<%= f.copyProductionImg %>empty',
-                    '<%= f.copyProductionFonts %>empty',
+                    '<%= f.copyToProdImg %>empty',
+                    '<%= f.copyToProdFonts %>empty',
                 ]
             }
         },
@@ -173,16 +188,24 @@ module.exports = function(grunt) {
                         expand  : true,
                         flatten : true,
                         src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/img/*' ],
-                        dest    : '<%= f.copyProductionImg %>',
+                        dest    : '<%= f.copyToProdImg %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
                         src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/fonts/*' ],
-                        dest    : '<%= f.copyProductionFonts %>',
+                        dest    : '<%= f.copyToProdFonts %>',
                         filter  : 'isFile'
                     }
                 ]
+            }
+        },
+
+        uncss: {
+            dist: {
+                files: {
+                    '<%= f.uncss %>': '<%= f.uncssTemplates %>'
+                }
             }
         },
 
@@ -227,44 +250,28 @@ module.exports = function(grunt) {
     grunt.registerTask('frontsize', [
         'sass:production',
         'minify',
-        'test'
+        'lint'
     ]);
 
-    grunt.registerTask('frnAssets', [
+    grunt.registerTask('frontsize-assets', [
         'sass:production',
         'clean',
         'assets',
         'minify',
-        'test'
-    ]);
-
-    grunt.registerTask('devAssets', [
-        'sass:production',
-        'assets',
-        'minify',
-        'test'
+        'lint'
     ]);
 
     grunt.registerTask('autoprefix', [
         'sass:autoprefixer',
         'autoprefixer',
-        'test'
+        'lint'
     ]);
 
-    grunt.registerTask('autoAssets', [
+    grunt.registerTask('autoprefix-assets', [
         'sass:autoprefixer',
         'autoprefixer',
         'assets',
-        'test'
-    ]);
-
-    grunt.registerTask('all', [
-        'sass:production',
-        'sass:autoprefixer',
-        'autoprefixer',
-        'assets',
-        'minify',
-        'test'
+        'lint'
     ]);
 
     grunt.registerTask('assets', [
@@ -277,14 +284,14 @@ module.exports = function(grunt) {
         'stylestats'
     ]);
 
+    grunt.registerTask('lint', [
+        'sass:lint',
+        'csslint:lint'
+    ]);
+
     grunt.registerTask('test', [
         'sass:test',
         'csslint:test'
-    ]);
-
-    grunt.registerTask('testFrontsize', [
-        'sass:testFrontsize',
-        'csslint:testFrontsize'
     ]);
 
     grunt.registerTask('docs', [

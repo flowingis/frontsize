@@ -1,4 +1,3 @@
----
 language: node_js
 node_js:
   - "0.12"
@@ -6,10 +5,9 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
-  - "iojs"
-  - "iojs-v1.0.4"
-before_install: npm install -g grunt-cli
-install: npm install
 before_script:
+    - npm install -g grunt-cli
+    - npm install
+script:
     - grunt testFrontsize
     - sassdoc ./core ./themes
