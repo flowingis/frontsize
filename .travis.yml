@@ -1,13 +1,23 @@
 language: node_js
+
 node_js:
-  - "0.12"
-  - "0.11"
-  - "0.10"
-  - "0.8"
-  - "0.6"
-before_script:
+    - 0.12
+    - 0.11
+    - 0.10
+    - 0.8
+    - 0.6
+
+before_install:
+    - gem install sass
+    - gem install casperjs
     - npm install -g grunt-cli
+
+before_script:
+    - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
+    - tar -xvf /tmp/casper.tar.gz
+    - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
     - npm install
+
 script:
     - grunt testFrontsize
     - sassdoc ./core ./themes
