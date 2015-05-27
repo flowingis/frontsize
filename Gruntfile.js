@@ -4,35 +4,35 @@ Available grunt commands
 
 # Compiles Frontsize
 # is uses [minify, lint]
-  grunt frontsize
-  grunt watch:frontsize
+$ grunt frontsize
+$ grunt watch:frontsize
 
 # Compiles Frontsize, it copy its assets and lint the CSS
 # it uses [assets, minify, lint]
-  grunt frontsize-assets
-  grunt watch:frontsize-assets
+$ grunt frontsize-assets
+$ grunt watch:frontsize-assets
 
 # Compiles Frontsize and applies autoprefixer to the CSS and lint the CSS
 # it uses [lint]
-  grunt autoprefix
-  grunt watch:autoprefix
+$ grunt autoprefix
+$ grunt watch:autoprefix
 
 # Compiles Frontsize, applies autoprefixer to the CSS, it copy its assets and lint the CSS
 # it uses [autoprefixer, assets, lint]
-  grunt autoprefix-assets
-  grunt watch:autoprefix-assets
+$ grunt autoprefix-assets
+$ grunt watch:autoprefix-assets
 
 # Generates the docs with SASSdoc
-  grunt docs
-  grunt watch:docs
+$ grunt docs
+$ grunt watch:docs
 
 # Generates the CSS file optimized with uncss
-  grunt uncss
-  grunt watch:uncss
+$ grunt uncss
+$ grunt watch:uncss
 
 # Tests FRONTsize theme with all mixins, it's for development
-  grunt test
-  grunt watch:test
+$ grunt test
+$ grunt watch:test
 
 */
 
