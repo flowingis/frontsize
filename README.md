@@ -1,6 +1,7 @@
 FRONTsize 3.0.0-beta
 =========
 
+The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 Version 3.0.0 will be available after we've fully added tests and documentation.
 
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
@@ -17,8 +18,6 @@ It's a CSS generator written to make websites easy to read on every device and f
 - It's totally [customizable][app]
 
 If you'd like to see more features, visit [frontsize.com][site] website.
-
-The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 
 ---
 
