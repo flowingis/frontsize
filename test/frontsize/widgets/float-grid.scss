@@ -3,7 +3,7 @@
 }
 
 .float-grid-container-example-2 {
-    @include setFloatGridContainer(4,4,3,3);
+    @include setFloatGridContainer(4, 4, 3, 3);
 }
 
 .float-grid-column-example-1 {
@@ -22,3 +22,9 @@
     @include setFloatGridColumn(true, 4, 4, 6, 6, 8, 8);
     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
 }
+
+@include addFloatGridOffset(4, 2, 2);
+@include addFloatGridContainer(row);
+@include addFloatGridColumns(4);
+@include addFloatGridColumns(4, 2, 2, "l", "m", "s", "mobile-landscape", false);
+@include addFloatGridColumns(4, 4 ,3, "lg-", "md-", "sm-", "mobile-landscape", true, "-of-", false, true, false);

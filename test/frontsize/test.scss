@@ -1,0 +1,30 @@
+/*
+    THIS FILE LOADS THE CODE BASE FOR compile.scss
+    AND IT"S USED FOR TESTS
+*/
+
+@import "config";
+
+//*
+
+@import "../../core/core";
+@import "import";
+
+/*/
+$use-print-viewport    : false;
+$use-state-margin      : false;
+$use-state-padding     : false;
+$use-state-positioning : false;
+$use-state-sizing      : false;
+$use-state-selectors   : false;
+$use-state-table       : false;
+$use-state-text        : false;
+$use-state-visibility  : false;
+$use-state-print       : false;
+$use-core-base         : false;
+@import "../../core/core";
+
+@import "widgets/float-grid";
+@import "app";
+
+//*/
