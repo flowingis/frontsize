@@ -1,9 +1,10 @@
 @mixin size($width:16px, $height:$width, $scale:1, $setBoxSizing:true) {
-	$unit_num: getUnit($width);
+	$unitWidth: getUnit($width);
+	$unitHeight: getUnit($height);
 
 	@if type-of($width) == 'number' and  type-of($height) == 'number'{
-		width: (removeUnit($width) * removeUnit($scale))#{$unit_num};
-		height: (removeUnit($height) * removeUnit($scale))#{$unit_num};
+		width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
+		height: (removeUnit($height) * removeUnit($scale))#{$unitHeight};
 	}
 	@if type-of($width) == 'number' and  type-of($height) != 'number'{
 		width: $width;
