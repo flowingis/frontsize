@@ -41,9 +41,6 @@ Authors:   Vittorio Vittori, Alessandro Minoccheri
 @import "prefixes/transform";
 @import "prefixes/transition";
 @import "prefixes/visibility";
-@import "components/padding";
-@import "components/print";
-@import "components/typography";
 
 @import "base/base";
 
@@ -63,6 +60,8 @@ Authors:   Vittorio Vittori, Alessandro Minoccheri
 @import "helpers/transform";
 @import "helpers/transition";
 
+@import "components/padding";
+@import "components/typography";
 @import "components/sizing";
 @import "components/print";
 
