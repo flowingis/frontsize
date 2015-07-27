@@ -1,24 +1,25 @@
 @mixin size($width:16px, $height:$width, $scale:1, $setBoxSizing:true) {
-	$unitWidth: getUnit($width);
-	$unitHeight: getUnit($height);
+    @if $setBoxSizing == true{
+        @include box-sizing(border-box);
+    }
 
-	@if type-of($width) == 'number' and  type-of($height) == 'number'{
-		width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
-		height: (removeUnit($height) * removeUnit($scale))#{$unitHeight};
-	}
-	@if type-of($width) == 'number' and  type-of($height) != 'number'{
-		width: $width;
-		height: $height;
-	}
-	@if type-of($width) != 'number' and  type-of($height) == 'number'{
-		width: $width;
-		height: $height;
-	}
-	@if type-of($width) != 'number' and  type-of($height) != 'number'{
-		width: $width;
-		height: $height;
-	}
-	@if $setBoxSizing == true{
-		@include box-sizing(border-box);
-	}
+    $unitWidth: getUnit($width);
+    $unitHeight: getUnit($height);
+
+    @if type-of($width) == 'number' and  type-of($height) == 'number'{
+        width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
+        height: (removeUnit($height) * removeUnit($scale))#{$unitHeight};
+    }
+    @if type-of($width) == 'number' and  type-of($height) != 'number'{
+        width: $width;
+        height: $height;
+    }
+    @if type-of($width) != 'number' and  type-of($height) == 'number'{
+        width: $width;
+        height: $height;
+    }
+    @if type-of($width) != 'number' and  type-of($height) != 'number'{
+        width: $width;
+        height: $height;
+    }
 }
