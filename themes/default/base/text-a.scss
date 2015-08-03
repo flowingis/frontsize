@@ -21,6 +21,7 @@ a {
     line-height     : $font-line-height;
     text-decoration : none;
     border-bottom   : 2px solid;
+    word-wrap       : break-word;
 
     $color: $font-color;
 
@@ -28,11 +29,12 @@ a {
 
     $animation:0.3s ease-in-out;
     @include transition("border-bottom #{$animation}, color #{$animation}");
-    
+
     &[title]:hover {
         text-decoration : none;
     }
 
+    &:active,
     &:hover,
     &.hover,
     &.selected,
@@ -40,7 +42,7 @@ a {
         color : saturate(darken($color, 10%), 7%);
         border-bottom-color : $color;
     }
-    
+
     &.selected {
         cursor : default;
     }
