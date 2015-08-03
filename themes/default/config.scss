@@ -38,7 +38,7 @@ $global-padding     : $vertical-padding $horizontal-padding;
 $state-important        : true;
 $state-faded-opacity    : 0.5;
 $state-disabled-opacity : 0.5;
-$state-table-padding    : round($spacing / 2);
+$state-table-padding    : s(0.5);
 
 // set different width for the mobile, tablets and hd resolutions
 $mobile-portrait-step  : 320px;  // mobile portrait  320~380
@@ -49,7 +49,6 @@ $hd-ready-step         : 1280px; // HD Ready              1280 (720p)
 $hd-full-step          : 1800px; // Full HD               1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
-$use-viewport-states  : true;
 $use-mobile-portrait  : true;
 $use-mobile-landscape : true;
 $use-tablet-portrait  : true;
