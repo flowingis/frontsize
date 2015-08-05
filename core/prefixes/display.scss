@@ -1,21 +1,12 @@
 @mixin appearance($appearence:normal, $forcePrefixes:true) {
-	@if $use-css-prefix == false{
-		-webkit-appearance:#{$appearence};
-		-khtml-appearance: #{$appearence};
-	    -moz-appearance: normal;
-		-ms-appearance: #{$appearence};
-		// -o-appearance: @appearence;     // not working for elements radio and checkbox
-	}
-	@else{
-		@if $use-css-prefix == true{
-			-webkit-appearance: #{$appearence};
-			-khtml-appearance: #{$appearence};
-			-moz-appearance: normal;
-			-ms-appearance: #{$appearence};
-			-o-appearance: #{$appearence};
-		}
-	}
-	// The appearance property allows you to make an element look like a standard user interface element.
+    @if $use-css-prefix == true {
+        -webkit-appearance:#{$appearence};
+        -khtml-appearance: #{$appearence};
+        -moz-appearance: #{$appearence};
+        -ms-appearance: #{$appearence};
+        -o-appearance: #{$appearence};
+    }
+    // The appearance property allows you to make an element look like a standard user interface element.
     // Url - http://css-tricks.com/almanac/properties/a/appearance/
     // Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
     // Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
@@ -25,31 +16,31 @@
 }
 
 @mixin display($display) {
-	@if $use-css-prefix == true  and $display == "box" {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: -khtml-box;
-		display: -moz-box;
-		display: -o-box;
-	}
-	@else{
-		@if $use-css-prefix == true  and $display == "grid" {
-			display: -webkit-grid;
-		    display: -ms-grid;
-		    display: -khtml-grid;
-		    display: -moz-grid;
-		    display: -o-grid;
-		    display: grid;
-		}
+    @if $use-css-prefix == true  and $display == "box" {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -khtml-box;
+        display: -moz-box;
+        display: -o-box;
+    }
+    @else{
+        @if $use-css-prefix == true  and $display == "grid" {
+            display: -webkit-grid;
+            display: -ms-grid;
+            display: -khtml-grid;
+            display: -moz-grid;
+            display: -o-grid;
+            display: grid;
+        }
 
-		@if $display != "box" {
-			display: $display;
-		}
-	}
+        @if $display != "box" {
+            display: $display;
+        }
+    }
 }
 
 @mixin align-self($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-align-self: $params;
         -khtml-align-self: $params;
         -moz-align-self: $params;
@@ -62,7 +53,7 @@
 }
 
 @mixin align-items($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-align-items: $params;
         -khtml-align-items: $params;
         -moz-align-items: $params;
@@ -74,7 +65,7 @@
 }
 
 @mixin align-content($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-align-content: $params;
         -khtml-align-content: $params;
         -moz-align-content: $params;
@@ -86,7 +77,7 @@
 }
 
 @mixin justify-self($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-justify-self: $params;
         -khtml-justify-self: $params;
         -moz-justify-self: $params;
@@ -98,7 +89,7 @@
 }
 
 @mixin justify-content($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-justify-content: $params;
         -khtml-justify-content: $params;
         -moz-justify-content: $params;
@@ -107,4 +98,3 @@
     }
     justify-content: $params;
 }
-
