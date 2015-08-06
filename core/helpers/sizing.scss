@@ -3,8 +3,12 @@
         @include box-sizing(border-box);
     }
 
-    $unitWidth: getUnit($width);
-    $unitHeight: getUnit($height);
+    @if $width != 'auto' {
+        $unitWidth: getUnit($width);
+    }
+    @if $height != 'auto' {
+        $unitHeight: getUnit($height);
+    }
 
     @if type-of($width) == 'number' and  type-of($height) == 'number'{
         width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
