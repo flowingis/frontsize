@@ -1,109 +1,108 @@
-@mixin globalPlaceholder($color:#999999, $focused:#CCCCCC, $fontFamily:$font-default) {
-	// sets the color of the input text placeholder attribute
-	@if $use-css-prefix == true {
-		::-webkit-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus::-webkit-input-placeholder {
-			color: $focused;
-		}
-		:-khtml-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus:-khtml-input-placeholder {
-			color: $focused;
-		}
-		:-moz-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus:-moz-placeholder {
-			color: $focused;
-		}
-		::-moz-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus::-moz-placeholder {
-			color: $focused;
-		}
-		:-ms-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus:-ms-input-placeholder {
-			color: $focused;
-		}
-		:-o-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		input:focus:-o-input-placeholder {
-			color: $focused;
-		}
-	}
-	:input-placeholder {
-		color: $color;
-		font-family: $fontFamily;
-	}
-	input:focus:input-placeholder {
-		color: $focused;
-	}
-}
+@mixin setPlaceholder() {
 
-@mixin input-placeholder($color:#999999, $focused:#CCCCCC, $fontFamily:$font-default) {
-	// sets the color of the input text placeholder attribute
-	@if $use-css-prefix == true {
-		&::-webkit-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus::-webkit-input-placeholder {
-			color: $focused;
-		}
-		&:-khtml-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus:-khtml-input-placeholder {
-			color: $focused;
-		}
-		&:-moz-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus:-moz-placeholder {
-			color: $focused;
-		}
-		&::-moz-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus::-moz-placeholder {
-			color: $focused;
-		}
-		&:-ms-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus:-ms-input-placeholder {
-			color: $focused;
-		}
-		&:-o-input-placeholder {
-			color: $color;
-			font-family: $fontFamily;
-		}
-		&:focus:-o-input-placeholder {
-			color: $focused;
-		}
-	}
-	&:input-placeholder { 
-		color: $color;
-		font-family: $fontFamily;
-	}
-	&:focus:input-placeholder { 
-		color: $focused;
-	}
+    // sets the color of the input text placeholder attribute
+    @if $use-css-prefix == true {
+        ::-webkit-input-placeholder {
+            @content;
+        }
+        :-khtml-input-placeholder {
+            @content;
+        }
+        :-moz-placeholder {
+            @content;
+        }
+        ::-moz-placeholder {
+            @content;
+        }
+        :-ms-input-placeholder {
+            @content;
+        }
+        :-o-input-placeholder {
+            @content;
+        }
+    }
+    :input-placeholder {
+        @content;
+    }
+}
+@mixin setPlaceholderFocus() {
+
+    // sets the color of the input text placeholder attribute
+    @if $use-css-prefix == true {
+        input:focus::-webkit-input-placeholder {
+            @content;
+        }
+        input:focus:-khtml-input-placeholder {
+            @content;
+        }
+        input:focus:-moz-placeholder {
+            @content;
+        }
+        input:focus::-moz-placeholder {
+            @content;
+        }
+        input:focus:-ms-input-placeholder {
+            @content;
+        }
+        input:focus:-o-input-placeholder {
+            @content;
+        }
+    }
+    input:focus:input-placeholder {
+        @content;
+    }
+}
+@mixin input-placeholder() {
+
+    // sets the color of the input text placeholder attribute
+    @if $use-css-prefix == true {
+        &::-webkit-input-placeholder {
+            @content;
+        }
+        &:-khtml-input-placeholder {
+            @content;
+        }
+        &:-moz-placeholder {
+            @content;
+        }
+        &::-moz-placeholder {
+            @content;
+        }
+        &:-ms-input-placeholder {
+            @content;
+        }
+        &:-o-input-placeholder {
+            @content;
+        }
+    }
+    &:input-placeholder {
+        @content;
+    }
+}
+@mixin input-placeholder-focus() {
+
+    // sets the color of the input text placeholder attribute
+    @if $use-css-prefix == true {
+        &:focus::-webkit-input-placeholder {
+            @content;
+        }
+        &:focus:-khtml-input-placeholder {
+            @content;
+        }
+        &:focus:-moz-placeholder {
+            @content;
+        }
+        &:focus::-moz-placeholder {
+            @content;
+        }
+        &:focus:-ms-input-placeholder {
+            @content;
+        }
+        &:focus:-o-input-placeholder {
+            @content;
+        }
+    }
+    &:focus:input-placeholder {
+        @content;
+    }
 }
