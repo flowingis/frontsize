@@ -3,7 +3,7 @@
 // http://sydcss-grid.appspot.com/
 
 @mixin grid-template-areas($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-template-areas: $params;
         -khtml-grid-template-areas: $params;
         -moz-grid-template-areas: $params;
@@ -17,7 +17,7 @@
 }
 
 @mixin grid-template-rows($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-template-rows: $params;
         -khtml-grid-template-rows: $params;
         -moz-grid-template-rows: $params;
@@ -30,7 +30,7 @@
 }
 
 @mixin grid-template-columns($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-template-columns: $params;
         -khtml-grid-template-columns: $params;
         -moz-grid-template-columns: $params;
@@ -43,7 +43,7 @@
 }
 
 @mixin grid-area($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-area: $params;
         -khtml-grid-area: $params;
         -moz-grid-area: $params;
@@ -55,7 +55,7 @@
 }
 
 @mixin grid-row($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-row: $params;
         -khtml-grid-row: $params;
         -moz-grid-row: $params;
@@ -67,7 +67,7 @@
 }
 
 @mixin grid-column($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-column: $params;
         -khtml-grid-column: $params;
         -moz-grid-column: $params;
@@ -79,7 +79,7 @@
 }
 
 @mixin grid-column-start($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-column-start: $params;
         -khtml-grid-column-start: $params;
         -moz-grid-column-start: $params;
@@ -91,7 +91,7 @@
 }
 
 @mixin grid-column-end($params:none) {
- 	@if $use-css-prefix == true {
+     @if $use-css-prefix == true {
         -webkit-grid-column-end: $params;
         -khtml-grid-column-end: $params;
         -moz-grid-column-end: $params;
