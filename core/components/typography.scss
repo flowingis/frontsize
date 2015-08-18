@@ -166,7 +166,7 @@
     $mobileLandscapeFontSize : 16px,
     $mobilePortraitFontSize  : 16px,
     $lineHeightMultiplier    : $font-line-height,
-    $useImportant            : true
+    $useImportant            : false
     ) {
 
     line-height : $lineHeightMultiplier;
@@ -181,13 +181,12 @@
 }
 
 @mixin _setViewportsFontSize($viewport, $fontSize, $useImportant, $viewportEnabled) {
-    @if $viewportEnabled == true and $useImportant == true {
-        @media #{$viewport} {
-            font-size : $fontSize !important;
-        }
-    }
-    @else{
-        @if $viewportEnabled == true and $useImportant != true {
+    @if $viewportEnabled == true {
+        @if $useImportant == true {
+            @media #{$viewport} {
+                font-size : $fontSize !important;
+            }
+        } @else {
             @media #{$viewport} {
                 font-size : $fontSize;
             }
