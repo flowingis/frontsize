@@ -35,12 +35,18 @@
     @return spacing($multiplier);
 }
 
+@function scaleValue($value, $scale) {
+    @return round($value * $scale);
+}
+
 @function _values($value) {
     @if $use-css-prefix == true {
         @if $value == "filter" {
             @return "filter" "-webkit-filter";
         } @elseif $value == "transform" {
             @return "transform" "-webkit-transform";
+        } @elseif $value == "box-shadow" {
+            @return "box-shadow" "-webkit-box-shadow" "-khtml-box-shadow" "-moz-box-shadow" "-ms-box-shadow" "-0-box-shadow";
         } @else {
             @return $value;
         }
