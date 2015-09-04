@@ -1,29 +1,20 @@
 @mixin size($width:16px, $height:$width, $scale:1, $setBoxSizing:true) {
-    @if $setBoxSizing == true{
+    @if $setBoxSizing == true {
         @include box-sizing(border-box);
     }
 
-    @if $width != 'auto' {
+    @if type-of($width) == 'number' {
         $unitWidth: getUnit($width);
-    }
-    @if $height != 'auto' {
-        $unitHeight: getUnit($height);
+        width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
+    } @else {
+        width: $width;
     }
 
-    @if type-of($width) == 'number' and  type-of($height) == 'number'{
-        width: (removeUnit($width) * removeUnit($scale))#{$unitWidth};
+    @if type-of($height) == 'number' {
+        $unitHeight: getUnit($height);
         height: (removeUnit($height) * removeUnit($scale))#{$unitHeight};
-    }
-    @if type-of($width) == 'number' and  type-of($height) != 'number'{
-        width: $width;
+    } @else {
         height: $height;
     }
-    @if type-of($width) != 'number' and  type-of($height) == 'number'{
-        width: $width;
-        height: $height;
-    }
-    @if type-of($width) != 'number' and  type-of($height) != 'number'{
-        width: $width;
-        height: $height;
-    }
+
 }
