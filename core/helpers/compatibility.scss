@@ -1,10 +1,10 @@
 @mixin fallbackColor($property, $color, $fallbackColor: $color){
-    @if alpha($fallbackColor) == 0
-        and $use-fallbacks == true {
-        #{$property}: transparent;
-    } @elseif alpha($fallbackColor) > 0
-        and $use-fallbacks == true {
-        #{$property}: rgb(red($fallbackColor), green($fallbackColor), blue($fallbackColor));
+    @if $use-fallbacks == true {
+        @if alpha($fallbackColor) == 0 {
+            #{$property}: transparent;
+        } @elseif alpha($fallbackColor) > 0 {
+            #{$property}: rgb(red($fallbackColor), green($fallbackColor), blue($fallbackColor));
+        }
     }
     #{$property}: $color;
 }
