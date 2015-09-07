@@ -1,11 +1,11 @@
-FRONTsize
+frontsize
 =========
 
-Current version `3.0.0-beta`
+Current version `3.0.18-beta`
 
 The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 
-Version 3.0.0 will be available after we've fully added tests and documentation.
+Non beta version will be available after we've fully added tests and documentation.
 
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
@@ -46,10 +46,17 @@ sassdoc ./core ./themes
 
 ---
 
-Next release details
+Release details
 ---
 
 **Features**
+- **added** `transition` support for webkit
+- **added** Firefox fallback grayscale filter
+- **added** padding settings to `setFloatGridContainer`
+- **added** word wrap to links
+- **added** b and strong tag to base elements
+- **added** fallback color to selection
+- **added** `scaleValue` function
 - **added** new `font` mixin to load fonts from theme
 - **added** `spritePosition` now get `sprite` size properties automatically without the need to pass them manually
 - **added** missing `column-fill` CSS3 prefixes
@@ -68,6 +75,13 @@ Next release details
 - **added** `cssmin` grunt module to the node stack
 
 **Fixes**
+- **fixed** bem expression mixins
+- **removed** duplicate import
+- **removed** unused vars
+- **fixed** height unit
+- **fixed** state table padding
+- **fixed** `fallbackColor` mixin
+- **fixed** size mixin when auto value is passed
 - **optimized** tons of core code
 - **fixed** missing default `font-size` for headings
 - **fixed** padding rule names with new naming convention
@@ -78,6 +92,7 @@ Next release details
 - **fixed** h1-h6 base file with more flexible font setting
 - **updated** retina display media query
 - **fixed** state selectors for padding
+- **optimized** some private mixin
 
 **Changes**
 - **renamed** float grid system mixins with more clear names
@@ -94,6 +109,9 @@ Next release details
 - **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
 - **changed** `$use-fallback-colors` to `$use-fallbacks` to set a global settings for fallback mixins
 - **changed** `transition` mixin now supports multi prefixed props, and optionally one effect for all props
+- **moved** `box-sizing` before css size properties for csslint tests
+- **changed** placeholder behavior
+- **changed** some mixin names for more consistent naming convention
 
 ---
 
@@ -111,3 +129,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:      http://frontsize.com
 [vitto]:     https://twitter.com/vttrx
 [sassdoc]:   http://sassdoc.com/
+[release]:   https://github.com/ideatosrl/frontsize-sass/releases/tag/v3.0.18

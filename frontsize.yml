@@ -4,9 +4,9 @@ compileTest     : compile-test.scss
 themeName       : default
 copyToProdImg   : test/production/img/theme/
 copyToProdFonts : test/production/fonts/
-projectPath     : ./
+frontsizePath   : ./
 testCss         : test/csslint/frontsize.csslint.css
 autoprefixerCss : test/csslint/frontsize.autoprefixer.min.css
-css             : test/production/css/frontsize-3.0.0.min.css
-uncss           : test/production/css/frontsize-3.0.0.min.uncss.css
+css             : test/production/css/frontsize-3.0.18.min.css
+uncss           : test/production/css/frontsize-3.0.18.min.uncss.css
 uncssTemplates  : ['layout/index.html', 'layout/about.html']

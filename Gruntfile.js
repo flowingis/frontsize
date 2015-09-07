@@ -187,13 +187,13 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/img/*' ],
+                        src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/img/*' ],
                         dest    : '<%= f.copyToProdImg %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/fonts/*' ],
+                        src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/fonts/*' ],
                         dest    : '<%= f.copyToProdFonts %>',
                         filter  : 'isFile'
                     }
