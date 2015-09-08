@@ -50,70 +50,10 @@ Release details
 ---
 
 **Features**
-- **added** `transition` support for webkit
-- **added** Firefox fallback grayscale filter
-- **added** padding settings to `setFloatGridContainer`
-- **added** word wrap to links
-- **added** b and strong tag to base elements
-- **added** fallback color to selection
-- **added** `scaleValue` function
-- **added** new `font` mixin to load fonts from theme
-- **added** `spritePosition` now get `sprite` size properties automatically without the need to pass them manually
-- **added** missing `column-fill` CSS3 prefixes
-- **added** `flex` CSS3 prefixes
-- **added** `grid` CSS3 prefixes
-- **added** new grid system `addFlexGridContainer` and `addFlexGridColumns`
-- **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
-- **added** `tone` mixin to tone colors easily
-- **added** `viewport-height` state selector
-- **added** `fonts` folders and added app var `@path-font`
-- **added** selective `viewport-clear` rule for every viewport group
-- **added** mixin `setFloatGridRow` for BEM
-- **added** mixin `setFloatGridContainer` for BEM
-- **added** mixin `fallbackBackgroundSize` to handle fallback `background-size property
-- **added** function `prefix` which returns prefixed property lists
-- **added** `cssmin` grunt module to the node stack
+- **added** gulpjs for automation
+- **added** frontsize.yml.dist
+- **removed** padding from set mixins
 
-**Fixes**
-- **fixed** bem expression mixins
-- **removed** duplicate import
-- **removed** unused vars
-- **fixed** height unit
-- **fixed** state table padding
-- **fixed** `fallbackColor` mixin
-- **fixed** size mixin when auto value is passed
-- **optimized** tons of core code
-- **fixed** missing default `font-size` for headings
-- **fixed** padding rule names with new naming convention
-- **fixed** missing default `font-weight` and `font-size` on base body
-- **moved** `spriteRetina` mixin to a new file `sprite-retina.scss` like with `background-retina.scss` and background retina mixins
-- **replaced** filenames `_` with `-` for more file naming consistance
-- **optimized** `asTable` mixin now can skip `width` property
-- **fixed** h1-h6 base file with more flexible font setting
-- **updated** retina display media query
-- **fixed** state selectors for padding
-- **optimized** some private mixin
-
-**Changes**
-- **renamed** float grid system mixins with more clear names
-- **moved** grid mixins to `grids` core folder
-- **changed** `.map` files now are based on CSS names automatically
-- **changed** `addFontRule` mixin now is more easy to use
-- **changed** float grid private mixins naming convention to be more easy to be recognized
-- **optimized** background retina mixins, removed useless duplicate code now works smarter
-- **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
-- **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
-- **changed** column rules mixin names to new ones where is specified the grid type `addFlexGridContainer` and `addFlexGridColumns`
-- **changed** `fallbackColor` automatic fallback with a mix with a app color
-- **removed** `extra` folder
-- **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
-- **changed** `$use-fallback-colors` to `$use-fallbacks` to set a global settings for fallback mixins
-- **changed** `transition` mixin now supports multi prefixed props, and optionally one effect for all props
-- **moved** `box-sizing` before css size properties for csslint tests
-- **changed** placeholder behavior
-- **changed** some mixin names for more consistent naming convention
-
----
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
