@@ -57,3 +57,4 @@ test/csslint/
 test/production/
 /img
 src
+frontsize.yml

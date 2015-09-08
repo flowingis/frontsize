@@ -1,6 +1,6 @@
 {
   "name": "frontsize-sass",
-  "version": "3.0.0",
+  "version": "3.0.19",
   "description": "A fully customizable CSS generator to ease your life.",
   "authors": [
     {
@@ -46,8 +46,8 @@
   },
   "main": "compile.scss",
   "devDependencies": {
-    "casperjs": "1.1.0-beta3",
     "csslint": "~0.10.0",
+    "execSync": "^1.0.2",
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "~2.2.0",
     "grunt-contrib-clean": "~0.6.0",
@@ -59,9 +59,23 @@
     "grunt-sassdoc": "~1.0.4",
     "grunt-stylestats": "~0.1.3",
     "grunt-uncss": "^0.4.2",
+    "gulp": "^3.9.0",
+    "gulp-bower": "0.0.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-csslint": "^0.2.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-run": "^1.6.11",
+    "gulp-sass": "^2.0.4",
+    "gulp-shell": "^0.4.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-stylestats": "^0.8.3",
+    "gulp-symlink": "^2.1.2",
+    "gulp-uglify": "^1.4.0",
+    "gulp-uglifycss": "^1.0.4",
+    "js-yaml": "^3.4.1",
     "matchdep": "0.3.0",
-    "phantomcss": ">=0.9.3",
-    "phantomjs": "~1.9.2",
+    "run-sequence": "^1.1.2",
     "sass": ">=0.5.0",
     "sassdoc": "~2.1.3",
     "sassdoc-theme-vulcan": "^0.2.0"

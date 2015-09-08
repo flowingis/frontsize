@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.css %>' : '<%= f.compile %>'
+                    '<%= f.cssPath %><%= f.cssName %>' : '<%= f.compile %>'
                 }
             },
             autoprefixer : {
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
+                    '<%= f.autoprefixPath %><%= f.autoprefixName %>' : '<%= f.compile %>'
                 }
             },
             lint : {
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.testCss %>' : '<%= f.compileTest %>'
+                    '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' : '<%= f.compileTest %>'
                 }
             },
             test : {
@@ -91,8 +91,8 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src  : '<%= f.autoprefixerCss %>',
-                    dest : '<%= f.autoprefixerCss %>'
+                    src  : '<%= f.autoprefixPath %><%= f.autoprefixName %>',
+                    dest : '<%= f.autoprefixPath %><%= f.autoprefixName %>'
               }
         },
 
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
                 options: {
                     csslintrc: '.csslintrc'
                 },
-                src: [ '<%= f.testCss %>' ]
+                src: [ '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' ]
             },
             test: {
                 options: {
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    '<%= f.css %>': ['<%= f.css %>']
+                    '<%= f.cssPath %><%= f.cssName %>': ['<%= f.cssPath %><%= f.cssName %>']
                 }
             }
         },
@@ -227,7 +227,7 @@ module.exports = function(grunt) {
                 importantKeywords      : true,
                 mediaQueries           : true
             },
-            src: [ '<%= f.testCss %>' ]
+            src: [ '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' ]
         },
 
         sassdoc: {

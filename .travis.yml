@@ -9,12 +9,15 @@ before_install:
     - gem install sass
     - gem install casperjs
     - npm install -g grunt-cli
+    - npm install -g gulp
 
 before_script:
     - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
     - tar -xvf /tmp/casper.tar.gz
     - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
+    - cp ./frontsize.yml.dist ./frontsize.yml
 
 script:
     - grunt test
+    - gulp sass:build
     - sassdoc ./core ./themes

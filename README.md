@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version `3.0.18-beta`
+Current version `3.0.19-beta`
 
 The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
 
