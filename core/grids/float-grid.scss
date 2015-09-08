@@ -949,7 +949,6 @@
 /// </div>
 
 @mixin setFloatGridContainer(
-    $usePadding           : false,
     $hdFullSteps          : 0,
     $hdReadySteps         : $hdFullSteps,
     $tabletLandscapeSteps : $hdReadySteps,
@@ -958,12 +957,9 @@
     $mobilePortraitSteps  : 1
     ) {
 
-    @if $usePadding == true {
-        padding-top : $vertical-padding;
-    }
-    width       : 100%;
-    overflow    : auto;
-    clear       : both;
+    width: 100%;
+    overflow: auto;
+    clear: both;
 
     @include box-sizing(border-box);
 
@@ -1053,7 +1049,6 @@
 /// }
 
 @mixin setFloatGridColumn(
-    $usePadding          : false,
     $hdFullStep          : 0,
     $hdReadyStep         : 0,
     $tabletLandscapeStep : 0,
@@ -1063,20 +1058,18 @@
     $totalSteps          : 12
     ) {
 
-    @if $usePadding != false and $usePadding != true {
-        @if $mobilePortraitStep != 0 {
-            $totalSteps : $mobilePortraitStep;
-        }
-        $mobilePortraitStep  : $mobileLandscapeStep;
-        $mobileLandscapeStep : $tabletPortraitStep;
-        $tabletPortraitStep  : $tabletLandscapeStep;
-        $tabletLandscapeStep : $hdReadyStep;
-        $hdReadyStep         : $hdFullStep;
-        $hdFullStep          : $usePadding;
-    }
-
     width: 100%;
-    @include _setColumnBehavior(true, left, true, $usePadding);
+
+    @if $mobilePortraitStep != 0 {
+        $totalSteps : $mobilePortraitStep;
+    }
+    $mobilePortraitStep: $mobileLandscapeStep;
+    $mobileLandscapeStep: $tabletPortraitStep;
+    $tabletPortraitStep: $tabletLandscapeStep;
+    $tabletLandscapeStep: $hdReadyStep;
+    $hdReadyStep: $hdFullStep;
+
+    @include _setColumnBehavior(true, left, true, false);
 
     @include _setFloatGridColumn($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
     @include _setFloatGridColumn($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
