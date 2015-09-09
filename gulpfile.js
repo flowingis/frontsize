@@ -29,15 +29,6 @@ gulp.task('sass:watch', function () {
     gulp.watch(frontsize.frontsizePath + 'themes/**/*.scss', tasks);
 });
 
-gulp.task('sass:css:vendors', function () {
-    return gulp.src(frontsize.cssVendors)
-    .pipe(sourcemaps.init())
-    .pipe(uglifyCss())
-    .pipe(concat('vendors.min.css'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(frontsize.cssPath));
-});
-
 gulp.task('sass:css:production', function () {
     gulp.src(frontsize.frontsizePath + frontsize.compile)
         .pipe(sourcemaps.init())

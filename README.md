@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version `3.0.19-beta`
+Current version [3.0.20-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -53,10 +53,7 @@ Release details
 ---
 
 **Features**
-- **added** gulpjs for automation
-- **added** `frontsize.yml.dist`
-- **added** `border-collapse` to `asTable` mixin
-- **removed** padding from set mixins
+- **changed** `border-collapse` behavior now is assigned only if is different from default value `separate` on `asTable` mixin
 
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
@@ -73,4 +70,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:      http://frontsize.com
 [vitto]:     https://twitter.com/vttrx
 [sassdoc]:   http://sassdoc.com/
-[release]:   https://github.com/ideatosrl/frontsize-sass/releases/tag/v3.0.18
+[release]:   https://github.com/ideatosrl/frontsize-sass/releases/tag/v3.0.20
