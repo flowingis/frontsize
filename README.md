@@ -54,7 +54,8 @@ Release details
 
 **Features**
 - **added** gulpjs for automation
-- **added** frontsize.yml.dist
+- **added** `frontsize.yml.dist`
+- **added** `border-collapse` to `asTable` mixin
 - **removed** padding from set mixins
 
 
