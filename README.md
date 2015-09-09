@@ -3,7 +3,7 @@ frontsize
 
 Current version `3.0.19-beta`
 
-The project was originally developed in [LESS][less], but soon only the SASS version will be matained.
+The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
 Non beta version will be available after we've fully added tests and documentation.
 
@@ -14,8 +14,11 @@ Non beta version will be available after we've fully added tests and documentati
 
 It's a CSS generator written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
-###Why FRONTsize?
+###Why Frontsize?
 
+- It supports all types of grid rules
+- It's BEM ready
+- It has all the automation support you need
 - It passes [CSSlint][csslint] tests (see the tests [configuration][csslintc])
 - It can be useful for [migrations][migration] by it's high customizable features
 - It's totally [customizable][app]
@@ -26,7 +29,7 @@ If you'd like to see more features, visit [frontsize.com][site] website.
 
 ###Bower install
 
-This will download FRONTsize on `bower_components` folder, you should do that from the project's root folder.
+This will download Frontsize on `bower_components` folder, you should do that from the project's root folder.
 
 ```
 bower install frontsize-sass
