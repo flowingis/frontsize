@@ -1,24 +1,24 @@
-@mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%) {
-	@if $tableWidth != false {
-    	width : $tableWidth;
-	}
-
+@mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%, $borderCollapse:collapse) {
+    @if $tableWidth != false {
+        width : $tableWidth;
+    }
     display : table;
+    border-collapse: $borderCollapse;
     > * {
         @include asTableRow($cellPadding, $verticalAlign);
     }
 }
 
 @mixin asTableRow($cellPadding:$global-padding, $verticalAlign:middle) {
-	display : table-row;
+    display : table-row;
     float   : none;
-	> * {
-		@include asTableCell($cellPadding, $verticalAlign);
-	}
+    > * {
+        @include asTableCell($cellPadding, $verticalAlign);
+    }
 }
 
 @mixin asTableCell($cellPadding:$global-padding, $verticalAlign:middle) {
-	display        : table-cell;
+    display        : table-cell;
     float          : none;
     padding        : $cellPadding;
     vertical-align : $verticalAlign;
