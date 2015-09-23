@@ -1,28 +1,32 @@
 @function _important(){
-	@if $state-important == true{
-		@return ("!important");
-	}
-	@else{
-		@return ("");
-	}
+    @if $state-important == true{
+        @return ("!important");
+    }
+    @else{
+        @return ("");
+    }
 }
 
 @mixin _addStep($selector:step, $width:false) {
     @if $width == false {
-	    .#{$selector} {
-	        display: block;
-	        margin-left: auto;
-	        margin-right: auto;
-	        @include box-sizing(border-box);
-	    }
-	}
+        .#{$selector} {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            @if $use-core-base == false {
+                @include box-sizing("border-box");
+            }
+        }
+    }
     @else{
-	    .#{$selector} {
-	        display: block;
-	        width: $width;
-	        margin-left: auto;
-	        margin-right: auto;
-	        @include box-sizing(border-box);
-	    }
-	}
+        .#{$selector} {
+            display: block;
+            width: $width;
+            margin-left: auto;
+            margin-right: auto;
+            @if $use-core-base == false {
+                @include box-sizing("border-box");
+            }
+        }
+    }
 }
