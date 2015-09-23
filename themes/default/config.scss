@@ -21,6 +21,7 @@ $font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
 $font-default : $font-sans;
 $font-heading : $font-sans;
 
+// used with s(); mixin, if $spacing is 20px s(0.5); returns 10px
 $spacing : 20px;
 
 $font-line-height    : $spacing;
@@ -30,8 +31,8 @@ $body-color          : #F5F0D6;
 $fallback-color-base : $body-color;
 
 // Global padding configuration
-$horizontal-padding : $spacing;
-$vertical-padding   : $spacing;
+$horizontal-padding : s();
+$vertical-padding   : s();
 $global-padding     : $vertical-padding $horizontal-padding;
 
 // State selectors configuration
@@ -68,7 +69,7 @@ $use-state-text        : false;
 $use-state-visibility  : false;
 $use-state-print       : false;
 
-$use-core-base  : false;
+$use-core-base  : true;
 $use-css-prefix : true;
 $use-ie-filters : false;
 $use-fallbacks  : true;
