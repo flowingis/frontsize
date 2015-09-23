@@ -98,11 +98,11 @@ Release details
 
 **Features**
 - **added** `box-sizing: border-box;` by default to all elements to make sizing easier
-- **added** default box-sizing to border-box to all html elements on core base, now active by default
+- **added** default `box-sizing` to `border-box` to all html elements on core base, now active by default
 - **changed** some theme config value default value
 - **moved** base on core dependance on bottom to load mixins correctly
 - **removed** some tabs for white spaces
-- **removed** default border-box on grids cause it's already set by default on core base
+- **removed** default `border-box` on grids cause it's already set by default on core base
 
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
