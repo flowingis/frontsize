@@ -35,7 +35,9 @@ This will download Frontsize on `bower_components` folder, you should do that fr
 bower install frontsize-sass
 ```
 
-The next steps will be automated soon:
+---
+
+###The next steps will be automated soon
 
 Once you have downloaded it, copy your theme to the project front-end develop folder:
 
