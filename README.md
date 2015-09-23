@@ -16,9 +16,9 @@ It's a CSS generator written to make websites easy to read on every device and f
 
 ###Why Frontsize?
 
-- It supports all types of grid rules
-- It's BEM ready
-- It has all the automation support you need
+- It supports various types of [grid rules][grids]
+- It's [BEM][bem] ready, also with [expressive BEM][bem_expressive]
+- It has all the automation support you need, with it's [config][automation_config], [grunt][automation_grunt] and [gulp][automation_gulp]
 - It passes [CSSlint][csslint] tests (see the tests [configuration][csslintc])
 - It can be useful for [migrations][migration] by it's high customizable features
 - It's totally [customizable][app]
@@ -107,16 +107,22 @@ Release details
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
-[app]:       https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
-[csslint]:   https://github.com/CSSLint/csslint
-[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
-[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
-[ideato]:    http://www.ideato.it
-[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
-[minompi]:   https://twitter.com/minompi
-[sass]:      https://github.com/ideatosrl/frontsize-sass
-[less]:      https://github.com/ideatosrl/frontsize-less
-[site]:      http://frontsize.com
-[vitto]:     https://twitter.com/vttrx
-[sassdoc]:   http://sassdoc.com/
-[release]:   https://github.com/ideatosrl/frontsize-sass/releases/tag/3.0.26
+[app]:               https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
+[csslint]:           https://github.com/CSSLint/csslint
+[csslintc]:          https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
+[bem]:               https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem.scss
+[bem_expressive]:    https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem-expressive.scss
+[docs]:              https://github.com/ideatosrl/frontsize-less/wiki
+[automation_config]: https://github.com/ideatosrl/frontsize-sass/blob/master/frontsize.yml.dist
+[automation_gulp]:   https://github.com/ideatosrl/frontsize-sass/blob/master/gulpfile.js
+[automation_grunt]:  https://github.com/ideatosrl/frontsize-sass/blob/master/Gruntfile.js
+[grids]:             https://github.com/ideatosrl/frontsize-sass/tree/master/core/grids
+[ideato]:            http://www.ideato.it
+[migration]:         https://gist.github.com/vitto/9b7dfc40ef710470fed1
+[minompi]:           https://twitter.com/minompi
+[sass]:              https://github.com/ideatosrl/frontsize-sass
+[less]:              https://github.com/ideatosrl/frontsize-less
+[site]:              http://frontsize.com
+[vitto]:             https://twitter.com/vttrx
+[sassdoc]:           http://sassdoc.com/
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.0.26
