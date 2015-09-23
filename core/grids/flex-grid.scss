@@ -128,7 +128,9 @@
             @if $index == 0{
                 #{$nextRule} {
                     @include _setColumnBehavior();
-                    @include box-sizing(border-box);
+                    @if $use-core-base == false {
+                        @include box-sizing("border-box");
+                    }
                 }
             }
 
@@ -155,7 +157,9 @@
             @if $index == 0{
                 #{$nextRule} {
                     @include _setColumnBehavior();
-                    @include box-sizing(border-box);
+                    @if $use-core-base == false {
+                        @include box-sizing("border-box");
+                    }
                 }
             }
 
@@ -165,7 +169,9 @@
 }
 
 @mixin _setFlexGridColumnBehavior() {
-    @include box-sizing(border-box);
+    @if $use-core-base == false {
+        @include box-sizing("border-box");
+    }
     @include flex-grow(1);
 }
 

@@ -9,11 +9,11 @@ $important: _important();
 
     .wrap {
         // avoid the unwanted width over the 100% of the size of the container
-        @include box-sizing(border-box);
+        @include box-sizing("border-box");
     }
 
     .wrap-content {
-        @include box-sizing(content-box);
+        @include box-sizing("content-box");
     }
 
     .full {
@@ -67,7 +67,9 @@ $important: _important();
         // make an image responsive
         height: auto;
         max-width: 100% #{$important};
-        @include box-sizing(border-box);
+        @if $use-core-base == false {
+            @include box-sizing("border-box");
+        }
         img {
             max-width: 100% #{$important};
             height: auto #{$important};

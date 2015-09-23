@@ -1760,7 +1760,7 @@
     width:((100% * $step) / $columns);
 }
 
-@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:true, $usePadding:true) {
+@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:false, $usePadding:true) {
     @if $usePadding == true {
         padding-left: $horizontal-padding;
         padding-right: $horizontal-padding;
@@ -1771,6 +1771,6 @@
         position: relative;
     }
     @if $useBorderBox == true {
-        @include box-sizing(border-box);
+        @include box-sizing("border-box");
     }
 }
