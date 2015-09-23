@@ -93,21 +93,16 @@ sassdoc ./core ./themes
 
 ---
 
-Release details
+Next release details
 ---
 
 **Features**
-- **added** `box-sizing: border-box;` by default to all elements to make sizing easier
-- **added** default `box-sizing` to `border-box` to all html elements on core base, now active by default
-- **changed** some theme config value default value
-- **moved** base on core dependance on bottom to load mixins correctly
-- **removed** some tabs for white spaces
-- **removed** default `border-box` on grids cause it's already set by default on core base
+- **added** defaults to core vars
 
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
-[app]:               https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
+[app]:               https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
 [csslint]:           https://github.com/CSSLint/csslint
 [csslintc]:          https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
 [bem]:               https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem.scss
