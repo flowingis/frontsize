@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.0.26-beta][release]
+Current version [3.0.28-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -93,11 +93,12 @@ sassdoc ./core ./themes
 
 ---
 
-Next release details
+Release details
 ---
 
 **Features**
 - **added** defaults to core vars
+- **extended** `s` function, now is also an alias for `scaleValue`
 
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]

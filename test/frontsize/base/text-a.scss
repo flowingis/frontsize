@@ -24,11 +24,11 @@ a {
 
     $color: $font-color;
 
-    @include fallbackColor(border-bottom-color, fade($color, 30%));
+    @include fallbackColor(border-bottom-color, rgba($color, 0.3));
 
     $animation:0.3s ease-in-out;
     @include transition("border-bottom #{$animation}, color #{$animation}");
-    
+
     &[title]:hover {
         text-decoration : none;
     }
@@ -40,7 +40,7 @@ a {
         color : saturate(darken($color, 10%), 7%);
         border-bottom-color : $color;
     }
-    
+
     &.selected {
         cursor : default;
     }

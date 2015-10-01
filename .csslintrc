@@ -1,5 +1,5 @@
 {
-    "box-model"                 : true,
+    "box-model"                 : false,
     "display-property-grouping" : true,
     "duplicate-properties"      : true,
     "empty-rules"               : true,

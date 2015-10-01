@@ -11,7 +11,8 @@
 }
 
 .float-grid-column-example-2 {
-    @include setFloatGridColumn(true, 3, 3, 4, 4, 6, 6);
+    // need change documentation
+    @include setFloatGridColumn(3, 3, 4, 4, 6, 6);
 }
 
 .float-grid-column-offset {
@@ -19,7 +20,7 @@
 }
 
 .float-grid-column-centered {
-    @include setFloatGridColumn(true, 4, 4, 6, 6, 8, 8);
+    @include setFloatGridColumn(4, 4, 6, 6, 8, 8);
     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
 }
 

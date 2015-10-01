@@ -974,7 +974,6 @@
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
 /// @group Grids - Float grid
 /// @access public
-/// @param {boolean} $usePadding          [false] - Apply padding to the column
 /// @param {int} $hdFullStep          [0] - Column steps for Full HD viewports
 /// @param {int} $hdReadyStep         [0] - Column steps for HD Ready viewports
 /// @param {int} $tabletLandscapeStep [0] - Column steps for Tablet landscape viewports
@@ -1000,14 +999,11 @@
 /// }
 /// @example scss Creates a column with padding, and three different sizes based on three different viewport step groups
 /// .float-grid-column-example-2 {
-///     @include setFloatGridColumn(true, 3, 3, 4, 4, 6, 6);
+///     @include setFloatGridColumn(3, 3, 4, 4, 6, 6);
 /// }
 /// @example css CSS generated with second example
 /// .float-grid-column-example-2 {
 ///   width: 100%;
-///   padding-left: 20px;
-///   padding-right: 20px;
-///   padding-bottom: 20px;
 ///   float: left;
 ///   position: relative;
 ///   -webkit-box-sizing: border-box;

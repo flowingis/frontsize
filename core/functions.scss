@@ -1,3 +1,6 @@
+@function scaleValue($value, $scale) {
+    @return round($value * $scale);
+}
 
 /// Returns the product of theme config's global var `$spacing` with the integer passed
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
@@ -31,12 +34,12 @@
 ///       padding-top: 30px;
 ///   }
 
-@function s($multiplier:1) {
-    @return spacing($multiplier);
-}
-
-@function scaleValue($value, $scale) {
-    @return round($value * $scale);
+@function s($scale:1, $value:false) {
+    @if $value == false {
+        @return spacing($scale);
+    } @else {
+        @return scaleValue($value, $scale);
+    }
 }
 
 @function _values($value) {
