@@ -4,45 +4,32 @@ var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     concat      = require('gulp-concat'),
     csslint     = require('gulp-csslint'),
-    symlink     = require('gulp-symlink'),
-    uglifyCss   = require('gulp-uglifycss'),
     runSequence = require('run-sequence'),
     stylestats  = require('gulp-stylestats'),
-    sourcemaps  = require('gulp-sourcemaps'),
-    plugins     = require('gulp-load-plugins')();
+    sourcemaps  = require('gulp-sourcemaps');
 
 var frontsize = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
 
 gulp.task('default', function () {
     var tasks = [
-        'sass:assets',
-        'sass:build'
+        'sass:watch'
     ];
     runSequence(tasks);
-});
-
-gulp.task('sass:watch', function () {
-    var tasks = [
-        'sass:build'
-    ];
-    runSequence(tasks);
-    gulp.watch(frontsize.frontsizePath + 'themes/**/*.scss', tasks);
 });
 
 gulp.task('sass:css:production', function () {
     gulp.src(frontsize.frontsizePath + frontsize.compile)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(concat(frontsize.cssName))
+        .pipe(concat(frontsize.prodCssName))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(frontsize.cssPath));
+        .pipe(gulp.dest(frontsize.prodCssPath));
 });
 
 gulp.task('sass:css:test', function () {
     gulp.src(frontsize.frontsizePath + frontsize.compileTest)
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'expanded' })
-        .on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(concat(frontsize.testCssName))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(frontsize.frontsizePath + frontsize.testCssPath));
@@ -68,10 +55,10 @@ gulp.task('sass:assets', function () {
 });
 
 gulp.task('sass:assets:update', function () {
-    gulp.src(frontsize.frontsizePath + 'themes/ehoreca/img/**/*.*')
-        .pipe(gulp.dest(frontsize.copyToProdImg));
-    gulp.src(frontsize.frontsizePath + 'themes/ehoreca/fonts/**/*.*')
-        .pipe(gulp.dest(frontsize.copyToProdFonts));
+    gulp.src(frontsize.frontsizePath + 'themes/' + frontsize.themeName + '/img/**/*.*')
+        .pipe(gulp.dest(frontsize.prodImgPath));
+    gulp.src(frontsize.frontsizePath + 'themes/' + frontsize.themeName + '/fonts/**/*.*')
+        .pipe(gulp.dest(frontsize.prodFontsPath));
 });
 
 gulp.task('sass:build', function () {
@@ -86,8 +73,7 @@ gulp.task('sass:build', function () {
 
 gulp.task('sass:watch', function () {
     var tasks = [
-        'sass:build',
-        'sass:assets'
+        'sass:build'
     ];
     runSequence(tasks);
     gulp.watch(frontsize.frontsizePath + 'themes/**/*.scss', tasks);
@@ -95,16 +81,13 @@ gulp.task('sass:watch', function () {
 
 gulp.task('sass:watch:assets', function(){
     var tasks = [
-        'sass:css:production',
-        'sass:assets',
-        'sass:css:test',
-        'sass:test:csslint'
+        'sass:build',
+        'sass:assets'
     ];
     runSequence(tasks);
     gulp.watch([
         frontsize.frontsizePath + 'themes/**/*.scss',
         frontsize.frontsizePath + 'themes/**/img/**/*',
-        frontsize.frontsizePath + 'themes/**/fonts/**/*',
-        frontsize.frontsizePath + 'themes/**/vendor/**/*.scss',
+        frontsize.frontsizePath + 'themes/**/fonts/**/*'
     ], tasks);
 });

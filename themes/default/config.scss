@@ -24,7 +24,7 @@ $font-heading : $font-sans;
 // used with s(); mixin, if $spacing is 20px s(0.5); returns 10px
 $spacing : 20px;
 
-$font-line-height    : $spacing;
+$font-line-height    : s();
 $font-weight         : 400;
 $font-color          : #545454;
 $body-color          : #F5F0D6;

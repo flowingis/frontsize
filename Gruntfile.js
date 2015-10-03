@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.cssPath %><%= f.cssName %>' : '<%= f.compile %>'
+                    '<%= f.prodCssPath %><%= f.prodCssName %>' : '<%= f.compile %>'
                 }
             },
             autoprefixer : {
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.autoprefixPath %><%= f.autoprefixName %>' : '<%= f.compile %>'
+                    '<%= f.prodCssPath %><%= f.prodCssName %>' : '<%= f.compile %>'
                 }
             },
             lint : {
@@ -91,8 +91,8 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src  : '<%= f.autoprefixPath %><%= f.autoprefixName %>',
-                    dest : '<%= f.autoprefixPath %><%= f.autoprefixName %>'
+                    src  : '<%= f.prodCssPath %><%= f.prodCssName %>',
+                    dest : '<%= f.prodCssPath %><%= f.prodCssName %>'
               }
         },
 
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    '<%= f.cssPath %><%= f.cssName %>': ['<%= f.cssPath %><%= f.cssName %>']
+                    '<%= f.prodCssPath %><%= f.prodCssName %>': ['<%= f.prodCssPath %><%= f.prodCssName %>']
                 }
             }
         },
@@ -164,8 +164,8 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    '<%= f.copyToProdImg %>*',
-                    '<%= f.copyToProdFonts %>*'
+                    '<%= f.prodImgPath %>*',
+                    '<%= f.prodFontsPath %>*'
                 ]
             },
             docs: {
@@ -175,8 +175,8 @@ module.exports = function(grunt) {
             },
             removeEmpty: {
                 src:[
-                    '<%= f.copyToProdImg %>empty',
-                    '<%= f.copyToProdFonts %>empty',
+                    '<%= f.prodImgPath %>empty',
+                    '<%= f.prodFontsPath %>empty',
                 ]
             }
         },
@@ -188,13 +188,13 @@ module.exports = function(grunt) {
                         expand  : true,
                         flatten : true,
                         src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/img/*' ],
-                        dest    : '<%= f.copyToProdImg %>',
+                        dest    : '<%= f.prodImgPath %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
                         src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/fonts/*' ],
-                        dest    : '<%= f.copyToProdFonts %>',
+                        dest    : '<%= f.prodFontsPath %>',
                         filter  : 'isFile'
                     }
                 ]
