@@ -2,11 +2,11 @@
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
 /// @group Grids - Float grid
 /// @access public
-/// @param {string} $selector                 [row]                   - The selector name of the container
-/// @param {int}    $hdFullSteps              [0]                     - Number of columns per row on Full HD
-/// @param {int}    $hdReadySteps             [$hdFullSteps]          - Number of columns per row on HD Ready
-/// @param {int}    $tabletLandscapeSteps     [$hdReadySteps]         - Number of columns per row on Tablet landscape
-/// @param {int}    $tabletPortraitSteps      [$tabletLandscapeSteps] - Number of columns per row on Tablet portrait
+/// @param {string} $selector             [row]                   - The selector name of the container
+/// @param {int}    $hdFullSteps          [0]                     - Number of columns per row on Full HD
+/// @param {int}    $hdReadySteps         [$hdFullSteps]          - Number of columns per row on HD Ready
+/// @param {int}    $tabletLandscapeSteps [$hdReadySteps]         - Number of columns per row on Tablet landscape
+/// @param {int}    $tabletPortraitSteps  [$tabletLandscapeSteps] - Number of columns per row on Tablet portrait
 /// @param {int}    $mobileLandscapeSteps [1]                     - Number of columns per row on mobile landscape
 /// @param {int}    $mobilePortraitSteps  [1]                     - Number of columns per row on mobile portrait
 /// @example scss Default usage, it generates a `row` selector rule which will NOT treat child elements as columns
@@ -820,7 +820,6 @@
 /// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
 /// @group Grids - Float grid
 /// @access public
-/// @param {bool} $usePadding          [false]                 - Sets the padding top of the row
 /// @param {int} $hdFullSteps          [0]                     - Column steps for HD viewports
 /// @param {int} $hdReadySteps         [$hdFullSteps]          - Column steps for HD viewports
 /// @param {int} $tabletLandscapeSteps [$hdReadySteps]         - Column steps for Tablet viewports
@@ -833,7 +832,6 @@
 /// }
 /// @example css A simple 4 column set
 /// .float-grid-example-1 {
-///   padding-top: 20px;
 ///   width: 100%;
 ///   overflow: auto;
 ///   clear: both;
@@ -854,11 +852,10 @@
 /// }
 /// @example scss It sets a column container with column rules which dispose 4 columns childrens on HD viewports and 3 columns children on Tablet viewports
 /// .float-grid-example-2 {
-///     @include setFloatGridContainer(true, 4,4,3,3);
+///     @include setFloatGridContainer(4,4,3,3);
 /// }
 /// @example css The generated CSS
 /// .float-grid-example-2 {
-///   padding-top: 20px;
 ///   width: 100%;
 ///   overflow: auto;
 ///   clear: both;
@@ -961,10 +958,12 @@
     overflow: auto;
     clear: both;
 
-    @include box-sizing(border-box);
-
-    * {
+    @if $use-core-base != true {
         @include box-sizing(border-box);
+
+        * {
+            @include box-sizing(border-box);
+        }
     }
 
     @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps);
