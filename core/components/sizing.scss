@@ -41,7 +41,6 @@
     ) {
 
     @include _addStep($selector);
-    max-width: _clean($hdFullWidth);
 
     @include _addViewportsSteps($from-tablet-portrait,  $selector, $tablet-portrait-step,  $tabletPortraitWidth);
     @include _addViewportsSteps($from-tablet-landscape, $selector, $tablet-landscape-step, $tabletLandscapeWidth);

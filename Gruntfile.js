@@ -22,10 +22,6 @@ $ grunt watch:autoprefix
 $ grunt autoprefix-assets
 $ grunt watch:autoprefix-assets
 
-# Generates the docs with SASSdoc
-$ grunt docs
-$ grunt watch:docs
-
 # Generates the CSS file optimized with uncss
 $ grunt uncss
 $ grunt watch:uncss
@@ -42,7 +38,6 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         f : grunt.file.readYAML('frontsize.yml'),
-        s : grunt.file.readYAML('sassdoc.yml'),
 
         sass : {
             production : {
@@ -116,10 +111,6 @@ module.exports = function(grunt) {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'autoAssets' ]
             },
-            docs : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'docs' ]
-            },
             test : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'test' ]
@@ -166,11 +157,6 @@ module.exports = function(grunt) {
                 src: [
                     '<%= f.prodImgPath %>*',
                     '<%= f.prodFontsPath %>*'
-                ]
-            },
-            docs: {
-                src: [
-                    'src'
                 ]
             },
             removeEmpty: {
@@ -228,20 +214,6 @@ module.exports = function(grunt) {
                 mediaQueries           : true
             },
             src: [ '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' ]
-        },
-
-        sassdoc: {
-            options : {
-                theme           : '<%= s.theme %>',
-                package         : '<%= s.package %>',
-                basePath        : '<%= s.basePath %>',
-                googleAnalytics : '<%= s.googleAnalytics %>',
-                tracking        : '<%= s.tracking %>',
-                groups : {
-                    'undefined' : 'General'
-                }
-            },
-            src : './core/**/*.scss'
         }
     });
 
@@ -296,11 +268,6 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
         'sass:test',
         'csslint:test'
-    ]);
-
-    grunt.registerTask('docs', [
-        'clean:docs',
-        'sassdoc'
     ]);
 
 };
