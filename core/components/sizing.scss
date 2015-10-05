@@ -41,6 +41,8 @@
     ) {
 
     @include _addStep($selector);
+    max-width: _clean($hdFullWidth);
+
     @include _addViewportsSteps($from-tablet-portrait,  $selector, $tablet-portrait-step,  $tabletPortraitWidth);
     @include _addViewportsSteps($from-tablet-landscape, $selector, $tablet-landscape-step, $tabletLandscapeWidth);
     @include _addViewportsSteps($from-hd-ready,         $selector, $hd-ready-step,         $hdReadyWidth);
@@ -48,12 +50,15 @@
 }
 
 @mixin _addViewportsSteps($viewportRule, $selector, $viewportWidth, $width) {
-    @media #{$viewportRule} {
-        .#{$selector} {
-            @if $width <= $viewportWidth {
-                max-width : $width;
-            } @else {
-                max-width : $viewportWidth;
+    $width: _clean($width);
+    @if $width != 0 {
+        @media #{$viewportRule} {
+            .#{$selector} {
+                @if $width <= $viewportWidth {
+                    max-width : $width;
+                } @else {
+                    max-width : $viewportWidth;
+                }
             }
         }
     }
