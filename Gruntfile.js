@@ -12,16 +12,6 @@ $ grunt watch:frontsize
 $ grunt frontsize-assets
 $ grunt watch:frontsize-assets
 
-# Compiles Frontsize and applies autoprefixer to the CSS and lint the CSS
-# it uses [lint]
-$ grunt autoprefix
-$ grunt watch:autoprefix
-
-# Compiles Frontsize, applies autoprefixer to the CSS, it copy its assets and lint the CSS
-# it uses [autoprefixer, assets, lint]
-$ grunt autoprefix-assets
-$ grunt watch:autoprefix-assets
-
 # Generates the CSS file optimized with uncss
 $ grunt uncss
 $ grunt watch:uncss
@@ -41,16 +31,6 @@ module.exports = function(grunt) {
 
         sass : {
             production : {
-                options : {
-                    sourcemap : 'auto',
-                    cleancss : false,
-                    style : 'expanded'
-                },
-                files : {
-                    '<%= f.prodCssPath %><%= f.prodCssName %>' : '<%= f.compile %>'
-                }
-            },
-            autoprefixer : {
                 options : {
                     sourcemap : 'auto',
                     cleancss : false,
@@ -80,17 +60,6 @@ module.exports = function(grunt) {
             }
         },
 
-        autoprefixer: {
-              options: {
-                    // browsers: ['> 1%', 'Firefox > 3.6', 'last 10 versions', 'ie 8', 'ie 7', 'Firefox ESR', 'Opera > 10.1'],
-                    diff: true
-              },
-              test: {
-                    src  : '<%= f.prodCssPath %><%= f.prodCssName %>',
-                    dest : '<%= f.prodCssPath %><%= f.prodCssName %>'
-              }
-        },
-
         watch: {
             options : {
                 atBegin : true
@@ -102,14 +71,6 @@ module.exports = function(grunt) {
             'frontsize-assets' : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frnAssets' ]
-            },
-            autoprefix : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'autoprefix' ]
-            },
-            'autoprefix-assets' : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'autoAssets' ]
             },
             test : {
                 files: [ '*.scss', '**/*.scss' ],
@@ -234,19 +195,6 @@ module.exports = function(grunt) {
         'clean',
         'assets',
         'minify',
-        'lint'
-    ]);
-
-    grunt.registerTask('autoprefix', [
-        'sass:autoprefixer',
-        'autoprefixer',
-        'lint'
-    ]);
-
-    grunt.registerTask('autoprefix-assets', [
-        'sass:autoprefixer',
-        'autoprefixer',
-        'assets',
         'lint'
     ]);
 
