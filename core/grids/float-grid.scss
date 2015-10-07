@@ -1156,9 +1156,6 @@
 
     width: 100%;
 
-    @if $mobilePortraitStep != 0 {
-        $totalSteps : $mobilePortraitStep;
-    }
     $mobilePortraitStep: $mobileLandscapeStep;
     $mobileLandscapeStep: $tabletPortraitStep;
     $tabletPortraitStep: $tabletLandscapeStep;
