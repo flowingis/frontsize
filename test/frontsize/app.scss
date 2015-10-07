@@ -5,4 +5,4 @@
 // @include font('open sans', 'OpenSans-Regular', 400);
 // @include font('open sans', 'OpenSans-Light',   200);
 
-@include addViewportsSteps(use-steps, 1600px, 1024px, 0, 0);
+@include addViewportsSteps("use-steps", 1600px, 1024px, 0, 0);

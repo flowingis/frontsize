@@ -33,14 +33,14 @@
 ///    }
 
 @mixin addViewportsSteps(
-    $selector             : use-steps,
-    $hdFullWidth          : $hd-full-step - 500px,
-    $hdReadyWidth         : $hd-ready-step - 100px,
-    $tabletLandscapeWidth : $tablet-landscape-step - 50px,
-    $tabletPortraitWidth  : $tablet-portrait-step - 20px
+    $selector             : "with-steps",
+    $hdFullWidth          : 0,
+    $hdReadyWidth         : 0,
+    $tabletLandscapeWidth : 0,
+    $tabletPortraitWidth  : 0
     ) {
 
-    @include _addStep($selector);
+    @include _addStep($selector, 100%);
 
     @include _addViewportsSteps($from-tablet-portrait,  $selector, $tablet-portrait-step,  $tabletPortraitWidth);
     @include _addViewportsSteps($from-tablet-landscape, $selector, $tablet-landscape-step, $tabletLandscapeWidth);
