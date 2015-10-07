@@ -25,7 +25,8 @@
 }
 
 @include addFloatGridOffset(4, 2, 2);
-@include addFloatGridContainer(row);
+@include addFloatGridContainer("row", "gain");
+@include addFloatGridContainer("row-container", "gain", 4, 4, 3, 3, 1, 1, false);
 @include addFloatGridColumns(4);
 @include addFloatGridColumns(4, 2, 2, "l", "m", "s", "mobile-landscape", false);
 @include addFloatGridColumns(4, 4 ,3, "lg-", "md-", "sm-", "mobile-landscape", true, "-of-", false, true, false);

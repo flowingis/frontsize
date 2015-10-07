@@ -3,6 +3,7 @@
 /// @group Grids - Float grid
 /// @access public
 /// @param {string} $selector             [row]                   - The selector name of the container
+/// @param {int}    $gainSelector         [gain-margin]           - The selector name of the container with negative margin to gain column padding, if `false` is disabled
 /// @param {int}    $hdFullSteps          [0]                     - Number of columns per row on Full HD
 /// @param {int}    $hdReadySteps         [$hdFullSteps]          - Number of columns per row on HD Ready
 /// @param {int}    $tabletLandscapeSteps [$hdReadySteps]         - Number of columns per row on Tablet landscape
@@ -28,9 +29,13 @@
 ///   overflow: auto;
 ///   clear: both;
 /// }
+/// .row--gain-margin {
+///   margin-left: -20px;
+///   margin-right: -20px;
+/// }
 ///
 /// @example scss Generates a `row-container` selector rule with 4 HD columns steps, 3 tablet columns steps and 1 column mobile steps
-///   @include addFloatGridContainer(row-container, 4, 4, 3, 3);
+///   @include addFloatGridContainer(row-container, gain, 4, 4, 3, 3);
 /// @example css CSS generated
 /// .row-container,
 /// .row-container * {
@@ -47,6 +52,91 @@
 ///   width: 100%;
 ///   overflow: auto;
 ///   clear: both;
+/// }
+/// .row-container--gain {
+///   margin-left: -20px;
+///   margin-right: -20px;
+/// }
+///
+/// .row-container > * {
+///   min-height: 1px;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   width: 25%;
+/// }
+///
+/// \@media only screen and (min-width: 1px) and (max-width: 479px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) and (max-width: 767px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1023px), only print {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) and (max-width: 1799px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// @example scss Generates a `row-container` selector rule with 4 HD columns steps, 3 tablet columns steps, 1 column mobile steps and without padding-top property
+///   @include addFloatGridContainer(row-container, gain, 4, 4, 3, 3, 1, 1, false);
+/// @example css CSS generated
+/// .row-container,
+/// .row-container * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row-container {
+///   width: 100%;
+///   overflow: auto;
+///   clear: both;
+/// }
+/// .row-container--gain {
+///   margin-left: -20px;
+///   margin-right: -20px;
 /// }
 ///
 /// .row-container > * {
@@ -108,15 +198,16 @@
 ///   }
 /// }
 
-
 @mixin addFloatGridContainer(
-    $selector             : row,
+    $selector             : "row",
+    $gainSelector         : "gain-margin",
     $hdFullSteps          : 0,
     $hdReadySteps         : $hdFullSteps,
     $tabletLandscapeSteps : $hdReadySteps,
     $tabletPortraitSteps  : $tabletLandscapeSteps,
     $mobileLandscapeSteps : 1,
-    $mobilePortraitSteps  : 1
+    $mobilePortraitSteps  : 1,
+    $paddingTop           : $vertical-padding
     ) {
 
     .#{$selector},
@@ -124,10 +215,20 @@
         @include box-sizing(border-box);
     }
     .#{$selector} {
-        padding-top:$vertical-padding;
+        @if $paddingTop != false {
+            @if $paddingTop != 0 {
+                padding-top:$vertical-padding;
+            }
+        }
         width:100%;
         overflow:auto;
         clear:both;
+        @if $gainSelector != false {
+            @include modifier($gainSelector) {
+                margin-left: -(s());
+                margin-right: -(s());
+            }
+        }
     }
     @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps, $selector);
 }
@@ -1123,7 +1224,7 @@
 /// }
 /// @example scss An element centered on the page
 /// .float-grid-column-centered {
-///     @include setFloatGridColumn(true, 4, 4, 6, 6, 8, 8);
+///     @include setFloatGridColumn(4, 4, 6, 6, 8, 8);
 ///     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
 /// }
 /// @example css CSS generated
