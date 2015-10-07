@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.1.28-beta][release]
+Current version [3.3.30-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -97,8 +97,10 @@ Release details
 ---
 
 **Features**
-- **changed** `addViewportsSteps` mixin, now you have to insert the size of the container, not the margin between viewport and the container
-
+- **Added** an example of core mixin aliasing
+- **Changed** a behavior for `setFloatGridColumn` now mobile portrait step not affect total steps
+- **Changed** `addFloatGridContainer` mixin, now supports gain selector without the need to enable sizing state selectors
+- **Fixed** sizing bug to `addViewportsSteps` mixin
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
@@ -120,4 +122,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.1.28
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.3.30

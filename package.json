@@ -1,6 +1,6 @@
 {
   "name": "frontsize-sass",
-  "version": "3.1.28",
+  "version": "3.3.30",
   "description": "A fully customizable CSS generator to ease your life.",
   "authors": [
     {
@@ -63,6 +63,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-csslint": "^0.2.0",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-prompt": "^0.1.2",
     "gulp-run": "^1.6.11",
     "gulp-sass": "^2.0.4",
     "gulp-shell": "^0.4.3",
