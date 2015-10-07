@@ -1,0 +1,23 @@
+@mixin column(
+    $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
+    $totalSteps          : 12
+) {
+    @mixin setFloatGridColumn($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+}
+
+@mixin columnOffset(
+    $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
+    $totalSteps          : 12
+){
+    @mixin setFloatGridOffset($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+}
