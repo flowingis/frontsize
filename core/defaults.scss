@@ -69,10 +69,11 @@ $use-state-text        : false !default;
 $use-state-visibility  : false !default;
 $use-state-print       : false !default;
 
-$use-core-base  : true !default;
-$use-css-prefix : true !default;
-$use-ie-filters : false !default;
-$use-fallbacks  : true !default;
+$use-core-base     : true !default;
+$use-css-prefix    : true !default;
+$use-ie-filters    : false !default;
+$use-font-fallback : false !default;
+$use-fallbacks     : true !default;
 
 $use-root-path: true !default;
 $root-path : "production/img/theme" !default;

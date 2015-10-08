@@ -102,6 +102,15 @@ Release details
 - **Changed** `addFloatGridContainer` mixin, now supports gain selector without the need to enable sizing state selectors
 - **Fixed** sizing bug to `addViewportsSteps` mixin
 
+---
+
+Next release details
+---
+
+**Features**
+- **Added** `$use-font-fallback` core var to handle fonts more easily
+- **Added** `fontFile` mixin to load font files different from `truetype` format
+
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
 [app]:               https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss

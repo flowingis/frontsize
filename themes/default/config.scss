@@ -69,10 +69,11 @@ $use-state-text        : false;
 $use-state-visibility  : false;
 $use-state-print       : false;
 
-$use-core-base  : true; // set CSSlint box-model test to true if you disable this
-$use-css-prefix : true;
-$use-ie-filters : false;
-$use-fallbacks  : true;
+$use-core-base     : true; // set CSSlint box-model test to true if you disable this
+$use-css-prefix    : true;
+$use-ie-filters    : false;
+$use-font-fallback : true;
+$use-fallbacks     : true;
 
 $use-root-path: true;
 $root-path : "production/img/theme";

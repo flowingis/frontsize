@@ -94,7 +94,7 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                    csslintrc: '.csslintrc'
+                    csslintrc: 'test/.csslintrc'
                 },
                 src: [ 'test/csslint/frontsize.test.css' ]
             }

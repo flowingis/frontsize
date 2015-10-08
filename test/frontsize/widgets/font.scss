@@ -1,0 +1,4 @@
+// @include font('family name', 'FontFile', 400);
+// @include font('family name', 'FontFile', 500, 'RetinaFontFile', '/path/to/fonts/');
+// @include fontFile('another family name', 'FullFontFileName.ttf', 400);
+@include fontFile('another family name', 'FullFontFileName.ttf', 700, 'truetype', 'RetinaFullFontFileName.ttf', '/path/to/fonts/');
