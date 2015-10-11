@@ -1,8 +1,0 @@
----
-project:
-    - README.md
-    - package.json
-    - Gruntfile.js
-    - gulpfile.js
-
-theme: themes/default
