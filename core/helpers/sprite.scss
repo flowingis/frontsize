@@ -6,13 +6,11 @@
         @include backgroundImage($image, $path);
     }
 
-    $_spriteLastWidth  : $width;
-    $_spriteLastHeight : $height;
     background-repeat : no-repeat;
     background-size   : $backgroudSize;
     @include size($width, $height, 1, $setBoxsizing);
 }
-@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:$_spriteLastWidth, $height:$_spriteLastHeight){
+@mixin spritePosition($horizontalPosition:0, $verticalPosition:0, $width:0, $height:0){
     @if ($horizontalPosition == 0) and ($verticalPosition != 0){
         background-position : 0 (-#{($verticalPosition*$height)});
     }
@@ -37,11 +35,11 @@
     background-position: (-$positionX) (-$positionY);
 }
 
-@mixin scaleBackgroundSize($scale, $width:$_spriteLastWidth, $height:$_spriteLastHeight) {
+@mixin scaleBackgroundSize($scale, $width:0, $height:0) {
     background-size: ($width*$scale) ($height*$scale);
 }
 
-@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:$_spriteLastWidth, $height:$_spriteLastHeight, $scale:1) {
+@mixin setSprite($selector, $horizontalPosition:0, $verticalPosition:0, $width:0, $height:0, $scale:1) {
     &.#{$selector} {
         @include spritePosition($horizontalPosition, $verticalPosition, ($width*$scale), ($height*$scale));
     }
