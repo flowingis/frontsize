@@ -1,12 +1,18 @@
 var gulp        = require('gulp'),
     fs          = require('fs'),
+    fse         = require('fs-extra'),
     yaml        = require('js-yaml'),
+    gulpCopy    = require('gulp-copy'),
     sass        = require('gulp-sass'),
+    shell       = require('gulp-shell'),
     concat      = require('gulp-concat'),
     csslint     = require('gulp-csslint'),
     runSequence = require('run-sequence'),
     stylestats  = require('gulp-stylestats'),
-    sourcemaps  = require('gulp-sourcemaps');
+    sourcemaps  = require('gulp-sourcemaps'),
+    prompt       = require('gulp-prompt').prompt,
+    colors      = require('colors/safe'),
+    mkpath      = require('mkpath');
 
 var frontsize = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
 
@@ -49,7 +55,6 @@ gulp.task('sass:report:stylestats', function () {
 
 gulp.task('sass:assets', function () {
     runSequence([
-        //'sass:css:vendors',
         'sass:assets:update'
     ]);
 });
@@ -90,4 +95,101 @@ gulp.task('sass:watch:assets', function(){
         frontsize.frontsizePath + 'themes/**/img/**/*',
         frontsize.frontsizePath + 'themes/**/fonts/**/*'
     ], tasks);
+});
+
+/* frontsize setup */
+var includes = {
+    defaultTheme : './themes/default',
+    themeFiles : [
+        'README.md',
+        'compile.scss',
+        'compile-test.scss'
+    ],
+    projectFiles : [
+        '.csslintrc',
+        'package.json',
+        'frontsize.yml.dist',
+        'Gruntfile.js',
+        'gulpfile.js'
+    ],
+    themePath : '',
+    themeName : '',
+    rootPath : ''
+};
+
+gulp.task('theme:new', function(){
+    return gulp.src('themes/default', function(){
+        console.log('You are creating a new theme for Frontsize...');
+    })
+    .pipe(prompt({
+        type: 'input',
+        name: 'theme',
+        message: 'Theme name:'
+    }, function(res){
+        var pattern = new RegExp('([^a-zA-Z0-9]){1,}', 'g');
+        includes.themeName = res.theme.replace(pattern, '-').toLowerCase();
+    })).pipe(prompt({
+        type: 'input',
+        name: 'path',
+        message: 'Set the path from here:'
+    }, function(res){
+        var pattern, path;
+        pattern = new RegExp('([^\/])$', 'i');
+        path = res.path.replace(pattern, '$1/');
+        includes.themePath = path;
+        includes.themePathFull = path + includes.themeName;
+
+        console.log('Creating theme in path:');
+        console.log(colors.green(includes.themePathFull));
+
+        mkpath.sync(path, 0700);
+        runSequence('theme:clone');
+    }));
+});
+
+gulp.task('theme:clone', function(){
+    gulp.src('themes/default', function(){
+        console.log('Cloning default theme...');
+    })
+    .pipe(shell([
+        'echo "\'<%= fromPath %>\'"',
+        'echo "\'<%= toPath %>\'"',
+        'cp -r <%= fromPath %> <%= toPath %>'
+    ],{
+        templateData : {
+            fromPath : includes.defaultTheme,
+            toPath : includes.themePathFull
+        }
+    }));
+    runSequence([
+        'theme:release',
+        'theme:project'
+    ]);
+});
+
+gulp.task('theme:release', function(){
+    console.log('Cloning original release theme project files...');
+    gulp.src(includes.themeFiles)
+    .pipe(gulpCopy(includes.themePath));
+});
+
+gulp.task('theme:project', function(){
+    gulp.src(includes.projectFiles)
+    .pipe(prompt.confirm({
+        message: 'Would you like to place frontsize automation project files on your main project root folder?\nWARNING: package.json, Gruntfile.js and gulpfile.js will be overwritten.',
+        default: true
+    }))
+    .pipe(prompt({
+        type: 'input',
+        name: 'path',
+        message: 'Set the main project root folder:'
+    }, function(res){
+        includes.rootFolder = res.path;
+    }));
+    runSequence('theme:rootProject');
+});
+
+gulp.task('theme:rootProject', function(){
+    return gulp.src(includes.projectFiles)
+    .pipe(gulpCopy(includes.rootPath));
 });
