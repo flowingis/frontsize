@@ -1,0 +1,58 @@
+.icon {
+    $width: 32px;
+    $height: $width;
+
+    @include sprite("sprite.svg", $width, $height, 4 2);
+
+    @include modifier("arrow-left-black") {
+        @include spritePosition(1 1, $width, $height);
+    }
+
+    @include modifier("arrow-left-red") {
+        @include spritePosition(1 2, $width, $height);
+    }
+
+    @include modifier("arrow-right-black") {
+        @include spritePosition(2 1, $width, $height);
+    }
+
+    @include modifier("arrow-right-red") {
+        @include spritePosition(2 2, $width, $height);
+    }
+
+    @include modifier("arrow-up-black") {
+        @include spritePosition(3 1, $width, $height);
+    }
+
+    @include modifier("arrow-up-red") {
+        @include spritePosition(3 2, $width, $height);
+    }
+
+    @include modifier("arrow-dw-black") {
+        @include spritePosition(4 1, $width, $height);
+    }
+
+    @include modifier("arrow-dw-red") {
+        @include spritePosition(4 2, $width, $height);
+    }
+}
+
+.icon-nice {
+    $width: 32px;
+    $height: $width;
+    $spriteMap: 1 1;
+
+    @include sprite("sprite-nice.svg", $width, $height, $spriteMap);
+
+    @include setSprite("arrow-left-black",  1 1, $width);
+    @include setSprite("arrow-left-red",    1 2, $width);
+
+    $scale: 0.5;
+
+    @include modifier("scaled") {
+        @include scaleSprite($scale, $spriteMap, $width, $height);
+    }
+
+    @include setSprite("arrow-left-black--scaled",  1 1, $width, $height, $scale);
+    @include setSprite("arrow-left-red--scaled",    1 2, $width, $height, $scale);
+}

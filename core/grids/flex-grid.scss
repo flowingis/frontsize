@@ -22,12 +22,12 @@
         @include _setFlexGridColumnBehavior();
     }
 
-    @include _setFlexGridViewprtColumns($from-mobile-portrait,  $mobilePortraitColums,  $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-mobile-landscape, $mobileLandscapeColums, $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-tablet-portrait,      $tabletPortraitColums,      $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-tablet-landscape,     $tabletLandscapeColums,     $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-hd-ready,             $hdReadyColums,             $selector, $enableColumns);
-    @include _setFlexGridViewprtColumns($from-hd-full,              $hdFullColums,              $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-mobile-portrait,  $mobilePortraitColums,  $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-mobile-landscape, $mobileLandscapeColums, $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-tablet-portrait,      $tabletPortraitColums,      $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-tablet-landscape,     $tabletLandscapeColums,     $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-hd-ready,             $hdReadyColums,             $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-hd-full,              $hdFullColums,              $selector, $enableColumns);
 
 }
 
@@ -75,7 +75,7 @@
 
 }
 
-@mixin _setFlexGridViewprtColumns($mediaQueryRule, $columns, $selector, $enableColumns) {
+@mixin _addFlexGridViewprtColumns($mediaQueryRule, $columns, $selector, $enableColumns) {
     @if $enableColumns == false {
         @media #{$mediaQueryRule} {
             .#{$selector} > * {
@@ -104,68 +104,6 @@
 @mixin _addFlexGridColumnSet($prefix, $totalSteps, $viewTotalColumns, $columnsSeparator) {
     $startIndex : $totalSteps;
     @include _loopFlexGridColumnSet($totalSteps, $prefix, $startIndex, "", $viewTotalColumns, $columnsSeparator);
-}
-
-@mixin loopColumnSet ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
-    $nextRule:"";
-    @if $viewTotalColumns == true{
-        @while $index >= 0{
-            @if $index == $total{
-                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
-            }
-            @else{
-                @if $index > 0{
-                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
-                }
-            }
-
-            @if $index > 0{
-                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
-                    @include setColumnStep($index, $total);
-                }
-            }
-
-            @if $index == 0{
-                #{$nextRule} {
-                    @include _setColumnBehavior();
-                    @if $use-core-base == false {
-                        @include box-sizing("border-box");
-                    }
-                }
-            }
-
-            $index: $index - 1;
-        }
-    }
-    @else{
-        @while $index >= 0{
-            @if $index == $total{
-                $nextRule: ".#{$prefix}#{$index}";
-            }
-            @else {
-                @if $index > 0{
-                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
-                }
-            }
-
-            @if $index > 0{
-                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
-                    @include setColumnStep($index, $total);
-                }
-            }
-
-            @if $index == 0{
-                #{$nextRule} {
-                    @include _setColumnBehavior();
-                    @if $use-core-base == false {
-                        @include box-sizing("border-box");
-                    }
-                }
-            }
-
-            $index: $index - 1;
-        }
-    }
 }
 
 @mixin _setFlexGridColumnBehavior() {

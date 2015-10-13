@@ -2,21 +2,20 @@
     $defaultImage  ,
     $retinaImage   ,
     $width         : 0,
-    $height        : 0,
-    $imageWidth    : 0,
-    $imageHeight   : 0,
+    $height        : $width,
+    $spriteMap     : 1 1,
     $path          : $path-img
     ) {
-	@if $use-root-path == false{
-		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $path);
-		@media #{$display-retina} {
-			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, false);
-		}
-	}
-	@else {
-		@include sprite($defaultImage, $width, $height, $imageWidth $imageHeight, $path);
-		@media #{$display-retina} {
-			@include sprite($retinaImage, $width, $height, $imageWidth $imageHeight, $path, false);
-		}
-	}
+    @if $use-root-path == false{
+        @include sprite($defaultImage, $width, $height, $spriteMap, $path);
+        @media #{$display-retina} {
+            @include sprite($retinaImage, $width, $height, $spriteMap, false);
+        }
+    }
+    @else {
+        @include sprite($defaultImage, $width, $height, $spriteMap, $path);
+        @media #{$display-retina} {
+            @include sprite($retinaImage, $width, $height, $spriteMap, $path, false);
+        }
+    }
 }

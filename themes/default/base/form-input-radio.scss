@@ -15,9 +15,10 @@ input[type="radio"] {
 
     $imageWidth:($size * 2);
     $imageHeight:$size;
-    @include spriteRetina("input-radio-1x.png", "input-radio-2x.png", $size, $size, $imageWidth, $imageHeight);
+
+    @include spriteRetina("input-radio-1x.png", "input-radio-2x.png", $size, $size, 2 1);
 
     &:checked {
-        @include spritePosition(1, 0, $size);
+        @include spritePosition(1 0, $size);
     }
 }

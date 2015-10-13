@@ -42,9 +42,10 @@
 @import "base/text-span";
 @import "base/text-time";
 
-@import "widgets/bem-example";
-@import "widgets/font";
-@import "widgets/float-grid";
-@import "widgets/text-grid-columns";
+@import "widgets/components-bem";
+@import "widgets/grids-float-grid";
+@import "widgets/grids-text-column-grid";
+@import "widgets/helpers-font";
+@import "widgets/helpers-sprite";
 
 @import "app";
