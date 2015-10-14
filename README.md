@@ -97,7 +97,7 @@ Release details
 ---
 
 **Features**
-- **fixed** dependencies loading, now `s()` mixin can be used inside theme config
+- **fixed** dependencies loading, now `s` mixin works inside theme config too
 
 Next release details
 ---
