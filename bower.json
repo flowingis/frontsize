@@ -17,7 +17,11 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".sassdocrc",
+    ".travis.yml",
     "node_modules",
     "bower_components",
     ".templates",
