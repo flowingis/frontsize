@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.9.35-beta][release]
+Current version [3.9.36-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -97,15 +97,7 @@ Release details
 ---
 
 **Features**
-- **added** rounded values to `scaleBackgroundSize` mixin
-- **fixed** `scaleBackgroundSize` mixin, now scaled sizes are rounded
-- **fixed** core var default path for assets
-- **changed** `sprite` mixin management, now `$backgroundSize` is based on the number of sprite elements and it's called `$spritesMap`
-- **changed** `spriteRetina` mixin management, now `$backgroundSize` is based on the number of sprite elements and it's called `$spritesMap`
-- **changed** `spritePosition` mixin management, now `$backgroundSize` is based on the number of sprite elements and it's called `$spritesMap`
-- **changed** `setSprite` mixin management, now `$backgroundSize` is based on the number of sprite elements and it's called `$spritesMap`
-- **changed** `setSprite` mixin, now the selector name is treated with BEM
-- **removed** `spriteCoordinates` mixin cause it is not so useful
+- **fixed** dependencies loading, now `s()` mixin can be used inside theme config
 
 Next release details
 ---
@@ -133,4 +125,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.35
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.36

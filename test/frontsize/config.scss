@@ -21,9 +21,9 @@ $font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
 $font-default : $font-sans;
 $font-heading : $font-sans;
 
-$spacing : 20px;
+$spacing : 30px;
 
-$font-line-height    : $spacing;
+$font-line-height    : s(2);
 $font-weight         : 400;
 $font-color          : #545454;
 $body-color          : #F5F0D6;
