@@ -220,7 +220,7 @@
                 padding-top:$vertical-padding;
             }
         }
-        width:100%;
+        width:auto;
         overflow:auto;
         clear:both;
         @if $gainSelector != false {

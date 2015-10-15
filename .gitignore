@@ -1,5 +1,4 @@
 # temp files to be ignored #
-*.html
 *.ai
 *.bak
 # css
@@ -48,6 +47,7 @@ Thumbs.db
 #########
 .csslintrc.comments.json
 node_modules
+bower_components
 .sass-cache
 sassdoc
 test/*.css

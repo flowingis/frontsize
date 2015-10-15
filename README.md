@@ -97,7 +97,7 @@ Release details
 ---
 
 **Features**
-- **fixed** dependencies loading, now `s` mixin works inside theme config too
+- **fixed** gain margin modifier on `addFloatGridContainer` mixin, now width is `auto` instead of `100%``
 
 Next release details
 ---
