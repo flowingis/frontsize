@@ -6,8 +6,8 @@
     $mobileLandscapeStep : 0,
     $mobilePortraitStep  : 0,
     $totalSteps          : 12
-) {
-    @mixin setFloatGridColumn($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+    ) {
+    @include setFloatGridColumn($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
 }
 
 @mixin columnOffset(
@@ -18,6 +18,17 @@
     $mobileLandscapeStep : 0,
     $mobilePortraitStep  : 0,
     $totalSteps          : 12
-){
-    @mixin setFloatGridOffset($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+    ) {
+    @include setFloatGridOffset($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+}
+
+@mixin row(
+    $hdFullSteps          : 0,
+    $hdReadySteps         : $hdFullSteps,
+    $tabletLandscapeSteps : $hdReadySteps,
+    $tabletPortraitSteps  : $tabletLandscapeSteps,
+    $mobileLandscapeSteps : 1,
+    $mobilePortraitSteps  : 1
+    ) {
+    @include setFloatGridContainer($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps);
 }
