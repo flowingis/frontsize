@@ -220,7 +220,7 @@
                 padding-top:$vertical-padding;
             }
         }
-        width:auto;
+        width:100%;
         overflow:auto;
         clear:both;
         @if $gainSelector != false {
@@ -1481,10 +1481,10 @@
     @media #{$from-mobile-portrait} {
         // mobile portrait
         @if $useHdRules == true {
-            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator, true);
         }
         @if $useTabletRules == true {
-            @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+            @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator, true);
         }
         @if $useMobileRules == true {
             @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
@@ -1497,7 +1497,7 @@
             @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
         }
         @if $useHdRules == true {
-            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator, true);
         }
         @if $useTabletRules == true {
             @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
@@ -1660,12 +1660,12 @@
     }
 }
 
-@mixin _addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+@mixin _addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-", $removeMargin:false) {
     $startIndex: $totalSteps;
-    @include _loopColumnMarginOffset($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
+    @include _loopColumnMarginOffset($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "", $removeMargin);
 }
 
-@mixin _loopColumnMarginOffset ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+@mixin _loopColumnMarginOffset ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:"", $removeMargin:false){
     $nextRule:"";
     @if $viewTotalColumns == true{
         @while $index >= 0{
@@ -1680,7 +1680,7 @@
 
             @if $index > 0{
                 .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
-                    @include _setColumnMarginOffsetStep($index, $total);
+                    @include _setColumnMarginOffsetStep($index, $total, $removeMargin);
                 }
             }
 
@@ -1704,7 +1704,7 @@
 
             @if $index > 0{
                 .#{$prefix}#{$index} {
-                    @include _setColumnMarginOffsetStep($index, $total);
+                    @include _setColumnMarginOffsetStep($index, $total, $removeMargin);
                 }
             }
 
@@ -1717,8 +1717,12 @@
     }
 }
 
-@mixin _setColumnMarginOffsetStep($step, $columns) {
-    margin-left:((100% * $step)/$columns);
+@mixin _setColumnMarginOffsetStep($step, $columns, $removeMargin:false) {
+    @if $removeMargin == true {
+      margin-left: 0;
+    } @else {
+      margin-left:((100% * $step)/$columns);
+    }
 }
 
 @mixin _loopMobileColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
