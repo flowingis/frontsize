@@ -1,0 +1,25 @@
+.selector-step {
+    width: step(4, 12);
+}
+
+.selector-step-2 {
+    width: step(3);
+}
+
+.selector-s {
+    padding-top: s();
+    padding-bottom: s(2, 10px);
+    padding-right: s(0.5);
+}
+
+.selector-spacing {
+    padding-top: spacing();
+    padding-bottom: spacing(2);
+    padding-right: spacing(0.5);
+}
+
+.selector-scale-value {
+    $value: 20px;
+    padding-top: scaleValue($value, 2);
+    padding-bottom: scaleValue($value, 0.5);
+}

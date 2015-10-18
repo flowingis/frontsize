@@ -1,3 +1,20 @@
+/// Returns the product of the value passed with number, it's mainly used by the core for `spacing` and `s` mixins
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Frontsize functions
+/// @access public
+/// @param {int} $multiplier [1] - The multiplier for theme config's global var `$spacing`
+/// @example scss SCSS example
+///   .selector {
+///       $value: 20px;
+///       padding-top: scaleValue($value, 2);
+///       padding-bottom: scaleValue($value, 0.5);
+///   }
+/// @example css CSS generated
+///   .selector {
+///       padding-top: 40px;
+///       padding-bottom: 10px;
+///   }
+
 @function scaleValue($value, $scale) {
     @return round($value * $scale);
 }
@@ -9,15 +26,22 @@
 /// @param {int} $multiplier [1] - The multiplier for theme config's global var `$spacing`
 /// @example scss The default value of spacing pamameter si `1`
 ///   .selector {
-///       padding-top: spacing(2);
+///       // we have set theme config core var $spacing: 30px;
+///       padding-top: spacing();
+///       padding-bottom: spacing(2);
+///       padding-right: spacing(0.5);
+///       padding-left: spacing(0.5);
 ///   }
 /// @example css CSS generated if `$spacing` is `15px`
 ///   .selector {
 ///       padding-top: 30px;
+///       padding-bottom: 60px;
+///       padding-right: 15px;
+///       padding-left: 15px;
 ///   }
 
-@function spacing($multiplier:1) {
-    @return round($spacing * $multiplier);
+@function spacing($scale:1) {
+    @return scaleValue($spacing, $scale);
 }
 
 /// Alias for `spacing` function to a lesser verbose usage
@@ -26,12 +50,19 @@
 /// @access public
 /// @param {int} $multiplier [1] - The multiplier for theme config's global var `$spacing`
 /// @example scss The default value of spacing pamameter si `1`
-///   .selector {
-///       padding-top: s(2);
+///   .selector-s {
+///     // we have set theme config core var $spacing: 30px;
+///     padding-top: s(2);
+///     padding-bottom: s(2, 10px);
+///     padding-right: s(0.5);
+///     padding-left: s();
 ///   }
 /// @example css CSS generated if `$spacing` is `15px`
 ///   .selector {
-///       padding-top: 30px;
+///     padding-top: 60px;
+///     padding-bottom: 20px;
+///     padding-right: 15px;
+///     padding-left: 30px;
 ///   }
 
 @function s($scale:1, $value:false) {
@@ -42,6 +73,33 @@
     }
 }
 
+/// Returns a percentage fraction of two integers, it's useful to define custom column sizes
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Frontsize functions
+/// @access public
+/// @param {int} $step       [required] - The current step to be converted in percentage
+/// @param {int} $totalSteps [12]       - The total steps, 12 by default
+/// @example scss SCSS example
+///   .selector {
+///       width: step(4, 12);
+///   }
+/// @example css CSS generated
+///   .selector {
+///       width: 33.33333%;
+///   }
+/// @example scss SCSS example
+///   .selector {
+///       width: step(3);
+///   }
+/// @example css CSS generated
+///   .selector {
+///       width: 25%;
+///   }
+
+@function step($step, $totalSteps:12) {
+    @return ($step * 100 / $totalSteps) * 1%;
+}
+
 @function _values($value) {
     @if $use-css-prefix == true {
         @if $value == "filter" {
@@ -49,7 +107,7 @@
         } @elseif $value == "transform" {
             @return "transform" "-webkit-transform";
         } @elseif $value == "box-shadow" {
-            @return "box-shadow" "-webkit-box-shadow" "-khtml-box-shadow" "-moz-box-shadow" "-ms-box-shadow" "-0-box-shadow";
+            @return "box-shadow" "-webkit-box-shadow" "-khtml-box-shadow" "-moz-box-shadow" "-ms-box-shadow" "-o-box-shadow";
         } @else {
             @return $value;
         }
