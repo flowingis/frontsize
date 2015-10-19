@@ -43,11 +43,13 @@
 @import "base/text-span";
 @import "base/text-time";
 
-@import "widgets/components-bem";
+@import "widgets/core-components-bem";
 @import "widgets/core-functions";
-@import "widgets/grids-float-grid";
-@import "widgets/grids-text-column-grid";
-@import "widgets/helpers-font";
-@import "widgets/helpers-sprite";
+@import "widgets/core-grids-float-grid";
+@import "widgets/core-grids-text-column-grid";
+@import "widgets/core-helpers-font";
+@import "widgets/core-helpers-sprite";
+
+@import "widgets/button";
 
 @import "app";

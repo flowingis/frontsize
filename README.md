@@ -107,6 +107,15 @@ Next release details
 **Features**
 - **added** gulp automation support on theme creation to simplify the project management
 
+---
+
+To test HTML examples:
+
+```
+npm install && ./node_modules/.bin/bower install && php -S localhost:8000 -t ./
+open http://localhost:8000/test/html/index.html
+```
+
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
 [app]:               https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss

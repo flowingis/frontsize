@@ -1,0 +1,15 @@
+.button {
+    display: inline-block;
+    padding: s(0.25) s(0.5);
+
+    color: white;
+    text-decoration: none;
+
+    background-color: $font-color;
+
+    @include box-shadow(0 2px 2px rgba(0,0,0,0.2));
+
+    @include modifier("acqua") {
+        background-color: $colorAcqua;
+    }
+}

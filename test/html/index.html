@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Frontsize</title>
+    <meta name="author" content="Vittorio Vittori">
+
+    <!-- $ ./node_modules/.bin/bower install -->
+    <script src="vendor/handlebars/handlebars.min.js"></script>
+    <script src="vendor/marked/marked.min.js"></script>
+    <script src="vendor/include-js/include.min.js"></script>
+
+    <!-- $ ./node_modules/.bin/grunt test -->
+    <link rel="stylesheet" href="../csslint/frontsize.test.css" type="text/css">
+
+</head>
+
+<body>
+    <main>
+        <p>
+            Add examples here<br>
+        </p>
+        <div>
+            <a class="button button--acqua" href="#">Button</a>
+        </div>
+    </main>
+    <!-- <include src="template/header.html"></include>
+    <include src="template/content.html"></include>
+    <include src="template/footer.html"></include> -->
+    <script type="text/javascript">
+        Include.onLoad = function() {
+            console.log("Hello! Everything is loaded succesfully and JS can be executed with happyness!");
+        };
+    </script>
+</body>
+</html>

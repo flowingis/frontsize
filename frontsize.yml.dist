@@ -1,9 +1,9 @@
 ---
 frontsizePath : ./
 themeName     : default
-prodImgPath   : test/production/img/theme/
-prodFontsPath : test/production/fonts/
-prodCssPath   : test/production/css/
+prodImgPath   : test/html/img/theme/
+prodFontsPath : test/html/fonts/
+prodCssPath   : test/html/css/
 prodCssName   : frontsize.min.css
 testCssPath   : test/csslint/
 testCssName   : frontsize.csslint.css

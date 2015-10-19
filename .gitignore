@@ -54,7 +54,8 @@ test/*.css
 test/*.map
 test/*.diff
 test/csslint/
-test/production/
+test/html/css/
+test/html/vendor/
 /img
 src
 /frontsize.yml

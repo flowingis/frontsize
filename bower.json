@@ -26,5 +26,8 @@
     "bower_components",
     ".templates",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "include-js": "~1.2.2"
+  }
 }
