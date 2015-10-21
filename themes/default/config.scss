@@ -76,6 +76,5 @@ $use-font-fallback : true;
 $use-fallbacks     : true;
 
 $use-root-path: true;
-$root-path : "path/to/production";
-$path-img  : "#{$root-path}/img/theme/";
-$path-font : "#{$root-path}/fonts/";
+$path-img  : "path/to/production/img/theme/";
+$path-font : "path/to/production/fonts/";
