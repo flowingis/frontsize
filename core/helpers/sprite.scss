@@ -131,15 +131,15 @@
     $yPosition: $y * round($height * $scale);
 
     @if $x == 0 and $y != 0 {
-        background-position : 0 -#{$yPosition};
+        background-position: 0 (-#{$yPosition});
     } @else {
         @if $y == 0 and $x != 0 {
-            background-position :  -#{$xPosition} 0;
+            background-position:  (-#{$xPosition}) 0;
         } @else {
             @if $x == 0 and $y == 0 {
-                background-position : 0 0;
+                background-position: 0 0;
             } @else {
-                background-position : -#{$xPosition} -#{$yPosition};
+                background-position: (-#{$xPosition}) (-#{$yPosition});
             }
         }
     }
