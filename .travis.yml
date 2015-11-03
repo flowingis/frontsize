@@ -20,5 +20,5 @@ before_script:
 
 script:
     - grunt test
-    - gulp sass:build
+    - gulp frontsize:build
     - sassdoc ./core ./themes
