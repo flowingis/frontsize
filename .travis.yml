@@ -19,6 +19,10 @@ before_script:
     - cp ./frontsize.yml.dist ./frontsize.yml
 
 script:
-    - grunt test
+#    - grunt frontsize:build
+#    - grunt frontsize:assets
+#    - grunt frontsize:test:theme
     - gulp frontsize:build
+    - gulp frontsize:assets
+    - gulp frontsize:test:theme
     - sassdoc ./core ./themes
