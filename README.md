@@ -81,6 +81,17 @@ Now the core is easily to be upgraded with `bower update` when a new release is 
 
 ---
 
+File package.json
+---
+
+To add all node dependencies for grunt and gulp run this from your project `package.json` location:
+
+```
+npm install --save-dev colors csslint execSync fs-extra grunt grunt-contrib-clean grunt-contrib-copy grunt-contrib-csslint grunt-contrib-cssmin grunt-contrib-sass grunt-contrib-watch grunt-stylestats grunt-uncss gulp gulp-bower gulp-clean gulp-concat gulp-copy gulp-csslint gulp-load-plugins gulp-prompt gulp-run gulp-sass gulp-shell gulp-sourcemaps gulp-stylestats gulp-symlink gulp-uglify gulp-uglifycss js-yaml matchdep mkpath run-sequence sass sassdoc sassdoc-theme-vulcan stylestats
+```
+
+---
+
 Documentation
 ---
 
@@ -97,8 +108,9 @@ Release details
 ---
 
 **Features**
-- **remove** unused core var
-- **add** parenthesis to `background-position` to `spritePosition` mixin to prevent bad value concatenation which happens in some cases
+- **removed** `normalize.css` from core, now will be added from bower vendors like other dependencies
+- **changed** YAML config to make gulp automation more consistent and flexible
+- **added** a missing dependency on theme imports
 
 Next release details
 ---
