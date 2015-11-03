@@ -3,96 +3,161 @@ var gulp        = require('gulp'),
     yaml        = require('js-yaml'),
     sass        = require('gulp-sass'),
     concat      = require('gulp-concat'),
+    uglify      = require('gulp-uglify'),
     csslint     = require('gulp-csslint'),
     runSequence = require('run-sequence'),
     stylestats  = require('gulp-stylestats'),
     sourcemaps  = require('gulp-sourcemaps'),
-    fse         = require('fs-extra'),
-    gulpCopy    = require('gulp-copy'),
-    shell       = require('gulp-shell'),
-    prompt       = require('gulp-prompt').prompt,
-    colors      = require('colors/safe'),
-    mkpath      = require('mkpath');
+    uglifyCss   = require('gulp-uglifycss');
 
-var frontsize = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
+var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsVendorsFileName;
+
+f = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
+compileFile        = 'compile.scss';
+cssFileName        = 'frontsize-theme.min.css';
+cssTestFileName    = 'frontsize.csslint.css';
+cssVendorsFileName = 'vendors.min.css';
+jsVendorsFileName  = 'vendors.min.js';
+cssMergeFileName   = 'frontsize.min.css';
 
 gulp.task('default', function () {
     var tasks = [
-        'sass:watch'
+        'frontsize:watch'
     ];
     runSequence(tasks);
 });
 
-gulp.task('sass:css:production', function () {
-    gulp.src(frontsize.frontsizePath + frontsize.compile)
+gulp.task('frontsize:css', function () {
+    gulp.src(f.path.frontsize + compileFile)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(concat(frontsize.prodCssName))
+        .pipe(concat(cssFileName))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(frontsize.prodCssPath));
+        .pipe(gulp.dest(f.path.css));
 });
 
-gulp.task('sass:css:test', function () {
-    gulp.src(frontsize.frontsizePath + frontsize.compileTest)
+gulp.task('frontsize:sourcemap', function () {
+    gulp.src(f.path.frontsize + compileFile)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-        .pipe(concat(frontsize.testCssName))
+        .pipe(concat(cssTestFileName))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(frontsize.frontsizePath + frontsize.testCssPath));
+        .pipe(gulp.dest(f.frontsize.test));
 });
 
-gulp.task('sass:test:csslint', function () {
-    gulp.src(frontsize.frontsizePath + frontsize.testCssPath + frontsize.testCssName)
+gulp.task('frontsize:test', function () {
+    gulp.src(f.frontsize.test + cssTestFileName)
         .pipe(csslint('.csslintrc'))
         .pipe(csslint.reporter());
 });
 
-gulp.task('sass:report:stylestats', function () {
-    gulp.src(frontsize.frontsizePath + frontsize.testCssPath + frontsize.testCssName)
+gulp.task('frontsize:report', function () {
+    gulp.src(f.frontsize.test + cssTestFileName)
         .pipe(csslint('.csslintrc'))
         .pipe(stylestats());
 });
 
-gulp.task('sass:assets', function () {
-    runSequence([
-        'sass:assets:update'
-    ]);
+gulp.task('frontsize:assets', function () {
+    gulp.src(f.path.frontsize + 'themes/' + f.frontsize.theme + '/img/**/*.*')
+        .pipe(gulp.dest(f.path.images));
+    gulp.src(f.path.frontsize + 'themes/' + f.frontsize.theme + '/fonts/**/*.*')
+        .pipe(gulp.dest(f.path.fonts));
 });
 
-gulp.task('sass:assets:update', function () {
-    gulp.src(frontsize.frontsizePath + 'themes/' + frontsize.themeName + '/img/**/*.*')
-        .pipe(gulp.dest(frontsize.prodImgPath));
-    gulp.src(frontsize.frontsizePath + 'themes/' + frontsize.themeName + '/fonts/**/*.*')
-        .pipe(gulp.dest(frontsize.prodFontsPath));
-});
-
-gulp.task('sass:build', function () {
+gulp.task('frontsize:build', function () {
     var tasks = [
-        'sass:css:production',
-        'sass:css:test',
-        'sass:report:stylestats',
-        'sass:test:csslint'
+        'frontsize:vendors',
+        'frontsize:css',
+        'frontsize:merge',
+        'frontsize:sourcemap',
+        'frontsize:report',
+        'frontsize:test'
     ];
     runSequence(tasks);
 });
 
-gulp.task('sass:watch', function () {
+gulp.task('frontsize:watch', function () {
     var tasks = [
-        'sass:build'
+        'frontsize:build'
     ];
     runSequence(tasks);
-    gulp.watch(frontsize.frontsizePath + 'themes/**/*.scss', tasks);
+    gulp.watch(f.path.frontsize + 'themes/**/*.scss', tasks);
 });
 
-gulp.task('sass:watch:assets', function(){
+gulp.task('frontsize:watch:assets', function(){
     var tasks = [
-        'sass:build',
-        'sass:assets'
+        'frontsize:build',
+        'frontsize:assets'
     ];
     runSequence(tasks);
     gulp.watch([
-        frontsize.frontsizePath + 'themes/**/*.scss',
-        frontsize.frontsizePath + 'themes/**/img/**/*',
-        frontsize.frontsizePath + 'themes/**/fonts/**/*'
+        f.path.frontsize + 'themes/**/*.scss',
+        f.path.frontsize + 'themes/**/img/**/*',
+        f.path.frontsize + 'themes/**/fonts/**/*'
     ], tasks);
+});
+
+gulp.task('frontsize:vendors', function(){
+    var tasks = [
+        'frontsize:vendors:css',
+        'frontsize:vendors:fonts',
+        'frontsize:vendors:images',
+        'frontsize:vendors:js'
+    ];
+    runSequence(tasks);
+});
+
+gulp.task('frontsize:watch:vendors', function(){
+    var tasks = [
+        'frontsize:vendors'
+    ];
+    runSequence(tasks);
+    gulp.watch([
+        f.path.frontsize + 'themes/**/*.scss',
+        f.path.frontsize + 'themes/**/img/**/*',
+        f.path.frontsize + 'themes/**/fonts/**/*'
+    ], tasks);
+});
+
+gulp.task('frontsize:vendors:css', function () {
+    if (f.vendors !== undefined && f.vendors.css !== undefined) {
+        return gulp.src(f.vendors.css)
+        .pipe(uglifyCss())
+        .pipe(concat(cssVendorsFileName))
+        .pipe(gulp.dest(f.path.css));
+    }
+});
+
+gulp.task('frontsize:vendors:fonts', function () {
+    if (f.vendors !== undefined && f.vendors.fonts !== undefined) {
+        gulp.src(f.vendors.fonts)
+            .pipe(gulp.dest(f.path.fonts));
+    }
+});
+
+gulp.task('frontsize:vendors:images', function () {
+    if (f.vendors !== undefined && f.vendors.images !== undefined) {
+        gulp.src(f.vendors.images)
+            .pipe(gulp.dest(f.path.images));
+    }
+});
+
+gulp.task('frontsize:vendors:js', function () {
+    if (f.vendors !== undefined && f.vendors.js !== undefined) {
+        return gulp.src(f.vendors.js)
+        .pipe(uglify())
+        .pipe(concat(jsVendorsFileName))
+        .pipe(gulp.dest(f.path.js));
+    }
+});
+
+gulp.task('frontsize:merge', function () {
+    if (f.vendors !== undefined && f.vendors.css !== undefined) {
+        var css = f.vendors.css.slice(0);
+        css.push(f.frontsize.test + cssTestFileName);
+        return gulp.src(css)
+        .pipe(uglifyCss())
+        .pipe(concat(cssMergeFileName))
+        .pipe(gulp.dest(f.path.css));
+    }
 });
