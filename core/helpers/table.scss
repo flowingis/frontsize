@@ -1,4 +1,4 @@
-@mixin asTable($cellPadding:$global-padding, $verticalAlign:middle, $tableWidth:100%, $borderCollapse:separate) {
+@mixin asTable($cellPadding:false, $verticalAlign:middle, $tableWidth:100%, $borderCollapse:separate) {
     @if $tableWidth != false {
         width : $tableWidth;
     }
@@ -11,7 +11,7 @@
     }
 }
 
-@mixin asTableRow($cellPadding:$global-padding, $verticalAlign:middle) {
+@mixin asTableRow($cellPadding:false, $verticalAlign:middle) {
     display : table-row;
     float   : none;
     > * {
@@ -19,9 +19,11 @@
     }
 }
 
-@mixin asTableCell($cellPadding:$global-padding, $verticalAlign:middle) {
-    display        : table-cell;
-    float          : none;
-    padding        : $cellPadding;
-    vertical-align : $verticalAlign;
+@mixin asTableCell($cellPadding:false, $verticalAlign:middle) {
+    display: table-cell;
+    float: none;
+    @if ($cellPadding != false) {
+        padding: $cellPadding;
+    }
+    vertical-align: $verticalAlign;
 }

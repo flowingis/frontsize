@@ -111,6 +111,7 @@ Release details
 - **removed** `normalize.css` from core, now will be added from bower vendors like other dependencies
 - **changed** YAML config to make gulp automation more consistent and flexible
 - **added** a missing dependency on theme imports
+- **remove** default padding on `asTable` mixin, with `false`, the prop will be skipped
 
 Next release details
 ---
