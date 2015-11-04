@@ -10,14 +10,14 @@ var gulp        = require('gulp'),
     sourcemaps  = require('gulp-sourcemaps'),
     uglifyCss   = require('gulp-uglifycss');
 
-var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsVendorsFileName;
+var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsFileName;
 
 f = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
 compileFile        = 'compile.scss';
 cssFileName        = 'frontsize-theme.min.css';
 cssTestFileName    = 'frontsize.csslint.css';
 cssVendorsFileName = 'vendors.min.css';
-jsVendorsFileName  = 'vendors.min.js';
+jsFileName         = 'frontsize.min.js';
 cssMergeFileName   = 'frontsize.min.css';
 
 gulp.task('default', function () {
@@ -66,6 +66,7 @@ gulp.task('frontsize:assets', function () {
 
 gulp.task('frontsize:build', function () {
     var tasks = [
+        'frontsize:assets',
         'frontsize:vendors',
         'frontsize:css',
         'frontsize:merge',
@@ -102,7 +103,7 @@ gulp.task('frontsize:vendors', function(){
         'frontsize:vendors:css',
         'frontsize:vendors:fonts',
         'frontsize:vendors:images',
-        'frontsize:vendors:js'
+        'frontsize:js'
     ];
     runSequence(tasks);
 });
@@ -142,11 +143,11 @@ gulp.task('frontsize:vendors:images', function () {
     }
 });
 
-gulp.task('frontsize:vendors:js', function () {
-    if (f.vendors !== undefined && f.vendors.js !== undefined) {
-        return gulp.src(f.vendors.js)
+gulp.task('frontsize:js', function () {
+    if (f.js !== undefined && f.js.files !== undefined) {
+        return gulp.src(f.js.files)
         .pipe(uglify())
-        .pipe(concat(jsVendorsFileName))
+        .pipe(concat(f.js.name || jsFileName))
         .pipe(gulp.dest(f.path.js));
     }
 });
