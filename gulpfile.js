@@ -82,20 +82,15 @@ gulp.task('frontsize:watch', function () {
         'frontsize:build'
     ];
     runSequence(tasks);
-    gulp.watch(f.path.frontsize + 'themes/**/*.scss', tasks);
-});
-
-gulp.task('frontsize:watch:assets', function(){
-    var tasks = [
-        'frontsize:build',
-        'frontsize:assets'
-    ];
-    runSequence(tasks);
-    gulp.watch([
+    var watchList = [
         f.path.frontsize + 'themes/**/*.scss',
         f.path.frontsize + 'themes/**/img/**/*',
         f.path.frontsize + 'themes/**/fonts/**/*'
-    ], tasks);
+    ];
+    if (f.js !== undefined && f.js.watch !== undefined) {
+        watchList.push(f.js.watch);
+    }
+    gulp.watch(watchList, tasks);
 });
 
 gulp.task('frontsize:vendors', function(){
@@ -106,18 +101,6 @@ gulp.task('frontsize:vendors', function(){
         'frontsize:js'
     ];
     runSequence(tasks);
-});
-
-gulp.task('frontsize:watch:vendors', function(){
-    var tasks = [
-        'frontsize:vendors'
-    ];
-    runSequence(tasks);
-    gulp.watch([
-        f.path.frontsize + 'themes/**/*.scss',
-        f.path.frontsize + 'themes/**/img/**/*',
-        f.path.frontsize + 'themes/**/fonts/**/*'
-    ], tasks);
 });
 
 gulp.task('frontsize:vendors:css', function () {

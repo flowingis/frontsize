@@ -20,6 +20,7 @@ vendors:
 
 # js:
     # name: frontsize.min.js
+    # watch: src/js/**/*
     # files:
         # - src/vendors/file.js
         # - src/js/file.js
