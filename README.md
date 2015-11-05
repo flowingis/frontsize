@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.9.44-beta][release]
+Current version [3.9.50-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -150,4 +150,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.44
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.50
