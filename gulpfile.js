@@ -46,9 +46,24 @@ gulp.task('frontsize:sourcemap', function () {
 });
 
 gulp.task('frontsize:test', function () {
-    gulp.src(f.frontsize.test + cssTestFileName)
-        .pipe(csslint('.csslintrc'))
-        .pipe(csslint.reporter());
+    var tasks = [
+        'frontsize:test:build',
+        'frontsize:test:report'
+    ];
+    runSequence(tasks);
+});
+
+gulp.task('frontsize:test:build', function () {
+    gulp.src('test/frontsize/test.scss')
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(concat('frontsize.test.css'))
+        .pipe(gulp.dest(f.frontsize.test));
+});
+
+gulp.task('frontsize:test:report', function () {
+    gulp.src(f.frontsize.test + 'frontsize.test.css')
+        .pipe(csslint('test/.csslintrc'))
+        .pipe(stylestats());
 });
 
 gulp.task('frontsize:report', function () {
@@ -68,11 +83,11 @@ gulp.task('frontsize:build', function () {
     var tasks = [
         'frontsize:assets',
         'frontsize:vendors',
+        'frontsize:js',
         'frontsize:css',
         'frontsize:merge',
         'frontsize:sourcemap',
-        'frontsize:report',
-        'frontsize:test'
+        'frontsize:report'
     ];
     runSequence(tasks);
 });
@@ -97,8 +112,7 @@ gulp.task('frontsize:vendors', function(){
     var tasks = [
         'frontsize:vendors:css',
         'frontsize:vendors:fonts',
-        'frontsize:vendors:images',
-        'frontsize:js'
+        'frontsize:vendors:images'
     ];
     runSequence(tasks);
 });

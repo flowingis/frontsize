@@ -55,6 +55,9 @@ test/*.map
 test/*.diff
 test/csslint/
 test/html/css/
+test/html/fonts/
+test/html/img/
+test/html/js/
 test/html/vendor/
 /img
 src

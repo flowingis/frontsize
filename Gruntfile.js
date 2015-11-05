@@ -1,43 +1,44 @@
-/*
-
-Available grunt commands
-
-# Compiles Frontsize
-# is uses [minify, lint]
-$ grunt frontsize
-$ grunt watch:frontsize
-
-# Compiles Frontsize, it copy its assets and lint the CSS
-# it uses [assets, minify, lint]
-$ grunt frontsize-assets
-$ grunt watch:frontsize-assets
-
-# Generates the CSS file optimized with uncss
-$ grunt uncss
-$ grunt watch:uncss
-
-# Tests FRONTsize theme with all mixins, it's for development
-$ grunt test
-$ grunt watch:test
-
-*/
-
 'use strict';
 
 module.exports = function(grunt) {
 
+    var cssTestFileName = 'frontsize.csslint.css';
+
+    var frontsize = grunt.file.readYAML('frontsize.yml');
+    if (frontsize.vendors !== undefined && frontsize.vendors.css !== undefined) {
+        frontsize.css = frontsize.vendors.css.slice(0);
+        frontsize.css.push(frontsize.frontsize.test + cssTestFileName);
+    }
+
+    frontsize.watchFiles = [
+        frontsize.path.frontsize + 'themes/**/*.scss',
+        frontsize.path.frontsize + 'themes/**/img/**/*',
+        frontsize.path.frontsize + 'themes/**/fonts/**/*'
+    ];
+
+    if (frontsize.js !== undefined && frontsize.js.watch !== undefined) {
+        frontsize.watchFiles.push(frontsize.js.watch);
+    }
+
     grunt.initConfig({
-        f : grunt.file.readYAML('frontsize.yml'),
+
+        f                   : frontsize,
+        cssFileName         : 'frontsize-theme.min.css',
+        cssTestFileName     : cssTestFileName,
+        compileFile         : 'compile.scss',
+        cssVendorsFileName  : 'vendors.min.css',
+        jsFileName          : 'frontsize.min.js',
+        cssMergeFileName    : 'frontsize.min.css',
 
         sass : {
-            production : {
+            dist : {
                 options : {
                     sourcemap : 'auto',
                     cleancss : false,
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.prodCssPath %><%= f.prodCssName %>' : '<%= f.compile %>'
+                    '<%= f.path.css %><%= cssFileName %>' : '<%= f.path.frontsize %><%= compileFile %>'
                 }
             },
             lint : {
@@ -46,7 +47,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' : '<%= f.compileTest %>'
+                    '<%= f.frontsize.test %><%= cssTestFileName %>' : '<%= f.path.frontsize %><%= compileFile %>'
                 }
             },
             test : {
@@ -55,7 +56,31 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    'test/csslint/frontsize.test.css' : 'test/frontsize/test.scss'
+                    '<%= f.frontsize.test %>frontsize.test.css' : 'test/frontsize/test.scss'
+                }
+            }
+        },
+
+        cssmin: {
+            vendors: {
+                files: {
+                    '<%= f.path.css %><%= cssVendorsFileName %>': '<%= f.vendors.css %>'
+                }
+            },
+            merge: {
+                files: {
+                    '<%= f.path.css %><%= cssMergeFileName %>': '<%= f.css %>'
+                }
+            }
+        },
+
+        uglify: {
+            options: {
+                sourceMap: true
+            },
+            vendors: {
+                files: {
+                    '<%= f.path.js %><%= jsFileName %>': '<%= f.js.files %>'
                 }
             }
         },
@@ -65,20 +90,8 @@ module.exports = function(grunt) {
                 atBegin : true
             },
             frontsize : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'frontsize' ]
-            },
-            'frontsize-assets' : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'frnAssets' ]
-            },
-            test : {
-                files: [ '*.scss', '**/*.scss' ],
-                tasks: [ 'test' ]
-            },
-            uncss : {
-                files: [ '*.html', '**/*.html' ],
-                tasks: [ 'uncss' ]
+                files: '<%= f.watchFiles %>',
+                tasks: [ 'frontsize:build' ]
             }
         },
 
@@ -86,73 +99,66 @@ module.exports = function(grunt) {
             options: {
                 csslintrc: '.csslintrc'
             },
-            lint: {
+            dist: {
                 options: {
                     csslintrc: '.csslintrc'
                 },
-                src: [ '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' ]
+                src: [ '<%= f.frontsize.test %><%= cssTestFileName %>' ]
             },
             test: {
                 options: {
                     csslintrc: 'test/.csslintrc'
                 },
-                src: [ 'test/csslint/frontsize.test.css' ]
-            }
-        },
-
-        cssmin: {
-            options: {
-                shorthandCompacting: false,
-                roundingPrecision: -1,
-                report:'min'
-            },
-            target: {
-                files: {
-                    '<%= f.prodCssPath %><%= f.prodCssName %>': ['<%= f.prodCssPath %><%= f.prodCssName %>']
-                }
-            }
-        },
-
-        clean: {
-            assets: {
-                src: [
-                    '<%= f.prodImgPath %>*',
-                    '<%= f.prodFontsPath %>*'
-                ]
-            },
-            removeEmpty: {
-                src:[
-                    '<%= f.prodImgPath %>empty',
-                    '<%= f.prodFontsPath %>empty',
-                ]
+                src: [ '<%= f.frontsize.test %>frontsize.test.css' ]
             }
         },
 
         copy: {
-            assets: {
+            themeAssets: {
                 files: [
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/img/*' ],
-                        dest    : '<%= f.prodImgPath %>',
+                        src     : [ '<%= f.path.frontsize %>themes/<%= f.frontsize.theme %>/img/*' ],
+                        dest    : '<%= f.path.images %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.frontsizePath %>themes/<%= f.themeName %>/fonts/*' ],
-                        dest    : '<%= f.prodFontsPath %>',
+                        src     : [ '<%= f.path.frontsize %>themes/<%= f.frontsize.theme %>/fonts/*' ],
+                        dest    : '<%= f.path.fonts %>',
                         filter  : 'isFile'
                     }
                 ]
-            }
-        },
-
-        uncss: {
-            dist: {
-                files: {
-                    '<%= f.uncss %>': '<%= f.uncssTemplates %>'
-                }
+            },
+            vendorsFontAssets: {
+                files: [
+                    {
+                        expand  : true,
+                        flatten : true,
+                        src     : '<%= f.vendors.images %>',
+                        dest    : '<%= f.path.images %>',
+                        filter  : 'isFile'
+                    },
+                    {
+                        expand  : true,
+                        flatten : true,
+                        src     : '<%= f.vendors.fonts %>',
+                        dest    : '<%= f.path.fonts %>',
+                        filter  : 'isFile'
+                    }
+                ]
+            },
+            vendorsImageAssets: {
+                files: [
+                    {
+                        expand  : true,
+                        flatten : true,
+                        src     : '<%= f.vendors.images %>',
+                        dest    : '<%= f.path.images %>',
+                        filter  : 'isFile'
+                    }
+                ]
             }
         },
 
@@ -174,48 +180,96 @@ module.exports = function(grunt) {
                 importantKeywords      : true,
                 mediaQueries           : true
             },
-            src: [ '<%= f.frontsizePath %><%= f.testCssPath %><%= f.testCssName %>' ]
+            src: [ '<%= f.frontsize.test %><%= cssTestFileName %>' ]
         }
     });
 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-stylestats');
 
     grunt.registerTask('default', [
+        'frontsize:watch'
+    ]);
+
+    grunt.registerTask('frontsize:build', [
+        'frontsize:assets',
+        'frontsize:vendors',
+        'frontsize:js',
+        'frontsize:css',
+        'frontsize:merge',
+        'frontsize:report'
+    ]);
+
+    grunt.registerTask('frontsize:watch', [
         'watch:frontsize'
     ]);
 
-    grunt.registerTask('frontsize', [
-        'sass:production',
-        'minify',
-        'lint'
-    ]);
-
-    grunt.registerTask('frontsize-assets', [
-        'sass:production',
-        'clean',
-        'assets',
-        'minify',
-        'lint'
-    ]);
-
-    grunt.registerTask('assets', [
-        'clean:assets',
-        'copy:assets'
-    ]);
-
-    grunt.registerTask('minify', [
-        'cssmin',
+    grunt.registerTask('frontsize:report', [
         'stylestats'
     ]);
 
-    grunt.registerTask('lint', [
-        'sass:lint',
-        'csslint:lint'
+    grunt.registerTask('frontsize:test', [
+        'sass:test',
+        'csslint:test',
     ]);
 
-    grunt.registerTask('test', [
-        'sass:test',
-        'csslint:test'
+    grunt.registerTask('frontsize:css', [
+        'sass:dist',
+        'csslint:dist',
+    ]);
+
+    if (frontsize.vendors !== undefined) {
+        var vendorTasks = [];
+        if (frontsize.vendors.css !== undefined) {
+            vendorTasks.push('frontsize:vendors:css');
+            grunt.registerTask('frontsize:vendors:css', [
+                'cssmin:vendors'
+            ]);
+            grunt.registerTask('frontsize:merge', [
+                'cssmin:merge'
+            ]);
+        } else {
+            grunt.registerTask('frontsize:vendors:css', []);
+            grunt.registerTask('frontsize:merge', []);
+        }
+
+        if (frontsize.vendors.fonts !== undefined) {
+            vendorTasks.push('frontsize:vendors:fonts');
+            grunt.registerTask('frontsize:vendors:fonts', [
+                'copy:vendorsFontAssets'
+            ]);
+        } else {
+            grunt.registerTask('frontsize:vendors:fonts', []);
+        }
+
+        if (frontsize.vendors.images !== undefined) {
+            vendorTasks.push('frontsize:vendors:images');
+            grunt.registerTask('frontsize:vendors:images', [
+                'copy:vendorsImageAssets'
+            ]);
+        } else {
+            grunt.registerTask('frontsize:vendors:images', []);
+        }
+        grunt.registerTask('frontsize:vendors', vendorTasks);
+    } else {
+        grunt.registerTask('frontsize:vendors', []);
+    }
+
+    if (frontsize.js !== undefined && frontsize.js.files !== undefined) {
+        grunt.registerTask('frontsize:js', [
+            'uglify:vendors'
+        ]);
+    } else {
+        grunt.registerTask('frontsize:js', []);
+    }
+
+    grunt.registerTask('frontsize:assets', [
+        'copy:themeAssets'
     ]);
 
 };

@@ -21,11 +21,12 @@
     ".gitignore",
     ".jshintrc",
     ".sassdocrc",
-    ".travis.yml",
-    "node_modules",
-    "bower_components",
     ".templates",
-    "tests"
+    ".travis.yml",
+    "bower_components",
+    "frontsize.yml.travis",
+    "node_modules",
+    "test"
   ],
   "devDependencies": {
     "include-js": "~1.2.2"
