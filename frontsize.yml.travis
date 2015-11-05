@@ -1,0 +1,31 @@
+---
+frontsize:
+    theme: default
+    test: test/csslint/
+
+path:
+    frontsize: ./
+    css: test/html/css/
+    images: test/html/img/
+    fonts: test/html/fonts/
+    js: test/html/js/
+
+vendors:
+    css:
+        - test/html/vendor/normalize-css/normalize.css
+    fonts:
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.eot
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.svg
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.ttf
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.woff
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.woff2
+        - test/html/vendor/font-awesome/fonts/FontAwesome.otf
+    images:
+        - test/html/vendor/font-awesome/HELP-US-OUT.txt
+
+js:
+    name: frontsize.min.js
+    watch: src/js/**/*
+    files:
+        - test/html/vendor/handlebars/handlebars.js
+        - test/html/vendor/include-js/include.js

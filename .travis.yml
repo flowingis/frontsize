@@ -10,19 +10,20 @@ before_install:
     - gem install sass
     - gem install casperjs
     - npm install -g grunt-cli
+    - npm install -g bower
     - npm install -g gulp
 
 before_script:
     - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
     - tar -xvf /tmp/casper.tar.gz
     - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
-    - cp ./frontsize.yml.dist ./frontsize.yml
+    - cp ./frontsize.yml.travis ./frontsize.yml
+    - npm install
+    - bower install normalize-css font-awesome handlebars include-js
 
 script:
-#    - grunt frontsize:build
-#    - grunt frontsize:assets
-#    - grunt frontsize:test:theme
+    - grunt frontsize:build
+    - grunt frontsize:test
     - gulp frontsize:build
-    - gulp frontsize:assets
-    - gulp frontsize:test:theme
+    - gulp frontsize:test
     - sassdoc ./core ./themes
