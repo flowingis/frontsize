@@ -1156,12 +1156,6 @@
 
     width: 100%;
 
-    $mobilePortraitStep: $mobileLandscapeStep;
-    $mobileLandscapeStep: $tabletPortraitStep;
-    $tabletPortraitStep: $tabletLandscapeStep;
-    $tabletLandscapeStep: $hdReadyStep;
-    $hdReadyStep: $hdFullStep;
-
     @include _setColumnBehavior(true, left, true, false);
 
     @include _setFloatGridColumn($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);

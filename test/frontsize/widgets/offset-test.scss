@@ -1,0 +1,20 @@
+.offset-test {
+    @include setFloatGridContainer();
+
+    @include element("left-column") {
+
+        @include setFloatGridColumn(
+            6, 6,
+            6, 6,
+            6, 6
+        );
+
+        @include setFloatGridOffset(
+            6, 6,
+            6, 6,
+            6, 6
+        );
+
+        background-color: red;
+    }
+}

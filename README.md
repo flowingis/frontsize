@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.9.52-beta][release]
+Current version [3.9.53-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -108,7 +108,7 @@ Release details
 ---
 
 **Features**
-- **fixed** float grid rules mixins to prevent rule skipping by `0` values, now can be skipped only with `false`
+- **fixed** `setFloatGridColumn` float grid wrong column handling
 
 Next release details
 ---
@@ -121,8 +121,8 @@ Next release details
 To test HTML examples:
 
 ```
-npm install && ./node_modules/.bin/bower install && php -S localhost:8000 -t ./
-open http://localhost:8000/test/html/index.html
+npm install && ./node_modules/.bin/bower install && php -S localhost:8000 -t ./test/html
+open http://localhost:8000/index.html
 ```
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
@@ -145,4 +145,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.52
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.53
