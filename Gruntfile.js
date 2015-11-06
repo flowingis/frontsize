@@ -56,7 +56,8 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.path.test %>frontsize.test.css' : 'test/frontsize/test.scss'
+                    '<%= f.path.test %>frontsize.test.css' : 'test/frontsize/test.scss',
+                    'test/html/css/frontsize.test.css' : 'test/frontsize/test.scss',
                 }
             }
         },
