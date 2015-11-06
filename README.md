@@ -108,7 +108,7 @@ Release details
 ---
 
 **Features**
-- **fixed** fload grid rules mixins to prevent rule skipping by `0` values, now can be skipped only with `false`
+- **fixed** float grid rules mixins to prevent rule skipping by `0` values, now can be skipped only with `false`
 
 Next release details
 ---
