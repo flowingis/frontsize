@@ -55,7 +55,7 @@ gulp.task('frontsize:test', function () {
 
 gulp.task('frontsize:test:build', function () {
     gulp.src('test/frontsize/test.scss')
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(concat('frontsize.test.css'))
         .pipe(gulp.dest(f.path.test));
 });

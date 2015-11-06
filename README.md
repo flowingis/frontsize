@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.9.51-beta][release]
+Current version [3.9.52-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -108,7 +108,7 @@ Release details
 ---
 
 **Features**
-- **changed** YAML config to make gulp and grunt automation more consistent and flexible
+- **fixed** fload grid rules mixins to prevent rule skipping by `0` values, now can be skipped only with `false`
 
 Next release details
 ---
@@ -145,4 +145,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.51
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.9.52

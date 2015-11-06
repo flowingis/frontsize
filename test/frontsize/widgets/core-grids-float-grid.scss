@@ -24,6 +24,11 @@
     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
 }
 
+.float-grid-column-centered-2 {
+    @include setFloatGridColumn(4, 4, 6, 6, 8, 8);
+    @include setFloatGridOffset(6, 4, 3, 3, 2, 2);
+}
+
 @include addFloatGridOffset(4, 2, 2);
 @include addFloatGridContainer("row", "gain");
 @include addFloatGridContainer("row-container", "gain", 4, 4, 3, 3, 1, 1, false);

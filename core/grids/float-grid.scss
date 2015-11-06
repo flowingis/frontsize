@@ -1173,7 +1173,7 @@
 }
 
 @mixin _setFloatGridColumn($rule, $step, $totalColumns) {
-    @if $step != false and $step != 0 {
+    @if $step != false {
         @media #{$rule} {
             @include _setFloatGridColumnStep($step, $totalColumns);
         }
@@ -1322,7 +1322,7 @@
 }
 
 @mixin _setFloatGridOffset($rule, $step, $totalColumns) {
-    @if $step != false and $step != 0 {
+    @if $step != false {
         @media #{$rule} {
             @include _setColumnMarginOffsetStep($step, $totalColumns)
         }
