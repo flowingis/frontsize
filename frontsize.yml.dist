@@ -1,10 +1,9 @@
 ---
-frontsize:
-    theme: default
-    test: test/csslint/
+theme: default
 
 path:
     frontsize: ./ # compile.scss path
+    test: test/csslint/
     css: test/html/css/
     images: test/html/img/
     fonts: test/html/fonts/

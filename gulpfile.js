@@ -42,7 +42,7 @@ gulp.task('frontsize:sourcemap', function () {
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(concat(cssTestFileName))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(f.frontsize.test));
+        .pipe(gulp.dest(f.path.test));
 });
 
 gulp.task('frontsize:test', function () {
@@ -57,25 +57,25 @@ gulp.task('frontsize:test:build', function () {
     gulp.src('test/frontsize/test.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(concat('frontsize.test.css'))
-        .pipe(gulp.dest(f.frontsize.test));
+        .pipe(gulp.dest(f.path.test));
 });
 
 gulp.task('frontsize:test:report', function () {
-    gulp.src(f.frontsize.test + 'frontsize.test.css')
+    gulp.src(f.path.test + 'frontsize.test.css')
         .pipe(csslint('test/.csslintrc'))
         .pipe(stylestats());
 });
 
 gulp.task('frontsize:report', function () {
-    gulp.src(f.frontsize.test + cssTestFileName)
+    gulp.src(f.path.test + cssTestFileName)
         .pipe(csslint('.csslintrc'))
         .pipe(stylestats());
 });
 
 gulp.task('frontsize:assets', function () {
-    gulp.src(f.path.frontsize + 'themes/' + f.frontsize.theme + '/img/**/*.*')
+    gulp.src(f.path.frontsize + 'themes/' + f.theme + '/img/**/*.*')
         .pipe(gulp.dest(f.path.images));
-    gulp.src(f.path.frontsize + 'themes/' + f.frontsize.theme + '/fonts/**/*.*')
+    gulp.src(f.path.frontsize + 'themes/' + f.theme + '/fonts/**/*.*')
         .pipe(gulp.dest(f.path.fonts));
 });
 
@@ -152,7 +152,7 @@ gulp.task('frontsize:js', function () {
 gulp.task('frontsize:merge', function () {
     if (f.vendors !== undefined && f.vendors.css !== undefined) {
         var css = f.vendors.css.slice(0);
-        css.push(f.frontsize.test + cssTestFileName);
+        css.push(f.path.test + cssTestFileName);
         return gulp.src(css)
         .pipe(uglifyCss())
         .pipe(concat(cssMergeFileName))

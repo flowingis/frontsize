@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     var frontsize = grunt.file.readYAML('frontsize.yml');
     if (frontsize.vendors !== undefined && frontsize.vendors.css !== undefined) {
         frontsize.css = frontsize.vendors.css.slice(0);
-        frontsize.css.push(frontsize.frontsize.test + cssTestFileName);
+        frontsize.css.push(frontsize.path.test + cssTestFileName);
     }
 
     frontsize.watchFiles = [
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.frontsize.test %><%= cssTestFileName %>' : '<%= f.path.frontsize %><%= compileFile %>'
+                    '<%= f.path.test %><%= cssTestFileName %>' : '<%= f.path.frontsize %><%= compileFile %>'
                 }
             },
             test : {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                     style : 'expanded'
                 },
                 files : {
-                    '<%= f.frontsize.test %>frontsize.test.css' : 'test/frontsize/test.scss'
+                    '<%= f.path.test %>frontsize.test.css' : 'test/frontsize/test.scss'
                 }
             }
         },
@@ -103,13 +103,13 @@ module.exports = function(grunt) {
                 options: {
                     csslintrc: '.csslintrc'
                 },
-                src: [ '<%= f.frontsize.test %><%= cssTestFileName %>' ]
+                src: [ '<%= f.path.test %><%= cssTestFileName %>' ]
             },
             test: {
                 options: {
                     csslintrc: 'test/.csslintrc'
                 },
-                src: [ '<%= f.frontsize.test %>frontsize.test.css' ]
+                src: [ '<%= f.path.test %>frontsize.test.css' ]
             }
         },
 
@@ -119,13 +119,13 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.path.frontsize %>themes/<%= f.frontsize.theme %>/img/*' ],
+                        src     : [ '<%= f.path.frontsize %>themes/<%= f.theme %>/img/*' ],
                         dest    : '<%= f.path.images %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= f.path.frontsize %>themes/<%= f.frontsize.theme %>/fonts/*' ],
+                        src     : [ '<%= f.path.frontsize %>themes/<%= f.theme %>/fonts/*' ],
                         dest    : '<%= f.path.fonts %>',
                         filter  : 'isFile'
                     }
@@ -180,7 +180,7 @@ module.exports = function(grunt) {
                 importantKeywords      : true,
                 mediaQueries           : true
             },
-            src: [ '<%= f.frontsize.test %><%= cssTestFileName %>' ]
+            src: [ '<%= f.path.test %><%= cssTestFileName %>' ]
         }
     });
 

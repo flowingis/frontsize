@@ -1,9 +1,8 @@
 ---
-frontsize:
-    theme: default
-    test: test/csslint/
+theme: default
 
 path:
+    test: test/csslint/
     frontsize: ./
     css: test/html/css/
     images: test/html/img/
