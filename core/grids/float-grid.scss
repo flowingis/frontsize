@@ -1678,10 +1678,6 @@
                 }
             }
 
-            @if $index == 0{
-                //
-            }
-
             $index: $index - 1;
         }
     }
@@ -1702,10 +1698,6 @@
                 }
             }
 
-            @if $index == 0{
-                //
-            }
-
             $index: $index - 1;
         }
     }
@@ -1715,7 +1707,7 @@
     @if $removeMargin == true {
       margin-left: 0;
     } @else {
-      margin-left:((100% * $step)/$columns);
+      margin-left: _clean(((100% * $step)/$columns);
     }
 }
 
@@ -1841,14 +1833,14 @@
 }
 
 @mixin _setFloatGridColumns($columns) {
-    width:(100%/$columns);
+    width: _clean(100%/$columns);
     &:nth-child(#{$columns}n+1) {
         clear:both;
     }
 }
 
 @mixin _setFloatGridColumnStep($step, $columns) {
-    width:((100% * $step) / $columns);
+    width: _clean(((100% * $step) / $columns));
 }
 
 @mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:false, $usePadding:true) {
