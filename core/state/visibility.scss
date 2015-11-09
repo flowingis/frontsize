@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-visibility == true {
+@mixin addStateVisibility() {
     .faded {
         opacity: $state-faded-opacity #{$important};
         @include transition(opacity 0.25s ease-out);

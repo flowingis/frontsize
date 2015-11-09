@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-positioning == true {
+@mixin addStatePositioning() {
     .gain-margin {
         width: auto #{$important};
         margin-left: -$horizontal-padding #{$important};
@@ -185,4 +185,3 @@ $important: _important();
         .to-right-from-hd-full      { float: right #{$important}; }
     }
 }
-

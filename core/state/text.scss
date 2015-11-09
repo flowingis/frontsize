@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-text == true {
+@mixin addStateText() {
     .text-center {
         // manually center all the contents inside
         text-align: center #{$important};
@@ -194,4 +194,3 @@ $important: _important();
         .text-right-from-hd-full    { text-align: right #{$important}; }
     }
 }
-

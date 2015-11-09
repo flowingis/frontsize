@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-margin == true {
+@mixin addStateMargin() {
     .no-margin {
         margin: 0 #{$important};
     }

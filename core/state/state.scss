@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-selectors == true {
+@mixin addStateSelectors() {
     .pointer {
         cursor: pointer #{$important};
     }
@@ -19,4 +19,3 @@ $important: _important();
         }
     }
 }
-

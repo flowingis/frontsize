@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-sizing == true{
+@mixin addStateSizing() {
 
     .viewport-height {
         height : $mobile-landscape-step #{$important};

@@ -1,4 +1,4 @@
-@if $use-state-print == true {
+@mixin addStatePrint() {
     @media print {
 
         .not-on-print {

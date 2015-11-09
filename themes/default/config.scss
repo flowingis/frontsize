@@ -59,16 +59,6 @@ $use-hd-full          : true;
 $use-viewport-states  : true;
 $use-print-viewport   : false;
 
-$use-state-margin      : false;
-$use-state-padding     : false;
-$use-state-positioning : false;
-$use-state-sizing      : false;
-$use-state-selectors   : false;
-$use-state-table       : false;
-$use-state-text        : false;
-$use-state-visibility  : false;
-$use-state-print       : false;
-
 $use-core-base     : true; // set CSSlint box-model test to true if you disable this
 $use-css-prefix    : true;
 $use-ie-filters    : false;

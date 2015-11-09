@@ -1,6 +1,6 @@
 $important: _important();
 
-@if $use-state-table == true {
+@mixin addStateTable() {
     .table {
         @include asTable($state-table-padding, middle, 100%);
     }

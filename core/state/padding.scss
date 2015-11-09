@@ -1,6 +1,7 @@
 $important: _important();
 
-@if $use-state-padding == true {
+@mixin addStatePadding() {
+
     .no-padding {
         padding: 0 #{$important};
     }
@@ -33,4 +34,3 @@ $important: _important();
 
     @include addPaddingSelector(false, $vertical-padding, $horizontal-padding);
 }
-
