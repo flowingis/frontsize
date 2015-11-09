@@ -108,7 +108,7 @@ Release details
 ---
 
 **Features**
-- **fixed** `setFloatGridColumn` float grid wrong column handling
+- **add** `keyframes` prefixes mixin to generate cross browser keyframes animation
 
 Next release details
 ---
