@@ -1,5 +1,5 @@
 @mixin animation($animation:animation-name 1s){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
          -webkit-animation: $animation;
          -khtml-animation: $animation;
          -moz-animation: $animation;
@@ -10,7 +10,7 @@
 }
 
 @mixin animation-name($animation:animation-name){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-name: $animation;
         -khtml-animation-name: $animation;
         -moz-animation-name: $animation;
@@ -21,7 +21,7 @@
 }
 
 @mixin animation-duration($animation:2s){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-duration: $animation;
         -khtml-animation-duration: $animation;
         -moz-animation-duration: $animation;
@@ -32,7 +32,7 @@
 }
 
 @mixin animation-timing-function($animation:linear){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-timing-function: $animation;
         -khtml-animation-timing-function: $animation;
         -moz-animation-timing-function: $animation;
@@ -43,7 +43,7 @@
 }
 
 @mixin animation-delay($animation:2s){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-delay: $animation;
         -khtml-animation-delay: $animation;
         -moz-animation-delay: $animation;
@@ -54,7 +54,7 @@
 }
 
 @mixin animation-iteration-count($animation:infinite){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-iteration-count: $animation;
         -khtml-animation-iteration-count: $animation;
         -moz-animation-iteration-count: $animation;
@@ -65,7 +65,7 @@
 }
 
 @mixin animation-direction($animation:alternate){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-direction: $animation;
         -khtml-animation-direction: $animation;
         -moz-animation-direction: $animation;
@@ -76,7 +76,7 @@
 }
 
 @mixin animation-play-state($animation:running){
-    @if $use-css-prefix == true{
+    @if $use-css-prefix == true {
         -webkit-animation-play-state: $animation;
         -khtml-animation-play-state: $animation;
         -moz-animation-play-state: $animation;
@@ -87,14 +87,16 @@
 }
 
 @mixin keyframes($animation) {
-    @-webkit-keyframes #{$animation} {
-        @content;
-    }
-    @-moz-keyframes #{$animation} {
-        @content;
-    }
-    @-o-keyframes #{$animation} {
-        @content;
+    @if $use-css-prefix == true {
+        @-webkit-keyframes #{$animation} {
+            @content;
+        }
+        @-moz-keyframes #{$animation} {
+            @content;
+        }
+        @-o-keyframes #{$animation} {
+            @content;
+        }
     }
     @keyframes #{$animation} {
         @content;
