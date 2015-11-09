@@ -23,7 +23,7 @@ $font-heading : $font-sans;
 
 $spacing : 30px;
 
-$font-line-height    : s(2);
+$font-line-height    : s($font-size, 1.5);
 $font-weight         : 400;
 $font-color          : #545454;
 $body-color          : #F5F0D6;
@@ -60,7 +60,7 @@ $use-viewport-states  : true;
 $use-print-viewport   : true;
 
 $use-state-margin      : true;
-$use-state-padding     : true;
+@include addStatePadding();
 $use-state-positioning : true;
 $use-state-sizing      : true;
 $use-state-selectors   : true;

@@ -13,39 +13,27 @@
 
 a {
 
-    $color     : $font-color;
-    $animation : 0.3s ease-in-out;
-
-    display         : inline-block;
-    color           : $color;
-    line-height     : $font-line-height;
-    text-decoration : none;
-    border-bottom   : 2px solid;
-
-    $color: $font-color;
-
-    @include fallbackColor(border-bottom-color, rgba($color, 0.3));
-
-    $animation:0.3s ease-in-out;
-    @include transition("border-bottom #{$animation}, color #{$animation}");
+    display: inline-block;
+    color: $font-color;
+    line-height: $font-line-height;
+    text-decoration: none;
 
     &[title]:hover {
-        text-decoration : none;
+        text-decoration: none;
     }
 
     &:hover,
     &.hover,
     &.selected,
     &.active {
-        color : saturate(darken($color, 10%), 7%);
-        border-bottom-color : $color;
+        color: saturate(darken($font-color, 10%), 7%);
     }
 
     &.selected {
-        cursor : default;
+        cursor: default;
     }
 
     img {
-        border : none;
+        border: none;
     }
 }
