@@ -108,9 +108,11 @@ Release details
 ---
 
 **Features**
-- **added** `keyframes` prefixes mixin to generate cross browser keyframes animation
+- **introduced** `keyframes` prefixes mixin to generate cross browser keyframes animation
 - **added** some type check to `_clean` core mixin
 - **added** clean values on sizing for float grid mixins when is `0%` width or `0px` margin
+- **added** brand new social-button example widget
+- **fixed** state selectors not generated anymore
 
 Next release details
 ---
