@@ -1707,7 +1707,7 @@
     @if $removeMargin == true {
       margin-left: 0;
     } @else {
-      margin-left: _clean(((100% * $step)/$columns);
+      margin-left: _clean((100% * $step)/$columns);
     }
 }
 
