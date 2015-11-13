@@ -60,13 +60,13 @@ gulp.task('frontsize:test:build', function () {
         .pipe(gulp.dest(f.path.test));
 });
 
-gulp.task('frontsize:test:report', function () {
+gulp.task('frontsize:test:report', ['frontsize:test:build'], function () {
     return gulp.src(f.path.test + 'frontsize.test.css')
         .pipe(csslint('test/.csslintrc'))
         .pipe(stylestats());
 });
 
-gulp.task('frontsize:report', function () {
+gulp.task('frontsize:report', ['frontsize:sourcemap'], function () {
     return gulp.src(f.path.test + cssTestFileName)
         .pipe(csslint('.csslintrc'))
         .pipe(stylestats());
@@ -161,7 +161,7 @@ gulp.task('frontsize:js', function () {
     }
 });
 
-gulp.task('frontsize:merge', function () {
+gulp.task('frontsize:merge', ['frontsize:vendors:css', 'frontsize:css'], function () {
     if (f.vendors !== undefined && f.vendors.css !== undefined) {
         var css = f.vendors.css.slice(0);
         css.push(f.path.test + cssTestFileName);
