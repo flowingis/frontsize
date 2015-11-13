@@ -2,8 +2,8 @@
 theme: default
 
 path:
-    test: test/csslint/
     frontsize: ./
+    test: test/csslint/
     css: test/html/css/
     images: test/html/img/
     fonts: test/html/fonts/
@@ -12,6 +12,7 @@ path:
 vendors:
     css:
         - test/html/vendor/normalize-css/normalize.css
+        - test/html/vendor/font-awesome/css/font-awesome.css
     fonts:
         - test/html/vendor/font-awesome/fonts/fontawesome-webfont.eot
         - test/html/vendor/font-awesome/fonts/fontawesome-webfont.svg
