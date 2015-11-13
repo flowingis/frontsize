@@ -47,37 +47,15 @@ cp bower_components/frontsize-sass/themes/default frontsize-sass/themes/theme-na
 
 Then change core references to let it point on bower folder:
 
-So in `frontsize-sass/themes/theme-name/compile-test.scss` file:
+So in `frontsize-sass/themes/theme-name/compile.scss` file:
 
 ```
-@import "themes/default/config";
-@import "core/core";
-@import "themes/default/import";
-```
-
-Change the code to:
-
-```
-@import "themes/theme-name/config";
 @import "bower_components/frontsize-sass/core/core";
 @import "themes/theme-name/import";
 ```
 
-The do the same in `frontsize-sass/themes/theme-name/compile.scss` file:
 
-```
-@import "core/vendor/normalize.css.scss";
-@import "compile-test";
-```
-
-Change the code to:
-
-```
-@import "bower_components/frontsize-sass/core/vendor/normalize.css.scss";
-@import "compile-test";
-```
-
-Now the core is easily to be upgraded with `bower update` when a new release is available.
+Now the core can be easily upgraded with `bower update` when a new release is available.
 
 ---
 
