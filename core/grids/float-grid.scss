@@ -934,8 +934,11 @@
 /// @example css A simple 4 column set
 /// .float-grid-example-1 {
 ///   width: 100%;
-///   overflow: auto;
-///   clear: both;
+///   &::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+///   }
 ///   -webkit-box-sizing: border-box;
 ///   -khtml-box-sizing: border-box;
 ///   -moz-box-sizing: border-box;
@@ -958,8 +961,11 @@
 /// @example css The generated CSS
 /// .float-grid-example-2 {
 ///   width: 100%;
-///   overflow: auto;
-///   clear: both;
+///   &::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+///   }
 ///   -webkit-box-sizing: border-box;
 ///   -khtml-box-sizing: border-box;
 ///   -moz-box-sizing: border-box;
@@ -1056,8 +1062,12 @@
     ) {
 
     width: 100%;
-    overflow: auto;
-    clear: both;
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 
     @if $use-core-base != true {
         @include box-sizing(border-box);

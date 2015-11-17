@@ -1,7 +1,7 @@
 frontsize
 =========
 
-Current version [3.10.58-beta][release]
+Current version [3.10.59-beta][release]
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
@@ -86,13 +86,7 @@ Release details
 ---
 
 **Features**
-- **fixed** gulp pipe sequence
-
-Next release details
----
-
-**Features**
-- **fixed** gulp automation support on theme creation to simplify the project management
+- **changed** `setFloatGridContainer` mixin overflow grid elements handling
 
 ---
 
@@ -123,4 +117,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.10.58
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.10.59
