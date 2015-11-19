@@ -9,8 +9,6 @@ frontsize
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
-===
-
 Non beta version will be available after we've fully added tests and documentation.
 
 It's a CSS generator written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
