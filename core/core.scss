@@ -2,8 +2,8 @@
 Frontsize: http://frontsize.com
 GitHub:    https://github.com/ideatosrl/frontsize-sass
 License:   MIT Licence
-Version:   3.11.59
-Date:      2015-11-21 20:52
+Version:   3.11.60
+Date:      2015-11-21 20:57
 Authors:   Vittorio Vittori, Alessandro Minoccheri
 */
 
@@ -11,7 +11,9 @@ Authors:   Vittorio Vittori, Alessandro Minoccheri
 
 @import "defaults";
 @import "vars";
+
 @import "functions";
+@import "functions/ease";
 
 @import "grids/flex-grid";
 @import "grids/float-grid";
@@ -57,7 +59,6 @@ Authors:   Vittorio Vittori, Alessandro Minoccheri
 @import "helpers/table";
 @import "helpers/text";
 @import "helpers/transform";
-@import "helpers/transition";
 
 @import "components/padding";
 @import "components/typography";

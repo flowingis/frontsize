@@ -1,7 +1,7 @@
 frontsize
 =========
 
-[![Version](http://img.shields.io/:version-3.11.59-E7C04B.svg)][release]
+[![Version](http://img.shields.io/:version-3.11.60-E7C04B.svg)][release]
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
@@ -89,7 +89,9 @@ Release details
 ---
 
 **Features**
-- **removed** `ease` mixin for transition easing and added `ease` function to make `transition` mixin more easy to be used inline
+- Add ease function to make transition mixin more easy to be used inline
+- Remove ease mixin for transition easing and
+- Fix missing ease dependency
 
 ---
 
@@ -120,4 +122,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.11.59
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.11.60
