@@ -102,7 +102,7 @@ npm install && ./node_modules/.bin/bower install && php -S localhost:8000 -t ./t
 open http://localhost:8000/index.html
 ```
 
-created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
+Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
 
 [app]:               https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
 [csslint]:           https://github.com/CSSLint/csslint
