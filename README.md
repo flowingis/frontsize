@@ -1,7 +1,7 @@
 frontsize
 =========
 
-[![Version](http://img.shields.io/:version-3.10.59-E7C04B.svg)][release]
+[![Version](http://img.shields.io/:version-3.11.59-E7C04B.svg)][release]
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
@@ -9,11 +9,17 @@ frontsize
 
 The project was [originally developed in LESS][less], but soon only the SASS version will be matained.
 
+---
+
+Frontsize is not a set of widgets ready to be used in your website, it's a set of tools to build widgets, it's not intended to give you a set of selectors, ready to be used in your style guide, this is a tool to generate your sets.
+
+Frontsize is configuration and customization oriented.
+
+---
+
 Non beta version will be available after we've fully added tests and documentation.
 
-It's a CSS generator written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
-
-###Why Frontsize?
+### Main features
 
 - It supports various types of [grid rules][grids]
 - It's [BEM][bem] ready, also with [expressive BEM][bem_expressive]
@@ -21,8 +27,6 @@ It's a CSS generator written to make websites easy to read on every device and f
 - It passes [CSSlint][csslint] tests (see the tests [configuration][csslintc])
 - It can be useful for [migrations][migration] by it's high customizable features
 - It's totally [customizable][app]
-
-If you'd like to see more features, visit [frontsize.com][site] website.
 
 ---
 
@@ -85,7 +89,7 @@ Release details
 ---
 
 **Features**
-- **changed** `setFloatGridContainer` mixin overflow grid elements handling
+- **removed** `ease` mixin for transition easing and added `ease` function to make `transition` mixin more easy to be used inline
 
 ---
 
@@ -116,4 +120,4 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], spons
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.10.59
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.11.59
