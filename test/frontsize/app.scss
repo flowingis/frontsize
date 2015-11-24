@@ -7,6 +7,8 @@
 
 @include addViewportsSteps("use-steps", 1600px, 1024px, 0, 0);
 
+@include addViewportsSteps("banner-bg-step", 1080px, 1080px, 0, 0);
+
 @include addStateMargin();
 @include addStatePadding();
 @include addStatePositioning();

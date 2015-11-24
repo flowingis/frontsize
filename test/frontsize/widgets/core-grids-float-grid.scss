@@ -35,3 +35,6 @@
 @include addFloatGridColumns(4);
 @include addFloatGridColumns(4, 2, 2, "l", "m", "s", "mobile-landscape", false);
 @include addFloatGridColumns(4, 4 ,3, "lg-", "md-", "sm-", "mobile-landscape", true, "-of-", false, true, false);
+
+@include addFloatGridColumns(12, 12, 12, "bl-", "bm-", "bs-", "mobile-landscape", true, "-of-");
+@include addFloatGridColumns(24, 24, 24, "dl-", "dm-", "ds-", "mobile-landscape", true, "-of-");
