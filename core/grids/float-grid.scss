@@ -26,8 +26,11 @@
 /// .row {
 ///   padding-top: 20px;
 ///   width: 100%;
-///   overflow: auto;
-///   clear: both;
+/// }
+/// .row::after {
+///     content: "";
+///     display: block;
+///     clear: both;
 /// }
 /// .row--gain-margin {
 ///   margin-left: -20px;
@@ -50,8 +53,11 @@
 /// .row-container {
 ///   padding-top: 20px;
 ///   width: 100%;
-///   overflow: auto;
-///   clear: both;
+/// }
+/// .row-container::after {
+///     content: "";
+///     display: block;
+///     clear: both;
 /// }
 /// .row-container--gain {
 ///   margin-left: -20px;
@@ -131,8 +137,11 @@
 ///
 /// .row-container {
 ///   width: 100%;
-///   overflow: auto;
-///   clear: both;
+/// }
+/// .row-container::after {
+///     content: "";
+///     display: block;
+///     clear: both;
 /// }
 /// .row-container--gain {
 ///   margin-left: -20px;
@@ -210,19 +219,28 @@
     $paddingTop           : $vertical-padding
     ) {
 
-    .#{$selector},
-    .#{$selector} * {
-        @include box-sizing(border-box);
+    @if $use-core-base != true {
+        .#{$selector},
+        .#{$selector} * {
+            @include box-sizing("border-box");
+        }
     }
+
     .#{$selector} {
+        width:100%;
+
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
         @if $paddingTop != false {
             @if $paddingTop != 0 {
                 padding-top:$vertical-padding;
             }
         }
-        width:100%;
-        overflow:auto;
-        clear:both;
+
         @if $gainSelector != false {
             @include modifier($gainSelector) {
                 margin-left: -(s());
@@ -1070,10 +1088,9 @@
     }
 
     @if $use-core-base != true {
-        @include box-sizing(border-box);
-
+        @include box-sizing("border-box");
         * {
-            @include box-sizing(border-box);
+            @include box-sizing("border-box");
         }
     }
 

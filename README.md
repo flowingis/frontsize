@@ -1,7 +1,7 @@
 frontsize
 =========
 
-[![Version](http://img.shields.io/:version-3.11.60-E7C04B.svg)][release]
+[![Version](http://img.shields.io/:version-3.12.61-E7C04B.svg)][release]
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
@@ -24,7 +24,7 @@ Non beta version will be available after we've fully added tests and documentati
 - It supports various types of [grid rules][grids]
 - It's [BEM][bem] ready, also with [expressive BEM][bem_expressive]
 - It has all the automation support you need, with it's [config][automation_config], [grunt][automation_grunt] and [gulp][automation_gulp]
-- It passes [CSSlint][csslint] tests (see the tests [configuration][csslintc])
+- It passes [CSSlint][csslint] tests (see the tests [configuration][csslintrc])
 - It can be useful for [migrations][migration] by it's high customizable features
 - It's totally [customizable][app]
 
@@ -89,9 +89,8 @@ Release details
 ---
 
 **Features**
-- Add ease function to make transition mixin more easy to be used inline
-- Remove ease mixin for transition easing and
-- Fix missing ease dependency
+- Changed addFloatGridContainer mixin oveflow handling
+- Added verbose messages to gulp
 
 ---
 
@@ -106,7 +105,7 @@ Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ide
 
 [app]:               https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
 [csslint]:           https://github.com/CSSLint/csslint
-[csslintc]:          https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
+[csslintrc]:          https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
 [bem]:               https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem.scss
 [bem_expressive]:    https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem-expressive.scss
 [docs]:              https://github.com/ideatosrl/frontsize-less/wiki
@@ -122,4 +121,4 @@ Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ide
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.11.60
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.12.61
