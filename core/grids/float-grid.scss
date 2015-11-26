@@ -243,6 +243,7 @@
 
         @if $gainSelector != false {
             @include modifier($gainSelector) {
+                width: auto;
                 margin-left: -(s());
                 margin-right: -(s());
             }
