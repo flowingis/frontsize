@@ -24,6 +24,7 @@
     ".templates",
     ".travis.yml",
     "bower_components",
+    "composer.json",
     "frontsize.yml.travis",
     "node_modules",
     "test"
