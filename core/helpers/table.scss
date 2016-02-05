@@ -1,11 +1,15 @@
-@mixin asTable($cellPadding:false, $verticalAlign:middle, $tableWidth:100%, $borderCollapse:separate) {
+@mixin asTable($cellPadding:false, $verticalAlign:middle, $tableWidth:100%, $borderCollapse:separate, $tableLayout:fixed) {
+    display : table;
+    table-layout: $tableLayout;
+
     @if $tableWidth != false {
         width : $tableWidth;
     }
-    display : table;
+
     @if $borderCollapse != separate {
         border-collapse: $borderCollapse;
     }
+
     > * {
         @include asTableRow($cellPadding, $verticalAlign);
     }
