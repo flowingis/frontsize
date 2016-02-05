@@ -89,7 +89,8 @@ Release details
 ---
 
 **Features**
-- Fixed float grid width property when has negative margins
+- Add table-layout fixed by default to asTable mixin to help crop text when needed
+- Add HTML element on theme base includes
 
 ---
 
