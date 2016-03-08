@@ -1,7 +1,7 @@
 frontsize
 =========
 
-[![Version](http://img.shields.io/:version-3.12.62-E7C04B.svg)][release]
+[![Version](http://img.shields.io/:version-3.12.66-E7C04B.svg)][release]
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
@@ -89,6 +89,8 @@ Release details
 ---
 
 **Features**
+- Add table-layout fixed by default to asTable mixin to help crop text when needed
+- Add HTML element on theme base includes
 - Fix setSprite mixin now scales the sprite if scale property is set
 - Fix theme default alias values, with false instead 0 to make columns works right
 
@@ -129,4 +131,4 @@ Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ide
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.12.62
+[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.12.66
