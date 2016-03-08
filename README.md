@@ -90,6 +90,7 @@ Release details
 
 **Features**
 - Fix setSprite mixin now scales the sprite if scale property is set
+- Fix theme default alias values, with false instead 0 to make columns works right
 
 ---
 
