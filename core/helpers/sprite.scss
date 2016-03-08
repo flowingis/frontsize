@@ -163,6 +163,7 @@
 ///
 ///     @include setSprite("arrow-left-black",  1 1, $width, $height);
 ///     @include setSprite("arrow-left-red",    1 2, $width);
+///     @include setSprite("arrow-left-red-big",1 2, $width, $height, 1.5, 2 2);
 ///     @include setSprite("arrow-right-black", 2 1, $width);
 ///     @include setSprite("arrow-right-red",   2 2, $width);
 /// }
@@ -186,9 +187,12 @@
 /// .icon-nice--arrow-right-red {
 ///   background-position: -32px -32px;
 /// }
-@mixin setSprite($selector, $spriteMap:1 1, $width:0, $height:$width, $scale:1) {
+@mixin setSprite($selector, $spriteMap:1 1, $width:0, $height:$width, $scale:1, $wholeMap: 1 1) {
     @include modifier($selector) {
         @include spritePosition($spriteMap, round($width * $scale), round($height * $scale));
+        @if ($scale != 1) {
+            @include scaleSprite($scale, $wholeMap, $width, $height);
+        }
     }
 }
 

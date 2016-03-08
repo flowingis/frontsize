@@ -89,8 +89,7 @@ Release details
 ---
 
 **Features**
-- Add table-layout fixed by default to asTable mixin to help crop text when needed
-- Add HTML element on theme base includes
+- Fix setSprite mixin now scales the sprite if scale property is set
 
 ---
 
@@ -99,6 +98,14 @@ To test HTML examples:
 ```
 npm install && ./node_modules/.bin/bower install && php -S localhost:8000 -t ./test/html
 open http://localhost:8000/index.html
+```
+
+---
+
+To test frontsize
+
+```
+./node_modules/.bin/gulp frontsize:test
 ```
 
 Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
