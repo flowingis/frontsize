@@ -40,3 +40,18 @@
     }
     transform-style: #{$style};
 }
+
+@mixin transform-origin($origin:0 0) {
+    // The transform-origin property allows you to change the position of transformed elements.
+    // 2D transformations can change the x- and y-axis of an element. 3D transformations can also change the z-axis of an element.
+    // Url - http://www.w3schools.com/cssref/css3_pr_transform-origin.asp
+    // Values: 50% 50% 0
+    @if $use-css-prefix == true {
+        -webkit-transform-origin: #{$origin};
+        -khtml-transform-origin: #{$origin};
+        -moz-transform-origin: #{$origin};
+        -ms-transform-origin: #{$origin};
+        -o-transform-origin: #{$origin};
+    }
+    transform-origin: #{$origin};
+}
