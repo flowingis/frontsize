@@ -194,8 +194,10 @@ gulp.task('frontsize:js', function () {
             console.log('to file "' + f.path.css + cssVendorsFileName + '"');
         }
         return gulp.src(f.js.files)
+            .pipe(sourcemaps.init())
             .pipe(uglify())
             .pipe(concat(f.js.name || jsFileName))
+            .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(f.path.js));
     } else {
         if (f.verbose !== undefined && f.verbose === true) { console.log('Vendor\'s JavaScript not found, skipping task'); }
