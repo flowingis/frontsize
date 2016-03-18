@@ -88,7 +88,7 @@ sassdoc ./core ./themes
 Release details
 ---
 
-- Add missing sourcemap for minified JavaScript files set in `frontsize.yml` for `gulpfil.js` builds
+- Add missing sourcemap for minified JavaScript files set in `frontsize.yml` for `gulpfile.js` builds
 
 ---
 
