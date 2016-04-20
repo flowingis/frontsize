@@ -14,6 +14,7 @@ var gulp = require('gulp'),
     uglifyCss   = require('gulp-uglifycss'),
     plugins     = require('gulp-load-plugins')(),
     sassLint    = require('gulp-sass-lint'),
+    moment      = require('moment'),
     bower       = require('gulp-bower');
 
 var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsFileName;
@@ -126,16 +127,22 @@ gulp.task('bower:frontsize:build', ['bower'], function () {
     runSequence(tasks);
 });
 
-gulp.task('frontsize:watch:message', ['frontsize:css', 'frontsize:assets:images', 'frontsize:assets:fonts', 'frontsize:vendors', 'frontsize:js', 'frontsize:merge', 'frontsize:sourcemap', 'frontsize:report'], function () {
+gulp.task('frontsize:watch:message:start', function () {
+    if (buildIndex === 0) { return; }
+    console.log('Hey, something changed, wait some moment... ');
+});
+
+gulp.task('frontsize:watch:message:end', ['frontsize:css', 'frontsize:assets:images', 'frontsize:assets:fonts', 'frontsize:vendors', 'frontsize:js', 'frontsize:merge', 'frontsize:sourcemap', 'frontsize:report'], function () {
     buildIndex += 1;
-    console.log('Build [ ' + colors.green(buildIndex) + ' ] done.');
+    console.log('Build ' + colors.yellow('[ ' + buildIndex + ' ]') + ' done at ' + colors.yellow(moment().format('HH:mm')) + ' and ' + colors.yellow(moment().format('ss')) + ' seconds.');
     console.log('Waiting for file changes...');
 });
 
 gulp.task('frontsize:watch', function () {
     var tasks = [
+        'frontsize:watch:message:start',
         'frontsize:build',
-        'frontsize:watch:message'
+        'frontsize:watch:message:end'
     ];
     runSequence(tasks);
     var watchList = [
