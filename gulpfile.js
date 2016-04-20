@@ -128,8 +128,11 @@ gulp.task('bower:frontsize:build', ['bower'], function () {
 });
 
 gulp.task('frontsize:watch:message:start', function () {
-    if (buildIndex === 0) { return; }
-    console.log('Hey, something changed, wait some moment... ');
+    if (buildIndex === 0) {
+        console.log('Starting build process...');
+    } else {
+        console.log('Hey, something changed, wait some moment...');
+    }
 });
 
 gulp.task('frontsize:watch:message:end', ['frontsize:css', 'frontsize:assets:images', 'frontsize:assets:fonts', 'frontsize:vendors', 'frontsize:js', 'frontsize:merge', 'frontsize:sourcemap', 'frontsize:report'], function () {
