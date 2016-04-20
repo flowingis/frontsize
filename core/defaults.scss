@@ -1,70 +1,70 @@
 
 // font sizes for h# elements
-$h1 : 32px !default;
-$h2 : 28px !default;
-$h3 : 24px !default;
-$h4 : 20px !default;
-$h5 : 18px !default;
-$h6 : 16px !default;
+$h1: 32px !default;
+$h2: 28px !default;
+$h3: 24px !default;
+$h4: 20px !default;
+$h5: 18px !default;
+$h6: 16px !default;
 
 // Font sizes
 $font-size:       16px !default;
 $font-small-size: 12px !default;
 
 // Fonts families global vars
-$font-sans      : helvetica, arial, sans-serif !default;
-$font-serif     : georgia, "times new roman", times, serif !default;
-$font-monospace : menlo, monaco, "courier new", monospace !default;
-$font-small     : "lucida grande", tahoma, verdana, arial, sans-serif !default;
+$font-sans: helvetica, arial, sans-serif !default;
+$font-serif: georgia, 'times new roman', times, serif !default;
+$font-monospace: menlo, monaco, 'courier new', monospace !default;
+$font-small: 'lucida grande', tahoma, verdana, arial, sans-serif !default;
 
 // Default fonts used inside the core
-$font-default : $font-sans !default;
-$font-heading : $font-sans !default;
+$font-default: $font-sans !default;
+$font-heading: $font-sans !default;
 
 // used with s(); mixin, if $spacing is 20px s(0.5); returns 10px
-$spacing : 20px !default;
+$spacing: 20px !default;
 
-$font-line-height    : $spacing !default;
-$font-weight         : 400 !default;
-$font-color          : #545454 !default;
-$body-color          : #F5F0D6 !default;
-$fallback-color-base : $body-color !default;
+$font-line-height: $spacing !default;
+$font-weight: 400 !default;
+$font-color: #545454 !default;
+$body-color: #F5F0D6 !default;
+$fallback-color-base: $body-color !default;
 
 // Global padding configuration
-$horizontal-padding : s() !default;
-$vertical-padding   : s() !default;
-$global-padding     : $vertical-padding $horizontal-padding !default;
+$horizontal-padding: s() !default;
+$vertical-padding: s() !default;
+$global-padding: $vertical-padding $horizontal-padding !default;
 
 // State selectors configuration
-$state-important        : true !default;
-$state-faded-opacity    : 0.5 !default;
-$state-disabled-opacity : 0.5 !default;
-$state-table-padding    : s(0.5) !default;
+$state-important: true !default;
+$state-faded-opacity: 0.5 !default;
+$state-disabled-opacity: 0.5 !default;
+$state-table-padding: s(0.5) !default;
 
 // set different width for the mobile, tablets and hd resolutions
-$mobile-portrait-step  : 320px !default;  // mobile portrait  320~380
-$mobile-landscape-step : 480px !default;  // mobile landscape 480~568~685
-$tablet-portrait-step  : 768px !default;  // tablet portrait       768
-$tablet-landscape-step : 1024px !default; // tablet landscape      1024
-$hd-ready-step         : 1280px !default; // HD Ready              1280 (720p)
-$hd-full-step          : 1800px !default; // Full HD               1920 (1080p)
+$mobile-portrait-step: 320px !default;  // mobile portrait  320~380
+$mobile-landscape-step: 480px !default;  // mobile landscape 480~568~685
+$tablet-portrait-step: 768px !default;  // tablet portrait       768
+$tablet-landscape-step: 1024px !default; // tablet landscape      1024
+$hd-ready-step: 1280px !default; // HD Ready              1280 (720p)
+$hd-full-step: 1800px !default; // Full HD               1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
-$use-mobile-portrait  : true !default;
-$use-mobile-landscape : true !default;
-$use-tablet-portrait  : true !default;
-$use-tablet-landscape : true !default;
-$use-hd-ready         : true !default;
-$use-hd-full          : true !default;
-$use-viewport-states  : true !default;
-$use-print-viewport   : false !default;
+$use-mobile-portrait: true !default;
+$use-mobile-landscape: true !default;
+$use-tablet-portrait: true !default;
+$use-tablet-landscape: true !default;
+$use-hd-ready: true !default;
+$use-hd-full: true !default;
+$use-viewport-states: true !default;
+$use-print-viewport: false !default;
 
-$use-core-base     : true !default;
-$use-css-prefix    : true !default;
-$use-ie-filters    : false !default;
-$use-font-fallback : false !default;
-$use-fallbacks     : true !default;
+$use-core-base: true !default;
+$use-css-prefix: true !default;
+$use-ie-filters: false !default;
+$use-font-fallback: false !default;
+$use-fallbacks: true !default;
 
 $use-root-path: true !default;
-$path-img  : "production/img/theme/img/" !default;
-$path-font : "production/img/theme/fonts/" !default;
+$path-img: 'production/img/theme/img/' !default;
+$path-font: 'production/img/theme/fonts/' !default;

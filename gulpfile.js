@@ -1,18 +1,24 @@
-var gulp        = require('gulp'),
+var gulp = require('gulp-param')(require('gulp'), process.argv),
     fs          = require('fs'),
+    colors      = require('colors'),
     yaml        = require('js-yaml'),
     sass        = require('gulp-sass'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
     csslint     = require('gulp-csslint'),
+    connect     = require('gulp-connect'),
     runSequence = require('run-sequence'),
+    analyzer    = require('analyze-css'),
     stylestats  = require('gulp-stylestats'),
     sourcemaps  = require('gulp-sourcemaps'),
-    uglifyCss   = require('gulp-uglifycss');
+    uglifyCss   = require('gulp-uglifycss'),
+    plugins     = require('gulp-load-plugins')(),
+    sassLint    = require('gulp-sass-lint'),
+    bower       = require('gulp-bower');
 
 var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsFileName;
+var buildIndex = 0;
 
-f = yaml.safeLoad(fs.readFileSync('./frontsize.yml', 'utf-8'));
 compileFile        = 'compile.scss';
 cssFileName        = 'frontsize-theme.min.css';
 cssTestFileName    = 'frontsize.csslint.css';
@@ -20,14 +26,22 @@ cssVendorsFileName = 'vendors.min.css';
 jsFileName         = 'frontsize.min.js';
 cssMergeFileName   = 'frontsize.min.css';
 
-gulp.task('default', function () {
+var checkConfig = function(file) {
+    if (f === undefined) {
+        f = yaml.safeLoad(fs.readFileSync(file || './frontsize.yml', 'utf-8'));
+    }
+};
+
+gulp.task('default', function (config) {
+    checkConfig(config);
     var tasks = [
         'frontsize:watch'
     ];
     runSequence(tasks);
 });
 
-gulp.task('frontsize:css', function () {
+gulp.task('frontsize:css', function (config) {
+    checkConfig(config);
     if (f.verbose !== undefined && f.verbose === true) { console.log('Creating: ' + f.path.css + cssFileName); }
     return gulp.src(f.path.frontsize + compileFile)
         .pipe(sourcemaps.init())
@@ -37,7 +51,8 @@ gulp.task('frontsize:css', function () {
         .pipe(gulp.dest(f.path.css));
 });
 
-gulp.task('frontsize:sourcemap', function () {
+gulp.task('frontsize:sourcemap', function (config) {
+    checkConfig(config);
     return gulp.src(f.path.frontsize + compileFile)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
@@ -46,7 +61,8 @@ gulp.task('frontsize:sourcemap', function () {
         .pipe(gulp.dest(f.path.test));
 });
 
-gulp.task('frontsize:test', function () {
+gulp.task('frontsize:test', function (config) {
+    checkConfig(config);
     var tasks = [
         'frontsize:test:build',
         'frontsize:test:report'
@@ -54,7 +70,8 @@ gulp.task('frontsize:test', function () {
     runSequence(tasks);
 });
 
-gulp.task('frontsize:test:build', function () {
+gulp.task('frontsize:test:build', function (config) {
+    checkConfig(config);
     if (f.verbose !== undefined && f.verbose === true) { console.log('Creating: ' + f.path.test + 'frontsize.test.css'); }
     return gulp.src('test/frontsize/test.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
@@ -62,33 +79,38 @@ gulp.task('frontsize:test:build', function () {
         .pipe(gulp.dest(f.path.test));
 });
 
-gulp.task('frontsize:test:report', ['frontsize:test:build'], function () {
+gulp.task('frontsize:test:report', ['frontsize:test:build'], function (config) {
+    checkConfig(config);
     return gulp.src(f.path.test + 'frontsize.test.css')
         .pipe(csslint('test/.csslintrc'))
         .pipe(stylestats());
 });
 
-gulp.task('frontsize:report', ['frontsize:sourcemap'], function () {
+gulp.task('frontsize:report', ['frontsize:sourcemap'], function (config) {
+    checkConfig(config);
     return gulp.src(f.path.test + cssTestFileName)
-        .pipe(csslint('.csslintrc'))
+        .pipe(csslint('csslintrc.json'))
         .pipe(stylestats());
 });
 
-gulp.task('frontsize:assets:images', function () {
-    var path = f.path.frontsize + 'themes/' + f.theme + '/img/**/*.*';
+gulp.task('frontsize:assets:images', function (config) {
+    checkConfig(config);
+    var path = f.path.frontsize + f.theme + '/img/**/*.*';
     if (f.verbose !== undefined && f.verbose === true) { console.log('Copying theme\'s images assets: "' + path + '" to "' + f.path.images + '"'); }
     return gulp.src(path)
         .pipe(gulp.dest(f.path.images));
 });
 
-gulp.task('frontsize:assets:fonts', function () {
-    var path = f.path.frontsize + 'themes/' + f.theme + '/fonts/**/*.*';
+gulp.task('frontsize:assets:fonts', function (config) {
+    checkConfig(config);
+    var path = f.path.frontsize + f.theme + '/fonts/**/*.*';
     if (f.verbose !== undefined && f.verbose === true) { console.log('Copying theme\'s fonts assets: "' + path + '" to "' + f.path.fonts + '"'); }
     return gulp.src(path)
         .pipe(gulp.dest(f.path.fonts));
 });
 
-gulp.task('frontsize:build', function () {
+gulp.task('frontsize:build', function (config) {
+    checkConfig(config);
     var tasks = [
         'frontsize:css',
         'frontsize:assets:images',
@@ -102,15 +124,38 @@ gulp.task('frontsize:build', function () {
     runSequence(tasks);
 });
 
-gulp.task('frontsize:watch', function () {
+gulp.task('bower:frontsize:build', ['bower'], function (config) {
+    checkConfig(config);
     var tasks = [
-        'frontsize:build'
+        'frontsize:css',
+        'frontsize:assets:images',
+        'frontsize:assets:fonts',
+        'frontsize:vendors',
+        'frontsize:js',
+        'frontsize:merge',
+        'frontsize:sourcemap',
+        'frontsize:report'
+    ];
+    runSequence(tasks);
+});
+
+gulp.task('frontsize:watch:message', ['frontsize:css', 'frontsize:assets:images', 'frontsize:assets:fonts', 'frontsize:vendors', 'frontsize:js', 'frontsize:merge', 'frontsize:sourcemap', 'frontsize:report'], function () {
+    buildIndex += 1;
+    console.log('Build ' + (buildIndex).toString().green + ' done.');
+    console.log('Waiting for file changes...');
+});
+
+gulp.task('frontsize:watch', function (config) {
+    checkConfig(config);
+    var tasks = [
+        'frontsize:build',
+        'frontsize:watch:message'
     ];
     runSequence(tasks);
     var watchList = [
-        f.path.frontsize + 'themes/**/*.scss',
-        f.path.frontsize + 'themes/**/img/**/*',
-        f.path.frontsize + 'themes/**/fonts/**/*'
+        f.path.frontsize + f.theme + '/**/*.scss',
+        f.path.frontsize + f.theme + '/**/img/**/*',
+        f.path.frontsize + f.theme + '/**/fonts/**/*'
     ];
     if (f.js !== undefined && f.js.watch !== undefined) {
         watchList.push(f.js.watch);
@@ -118,7 +163,25 @@ gulp.task('frontsize:watch', function () {
     return gulp.watch(watchList, tasks);
 });
 
-gulp.task('frontsize:vendors', function(){
+gulp.task('js:watch', function (config) {
+    checkConfig(config);
+    var tasks = [
+        'frontsize:js',
+        'frontsize:watch:message'
+    ];
+    runSequence(tasks);
+    var watchList = [
+        f.path.frontsize + f.theme + '/**/*.scss',
+        f.path.frontsize + f.theme + '/**/img/**/*',
+        f.path.frontsize + f.theme + '/**/fonts/**/*'
+    ];
+    if (f.js !== undefined && f.js.watch !== undefined) {
+        watchList.push(f.js.watch);
+    }
+    return gulp.watch(watchList, tasks);
+});
+
+gulp.task('frontsize:vendors', function(config){
     var tasks = [
         'frontsize:vendors:css',
         'frontsize:vendors:fonts',
@@ -127,7 +190,8 @@ gulp.task('frontsize:vendors', function(){
     runSequence(tasks);
 });
 
-gulp.task('frontsize:vendors:css', function () {
+gulp.task('frontsize:vendors:css', function (config) {
+    checkConfig(config);
     if (f.vendors !== undefined && f.vendors.css !== undefined) {
         if (f.verbose !== undefined && f.verbose === true) {
             console.log('Merging CSS vendors');
@@ -147,7 +211,8 @@ gulp.task('frontsize:vendors:css', function () {
     }
 });
 
-gulp.task('frontsize:vendors:fonts', function () {
+gulp.task('frontsize:vendors:fonts', function (config) {
+    checkConfig(config);
     if (f.vendors !== undefined && f.vendors.fonts !== undefined) {
         if (f.verbose !== undefined && f.verbose === true) {
             console.log('Copying Fonts vendors');
@@ -165,7 +230,8 @@ gulp.task('frontsize:vendors:fonts', function () {
     }
 });
 
-gulp.task('frontsize:vendors:images', function () {
+gulp.task('frontsize:vendors:images', function (config) {
+    checkConfig(config);
     if (f.vendors !== undefined && f.vendors.images !== undefined) {
         if (f.verbose !== undefined && f.verbose === true) {
             console.log('Copying Images vendors');
@@ -183,7 +249,8 @@ gulp.task('frontsize:vendors:images', function () {
     }
 });
 
-gulp.task('frontsize:js', function () {
+gulp.task('frontsize:js', function (config) {
+    checkConfig(config);
     if (f.js !== undefined && f.js.files !== undefined) {
         if (f.verbose !== undefined && f.verbose === true) {
             console.log('Merging JavaScript vendors');
@@ -199,13 +266,15 @@ gulp.task('frontsize:js', function () {
             .pipe(concat(f.js.name || jsFileName))
             .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(f.path.js));
+
     } else {
         if (f.verbose !== undefined && f.verbose === true) { console.log('Vendor\'s JavaScript not found, skipping task'); }
         return gulp;
     }
 });
 
-gulp.task('frontsize:merge', ['frontsize:vendors:css', 'frontsize:css'], function () {
+gulp.task('frontsize:merge', ['frontsize:vendors:css', 'frontsize:css'], function (config) {
+    checkConfig(config);
     if (f.vendors !== undefined && f.vendors.css !== undefined) {
         if (f.verbose !== undefined && f.verbose === true) { console.log('Merging CSS vendors with frontsize to "' + f.path.css + cssMergeFileName + '"'); }
         var css = f.vendors.css.slice(0);
@@ -218,4 +287,47 @@ gulp.task('frontsize:merge', ['frontsize:vendors:css', 'frontsize:css'], functio
         if (f.verbose !== undefined && f.verbose === true) { console.log('CSS vendors not found, skipping merge with frontsize'); }
         return gulp;
     }
+});
+
+gulp.task('build', function (config) {
+    checkConfig(config);
+    var tasks = [
+        'bower',
+        'bower:frontsize:build'
+    ];
+    runSequence(tasks);
+});
+
+gulp.task('bower', function () {
+    return bower();
+});
+
+/* server */
+gulp.task('http:serve', function() {
+  connect.server({
+    root: 'frontend/html',
+    livereload: true,
+    port: 9000
+  });
+});
+
+gulp.task('http:watch:html', function () {
+  gulp.src('./frontend/html/*.html')
+    .pipe(connect.reload());
+});
+
+gulp.task('http:watch', ['http:watch:html'], function () {
+  gulp.watch([
+      './frontend/html/*.html',
+      './frontend/html/**/*.css'
+  ], ['http:watch:html']);
+});
+
+gulp.task('http', ['http:serve', 'http:watch:html', 'http:watch']);
+
+gulp.task('frontsize:lint', function () {
+    gulp.src(f.path.frontsize + 'themes/**/*.s+(a|c)ss')
+        .pipe(sassLint())
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError());
 });
