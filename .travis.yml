@@ -2,8 +2,6 @@ language: node_js
 
 node_js:
     - 4.1.1
-    - 0.11
-    - 0.10
 
 before_install:
     - gem install sass
@@ -21,8 +19,6 @@ before_script:
     - bower install normalize-css font-awesome handlebars include-js
 
 script:
-    - grunt frontsize:build
-    - grunt frontsize:test
     - gulp frontsize:build
     - gulp frontsize:test
     - sassdoc ./core ./themes
