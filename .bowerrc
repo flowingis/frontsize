@@ -1,4 +1,3 @@
 {
-  "directory": "./test/html/vendor",
-  "json": "bower.json"
+  "directory": "./test/html/vendor"
 }

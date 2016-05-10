@@ -47,6 +47,7 @@
   "main": "compile.scss",
   "dependencies": {
     "analyze-css": "^0.12.0",
+    "browser-sync": "^2.12.7",
     "colors": "^1.1.2",
     "csslint": "~0.10.0",
     "execSync": "^1.0.2",
@@ -55,6 +56,7 @@
     "gulp-bower": "0.0.10",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
     "gulp-copy": "0.0.2",
     "gulp-csslint": "^0.2.2",
     "gulp-load-plugins": "^1.2.2",

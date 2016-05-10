@@ -1,21 +1,21 @@
 var gulp = require('gulp'),
-    fs          = require('fs'),
-    colors      = require('colors'),
-    yaml        = require('js-yaml'),
-    sass        = require('gulp-sass'),
-    concat      = require('gulp-concat'),
-    uglify      = require('gulp-uglify'),
-    csslint     = require('gulp-csslint'),
-    connect     = require('gulp-connect'),
-    runSequence = require('run-sequence'),
     analyzer    = require('analyze-css'),
-    stylestats  = require('gulp-stylestats'),
-    sourcemaps  = require('gulp-sourcemaps'),
-    uglifyCss   = require('gulp-uglifycss'),
-    plugins     = require('gulp-load-plugins')(),
-    sassLint    = require('gulp-sass-lint'),
+    bower       = require('gulp-bower'),
+    browserSync = require('browser-sync').create(),
+    colors      = require('colors'),
+    concat      = require('gulp-concat'),
+    connect     = require('gulp-connect'),
+    csslint     = require('gulp-csslint'),
     moment      = require('moment'),
-    bower       = require('gulp-bower');
+    plugins     = require('gulp-load-plugins')(),
+    runSequence = require('run-sequence'),
+    sass        = require('gulp-sass'),
+    sourcemaps  = require('gulp-sourcemaps'),
+    stylestats  = require('gulp-stylestats'),
+    uglify      = require('gulp-uglify'),
+    uglifyCss   = require('gulp-uglifycss'),
+    yaml        = require('js-yaml'),
+    fs          = require('fs');
 
 var f, compileFile, cssFileName, cssTestFileName, cssVendorsFileName, cssMergeFileName, jsFileName;
 var buildIndex = 0;
@@ -131,7 +131,7 @@ gulp.task('frontsize:watch:message:start', function () {
     if (buildIndex === 0) {
         console.log('Starting build process...');
     } else {
-        console.log('Hey, something changed, wait some moment...');
+        console.log(colors.green('Hey, something changed, wait some moment...'));
     }
 });
 
@@ -276,13 +276,6 @@ gulp.task('frontsize:merge', ['frontsize:vendors:css', 'frontsize:css'], functio
         if (f.verbose !== undefined && f.verbose === true) { console.log('CSS vendors not found, skipping merge with frontsize'); }
         return gulp;
     }
-});
-
-gulp.task('frontsize:lint', function () {
-    gulp.src(f.path.frontsize + 'themes/**/*.s+(a|c)ss')
-        .pipe(sassLint())
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError());
 });
 
 gulp.task('build', function () {
