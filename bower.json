@@ -33,6 +33,6 @@
     "include-js": "~1.2.2"
   },
   "dependencies": {
-    "normalize-css": "normalize.css#~3.0.3"
+    "normalize-css": "^4.1.1"
   }
 }
