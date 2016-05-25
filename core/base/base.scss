@@ -1,67 +1,79 @@
 @if $use-core-base == true {
 
-    * {
-        @include box-sizing("border-box");
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
 
-    span,
-    div,
+  span,
+  div,
+  b,
+  strong {
+    &[title] {
+      cursor: help;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  a {
     b,
-    strong {
-        &[title] {
-            cursor: help;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    a[title],
-    a strong[title],
-    a span[title],
-    a div[title],
-    a b[title] {
-        cursor: pointer;
-    }
-
-    p,
-    blockquote,
-    dl, dt, dd,
-    figure,
-    figcaption,
     div,
-    hr,
-    article,
-    nav,
-    aside,
-    main,
-    section,
-    header,
-    footer,
-    h1, h2, h3, h4, h5, h6
-    hgroup,
-    address {
-        margin:0;
-        padding:0;
+    span,
+    strong {
+      &[title] {
+        cursor: pointer;
+      }
     }
+  }
 
+  p,
+  blockquote,
+  dl,
+  dt,
+  dd,
+  figure,
+  figcaption,
+  div,
+  hr,
+  article,
+  nav,
+  aside,
+  main,
+  section,
+  header,
+  footer,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hgroup,
+  address {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    text-align: left;
+  }
+
+  nav {
     ul {
-        text-align: left;
-    }
+      list-style-type: none;
+      padding: 0;
 
-    nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-            li {
-                margin-left:0;
-            }
-        }
+      li {
+        margin-left: 0;
+      }
     }
+  }
 }

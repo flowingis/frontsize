@@ -1,0 +1,11 @@
+// http://include-media.com/
+// bower install include-media
+
+$breakpoints: (
+  'mobile-portrait': $mobile-portrait-step,
+  'mobile-landscape': $mobile-landscape-step,
+  'tablet-portrait': $tablet-portrait-step,
+  'tablet-landscape': $tablet-landscape-step,
+  'hd-ready': $hd-ready-step,
+  'hd-full': $hd-full-step
+);

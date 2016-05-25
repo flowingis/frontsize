@@ -1,25 +1,43 @@
 ---
-verbose: false
+
+css:
+    frontsize: ./
+    themes:
+        - default
+    name: frontsize.%theme%.min.css
+    watch: ./themes/**/*
+
+test:
+    path: test/csslint/
+    css:
+        - frontsize.default.min.css
+
+js:
+    name: frontsize.min.js
+    watch: src/js/**/*
+    files:
+        - test/html/vendor/handlebars/handlebars.js
+        - test/html/vendor/include-js/include.js
+
+vendors:
+    css:
+        - test/html/vendor/normalize-css/normalize.css
+        - test/html/vendor/font-awesome/css/font-awesome.css
+    fonts:
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.eot
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.svg
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.ttf
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.woff
+        - test/html/vendor/font-awesome/fonts/fontawesome-webfont.woff2
+        - test/html/vendor/font-awesome/fonts/FontAwesome.otf
+    images:
+        - test/html/vendor/font-awesome/HELP-US-OUT.txt
 
 path:
-    frontsize: ./ # compile.scss path
-    test: test/csslint/
+    server: test/html/
     css: test/html/css/
     images: test/html/img/
     fonts: test/html/fonts/
     js: test/html/js/
 
-vendors:
-    css:
-        - src/vendors/normalize-css/normalize.css
-   # fonts:
-   #     - src/vendors/font/font-file.ttf
-   # images:
-   #     - src/vendors/other/image.svg
-
-# js:
-    # name: frontsize.min.js
-    # watch: src/js/**/*
-    # files:
-        # - src/vendors/file.js
-        # - src/js/file.js
+verbose: false

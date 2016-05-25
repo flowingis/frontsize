@@ -1,0 +1,19 @@
+@function scale-value($value, $scale) {
+  @return round($value * $scale);
+}
+
+@function spacing($scale: 1) {
+  @return scale-value($spacing, $scale);
+}
+
+@function s($scale: 1, $value: false) {
+  @if $value == false {
+    @return spacing($scale);
+  } @else {
+    @return scale-value($value, $scale);
+  }
+}
+
+@function step($step, $total-steps: 12) {
+  @return ($step * 100 / $total-steps) * 1%;
+}

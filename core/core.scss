@@ -2,77 +2,60 @@
 Frontsize: http://frontsize.com
 GitHub:    https://github.com/ideatosrl/frontsize-sass
 License:   MIT Licence
-Version:   3.12.68
-Date:      2016-03-08T15:22:51+01:00
-Authors:   Vittorio Vittori, Alessandro Minoccheri
+Version:   4.0.0
+Date:      -
+Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 */
 
-@charset "UTF-8";
+@charset 'UTF-8';
 
-@import "defaults";
-@import "vars";
+@import 'vars';
 
-@import "functions";
-@import "functions/ease";
+@import 'vendor/include-media/dist/_include-media';
 
-@import "grids/flex-grid";
-@import "grids/float-grid";
-@import "grids/grid";
-@import "grids/text-column-grid";
-@import "components/public";
-@import "components/private";
-@import "components/bem-expressive";
-@import "components/bem";
-@import "components/margin";
-@import "prefixes/animation";
-@import "prefixes/background";
-@import "prefixes/border";
-@import "prefixes/box";
-@import "prefixes/column";
-@import "prefixes/display";
-@import "prefixes/filter";
-@import "prefixes/flex";
-@import "prefixes/font";
-@import "prefixes/form";
-@import "prefixes/grid";
-@import "prefixes/image";
-@import "prefixes/outline";
-@import "prefixes/placeholder";
-@import "prefixes/print";
-@import "prefixes/selection";
-@import "prefixes/text";
-@import "prefixes/transform";
-@import "prefixes/transition";
-@import "prefixes/visibility";
+@import 'functions/private';
+@import 'functions/public';
+@import 'functions/ease';
 
-@import "helpers/background";
-@import "helpers/background-retina";
-@import "helpers/border";
-@import "helpers/color";
-@import "helpers/compatibility";
-@import "helpers/filter";
-@import "helpers/font";
-@import "helpers/positioning";
-@import "helpers/sizing";
-@import "helpers/sprite-retina";
-@import "helpers/sprite";
-@import "helpers/table";
-@import "helpers/text";
-@import "helpers/transform";
+@import 'grids/flex';
+@import 'grids/float';
+@import 'grids/grid';
+@import 'grids/text-column';
 
-@import "components/padding";
-@import "components/typography";
-@import "components/sizing";
-@import "components/print";
+@import 'components/public';
+@import 'components/private';
+@import 'components/bem-expressive';
+@import 'components/bem';
+@import 'components/margin';
 
-@import "base/base";
+@import 'helpers/background';
+@import 'helpers/background-retina';
+@import 'helpers/border';
+@import 'helpers/color';
+@import 'helpers/compatibility';
+@import 'helpers/filter';
+@import 'helpers/font';
+@import 'helpers/positioning';
+@import 'helpers/sizing';
+@import 'helpers/sprite-retina';
+@import 'helpers/sprite';
+@import 'helpers/table';
+@import 'helpers/text';
+@import 'helpers/transform';
 
-@import "state/margin";
-@import "state/padding";
-@import "state/print";
-@import "state/positioning";
-@import "state/sizing";
-@import "state/state";
-@import "state/table";
-@import "state/text";
-@import "state/visibility";
+@import 'components/padding';
+@import 'components/typography';
+@import 'components/sizing';
+@import 'components/print';
+
+@import 'base/base';
+
+@import 'state/margin';
+@import 'state/padding';
+@import 'state/print';
+@import 'state/positioning';
+@import 'state/sizing';
+@import 'state/state';
+@import 'state/table';
+@import 'state/text';
+@import 'state/visibility';

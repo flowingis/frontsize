@@ -1,0 +1,7 @@
+@function _clean($value) {
+  @if $value == 0px or $value == 0% or $value == 0em or $value == 0rem {
+    @return 0;
+  } @else {
+    @return $value;
+  }
+}

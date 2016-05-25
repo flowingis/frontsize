@@ -1,13 +1,23 @@
 ---
-verbose: false
 
-path:
+css:
     frontsize: ./
-    test: test/csslint/
-    css: test/html/css/
-    images: test/html/img/
-    fonts: test/html/fonts/
-    js: test/html/js/
+    themes:
+        - default
+    name: frontsize.%theme%.min.css
+    watch: ./themes/**/*
+
+test:
+    path: test/csslint/
+    css:
+        - frontsize.default.min.css
+
+js:
+    name: frontsize.min.js
+    watch: src/js/**/*
+    files:
+        - test/html/vendor/handlebars/handlebars.js
+        - test/html/vendor/include-js/include.js
 
 vendors:
     css:
@@ -23,9 +33,11 @@ vendors:
     images:
         - test/html/vendor/font-awesome/HELP-US-OUT.txt
 
-js:
-    name: frontsize.min.js
-    watch: src/js/**/*
-    files:
-        - test/html/vendor/handlebars/handlebars.js
-        - test/html/vendor/include-js/include.js
+path:
+    server: test/html/
+    css: test/html/css/
+    images: test/html/img/
+    fonts: test/html/fonts/
+    js: test/html/js/
+
+verbose: false
