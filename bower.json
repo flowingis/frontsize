@@ -20,15 +20,12 @@
   "ignore": [
     ".editorconfig",
     ".gitignore",
-    ".jshintrc",
-    ".sassdocrc",
-    ".templates",
     ".sass-lint.yml",
     ".travis.yml",
     "bower_components",
     "composer.json",
-    "frontsize.yml.travis",
     "node_modules",
+    "themes/test",
     "test"
   ],
   "dependencies": {
