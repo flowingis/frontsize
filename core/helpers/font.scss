@@ -1,132 +1,34 @@
-/// Generates a font rule with bulletproof font-face syntax
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Fonts
-/// @access public
-/// @param {string} $fontFamily     [required]   - The name of the `font-family` property
-/// @param {string} $fileName       [required]   - Filename without extension and without path
-/// @param {string} $fontWeight     [false]      - The defined `font-weight` for the `font-family` rule
-/// @param {string} $retinaFileName [false]      - The name of the `font-family` property used on retina screens
-/// @param {string} $path           [$path-font] - The path of the font file, by default is `$path-font` core var used in theme `config.scss`
-/// @example scss Default usage, it generates a `@font-face` declaration which can support Bulletproof @font-face Syntax or can load a `ttf` file only depending by `$use-font-fallback` boolean var
-///   @include font('family name', 'FontFile', 400);
-/// @example css CSS generated
-/// \@font-face {
-///   font-family: "family name";
-///   font-weight: 400;
-///   src: url("production/img/theme/fonts/FontFile.eot?#iefix") format("embedded-opentype"), url("production/img/theme/fonts/FontFile.woff2") format("woff2"), url("production/img/theme/fonts/FontFile.woff") format("woff"), url("production/img/theme/fonts/FontFile.ttf") format("truetype"), url("production/img/theme/fonts/FontFile.svgfamily name") format("svg");
-/// }
-/// @example scss Default usage, it generates a `@font-face` declaration which changes font family depending if the pixel density is retina or not and with custom font path
-///   @include font('family name', 'FontFile', 500, 'RetinaFontFile', '/path/to/fonts/');
-/// @example css CSS generated
-/// \@media only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1 / 11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx) {
-///   \@font-face {
-///     font-family: "family name";
-///     font-weight: 500;
-///     src: url("/path/to/fonts/FontFile.eot?#iefix") format("embedded-opentype"), url("/path/to/fonts/FontFile.woff2") format("woff2"), url("/path/to/fonts/FontFile.woff") format("woff"), url("/path/to/fonts/FontFile.ttf") format("truetype"), url("/path/to/fonts/FontFile.svgfamily name") format("svg");
-///   }
-/// }
-/// \@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-///   \@font-face {
-///     font-family: "family name";
-///     font-weight: 500;
-///     src: url("/path/to/fonts/RetinaFontFile.eot?#iefix") format("embedded-opentype"), url("/path/to/fonts/RetinaFontFile.woff2") format("woff2"), url("/path/to/fonts/RetinaFontFile.woff") format("woff"), url("/path/to/fonts/RetinaFontFile.ttf") format("truetype"), url("/path/to/fonts/RetinaFontFile.svgfamily name") format("svg");
-///   }
-/// }
+/*
+@include font('LatoRegular', (eot, ttf)) {
+  font-family: 'Pipiloca';
+  font-weight: 400;
+}
+*/
 
-@mixin font($fontFamily, $fileName, $fontWeight:false, $retinaFileName:false, $path:$path-font) {
-
-    @if ($retinaFileName == false) {
-        @include _font($fontFamily, $fileName, $fontWeight, $path, false);
-    } @else {
-        // WARNING
-        // using retina alternative family will not work if you load fonts from google too
-        // so comment this on the header and load fonts locally
-        // <!--link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700,300,400' rel='stylesheet' type='text/css'-->
-        @media #{$display-standard} {
-            @include _font($fontFamily, $fileName, $fontWeight, $path, false);
-        }
-        @media #{$display-retina} {
-            @include _font($fontFamily, $retinaFileName, $fontWeight, $path, false);
-        }
-    }
+@function -format($ext) {
+  @if str-index($ext, 'eot') != null {
+    @return format('embedded-opentype');
+  } @else if str-index($ext, 'ttf') != null {
+    @return format('truetype');
+  } @else {
+    @return format($ext);
+  }
 }
 
-/// Generates a font rule that loads a font file directly
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Fonts
-/// @access public
-/// @param {string} $fontFamily     [required]   - The name of the `font-family` property
-/// @param {string} $fileName       [required]   - Filename with extension and without path
-/// @param {string} $fontWeight     [false]      - The defined `font-weight` for the `font-family` rule
-/// @param {string} $format         [truetype]   - The format propery
-/// @param {string} $retinaFileName [false]      - The name of the `font-family` property used on retina screens
-/// @param {string} $path           [$path-font] - The path of the font file, by default is `$path-font` core var used in theme `config.scss`
-/// @example scss Default usage, it generates a `@font-face` declaration
-///   @include fontFile('family name', 'FullFontFileName.ttf', 400);
-/// @example css CSS generated
-///  \@font-face {
-///   font-family: "another family name";
-///   font-weight: 400;
-///   src: url("production/img/theme/fonts/FullFontFileName.ttf") format("truetype");
-/// }
-/// @example scss Default usage, it generates a `@font-face` declaration
-///   @include fontFile('another family name', 'FullFontFileName.ttf', 700, 'truetype', 'RetinaFullFontFileName.ttf', '/path/to/fonts/');
-/// @example css CSS generated
-///  \@media only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1 / 11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx) {
-///   @font-face {
-///     font-family: "another family name";
-///     font-weight: 700;
-///     src: url("/path/to/fonts/FullFontFileName.ttf") format("truetype");
-///   }
-/// }
-/// \@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-///   @font-face {
-///     font-family: "another family name";
-///     font-weight: 700;
-///     src: url("/path/to/fonts/RetinaFullFontFileName.ttf") format("truetype");
-///   }
-/// }
-
-@mixin fontFile($fontFamily, $fileName, $fontWeight:false, $format:"truetype", $retinaFileName:false, $path:$path-font) {
-
-    @if ($retinaFileName == false) {
-        @include _font($fontFamily, $fileName, $fontWeight, $path, $format);
-    } @else {
-        // WARNING
-        // using retina alternative family will not work if you load fonts from google too
-        // so comment this on the header and load fonts locally
-        // <!--link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700,300,400' rel='stylesheet' type='text/css'-->
-        @media #{$display-standard} {
-            @include _font($fontFamily, $fileName, $fontWeight, $path, $format);
-        }
-        @media #{$display-retina} {
-            @include _font($fontFamily, $retinaFileName, $fontWeight, $path, $format);
-        }
+@mixin font($file-name: false, $extensions: ('ttf'), $path: path('fonts')) {
+  @font-face {
+    @content;
+    $i: 1;
+    $font-url: '';
+    @each $ext in $extensions {
+      $format: -format($ext);
+      @if $i == 1 {
+        $font-url: 'url("#{$path}#{$file-name}.#{$ext}") #{$format}';
+      } @else {
+        $font-url: '#{$font-url}, url("#{$path}#{$file-name}.#{$ext}") #{$format}';
+      }
+      $i: $i + 1;
     }
-}
-
-@mixin _font($fontFamily, $fileName, $fontWeight, $path, $format:false) {
-    @font-face {
-        font-family: $fontFamily;
-        @if ($fontWeight) {
-            font-weight: $fontWeight;
-        }
-        @include _loadFont($fileName, $fontFamily, $path, $format);
-    }
-}
-
-@mixin _loadFont($fileName, $fontFamily, $path, $format) {
-    @if $format == false {
-        @if $use-font-fallback {
-            src: url('#{$path}#{$fileName}.eot?#iefix') format('embedded-opentype'),
-                 url('#{$path}#{$fileName}.woff2') format('woff2'),
-                 url('#{$path}#{$fileName}.woff') format('woff'),
-                 url('#{$path}#{$fileName}.ttf') format('truetype'),
-                 url('#{$path}#{$fileName}.svg#{$fontFamily}') format('svg');
-        } @else {
-            src: url('#{$path}#{$fileName}.ttf') format('truetype');
-        }
-    } @else {
-        src: url('#{$path}#{$fileName}') format('#{$format}');
-    }
+    src: $font-url;
+  }
 }

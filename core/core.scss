@@ -9,53 +9,43 @@ Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 
 @charset 'UTF-8';
 
-@import 'vars';
+@import 'vendors';
 
-@import 'vendor/include-media/dist/_include-media';
-
-@import 'functions/private';
+@import 'functions/background';
 @import 'functions/public';
 @import 'functions/ease';
 
-@import 'grids/flex';
 @import 'grids/float';
-@import 'grids/grid';
-@import 'grids/text-column';
 
-@import 'components/public';
-@import 'components/private';
-@import 'components/bem-expressive';
-@import 'components/bem';
-@import 'components/margin';
+// @import 'grids/old/flex';
+// @import 'grids/old/float';
+// @import 'grids/old/grid';
+// @import 'grids/old/text-column';
 
-@import 'helpers/background';
-@import 'helpers/background-retina';
-@import 'helpers/border';
-@import 'helpers/color';
-@import 'helpers/compatibility';
-@import 'helpers/filter';
-@import 'helpers/font';
-@import 'helpers/positioning';
-@import 'helpers/sizing';
-@import 'helpers/sprite-retina';
-@import 'helpers/sprite';
-@import 'helpers/table';
-@import 'helpers/text';
-@import 'helpers/transform';
-
-@import 'components/padding';
-@import 'components/typography';
-@import 'components/sizing';
-@import 'components/print';
-
+// @import 'components/public';
+// @import 'components/private';
+// @import 'components/bem-expressive';
+// @import 'components/bem';
+// @import 'components/margin';
+//
+// @import 'helpers/background';
+// @import 'helpers/background-retina';
+// @import 'helpers/border';
+// @import 'helpers/color';
+// @import 'helpers/compatibility';
+// @import 'helpers/filter';
+// @import 'helpers/font';
+// @import 'helpers/positioning';
+// @import 'helpers/sizing';
+// @import 'helpers/sprite-retina';
+// @import 'helpers/sprite';
+// @import 'helpers/table';
+// @import 'helpers/text';
+// @import 'helpers/transform';
+//
+// @import 'components/padding';
+// @import 'components/typography';
+// @import 'components/sizing';
+// @import 'components/print';
+//
 @import 'base/base';
-
-@import 'state/margin';
-@import 'state/padding';
-@import 'state/print';
-@import 'state/positioning';
-@import 'state/sizing';
-@import 'state/state';
-@import 'state/table';
-@import 'state/text';
-@import 'state/visibility';

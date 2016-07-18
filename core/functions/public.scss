@@ -6,8 +6,8 @@
   @return scale-value($spacing, $scale);
 }
 
-@function s($scale: 1, $value: false) {
-  @if $value == false {
+@function s($scale: 1, $value: null) {
+  @if $value == null {
     @return spacing($scale);
   } @else {
     @return scale-value($value, $scale);
@@ -16,4 +16,13 @@
 
 @function step($step, $total-steps: 12) {
   @return ($step * 100 / $total-steps) * 1%;
+}
+
+@function get($map, $attribute) {
+  @if map-has-key($map, $attribute) {
+    @return map-get($map, $attribute);
+  } @else {
+    @error 'No attribute \'#{$attribute}\' found inside map #{$map}\n'
+    + 'Please checkout your code to fine where is the problem.';
+  }
 }

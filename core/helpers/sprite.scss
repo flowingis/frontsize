@@ -1,258 +1,98 @@
-/// Generates a sprite icon selector
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Sprite
-/// @access public
-/// @param {string}  $image        [required]  - The image for the sprite
-/// @param {int}     $width        [required]  - The width of the sprite element
-/// @param {int}     $height       [$width]    - The height of the sprite element
-/// @param {list}    $spritesMap   [1 1]       - The background image sprite size, based on the number of sprite elements [horizontal vertical] elements
-/// @param {string}  $path         [$path-img] - Path to image, core $path-img by default
-/// @param {boolean} $setBoxsizing [false]     - Sets the box sizing to border-box if needed
-/// @example scss Default usage, it sets the background image for the sprite to be used
-/// .icon {
-///   @include sprite("sprite.svg", 32px, 32px, 5 2);
-///   @include modifier("arrow") {
-///       @include spritePosition(1 2, $width, $height);
-///   }
-/// }
-/// @example css CSS generated
-/// .icon {
-///   background-image: url("path/to/production/img/theme/sprite.svg");
-///   background-repeat: no-repeat;
-///   background-size: 160px 64px;
-///   width: 32px;
-///   height: 32px;
-/// }
-/// .icon--arrow {
-///   background-position: 0 -32px;
-/// }
-@mixin sprite($image, $width, $height:$width, $spritesMap:1 1, $path:$path-img, $setBoxsizing:false) {
-    @if $use-root-path == false{
-        @include backgroundImage($image, $path);
-    }
-    @else{
-        @include backgroundImage($image, $path);
-    }
+/*
+.selector {
+  @include sprite(1 1, 32px) {
+    background-image: file('sprite-image.svg');
+    @include sprite-modifier('info', 1 2);
+  }
+}
+*/
 
-    background-repeat: no-repeat;
-    background-size: (nth($spritesMap, 1) * $width) (nth($spritesMap, 2) * $height);
+$-sprite-width: false;
+$-sprite-height: false;
+$-sprite-whole-map: false;
 
-    @include size($width, $height, 1, $setBoxsizing);
+@mixin -sprite-check-globals($mixin) {
+  $text: 'Use the mixin #{$mixin} inside sprite() mixin';
+  @if $-sprite-width == false {
+    @error $text;
+  }
+  @if $-sprite-height == false {
+    @error $text;
+  }
+  @if $-sprite-whole-map == false {
+    @error $text;
+  }
 }
 
-/// Generates a sprite icon selector with sprite coordinates
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Sprite
-/// @access public
-/// @param {list}    $spritesMap [1 1]       - The background image position, based on the number of sprite elements [horizontal vertical] elements
-/// @param {int}     $width      [required]  - The width of the sprite element
-/// @param {int}     $height     [$width]    - The height of the sprite element
-/// @param {number}  $scale      [1]         - The scale to be applied to width and height
-/// @example scss Default usage, it sets the sprite coordinates based on the number of sprite elements [horizontal vertical] elements
-/// .icon {
-///     $width: 32px;
-///     $height: $width;
-///
-///     @include sprite("sprite.svg", $width, $height, 4 2);
-///
-///     @include modifier("arrow-left-black") {
-///         @include spritePosition(1 1, $width, $height);
-///     }
-///     @include modifier("arrow-left-red") {
-///         @include spritePosition(1 2, $width, $height);
-///     }
-///
-///     @include modifier("arrow-right-black") {
-///         @include spritePosition(2 1, $width);
-///     }
-///     @include modifier("arrow-right-red") {
-///         @include spritePosition(2 2, $width);
-///     }
-///
-///     @include modifier("arrow-up-black") {
-///         @include spritePosition(3 1, $width);
-///     }
-///     @include modifier("arrow-up-red") {
-///         @include spritePosition(3 2, $width);
-///     }
-///
-///     @include modifier("arrow-dw-black") {
-///         @include spritePosition(4 1, $width);
-///     }
-///     @include modifier("arrow-dw-red") {
-///         @include spritePosition(4 2, $width);
-///     }
-/// }
-/// @example css CSS generated
-/// .icon {
-///   background-image: url("path/to/production/img/theme/sprite.svg");
-///   background-repeat: no-repeat;
-///   background-size: 128px 64px;
-///   width: 32px;
-///   height: 32px;
-/// }
-/// .icon--arrow-left-black {
-///   background-position: 0 0;
-/// }
-/// .icon--arrow-left-red {
-///   background-position: 0 -32px;
-/// }
-/// .icon--arrow-right-black {
-///   background-position: -32px 0;
-/// }
-/// .icon--arrow-right-red {
-///   background-position: -32px -32px;
-/// }
-/// .icon--arrow-up-black {
-///   background-position: -64px 0;
-/// }
-/// .icon--arrow-up-red {
-///   background-position: -64px -32px;
-/// }
-/// .icon--arrow-dw-black {
-///   background-position: -96px 0;
-/// }
-/// .icon--arrow-dw-red {
-///   background-position: -96px -32px;
-/// }
-@mixin spritePosition($spriteMap:1 1, $width:0, $height:$width, $scale:1) {
-    $x: nth($spriteMap, 1) - 1;
-    $y: nth($spriteMap, 2) - 1;
+@mixin -sprite-position($sprite-map, $width, $height) {
 
-    @if ($x < 0) {
-        $x: 0;
-    }
+  $x: nth($sprite-map, 1) - 1;
+  $y: nth($sprite-map, 2) - 1;
 
-    @if ($y < 0) {
-        $y: 0;
-    }
+  @if ($x < 0) {
+    $x: 0;
+  }
+  @if ($y < 0) {
+    $y: 0;
+  }
 
-    $xPosition: $x * round($width * $scale);
-    $yPosition: $y * round($height * $scale);
+  $x-position: $x * $width;
+  $y-position: $y * $height;
 
-    @if $x == 0 and $y != 0 {
-        background-position: 0 (-#{$yPosition});
+  @if $x == 0 and $y != 0 {
+    background-position: 0 (-#{$y-position});
+  } @else {
+    @if $y == 0 and $x != 0 {
+      background-position:  (-#{$x-position}) 0;
     } @else {
-        @if $y == 0 and $x != 0 {
-            background-position:  (-#{$xPosition}) 0;
-        } @else {
-            @if $x == 0 and $y == 0 {
-                background-position: 0 0;
-            } @else {
-                background-position: (-#{$xPosition}) (-#{$yPosition});
-            }
-        }
+      @if $x == 0 and $y == 0 {
+        background-position: 0 0;
+      } @else {
+        background-position: (-#{$x-position}) (-#{$y-position});
+      }
     }
+  }
 }
 
-/// Generates a sprite icon selector with sprite coordinates and a BEM name
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Sprite
-/// @access public
-/// @param {string}  $selector   [required] - The selector name with BEM style
-/// @param {list}    $spritesMap [1 1]      - The background image position, based on the number of sprite elements [horizontal vertical] elements
-/// @param {int}     $width      [required] - The width of the sprite element
-/// @param {int}     $height     [$width]   - The height of the sprite element
-/// @param {number}  $scale      [1]        - The scale to be applied to width and height
-/// @example scss Default usage, it sets the sprite coordinates based on the number of sprite elements [horizontal vertical] elements
-/// .icon-nice {
-///     $width: 32px;
-///     $height: $width;
-///
-///     @include sprite("sprite-nice.svg", $width, $height, 2 2);
-///
-///     @include setSprite("arrow-left-black",  1 1, $width, $height);
-///     @include setSprite("arrow-left-red",    1 2, $width);
-///     @include setSprite("arrow-left-red-big",1 2, $width, $height, 1.5, 2 2);
-///     @include setSprite("arrow-right-black", 2 1, $width);
-///     @include setSprite("arrow-right-red",   2 2, $width);
-/// }
-/// @example css CSS generated
-/// .icon-nice {
-///   background-image: url("path/to/production/img/theme/sprite-nice.svg");
-///   background-repeat: no-repeat;
-///   background-size: 64px 64px;
-///   width: 32px;
-///   height: 32px;
-/// }
-/// .icon-nice--arrow-left-black {
-///   background-position: 0 0;
-/// }
-/// .icon-nice--arrow-left-red {
-///   background-position: 0 -32px;
-/// }
-/// .icon-nice--arrow-right-black {
-///   background-position: -32px 0;
-/// }
-/// .icon-nice--arrow-right-red {
-///   background-position: -32px -32px;
-/// }
-@mixin setSprite($selector, $spriteMap:1 1, $width:0, $height:$width, $scale:1, $wholeMap: 1 1) {
-    @include modifier($selector) {
-        @include spritePosition($spriteMap, round($width * $scale), round($height * $scale));
-        @if ($scale != 1) {
-            @include scaleSprite($scale, $wholeMap, $width, $height);
-        }
-    }
+@mixin -sprite-scale($sprite-map: 1 1, $scale: 1) {
+  @include -sprite-check-globals('sprite-scale');
+  $width: $-sprite-width;
+  $height: $-sprite-height;
+
+  $background-width: (nth($sprite-map, 1) * $width);
+  $background-height: (nth($sprite-map, 2) * $height);
+
+  background-size: s($scale, $background-width) s($scale, $background-height);
+  height: s($scale, $height);
+  width: s($scale, $width);
 }
 
-/// Generates a sprite icon selector with sprite coordinates and a BEM name
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group Helpers - Sprite
-/// @access public
-/// @param {number}  $scale      [1]        - The scale to be applied to background-size
-/// @param {list}    $spritesMap [1 1]      - The background image position, based on the number of sprite elements [horizontal vertical] elements
-/// @param {int}     $width      [required] - The width of the sprite element
-/// @param {int}     $height     [$width]   - The height of the sprite element
-/// @example scss Default usage, it sets the sprite coordinates based on the number of sprite elements [horizontal vertical] elements
-/// .icon-nice {
-///     $width: 32px;
-///     $height: $width;
-///     $spriteMap: 1 1;
-///
-///     @include sprite("sprite-nice.svg", $width, $height, $spriteMap);
-///
-///     @include setSprite("arrow-left-black", 1 1, $width);
-///     @include setSprite("arrow-left-red",   1 2, $width);
-///
-///     $scale: 0.5;
-///
-///     @include modifier("scaled") {
-///         @include scaleSprite($scale, $spriteMap, $width, $height);
-///     }
-///
-///     @include setSprite("arrow-left-black--scaled", 1 1, $width, $height, $scale);
-///     @include setSprite("arrow-left-red--scaled",   1 2, $width, $height, $scale);
-/// }
-/// @example css CSS generated
-/// .icon-nice {
-///   background-image: url("path/to/production/img/theme/sprite-nice.svg");
-///   background-repeat: no-repeat;
-///   background-size: 32px 32px;
-///   width: 32px;
-///   height: 32px;
-/// }
-/// .icon-nice--arrow-left-black {
-///   background-position: 0 0;
-/// }
-/// .icon-nice--arrow-left-red {
-///   background-position: 0 -32px;
-/// }
-/// .icon-nice--scaled {
-///   width: 16px;
-///   height: 16px;
-///   background-size: 16px 16px;
-/// }
-/// .icon-nice--arrow-left-black--scaled {
-///   background-position: 0 0;
-/// }
-/// .icon-nice--arrow-left-red--scaled {
-///   background-position: 0 -16px;
-/// }
+@mixin sprite($whole-map: 1 1, $width: 0, $height: $width) {
+  $-sprite-width: $width !global;
+  $-sprite-height: $height !global;
+  $-sprite-whole-map: $whole-map !global;
 
-@mixin scaleSprite($scale:1, $spriteMap:1 1, $width:0, $height:$width) {
-    @include size($width, $height, $scale);
-    $backgroundWidth: (nth($spriteMap, 1) * $width);
-    $backgroundHeight: (nth($spriteMap, 2) * $height);
-    background-size: round($backgroundWidth * $scale) round($backgroundHeight * $scale);
+  background-repeat: no-repeat;
+  background-size: (nth($whole-map, 1) * $width) (nth($whole-map, 2) * $height);
+  height: $height;
+  width: $width;
+  @content;
+
+  $-sprite-width: false !global;
+  $-sprite-height: false !global;
+  $-sprite-whole-map: false !global;
+}
+
+@mixin sprite-modifier($selector, $sprite-map: 1 1, $scale: 1) {
+  @include -sprite-check-globals('sprite-modifier');
+  $width: $-sprite-width;
+  $height: $-sprite-height;
+  $whole-map: $-sprite-whole-map;
+
+  @include modifier($selector) {
+    @include -sprite-position($sprite-map, s($scale, $width), s($scale, $height));
+    @if ($scale != 1) {
+      @include -sprite-scale($whole-map, $scale);
+    }
+  }
 }

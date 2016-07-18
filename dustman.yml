@@ -14,6 +14,13 @@ css:
       csslint: true
       stylestats: true
       autoprefixer: true
+  vendors:
+    file: vendors.min.css
+    files:
+      - test/examples/vendor/angular/angular-csp.css
+      - test/examples/vendor/angular-bootstrap/ui-bootstrap-csp.css
+      - test/examples/vendor/font-awesome/css/font-awesome.css
+      - test/examples/vendor/angular-chart.js/dist/angular-chart.css
 
 config:
   autoprefixer:
@@ -51,13 +58,12 @@ twig:
     - test/examples/twig/index.twig
 
 vendors:
-  css:
-    file: vendors.min.css
-    files:
-      - test/examples/vendor/angular/angular-csp.css
-      - test/examples/vendor/angular-bootstrap/ui-bootstrap-csp.css
-      - test/examples/vendor/font-awesome/css/font-awesome.css
-      - test/examples/vendor/angular-chart.js/dist/angular-chart.css
+  file: vendors.min.css
+  files:
+    - test/examples/vendor/angular/angular-csp.css
+    - test/examples/vendor/angular-bootstrap/ui-bootstrap-csp.css
+    - test/examples/vendor/font-awesome/css/font-awesome.css
+    - test/examples/vendor/angular-chart.js/dist/angular-chart.css
   fonts:
     - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.eot
     - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.svg
