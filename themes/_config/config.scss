@@ -2,14 +2,6 @@
 $use-core-base: true !default;
 $spacing: 20px;
 
-@function font($attribute) {
-  @return get((
-      'sans': 'helvetica, arial, sans-serif',
-      'serif': 'georgia, "times new roman", times, serif',
-      'monospace': 'menlo, monaco, "courier new", monospace'
-  ), $attribute);
-}
-
 @function viewport($attribute) {
   @return get((
       'phone-small': 320px,

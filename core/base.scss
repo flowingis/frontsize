@@ -27,10 +27,8 @@
     b,
     div,
     span,
-    strong {
-      &[title] {
-        cursor: pointer;
-      }
+    strong[title] {
+      cursor: pointer;
     }
   }
 

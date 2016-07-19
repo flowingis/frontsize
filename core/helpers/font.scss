@@ -3,6 +3,14 @@
   font-family: 'Pipiloca';
   font-weight: 400;
 }
+
+
+@include font('LatoRegular', (eot, ttf)) {
+  font-family: 'Pipiloca';
+  font-weight: 400;
+}
+
+
 */
 
 @function -format($ext) {

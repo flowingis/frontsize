@@ -1,0 +1,40 @@
+/*
+.selector {
+  @include limiter((
+    '>=desktop-small': 1280px,
+    '<=tablet-large': 1280px,
+  ));
+}
+
+.selector {
+  @include column((
+    '>=desktop-small': 3,
+    '<=tablet-large': 6,
+  ), 12);
+}
+//*/
+
+@mixin limiter($rules) {
+    margin: auto;
+    @each $rule, $width in $rules {
+      @include media($rule) {
+        max-width: $width;
+      }
+    }
+  }
+}
+
+@mixin _addViewportsSteps($viewportRule, $selector, $viewportWidth, $width) {
+  $width: _clean($width);
+  @if $width != 0 {
+    @media #{$viewportRule} {
+      .#{$selector} {
+        @if $width <= $viewportWidth {
+          max-width : $width;
+        } @else {
+          max-width : $viewportWidth;
+        }
+      }
+    }
+  }
+}

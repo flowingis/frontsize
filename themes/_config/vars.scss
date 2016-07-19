@@ -1,2 +1,8 @@
 
-// shared vars between themes
+@function font($attribute) {
+  @return get((
+      'sans': 'helvetica, arial, sans-serif',
+      'serif': 'georgia, "times new roman", times, serif',
+      'monospace': 'menlo, monaco, "courier new", monospace'
+  ), $attribute);
+}

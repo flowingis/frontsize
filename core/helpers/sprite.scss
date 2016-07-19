@@ -72,11 +72,11 @@ $-sprite-whole-map: false;
   $-sprite-height: $height !global;
   $-sprite-whole-map: $whole-map !global;
 
+  @content;
   background-repeat: no-repeat;
   background-size: (nth($whole-map, 1) * $width) (nth($whole-map, 2) * $height);
   height: $height;
   width: $width;
-  @content;
 
   $-sprite-width: false !global;
   $-sprite-height: false !global;
@@ -90,6 +90,7 @@ $-sprite-whole-map: false;
   $whole-map: $-sprite-whole-map;
 
   @include modifier($selector) {
+    @content;
     @include -sprite-position($sprite-map, s($scale, $width), s($scale, $height));
     @if ($scale != 1) {
       @include -sprite-scale($whole-map, $scale);

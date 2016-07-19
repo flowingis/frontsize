@@ -5,51 +5,6 @@
 /// @param {string} $name - The name of the block's element selector
 /// @example scss Generates an element for the parent block
 ///     @include block("social-menu") {
-///         $grey: #FEFEFE;
-///         @include element("left-side") {
-///             padding-right : s(0.5);
-///             margin-right  : s(0.5);
-///             border-right: 2px solid $grey;
-///         }
-///
-///         @include element("right-side") {
-///             background-color: $grey;
-///         }
-///     }
-/// @example css The result
-///     .social-menu {
-///         background-color: white;
-///     }
-///     .social-menu__left-side {
-///         padding-right: 10px;
-///         margin-right: 10px;
-///         border-right: 2px solid #FEFEFE;
-///     }
-///     .social-menu__right-side {
-///         background-color: #FEFEFE;
-///     }
-
-@mixin block($name, $type:null) {
-    @at-root {
-        @if $type != null {
-            .#{$name}-#{$type} {
-                @content;
-            }
-        } @else {
-            .#{$name} {
-                @content;
-            }
-        }
-    }
-}
-
-/// Generates an element inside the block
-/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
-/// @group BEM
-/// @access public
-/// @param {string} $name - The name of the block's element selector
-/// @example scss Generates an element for the parent block
-///     @include block("social-menu") {
 ///
 ///         $grey: #FEFEFE;
 ///         background-color: white;

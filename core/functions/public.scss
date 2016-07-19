@@ -18,6 +18,10 @@
   @return ($step * 100 / $total-steps) * 1%;
 }
 
+@function remove-unit($num) {
+  @return ($num / ($num * 0 + 1));
+}
+
 @function get($map, $attribute) {
   @if map-has-key($map, $attribute) {
     @return map-get($map, $attribute);

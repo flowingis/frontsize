@@ -17,8 +17,8 @@
     @include element('column') {
       display: block;
       float: left;
-      @each $column-rule, $column-number in $rules {
-        @include media($column-rule) {
+      @each $rule, $column-number in $rules {
+        @include media($rule) {
           width: step($column-number, $total-columns);
         }
       }
