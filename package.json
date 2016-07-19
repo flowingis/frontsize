@@ -50,7 +50,7 @@
   },
   "main": "compile.scss",
   "dependencies": {
-    "dustman": "0.0.25"
+    "dustman": "^1.4.25"
   },
   "engines": {
     "node": ">=0.8.0"
