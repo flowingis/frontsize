@@ -1,0 +1,1887 @@
+/// Generates a container for the float grid system
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {string} $selector             [row]                   - The selector name of the container
+/// @param {int}    $gainSelector         [gain-margin]           - The selector name of the container with negative margin to gain column padding, if `false` is disabled
+/// @param {int}    $hdFullSteps          [0]                     - Number of columns per row on Full HD
+/// @param {int}    $hdReadySteps         [$hdFullSteps]          - Number of columns per row on HD Ready
+/// @param {int}    $tabletLandscapeSteps [$hdReadySteps]         - Number of columns per row on Tablet landscape
+/// @param {int}    $tabletPortraitSteps  [$tabletLandscapeSteps] - Number of columns per row on Tablet portrait
+/// @param {int}    $mobileLandscapeSteps [1]                     - Number of columns per row on mobile landscape
+/// @param {int}    $mobilePortraitSteps  [1]                     - Number of columns per row on mobile portrait
+/// @example scss Default usage, it generates a `row` selector rule which will NOT treat child elements as columns
+///   @include addFloatGridContainer();
+/// @example css CSS generated
+/// .row,
+/// .row * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row {
+///   padding-top: 20px;
+///   width: 100%;
+/// }
+/// .row::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+/// }
+/// .row--gain-margin {
+///   margin-left: -20px;
+///   margin-right: -20px;
+/// }
+///
+/// @example scss Generates a `row-container` selector rule with 4 HD columns steps, 3 tablet columns steps and 1 column mobile steps
+///   @include addFloatGridContainer(row-container, gain, 4, 4, 3, 3);
+/// @example css CSS generated
+/// .row-container,
+/// .row-container * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row-container {
+///   padding-top: 20px;
+///   width: 100%;
+/// }
+/// .row-container::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+/// }
+/// .row-container--gain {
+///   margin-left: -20px;
+///   margin-right: -20px;
+/// }
+///
+/// .row-container > * {
+///   min-height: 1px;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   width: 25%;
+/// }
+///
+/// \@media only screen and (min-width: 1px) and (max-width: 479px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) and (max-width: 767px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1023px), only print {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) and (max-width: 1799px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// @example scss Generates a `row-container` selector rule with 4 HD columns steps, 3 tablet columns steps, 1 column mobile steps and without padding-top property
+///   @include addFloatGridContainer(row-container, gain, 4, 4, 3, 3, 1, 1, false);
+/// @example css CSS generated
+/// .row-container,
+/// .row-container * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+///
+/// .row-container {
+///   width: 100%;
+/// }
+/// .row-container::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+/// }
+/// .row-container--gain {
+///   margin-left: -20px;
+///   margin-right: -20px;
+/// }
+///
+/// .row-container > * {
+///   min-height: 1px;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   width: 25%;
+/// }
+///
+/// \@media only screen and (min-width: 1px) and (max-width: 479px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) and (max-width: 767px) {
+///   .row-container > * {
+///     width: 100%;
+///   }
+///   .row-container > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1023px), only print {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+///   .row-container > * {
+///     width: 33.33333%;
+///   }
+///   .row-container > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) and (max-width: 1799px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .row-container > * {
+///     width: 25%;
+///   }
+///   .row-container > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+
+@mixin addFloatGridContainer(
+    $selector             : "row",
+    $gainSelector         : "gain-margin",
+    $hdFullSteps          : 0,
+    $hdReadySteps         : $hdFullSteps,
+    $tabletLandscapeSteps : $hdReadySteps,
+    $tabletPortraitSteps  : $tabletLandscapeSteps,
+    $mobileLandscapeSteps : 1,
+    $mobilePortraitSteps  : 1,
+    $paddingTop           : $vertical-padding
+    ) {
+
+    @if $use-core-base != true {
+        .#{$selector},
+        .#{$selector} * {
+            @include box-sizing("border-box");
+        }
+    }
+
+    .#{$selector} {
+        width:100%;
+
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        @if $paddingTop != false {
+            @if $paddingTop != 0 {
+                padding-top:$vertical-padding;
+            }
+        }
+
+        @if $gainSelector != false {
+            @include modifier($gainSelector) {
+                width: auto;
+                margin-left: -(s());
+                margin-right: -(s());
+            }
+        }
+    }
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps, $selector);
+}
+
+/// Generates a columns set for the float grid system
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int}     $hdSteps              [12]                  - Column steps for HD viewports
+/// @param {int}     $tabletSteps          [$hdSteps]            - Column steps for Tablet viewports
+/// @param {int}     $mobileSteps          [$tabletSteps]        - Column steps for Mobile viewports
+/// @param {string}  $hdViewportPrefix     ["hd-"]               - Columns rule HD viewport prefix
+/// @param {string}  $tabletViewportPrefix ["tablet-"]           - Columns rule Tablet viewport prefix
+/// @param {string}  $mobileViewportPrefix ["mobile-"]           - Columns rule Mobile viewport prefix
+/// @param {string}  $fillFromViewport     ["mobile-landscape"]  - The viewport step where columns will be set to `width:100%`
+/// @param {boolean} $viewTotalColumns     [true]                - Choose to see or not to see total columns at the end of the rule name
+/// @param {int}     $columnsSeparator     ["-of-"]              - Columns separator, only applied if `$viewTotalColumns` is `true`
+/// @param {int}     $useHdRules           [true]                - Allows HD viewports rules to be generated
+/// @param {int}     $useTabletRules       [true]                - Allows Tablet viewports rules to be generated
+/// @param {int}     $useMobileRules       [true]                - Allows Mobile viewports rules to be generated
+/// @example scss Default usage, it generates a 4 column set for every viewport
+///   @include addFloatGridColumns(4);
+/// @example css A simple 4 column set
+/// \@media only screen and (min-width: 1px) {
+///   .hd-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .hd-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .hd-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .hd-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .hd-4-of-4, .hd-3-of-4, .hd-2-of-4, .hd-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .tablet-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .tablet-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .tablet-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .tablet-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .tablet-4-of-4, .tablet-3-of-4, .tablet-2-of-4, .tablet-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .mobile-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .mobile-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .mobile-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .mobile-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .mobile-4-of-4, .mobile-3-of-4, .mobile-2-of-4, .mobile-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .mobile-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .mobile-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .mobile-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .mobile-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .mobile-4-of-4, .mobile-3-of-4, .mobile-2-of-4, .mobile-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .hd-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .hd-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .hd-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .hd-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .hd-4-of-4, .hd-3-of-4, .hd-2-of-4, .hd-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .tablet-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .tablet-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .tablet-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .tablet-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .tablet-4-of-4, .tablet-3-of-4, .tablet-2-of-4, .tablet-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .mobile-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .mobile-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .mobile-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .mobile-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .mobile-4-of-4, .mobile-3-of-4, .mobile-2-of-4, .mobile-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .tablet-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .tablet-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .tablet-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .tablet-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .tablet-4-of-4, .tablet-3-of-4, .tablet-2-of-4, .tablet-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .hd-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .hd-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .hd-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .hd-1-of-4 {
+///     width: 25%;
+///   }
+///
+///   .hd-4-of-4, .hd-3-of-4, .hd-2-of-4, .hd-1-of-4 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 1px) and (max-width: 767px) {
+///   .mobile-clear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1279px), only print {
+///   .tablet-clear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .hd-clear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .tablet-4-of-4, .tablet-3-of-4, .tablet-2-of-4, .tablet-1-of-4 {
+///     width: 100%;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .hd-4-of-4, .hd-3-of-4, .hd-2-of-4, .hd-1-of-4 {
+///     width: 100%;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .mobile-4-of-4 {
+///     width: 100%;
+///   }
+///
+///   .mobile-3-of-4 {
+///     width: 75%;
+///   }
+///
+///   .mobile-2-of-4 {
+///     width: 50%;
+///   }
+///
+///   .mobile-1-of-4 {
+///     width: 25%;
+///   }
+/// }
+/// @example scss Default usage, it generates a 4 column set for every viewport
+///   @include addFloatGridColumns(4, 2, 2, "l", "m", "s", "mobile-landscape", false);
+/// @example css Generated result for different grids steps by viewport and without total steps counter
+/// \@media only screen and (min-width: 1px) {
+///   .l4 {
+///     width: 100%;
+///   }
+///
+///   .l3 {
+///     width: 75%;
+///   }
+///
+///   .l2 {
+///     width: 50%;
+///   }
+///
+///   .l1 {
+///     width: 25%;
+///   }
+///
+///   .l4, .l3, .l2, .l1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .m2 {
+///     width: 100%;
+///   }
+///
+///   .m1 {
+///     width: 50%;
+///   }
+///
+///   .m2, .m1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .s2 {
+///     width: 100%;
+///   }
+///
+///   .s1 {
+///     width: 50%;
+///   }
+///
+///   .s2, .s1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .s2 {
+///     width: 100%;
+///   }
+///
+///   .s1 {
+///     width: 50%;
+///   }
+///
+///   .s2, .s1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .l4 {
+///     width: 100%;
+///   }
+///
+///   .l3 {
+///     width: 75%;
+///   }
+///
+///   .l2 {
+///     width: 50%;
+///   }
+///
+///   .l1 {
+///     width: 25%;
+///   }
+///
+///   .l4, .l3, .l2, .l1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .m2 {
+///     width: 100%;
+///   }
+///
+///   .m1 {
+///     width: 50%;
+///   }
+///
+///   .m2, .m1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .s2 {
+///     width: 100%;
+///   }
+///
+///   .s1 {
+///     width: 50%;
+///   }
+///
+///   .s2, .s1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .m2 {
+///     width: 100%;
+///   }
+///
+///   .m1 {
+///     width: 50%;
+///   }
+///
+///   .m2, .m1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+///
+///   .l4 {
+///     width: 100%;
+///   }
+///
+///   .l3 {
+///     width: 75%;
+///   }
+///
+///   .l2 {
+///     width: 50%;
+///   }
+///
+///   .l1 {
+///     width: 25%;
+///   }
+///
+///   .l4, .l3, .l2, .l1 {
+///     padding-left: 20px;
+///     padding-right: 20px;
+///     padding-bottom: 20px;
+///     float: left;
+///     position: relative;
+///     -webkit-box-sizing: border-box;
+///     -khtml-box-sizing: border-box;
+///     -moz-box-sizing: border-box;
+///     -ms-box-sizing: border-box;
+///     -o-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+/// }
+/// \@media only screen and (min-width: 1px) and (max-width: 767px) {
+///   .sclear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1279px), only print {
+///   .mclear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .lclear {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .m2, .m1 {
+///     width: 100%;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .l4, .l3, .l2, .l1 {
+///     width: 100%;
+///   }
+/// }
+/// \@media only screen and (max-width: 767px) {
+///   .s2 {
+///     width: 100%;
+///   }
+///
+///   .s1 {
+///     width: 50%;
+///   }
+/// }
+
+@mixin addFloatGridColumns(
+    $hdSteps              : 12,
+    $tabletSteps          : $hdSteps,
+    $mobileSteps          : $tabletSteps,
+    $hdViewportPrefix     : "hd-",
+    $tabletViewportPrefix : "tablet-",
+    $mobileViewportPrefix : "mobile-",
+    $fillFromViewport     : "mobile-landscape",
+    $viewTotalColumns     : true,
+    $columnsSeparator     : "-of-",
+    $useHdRules           : true,
+    $useTabletRules       : true,
+    $useMobileRules       : true
+    ) {
+
+        @media #{$from-mobile-portrait} {
+            // mobile portrait
+            @if $useHdRules == true {
+                @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useTabletRules == true {
+                @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useMobileRules == true {
+                @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+            }
+        }
+
+        @media #{$from-tablet-portrait} {
+            // Tablet portrait
+            @if $useMobileRules == true {
+                @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useHdRules == true {
+                @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useTabletRules == true {
+                @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+            }
+        }
+
+        @media #{$from-hd-ready} {
+            // HD Ready
+            @if $useMobileRules == true {
+                @include _addFloatGridColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useTabletRules == true {
+                @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+            }
+            @if $useHdRules == true {
+                @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+            }
+        }
+
+    @if $useMobileRules == true {
+        @include _addClearRule($only-mobile, $mobileViewportPrefix);
+    }
+
+    @if $useTabletRules == true {
+        @include _addClearRule($only-tablet, $tabletViewportPrefix);
+    }
+
+    @if $useHdRules == true {
+        @include _addClearRule($only-hd, $hdViewportPrefix);
+    }
+
+    @if $useTabletRules == true {
+        @include _addFillToColumnSet($tabletViewportPrefix, $tabletSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @if $useHdRules == true {
+        @include _addFillToColumnSet($hdViewportPrefix, $hdSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @if $useMobileRules == true {
+        @include _preventMobileColumnSet($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+    }
+}
+
+@mixin _addClearRule($rule, $prefix) {
+    @media #{$rule} {
+        .#{$prefix}clear {
+            clear: both;
+        }
+    }
+}
+
+/// Apply a column set container for the float grid system to the selector
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int} $hdFullSteps          [0]                     - Column steps for HD viewports
+/// @param {int} $hdReadySteps         [$hdFullSteps]          - Column steps for HD viewports
+/// @param {int} $tabletLandscapeSteps [$hdReadySteps]         - Column steps for Tablet viewports
+/// @param {int} $tabletPortraitSteps  [$tabletLandscapeSteps] - Column steps for Tablet viewports
+/// @param {int} $mobileLandscapeSteps [1]                     - Column steps for Mobile viewports
+/// @param {int} $mobilePortraitSteps  [1]                     - Column steps for Mobile viewports
+/// @example scss Default usage, it sets a simple column container without rules
+/// .float-grid-example-1 {
+///     @include setFloatGridContainer();
+/// }
+/// @example css A simple 4 column set
+/// .float-grid-example-1 {
+///   width: 100%;
+///   &::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+///   }
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// .float-grid-example-1 * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// @example scss It sets a column container with column rules which dispose 4 columns childrens on HD viewports and 3 columns children on Tablet viewports
+/// .float-grid-example-2 {
+///     @include setFloatGridContainer(4,4,3,3);
+/// }
+/// @example css The generated CSS
+/// .float-grid-example-2 {
+///   width: 100%;
+///   &::after {
+///     content: "";
+///     display: block;
+///     clear: both;
+///   }
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// .float-grid-example-2 * {
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// .float-grid-example-2 > * {
+///   min-height: 1px;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+///   width: 25%;
+/// }
+/// \@media only screen and (min-width: 1px) and (max-width: 479px) {
+///   .float-grid-example-2 > * {
+///     width: 100%;
+///   }
+///   .float-grid-example-2 > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) and (max-width: 767px) {
+///   .float-grid-example-2 > * {
+///     width: 100%;
+///   }
+///   .float-grid-example-2 > *:nth-child(1n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1023px), only print {
+///   .float-grid-example-2 > * {
+///     width: 33.33333%;
+///   }
+///   .float-grid-example-2 > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+///   .float-grid-example-2 > * {
+///     width: 33.33333%;
+///   }
+///   .float-grid-example-2 > *:nth-child(3n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) and (max-width: 1799px) {
+///   .float-grid-example-2 > * {
+///     width: 25%;
+///   }
+///   .float-grid-example-2 > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-example-2 > * {
+///     width: 25%;
+///   }
+///   .float-grid-example-2 > *:nth-child(4n+1) {
+///     clear: both;
+///   }
+/// }
+/// @example html An example on how this column set can work
+/// <div class="float-grid-example-2">
+///     <div>First column</div>
+///     <div>Second column</div>
+///     <div>Third column</div>
+///     <div>Fourth column</div>
+/// </div>
+
+@mixin setFloatGridContainer(
+    $hdFullSteps          : 0,
+    $hdReadySteps         : $hdFullSteps,
+    $tabletLandscapeSteps : $hdReadySteps,
+    $tabletPortraitSteps  : $tabletLandscapeSteps,
+    $mobileLandscapeSteps : 1,
+    $mobilePortraitSteps  : 1
+    ) {
+
+    width: 100%;
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    @if $use-core-base != true {
+        @include box-sizing("border-box");
+        * {
+            @include box-sizing("border-box");
+        }
+    }
+
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps);
+}
+
+/// Apply a column cell for the float grid system
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int} $hdFullStep          [0] - Column steps for Full HD viewports
+/// @param {int} $hdReadyStep         [0] - Column steps for HD Ready viewports
+/// @param {int} $tabletLandscapeStep [0] - Column steps for Tablet landscape viewports
+/// @param {int} $tabletPortraitStep  [0] - Column steps for Tablet portrait viewports
+/// @param {int} $mobileLandscapeStep [0] - Column steps for Mobile landscape viewports
+/// @param {int} $mobilePortraitStep  [0] - Column steps for Mobile portrait viewports
+/// @param {int} $totalSteps          [12] - Total column steps
+/// @example scss Default usage, it sets a simple column cell with `width:100%;`
+/// .float-grid-column-example-1 {
+///     @include setFloatGridColumn();
+/// }
+/// @example css Generated CSS
+/// .float-grid-column-example-1 {
+///   width: 100%;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// @example scss Creates a column with padding, and three different sizes based on three different viewport step groups
+/// .float-grid-column-example-2 {
+///     @include setFloatGridColumn(3, 3, 4, 4, 6, 6);
+/// }
+/// @example css CSS generated with second example
+/// .float-grid-column-example-2 {
+///   width: 100%;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-example-2 {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-example-2 {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-example-2 {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-example-2 {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-example-2 {
+///     width: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-example-2 {
+///     width: 25%;
+///   }
+/// }
+
+@mixin setFloatGridColumn(
+    $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
+    $totalSteps          : 12
+    ) {
+
+    width: 100%;
+
+    @include _setColumnBehavior(true, left, true, false);
+
+    @include _setFloatGridColumn($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-tablet-portrait,  $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-tablet-landscape, $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-hd-ready,         $hdReadyStep,         $totalSteps);
+    @include _setFloatGridColumn($from-hd-full,          $hdFullStep,          $totalSteps);
+}
+
+@mixin _setFloatGridColumn($rule, $step, $totalColumns) {
+    @if $step != false {
+        @media #{$rule} {
+            @include _setFloatGridColumnStep($step, $totalColumns);
+        }
+    }
+}
+
+/// Apply a `margin-left` percent for the float grid system based on steps defined
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int} $mobilePortraitStep  [0] - Column steps for Mobile portrait viewports
+/// @param {int} $mobileLandscapeStep [0] - Column steps for Mobile landscape viewports
+/// @param {int} $tabletPortraitStep  [0] - Column steps for Tablet portrait viewports
+/// @param {int} $tabletLandscapeStep [0] - Column steps for Tablet landscape viewports
+/// @param {int} $hdReadyStep         [0] - Column steps for HD Ready viewports
+/// @param {int} $hdFullStep          [0] - Column steps for Full HD viewports
+/// @param {int} $totalSteps          [12] - Total column steps
+/// @example scss Default usage, it sets a different `margin-left` percent based on steps defined
+/// .float-grid-column-offset {
+///     @include setFloatGridOffset(0, 0, 2, 3, 4, 4);
+/// }
+/// @example css CSS generated
+/// .float-grid-column-offset {
+///   margin-left: 0;
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-offset {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-offset {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-offset {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-offset {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// @example scss An element centered on the page
+/// .float-grid-column-centered {
+///     @include setFloatGridColumn(4, 4, 6, 6, 8, 8);
+///     @include setFloatGridOffset(4, 4, 3, 3, 2, 2);
+/// }
+/// @example css CSS generated
+/// .float-grid-column-centered {
+///   width: 100%;
+///   padding-left: 20px;
+///   padding-right: 20px;
+///   padding-bottom: 20px;
+///   float: left;
+///   position: relative;
+///   -webkit-box-sizing: border-box;
+///   -khtml-box-sizing: border-box;
+///   -moz-box-sizing: border-box;
+///   -ms-box-sizing: border-box;
+///   -o-box-sizing: border-box;
+///   box-sizing: border-box;
+///   margin-left: 0;
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-centered {
+///     width: 66.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-centered {
+///     width: 66.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-centered {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-centered {
+///     width: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-centered {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-centered {
+///     width: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .float-grid-column-centered {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .float-grid-column-centered {
+///     margin-left: 16.66667%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .float-grid-column-centered {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .float-grid-column-centered {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .float-grid-column-centered {
+///     margin-left: 33.33333%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .float-grid-column-centered {
+///     margin-left: 33.33333%;
+///   }
+/// }
+
+@mixin setFloatGridOffset(
+    $hdFullStep          : 0,
+    $hdReadyStep         : 0,
+    $tabletLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $mobilePortraitStep  : 0,
+    $totalSteps          : 12
+    ) {
+
+    margin-left: 0;
+
+    @include _setFloatGridOffset($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-tablet-portrait,  $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridOffset($from-tablet-landscape, $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridOffset($from-hd-ready,         $hdReadyStep,         $totalSteps);
+    @include _setFloatGridOffset($from-hd-full,          $hdFullStep,          $totalSteps);
+}
+
+@mixin _setFloatGridOffset($rule, $step, $totalColumns) {
+    @if $step != false {
+        @media #{$rule} {
+            @include _setColumnMarginOffsetStep($step, $totalColumns)
+        }
+    }
+}
+
+/// Generates a `margin-left` percent set for the float grid system
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Float grid
+/// @access public
+/// @param {int}     $hdSteps              [12]                  - Column steps for HD viewports
+/// @param {int}     $tabletSteps          [$hdSteps]            - Column steps for Tablet viewports
+/// @param {int}     $mobileSteps          [$tabletSteps]        - Column steps for Mobile viewports
+/// @param {string}  $hdViewportPrefix     ["hd-offset-"]        - Columns rule HD viewport prefix
+/// @param {string}  $tabletViewportPrefix ["tablet-offset-"]    - Columns rule Tablet viewport prefix
+/// @param {string}  $mobileViewportPrefix ["mobile-offset-"]    - Columns rule Mobile viewport prefix
+/// @param {string}  $fillFromViewport     ["mobile-landscape"]  - The viewport step where columns will be set to `width:100%`
+/// @param {boolean} $viewTotalColumns     [true]                - Choose to see or not to see total columns at the end of the rule name
+/// @param {int}     $columnsSeparator     ["-of-"]              - Columns separator, only applied if `$viewTotalColumns` is `true`
+/// @param {int}     $useHdRules           [true]                - Allows HD viewports rules to be generated
+/// @param {int}     $useTabletRules       [true]                - Allows Tablet viewports rules to be generated
+/// @param {int}     $useMobileRules       [true]                - Allows Mobile viewports rules to be generated
+/// @example scss Default usage, it's recommended to be used in your theme's `app.scss`, by default will generate 12 columns set rules
+/// \@include addFloatGridColumns(4,2,2);
+/// @example css CSS generated
+/// \@media only screen and (min-width: 1px) {
+///   .hd-offset-4-of-4 {
+///     margin-left: 100%;
+///   }
+///
+///   .hd-offset-3-of-4 {
+///     margin-left: 75%;
+///   }
+///
+///   .hd-offset-2-of-4 {
+///     margin-left: 50%;
+///   }
+///
+///   .hd-offset-1-of-4 {
+///     margin-left: 25%;
+///   }
+///
+///   .tablet-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .tablet-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+///
+///   .mobile-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .mobile-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .mobile-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .mobile-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+///
+///   .hd-offset-4-of-4 {
+///     margin-left: 100%;
+///   }
+///
+///   .hd-offset-3-of-4 {
+///     margin-left: 75%;
+///   }
+///
+///   .hd-offset-2-of-4 {
+///     margin-left: 50%;
+///   }
+///
+///   .hd-offset-1-of-4 {
+///     margin-left: 25%;
+///   }
+///
+///   .tablet-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .tablet-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .mobile-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .mobile-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+///
+///   .tablet-offset-2-of-2 {
+///     margin-left: 100%;
+///   }
+///
+///   .tablet-offset-1-of-2 {
+///     margin-left: 50%;
+///   }
+///
+///   .hd-offset-4-of-4 {
+///     margin-left: 100%;
+///   }
+///
+///   .hd-offset-3-of-4 {
+///     margin-left: 75%;
+///   }
+///
+///   .hd-offset-2-of-4 {
+///     margin-left: 50%;
+///   }
+///
+///   .hd-offset-1-of-4 {
+///     margin-left: 25%;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .hd-offset-disabled {
+///     margin-left: 0;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px) and (max-width: 1279px), only print {
+///   .tablet-offset-disabled {
+///     margin-left: 0;
+///   }
+/// }
+/// \@media only screen and (min-width: 1px) and (max-width: 767px) {
+///   .mobile-offset-disabled {
+///     margin-left: 0;
+///   }
+/// }
+
+@mixin addFloatGridOffset(
+    $hdSteps              : 12,
+    $tabletSteps          : $hdSteps,
+    $mobileSteps          : $tabletSteps,
+    $hdViewportPrefix     : "hd-offset-",
+    $tabletViewportPrefix : "tablet-offset-",
+    $mobileViewportPrefix : "mobile-offset-",
+    $fillFromViewport     : "mobile-landscape",
+    $viewTotalColumns     : true,
+    $columnsSeparator     : "-of-",
+    $useHdRules           : true,
+    $useTabletRules       : true,
+    $useMobileRules       : true
+    ) {
+
+    @media #{$from-mobile-portrait} {
+        // mobile portrait
+        @if $useHdRules == true {
+            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator, true);
+        }
+        @if $useTabletRules == true {
+            @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator, true);
+        }
+        @if $useMobileRules == true {
+            @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+        }
+    }
+
+    @media #{$from-tablet-portrait} {
+        // Tablet portrait
+        @if $useMobileRules == true {
+            @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+        }
+        @if $useHdRules == true {
+            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator, true);
+        }
+        @if $useTabletRules == true {
+            @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        }
+    }
+
+    @media #{$from-hd-ready} {
+        // HD Ready
+        @if $useMobileRules == true {
+            @include _addColumnMarginOffset($mobileViewportPrefix, $mobileSteps, $viewTotalColumns, $columnsSeparator);
+        }
+        @if $useTabletRules == true {
+            @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        }
+        @if $useHdRules == true {
+            @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        }
+    }
+
+    @media #{$only-hd} {
+        .#{$hdViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media #{$only-tablet} {
+        .#{$tabletViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media #{$only-mobile} {
+        .#{$mobileViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+}
+
+@mixin _checkAutoClear(
+    $hdFullSteps,
+    $hdReadySteps,
+    $tabletLandscapeSteps,
+    $tabletPortraitSteps,
+    $mobileLandscapeSteps,
+    $mobilePortraitSteps,
+    $selector:false
+    ){
+    @if $hdFullSteps > 0 {
+        // Media queries for selectors active from a specific resolution or higher
+
+        @if $selector != false {
+            .#{$selector} > * {
+                min-height: 1px;
+                @include _setColumnBehavior(true, left, false, true);
+                @include _setFloatGridColumnStep(1, $hdFullSteps);
+            }
+        } @else {
+            > * {
+                min-height: 1px;
+                @include _setColumnBehavior();
+                @include _setFloatGridColumnStep(1, $hdFullSteps);
+            }
+        }
+        @include _checkAutoClearViewport($only-mobile-portrait,  $mobilePortraitSteps,  $selector);
+        @include _checkAutoClearViewport($only-mobile-landscape, $mobileLandscapeSteps, $selector);
+        @include _checkAutoClearViewport($only-tablet-portrait,  $tabletPortraitSteps,  $selector);
+        @include _checkAutoClearViewport($only-tablet-landscape, $tabletLandscapeSteps, $selector);
+        @include _checkAutoClearViewport($only-hd-ready,         $hdReadySteps,         $selector);
+        @include _checkAutoClearViewport($only-hd-full,          $hdFullSteps,          $selector);
+    }
+}
+
+@mixin _checkAutoClearViewport($viewport, $steps, $selector:false) {
+    @media #{$viewport} {
+        @if $selector != false {
+            .#{$selector} > * {
+                @include _setFloatGridColumns($steps);
+            }
+        } @else {
+            > * {
+                @include _setFloatGridColumns($steps);
+            }
+        }
+    }
+}
+
+@mixin _addFloatGridColumnSet($prefix, $totalSteps, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    $startIndex : $totalSteps;
+    @include _loopFloatGridColumnSet($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
+}
+
+@mixin _addFillToColumnSet($prefix, $totalSteps, $fillViewport:"mobile-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    $startIndex : $totalSteps;
+    @include _loopFloatGridColumnSetFill($prefix, $totalSteps, $fillViewport, $startIndex, $viewTotalColumns, $columnsSeparator);
+}
+
+@mixin _preventMobileColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    @if $use-mobile-landscape == true {
+        $startIndex : $totalSteps;
+        @media #{$till-tablet-portrait} {
+            // mobile landscape
+            @include _loopMobileColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+        }
+    }
+}
+
+@mixin _loopFloatGridColumnSet ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true {
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include _setFloatGridColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else {
+        @while $index >= 0 {
+            @if $index == $total {
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0 {
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index > 0 {
+                .#{$prefix}#{$index} {
+                    @include _setFloatGridColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-", $removeMargin:false) {
+    $startIndex: $totalSteps;
+    @include _loopColumnMarginOffset($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "", $removeMargin);
+}
+
+@mixin _loopColumnMarginOffset ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:"", $removeMargin:false){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include _setColumnMarginOffsetStep($index, $total, $removeMargin);
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index} {
+                    @include _setColumnMarginOffsetStep($index, $total, $removeMargin);
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _setColumnMarginOffsetStep($step, $columns, $removeMargin:false) {
+    @if $removeMargin == true {
+      margin-left: 0;
+    } @else {
+      margin-left: _clean((100% * $step)/$columns);
+    }
+}
+
+@mixin _loopMobileColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
+    @while $index >= 0{
+         @if $index > 0 and $viewTotalColumns == true {
+            .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                @include _setFloatGridColumnStep($index, $total);
+            }
+        }
+        @if $index > 0 and $viewTotalColumns == false {
+            .#{$prefix}#{$index} {
+                @include _setFloatGridColumnStep($index, $total);
+            }
+        }
+        $index: $index - 1;
+    }
+}
+
+@mixin _loopFloatGridColumnSetFill ($prefix, $total, $fill, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-landscape" {
+                @media #{$till-hd-ready} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-portrait" {
+                @media #{$till-tablet-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "mobile-landscape" {
+                @media #{$till-tablet-portrait} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "mobile-portrait" {
+                @media #{$till-mobile-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-landscape" {
+                @media #{$till-hd-ready} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-portrait" {
+                @media #{$till-tablet-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "mobile-landscape" {
+                @media #{$till-tablet-portrait} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "mobile-portrait" {
+                @media #{$till-mobile-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _setFloatGridColumns($columns) {
+    width: _clean(100%/$columns);
+    &:nth-child(#{$columns}n+1) {
+        clear:both;
+    }
+}
+
+@mixin _setFloatGridColumnStep($step, $columns) {
+    width: _clean(((100% * $step) / $columns));
+}
+
+@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:false, $usePadding:true) {
+    @if $usePadding == true {
+        padding-left: $horizontal-padding;
+        padding-right: $horizontal-padding;
+        padding-bottom: $vertical-padding;
+    }
+    float: left;
+    @if $usePosition == true {
+        position: relative;
+    }
+    @if $useBorderBox == true {
+        @include box-sizing("border-box");
+    }
+}

@@ -1,17 +1,12 @@
-/*
-@include font('LatoRegular', (eot, ttf)) {
-  font-family: 'Pipiloca';
-  font-weight: 400;
-}
-
-
-@include font('LatoRegular', (eot, ttf)) {
-  font-family: 'Pipiloca';
-  font-weight: 400;
-}
-
-
-*/
+// @include font('LatoRegular', (eot, ttf)) {
+//   font-family: 'Pipiloca';
+//   font-weight: 400;
+// }
+//
+// @include font('LatoBold', (eot, ttf)) {
+//   font-family: 'Pipiloca';
+//   font-weight: 700;
+// }
 
 @function -format($ext) {
   @if str-index($ext, 'eot') != null {
@@ -23,7 +18,7 @@
   }
 }
 
-@mixin font($file-name: false, $extensions: ('ttf'), $path: path('fonts')) {
+@mixin font($file-name: false, $extensions: ('ttf'), $path: $path-fonts) {
   @font-face {
     @content;
     $i: 1;
@@ -37,6 +32,6 @@
       }
       $i: $i + 1;
     }
-    src: $font-url;
+    src: #{$font-url};
   }
 }

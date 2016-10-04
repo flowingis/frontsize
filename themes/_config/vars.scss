@@ -1,8 +1,9 @@
 
-@function font($attribute) {
-  @return get((
-      'sans': 'helvetica, arial, sans-serif',
-      'serif': 'georgia, "times new roman", times, serif',
-      'monospace': 'menlo, monaco, "courier new", monospace'
-  ), $attribute);
-}
+$font-family-sans: 'helvetica, arial, sans-serif';
+$font-family-serif: 'georgia, "times new roman", times, serif';
+$font-family-monospace: 'menlo, monaco, "courier new", monospace';
+
+$color-status-info: rgb(81, 215, 223);
+$color-status-warning: rgb(246, 225, 82);
+$color-status-success: rgb(177, 232, 75);
+$color-status-error: rgb(246, 96, 141);

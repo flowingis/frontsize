@@ -1,17 +1,17 @@
-@function file($image, $path: path('images')) {
+@function theme($image, $path: $path-images) {
   @if (str-index($image, '/') != null) {
-    @error 'You should only use filename with file(\'image.svg\') \nResolve the path with $path variable in your config file.\nIf you need a different location: path(\'image.svg\', \'http://cdn.com/\')';
+    @error 'You should only use filename like theme(\'image.svg\'). \nAvoid paths like theme(\'../path/to/image.svg\'). \nResolve the path with $path variable in your config file.\nIf you need a different location, use: theme(\'image.svg\', \'http://cdn.com/\')';
   }
   @return url('#{$path}#{$image}');
 }
 
-@function vertical-gradient($color-base: #777, $strenght-or-color: 5%) {
-  @if (unit($strenght-or-color) == %) {
-    $color-top: saturate(lighten($color-base, $strenght), $strenght / 2);
-    $color-bottom: saturate(darken($color-base, $strenght), $strenght / 2);
+@function vertical-gradient($color-base: #777, $strength-or-color: 5%) {
+  @if (unit($strength-or-color) == %) {
+    $strength: $strength-or-color;
+    $color-top: saturate(lighten($color-base, $strength), $strength / 2);
+    $color-bottom: saturate(darken($color-base, $strength), $strength / 2);
+    @return linear-gradient('top, #{$color-top} 0%, #{$color-bottom} 100%');
   } @else {
-    $color-top: $color-base;
-    $color-bottom: $strenght-or-color;
+    @return linear-gradient('top, #{$color-base} 0%, #{$strength-or-color} 100%');
   }
-  @return linear-gradient('top, #{$color-top} 0%, #{$color-bottom} 100%');
 }

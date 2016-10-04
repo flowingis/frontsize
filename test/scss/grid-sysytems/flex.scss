@@ -1,0 +1,118 @@
+// http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+@mixin addFlexGridContainer(
+    $selector              ,
+    $hdFullColums          : 4,
+    $hdReadyColums         : 4,
+    $tabletLandscapeColums : 3,
+    $tabletPortraitColums  : 2,
+    $mobileLandscapeColums : 1,
+    $mobilePortraitColums  : 1
+    ) {
+
+    // set @hdColumns to [false] instead an [integer] to disable automatic columns
+    $enableColumns : $hdFullColums;
+
+    .#{$selector} {
+        @include display(flex);
+        @include flex-wrap(wrap);
+    }
+
+    .#{$selector} > * {
+        @include _setFlexGridColumnBehavior();
+    }
+
+    @include _addFlexGridViewprtColumns($from-mobile-portrait,  $mobilePortraitColums,  $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-mobile-landscape, $mobileLandscapeColums, $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-tablet-portrait,  $tabletPortraitColums,  $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-tablet-landscape, $tabletLandscapeColums, $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-hd-ready,         $hdReadyColums,         $selector, $enableColumns);
+    @include _addFlexGridViewprtColumns($from-hd-full,          $hdFullColums,          $selector, $enableColumns);
+
+}
+
+@mixin addFlexGridColumns(
+    $hdSteps              : 12,
+    $tabletSteps          : $hdSteps,
+    $mobileSteps          : $tabletSteps,
+    $hdViewportPrefix     : "hd-flex-",
+    $tabletViewportPrefix : "tablet-flex-",
+    $mobileViewportPrefix : "mobile-flex-",
+    $fillFromViewport     : "mobile-landscape",
+    $viewTotalColumns     : true,
+    $columnsSeparator     : "-of-",
+    $useHdRules           : true,
+    $useTabletRules       : true,
+    $useMobileRules       : true
+    ) {
+
+    @include _addFlexGridColumnSetRule(
+        $from-mobile-portrait,
+        $mobileViewportPrefix, $mobileSteps,
+        $tabletViewportPrefix, $tabletSteps,
+        $hdViewportPrefix, $hdSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useMobileRules
+    );
+
+    @include _addFlexGridColumnSetRule(
+        $from-tablet-portrait,
+        $tabletViewportPrefix, $tabletSteps,
+        $hdViewportPrefix, $hdSteps,
+        $mobileViewportPrefix, $mobileSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useTabletRules
+    );
+
+    @include _addFlexGridColumnSetRule(
+        $from-hd-ready,
+        $hdViewportPrefix, $hdSteps,
+        $tabletViewportPrefix, $tabletSteps,
+        $mobileViewportPrefix, $mobileSteps,
+        $viewTotalColumns, $columnsSeparator,
+        $useHdRules
+    );
+
+}
+
+@mixin _addFlexGridViewprtColumns($mediaQueryRule, $columns, $selector, $enableColumns) {
+    @if $enableColumns == false {
+        @media #{$mediaQueryRule} {
+            .#{$selector} > * {
+                @include flex-basis(#{100 / $columns}#{"%"});
+            }
+        }
+    }
+}
+
+@mixin _addFlexGridColumnSetRule(
+    $viewport,
+    $firstChoiceViewportPrefix, $firstChoiceSteps,
+    $secondChoiceViewportPrefix, $secondChoiceSteps,
+    $thirdChoiceViewportPrefix, $thirdChoiceSteps,
+    $viewTotalColumns, $columnsSeparator,
+    $useRules
+    ) {
+    @media #{$viewport} {
+        // mobile portrait
+        @include _addFlexGridColumnSet($thirdChoiceViewportPrefix,  $thirdChoiceSteps,  $viewTotalColumns, $columnsSeparator);
+        @include _addFlexGridColumnSet($secondChoiceViewportPrefix, $secondChoiceSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFlexGridColumnSet($firstChoiceViewportPrefix,  $firstChoiceSteps,  $viewTotalColumns, $columnsSeparator);
+    }
+}
+
+@mixin _addFlexGridColumnSet($prefix, $totalSteps, $viewTotalColumns, $columnsSeparator) {
+    $startIndex : $totalSteps;
+    @include _loopFlexGridColumnSet($totalSteps, $prefix, $startIndex, "", $viewTotalColumns, $columnsSeparator);
+}
+
+@mixin _setFlexGridColumnBehavior() {
+    @if $use-core-base == false {
+        @include box-sizing("border-box");
+    }
+    @include flex-grow(1);
+}
+
+@mixin _setFlexGridColumnStep($currentColumn, $totalColumns) {
+    @include flex-basis(#{(#{100 * $currentColumn}) / $totalColumns}#{"%"});
+}

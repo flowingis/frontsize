@@ -1,0 +1,139 @@
+/// Generates a container for the text column grid system
+/// Note: The Text grid will treat child elements as text paragraphs, then elements will be disposed from top to bottom, then to right
+/// @author <a href="http://twitter.com/vttrx">Vittorio Vittori</a>
+/// @group Grids - Text grid
+/// @access public
+/// @param {string}     $selector             ["text-column-grid"] - Text
+/// @param {int}        $hdFullCount          [4]                  - Text
+/// @param {int}        $hdReadyCount         [3]                  - Text
+/// @param {int}        $tabletLandscapeCount [3]                  - Text
+/// @param {int}        $tabletPortraitCount  [2]                  - Text
+/// @param {int}        $mobileLandscapeCount [1]                  - Text
+/// @param {int}        $mobilePortraitCount  [1]                  - Text
+/// @param {size-unit}  $columnGap            [0]                  - Text
+/// @param {display}    $childrenDisplay      [inline-block]       - Text
+/// @example scss Default usage, it generates a `row` selector rule which will NOT treat child elements as columns
+///   @include addTextColumnGrid();
+/// @example css CSS generated
+/// .text-column-grid {
+///   -webkit-column-gap: 0;
+///   -khtml-column-gap: 0;
+///   -moz-column-gap: 0;
+///   -ms-column-gap: 0;
+///   -o-column-gap: 0;
+///   column-gap: 0;
+///   -webkit-column-fill: balance;
+///   -khtml-column-fill: balance;
+///   -moz-column-fill: balance;
+///   -ms-column-fill: balance;
+///   -o-column-fill: balance;
+///   column-fill: balance;
+/// }
+/// .text-column-grid > * {
+///   display: inline-block;
+///   margin: auto;
+///   margin-bottom: 0;
+///   width: 100%;
+/// }
+/// \@media only screen and (min-width: 1px) {
+///   .text-column-grid {
+///     -webkit-column-count: 1;
+///     -khtml-column-count: 1;
+///     -moz-column-count: 1;
+///     -ms-column-count: 1;
+///     -o-column-count: 1;
+///     column-count: 1;
+///   }
+/// }
+/// \@media only screen and (min-width: 480px) {
+///   .text-column-grid {
+///     -webkit-column-count: 1;
+///     -khtml-column-count: 1;
+///     -moz-column-count: 1;
+///     -ms-column-count: 1;
+///     -o-column-count: 1;
+///     column-count: 1;
+///   }
+/// }
+/// \@media only screen and (min-width: 768px), only print {
+///   .text-column-grid {
+///     -webkit-column-count: 2;
+///     -khtml-column-count: 2;
+///     -moz-column-count: 2;
+///     -ms-column-count: 2;
+///     -o-column-count: 2;
+///     column-count: 2;
+///   }
+/// }
+/// \@media only screen and (min-width: 1024px) {
+///   .text-column-grid {
+///     -webkit-column-count: 3;
+///     -khtml-column-count: 3;
+///     -moz-column-count: 3;
+///     -ms-column-count: 3;
+///     -o-column-count: 3;
+///     column-count: 3;
+///   }
+/// }
+/// \@media only screen and (min-width: 1280px) {
+///   .text-column-grid {
+///     -webkit-column-count: 3;
+///     -khtml-column-count: 3;
+///     -moz-column-count: 3;
+///     -ms-column-count: 3;
+///     -o-column-count: 3;
+///     column-count: 3;
+///   }
+/// }
+/// \@media only screen and (min-width: 1800px) {
+///   .text-column-grid {
+///     -webkit-column-count: 4;
+///     -khtml-column-count: 4;
+///     -moz-column-count: 4;
+///     -ms-column-count: 4;
+///     -o-column-count: 4;
+///     column-count: 4;
+///   }
+/// }
+
+@mixin addTextColumnGrid(
+    $selector             : "text-column-grid",
+    $hdFullCount          : 4,
+    $hdReadyCount         : 3,
+    $tabletLandscapeCount : 3,
+    $tabletPortraitCount  : 2,
+    $mobileLandscapeCount : 1,
+    $mobilePortraitCount  : 1,
+    $columnGap            : 0,
+    $childrenDisplay      : inline-block
+    ){
+
+    .#{$selector} {
+        @include column-gap($columnGap);
+        @include column-fill(balance);
+    }
+
+    .#{$selector} > * {
+        display       : $childrenDisplay; // block will crop and distribute children on columns // inline-block will keep them entire
+        margin        : auto;
+        margin-bottom : $columnGap;
+        width         : 100%;
+    }
+
+    @include _addTextColumnGrid($from-mobile-portrait,  $selector, $mobilePortraitCount,  $use-mobile-portrait);
+    @include _addTextColumnGrid($from-mobile-landscape, $selector, $mobileLandscapeCount, $use-mobile-landscape);
+    @include _addTextColumnGrid($from-tablet-portrait,  $selector, $tabletPortraitCount,  $use-tablet-portrait);
+    @include _addTextColumnGrid($from-tablet-landscape, $selector, $tabletLandscapeCount, $use-tablet-landscape);
+    @include _addTextColumnGrid($from-hd-ready,         $selector, $hdReadyCount,         $use-hd-ready);
+    @include _addTextColumnGrid($from-hd-full,          $selector, $hdFullCount,          $use-hd-full);
+}
+
+@mixin _addTextColumnGrid($viewport, $selector, $count, $viewportEnabled){
+    @if $viewportEnabled == true {
+        @media #{$viewport} {
+            .#{$selector} {
+                @include column-count($count);
+            }
+        }
+    }
+}

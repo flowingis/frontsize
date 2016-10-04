@@ -49,8 +49,8 @@ Thumbs.db
 node_modules
 bower_components
 .sass-cache
-/test
+/test/css
 /img
 /frontsize.yml
-/core/vendor
+/vendor
 gulpfile.js

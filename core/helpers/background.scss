@@ -1,13 +1,11 @@
-/*
-.selector {
-  @include icon('file.svg', 32px) {
-    background-color: red;
-  }
-}
-*/
+// .selector {
+//   @include icon('file.svg', 32px) {
+//     background-color: red;
+//   }
+// }
 
 @mixin icon($background-image, $width, $height: $width) {
-  background-image: file($background-image);
+  background-image: theme($background-image);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   height: $height;

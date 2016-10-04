@@ -11,11 +11,19 @@ Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 
 @import 'vendors';
 
-@import 'functions/background';
 @import 'functions/public';
+@import 'functions/background';
 @import 'functions/ease';
 
+@import 'components/bem';
+@import 'components/print';
+
 @import 'grids/float';
+
+@import 'helpers/background';
+@import 'helpers/container';
+@import 'helpers/font';
+@import 'helpers/sprite';
 
 // @import 'grids/old/flex';
 // @import 'grids/old/float';
@@ -48,4 +56,4 @@ Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 // @import 'components/sizing';
 // @import 'components/print';
 //
-@import 'base/base';
+@import 'base';

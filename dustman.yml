@@ -14,99 +14,22 @@ config:
     cache: false
   polling: false
   verbose: 3
-  verify: true
+  verify: false
 
 css:
-  file: dustman.frontsize.min.css
-  vendors:
-    file: vendors.min.css
-    path: test/results/css/vendors/
-    files:
-      - test/examples/vendor/angular/angular-csp.css
-      - test/examples/vendor/angular-bootstrap/ui-bootstrap-csp.css
-      - test/examples/vendor/font-awesome/css/font-awesome.css
-      - test/examples/vendor/angular-chart.js/dist/angular-chart.css
-    merge: true
   themes:
     -
-      autoprefixer: true
-      compile: test/examples/sass/theme-one/import.scss
+      autoprefixer: false
+      compile: test/import.scss
       csslint: false
-      file: frontsize.theme-one.css
-      fonts: test/examples/sass/theme-one/fonts/**/*.*
-      images: test/examples/sass/theme-one/images/**/*.*
+      file: frontsize.test.css
       merge: false
-      name: theme-one
-      path: test/results/css/custom/
+      name: test
       stylestats: false
-    -
-      autoprefixer: false
-      compile: test/examples/sass/theme-two/import.scss
-      csslint: false
-      file: frontsize.theme-two.css
-      name: theme-two
-      stylestats: false
-    -
-      autoprefixer: false
-      compile: test/examples/less/theme-three/import.less
-      csslint: true
-      file: frontsize.theme-three.css
-      name: theme-three
-      stylestats: false
-  watch: test/examples/sass/**/*.scss
-
-js:
-  file: dustman.min.js
-  files:
-    - test/examples/js/*
-  vendors:
-    file: vendors.min.js
-    files:
-      - test/examples/vendor/angular/angular.js
-      - test/examples/vendor/angular-animate/angular-animate.js
-      - test/examples/vendor/angular-bootstrap/ui-bootstrap-tpls.js
-      - test/examples/vendor/angular-bootstrap/ui-bootstrap.js
-      - test/examples/vendor/Chart.js/Chart.js
-      - test/examples/vendor/angular-chart.js/dist/angular-chart.js
-      - test/examples/vendor/angular-cookies/angular-cookies.js
-      - test/examples/vendor/angular-dynamic-locale/dist/tmhDynamicLocale.js
-      - test/examples/vendor/angular-flash/angular-flash.js
-      - test/examples/vendor/angular-route/angular-route.js
-    merge: true
-    path: test/results/js/custom/
-  watch: test/examples/js/**/*.js
+  watch: test/scss/**/*.scss
 
 paths:
-  css: test/results/css
-  fonts: test/results/fonts/
-  images: test/results/img/
-  js: test/results/js/
-  server: test/results/
+  css: test/css
 
 tasks:
   - css
-  - js
-  - html
-
-html:
-  engine: html
-  files:
-    - test/examples/html/index.html
-  watch: test/examples/html/**/*.html
-
-shell:
-  before:
-    - echo this is a shell message before build start
-  after:
-    - echo this is a shell message to the end of the build
-
-vendors:
-  fonts:
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.eot
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.svg
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.ttf
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.woff
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.woff2
-    - test/examples/vendor/font-awesome/fonts/FontAwesome.otf
-  images:
-    - test/examples/vendor/font-awesome/fonts/fontawesome-webfont.svg

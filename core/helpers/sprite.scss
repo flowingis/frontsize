@@ -1,11 +1,10 @@
-/*
-.selector {
-  @include sprite(1 1, 32px) {
-    background-image: file('sprite-image.svg');
-    @include sprite-modifier('info', 1 2);
-  }
-}
-*/
+// .selector {
+//   @include sprite(1 2, 32px 30px) {
+//     background-image: theme('sprite-image.svg');
+//     @include sprite-modifier('open', 1 1);
+//     @include sprite-modifier('close', 1 2);
+//   }
+// }
 
 $-sprite-width: false;
 $-sprite-height: false;
@@ -67,16 +66,23 @@ $-sprite-whole-map: false;
   width: s($scale, $width);
 }
 
-@mixin sprite($whole-map: 1 1, $width: 0, $height: $width) {
+@mixin sprite($whole-map: 1 1, $size-map: 0px 0px) {
+  $width: nth($size-map, 1);
+  $height: nth($size-map, 1);
+
+  @if (length($size-map) == 2) {
+    $height: nth($size-map, 2);
+  }
+
   $-sprite-width: $width !global;
   $-sprite-height: $height !global;
   $-sprite-whole-map: $whole-map !global;
 
-  @content;
   background-repeat: no-repeat;
   background-size: (nth($whole-map, 1) * $width) (nth($whole-map, 2) * $height);
   height: $height;
   width: $width;
+  @content;
 
   $-sprite-width: false !global;
   $-sprite-height: false !global;

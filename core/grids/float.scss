@@ -1,3 +1,10 @@
+// .selector {
+//   @include float-col((
+//     '>=desktop-small': 3,
+//     '<=tablet-large': 6,
+//   ), 12);
+// }
+
 @mixin float-row($rules: null, $total-columns: 12) {
   clear: both;
   display: block;
@@ -22,6 +29,16 @@
           width: step($column-number, $total-columns);
         }
       }
+    }
+  }
+}
+
+@mixin float-col($rules: null, $total-columns: 12) {
+  display: block;
+  float: left;
+  @each $rule, $column-number in $rules {
+    @include media($rule) {
+      width: step($column-number, $total-columns);
     }
   }
 }

@@ -50,7 +50,7 @@
   },
   "main": "compile.scss",
   "dependencies": {
-    "dustman": "^1.4.25"
+    "dustman": "^1.5.41"
   },
   "engines": {
     "node": ">=0.8.0"
@@ -59,6 +59,7 @@
     "url": "https://github.com/ideatosrl/frontsize-sass/issues"
   },
   "scripts": {
-    "install": "cp ./node_modules/dustman/gulpfile.js gulpfile.js"
+    "install": "cp ./node_modules/dustman/gulpfile.js gulpfile.js",
+    "test": "./node_modules/.bin/gulp && node test/test.js"
   }
 }

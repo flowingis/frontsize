@@ -1,21 +1,10 @@
 
-$use-core-base: true !default;
+$use-core-base: true;
+
+$path-fonts: 'production/img/theme/fonts/';
+$path-images: 'production/img/theme/img/';
+
+$bem-element: '__';
+$bem-modifier: '--';
+
 $spacing: 20px;
-
-@function viewport($attribute) {
-  @return get((
-      'phone-small': 320px,
-      'phone-large': 480px,
-      'tablet-small': 768px,
-      'tablet-large': 1024px,
-      'desktop-small': 1280px,
-      'desktop-large': 1800px
-  ), $attribute);
-}
-
-@function path($attribute) {
-  @return get((
-      'fonts': 'production/img/theme/fonts/',
-      'images': 'production/img/theme/img/'
-  ), $attribute);
-}

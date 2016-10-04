@@ -22,10 +22,9 @@
     ".gitignore",
     ".sass-lint.yml",
     ".travis.yml",
-    "bower_components",
     "composer.json",
     "node_modules",
-    "themes/test",
+    "vendor",
     "test"
   ],
   "dependencies": {
