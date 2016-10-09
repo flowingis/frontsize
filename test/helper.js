@@ -1,25 +1,55 @@
 var fs = require('fs');
-var colors = require('colors');
+require('colors');
 var exec = require('shelljs').exec;
+var sass = require('node-sass');
+var diff = require('node-diff');
 
-exports.test = function(searchTerm) {
-  var fileLocation = 'test/css/frontsize.test.css';
-  fs.readFile(fileLocation, function (err, data) {
-    if (err) throw err;
-    console.log('');
-    if (data.indexOf(searchTerm) > -1) {
-      console.log('Test:\n', searchTerm, '\nSUCCESS');
-    } else {
-      console.log(colors.red('Test:'));
-      console.log(colors.red(searchTerm));
-      console.log(colors.red('ERROR: String not found in ' + fileLocation));
-      process.exit();
-    }
+
+
+var currCol = 0;
+var maxCols = 10;
+
+var checkString = function(searchTerm, cssData) {
+  currCol += 1;
+  var returnChar = '';
+  if (currCol === maxCols) {
+    returnChar = '\n';
+    currCol = 0;
+  }
+
+  if (cssData.indexOf(searchTerm) > -1) {
+    process.stdout.write('.');
+  } else {
+    process.stdout.write('\033[31mF' + returnChar);
+    console.log('\nTest failed on file: ' + process.mainModule.filename);
+  }
+};
+
+var cleanCss = function(css) {
+  var re = /(^\/\*)(.|[\r\n])*(\*\/$)/gm;
+  return css.replace(re, '').trim();
+};
+
+exports.test = function(test) {
+  var result = sass.renderSync({
+    data: '@import "test/import";' + test.expect.trim(),
+    outputStyle: 'expanded'
   });
+  checkString(test.toBe.trim(), cleanCss(result.css.toString('utf8')));
+};
+
+exports.check = function(test) {
+  var result = sass.renderSync({
+    data: '@import "test/import";' + test.expect.trim(),
+    outputStyle: 'expanded'
+  });
+  console.log(cleanCss(result.css.toString('utf8')));
+  process.exit();
 };
 
 exports.run = function(scripts) {
-  for (var i = 0; i < scripts.length; i++) {
+  for (var i = 0; i < scripts.length; i += 1) {
     exec('node ' + scripts[i]);
   }
+  console.log('');
 };

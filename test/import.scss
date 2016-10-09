@@ -1,8 +1,13 @@
+$use-core-base: false;
+$use-core-print: false;
 @import '../themes/_config/import';
-@import '../core/core';
+@import 'scss/vars';
 
-@import 'scss/components-bem';
-@import 'scss/functions-background';
-@import 'scss/grids-float';
-@import 'scss/helpers-font';
-@import 'scss/helpers-sprite';
+// @import 'scss/components-bem';
+// @import 'scss/functions-background';
+// @import 'scss/grids-flex';
+// @import 'scss/grids-float';
+// @import 'scss/helpers-font';
+// @import 'scss/helpers-sprite';
+
+// @import 'scss/theme';

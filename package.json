@@ -50,7 +50,9 @@
   },
   "main": "compile.scss",
   "dependencies": {
-    "dustman": "^1.5.41"
+    "dustman": "^1.5.43",
+    "node-diff": "^0.2.0",
+    "node-sass": "^3.10.1"
   },
   "engines": {
     "node": ">=0.8.0"
@@ -60,6 +62,7 @@
   },
   "scripts": {
     "install": "cp ./node_modules/dustman/gulpfile.js gulpfile.js",
-    "test": "./node_modules/.bin/gulp && node test/test.js"
+    "test": "./node_modules/.bin/gulp && node test/test.js",
+    "test-sass": "node test/test.js"
   }
 }

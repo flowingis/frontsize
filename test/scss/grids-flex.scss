@@ -1,0 +1,21 @@
+.grids-flex-automatic {
+  display: flex;
+}
+
+.grids-flex-automatic__col {
+  background-color: $color-grid-background;
+  border: 1px solid $color-grid-border;
+  border-radius: 4px;
+  color: darken($color-grid-background, 40%);
+  flex: 1;
+  margin: 4px;
+  padding: 16px;
+}
+
+.grids-felex-2 {
+  display: flex;
+}
+
+.grids-felex-2__col {
+
+}

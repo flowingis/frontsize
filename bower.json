@@ -1,6 +1,6 @@
 {
   "name": "frontsize-sass",
-  "version": "3.12.68",
+  "version": "4.0.0",
   "homepage": "https://github.com/ideatosrl/frontsize-sass",
   "authors": [
     "Alessandro Minoccheri <alessandro.minoccheri@gmail.com>",
@@ -30,5 +30,8 @@
   "dependencies": {
     "normalize-css": "^4.1.1",
     "include-media": "^1.4.4"
+  },
+  "devDependencies": {
+    "roboto-fontface": "^0.5.0"
   }
 }

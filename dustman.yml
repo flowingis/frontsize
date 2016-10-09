@@ -16,6 +16,12 @@ config:
   verbose: 3
   verify: false
 
+html: # optional [required by sub task html if used]
+  engine: twig # optional [html]
+  watch: test/twig/views/**/*.twig
+  files:
+    - test/twig/views/grids-flex.twig
+
 css:
   themes:
     -
@@ -30,6 +36,8 @@ css:
 
 paths:
   css: test/css
+  server: test/html
 
 tasks:
   - css
+  - html

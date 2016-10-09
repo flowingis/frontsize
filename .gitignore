@@ -50,6 +50,7 @@ node_modules
 bower_components
 .sass-cache
 /test/css
+/test/html
 /img
 /frontsize.yml
 /vendor
