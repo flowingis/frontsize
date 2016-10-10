@@ -8,7 +8,6 @@ before_install:
     # - gem install casperjs
     - npm install dustman
     - npm install -g bower
-    - npm install -g gulp
 
 # before_script:
 #     - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
@@ -20,5 +19,5 @@ before_install:
 
 script:
     - bower install
-    - gulp
+    - ./node_modules/.bin/gulp
     - npm run-script test
