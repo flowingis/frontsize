@@ -4,6 +4,7 @@
   border-radius: 4px;
   color: darken($color-grid-background, 40%);
   padding: 8px;
+  white-space: nowrap;
 }
 
 %grid-flex-container {
@@ -26,6 +27,10 @@
 .grids-flex-2 {
   @extend %grid-flex-container;
   display: flex;
+
+  @include modifier('wrap') {
+    flex-wrap: wrap; // child items will behave with multi-line to prevent content oveflow
+  }
 }
 
 .grids-flex-2__col {
