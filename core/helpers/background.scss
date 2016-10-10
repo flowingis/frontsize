@@ -8,6 +8,7 @@
   background-image: theme($background-image);
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-size: contain;
   height: $height;
   width: $width;
   @content;

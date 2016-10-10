@@ -1,11 +1,4 @@
-/*!
-Frontsize: http://frontsize.com
-GitHub:    https://github.com/ideatosrl/frontsize-sass
-License:   MIT Licence
-Version:   4.0.0
-Date:      -
-Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
-*/
+@import 'info';
 
 @charset 'UTF-8';
 
@@ -18,7 +11,6 @@ Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 @import 'components/bem';
 @import 'components/print';
 
-@import 'grids/flex';
 @import 'grids/float';
 
 @import 'helpers/background';
@@ -26,35 +18,4 @@ Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
 @import 'helpers/font';
 @import 'helpers/sprite';
 
-// @import 'grids/old/flex';
-// @import 'grids/old/float';
-// @import 'grids/old/grid';
-// @import 'grids/old/text-column';
-
-// @import 'components/public';
-// @import 'components/private';
-// @import 'components/bem-expressive';
-// @import 'components/bem';
-// @import 'components/margin';
-//
-// @import 'helpers/background';
-// @import 'helpers/background-retina';
-// @import 'helpers/border';
-// @import 'helpers/color';
-// @import 'helpers/compatibility';
-// @import 'helpers/filter';
-// @import 'helpers/font';
-// @import 'helpers/positioning';
-// @import 'helpers/sizing';
-// @import 'helpers/sprite-retina';
-// @import 'helpers/sprite';
-// @import 'helpers/table';
-// @import 'helpers/text';
-// @import 'helpers/transform';
-//
-// @import 'components/padding';
-// @import 'components/typography';
-// @import 'components/sizing';
-// @import 'components/print';
-//
-@import 'base';
+@import 'components/base';

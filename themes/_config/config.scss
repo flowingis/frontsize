@@ -2,10 +2,11 @@
 $use-core-base: true !default;
 $use-core-print: true !default;
 
-$path-fonts: 'production/img/theme/fonts/';
-$path-images: 'production/img/theme/img/';
+$path-fonts: 'production/img/theme/fonts/' !default;
+$path-images: 'production/img/theme/img/' !default;
 
-$bem-element: '__';
-$bem-modifier: '--';
+$bem-element: '__' !default;
+$bem-modifier: '--' !default;
 
-$spacing: 20px;
+$spacing: 20px !default;
+$row-columns: 12 !default;

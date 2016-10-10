@@ -5,7 +5,7 @@
 //   ), 12);
 // }
 
-@mixin float-row($rules: null, $total-columns: 12) {
+@mixin float-row($rules: null, $total-columns: $row-columns) {
   clear: both;
   display: block;
   width: auto;
@@ -33,7 +33,7 @@
   }
 }
 
-@mixin float-col($rules: null, $total-columns: 12) {
+@mixin float-col($rules: null, $total-columns: $row-columns) {
   display: block;
   float: left;
   @each $rule, $column-number in $rules {

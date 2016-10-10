@@ -31,7 +31,7 @@ exports.ctest = function(test) {
     outputStyle: 'expanded'
   });
   console.log('\n\n' + cleanCss(result.css.toString('utf8')));
-  process.exit();
+  process.exit(1);
 };
 
 exports.run = function(scripts) {

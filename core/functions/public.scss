@@ -14,12 +14,8 @@
   }
 }
 
-@function step($step, $total-steps: 12) {
+@function step($step, $total-steps: $row-columns) {
   @return ($step * 100 / $total-steps) * 1%;
-}
-
-@function remove-unit($num) {
-  @return ($num / ($num * 0 + 1));
 }
 
 @function get($map, $attribute) {

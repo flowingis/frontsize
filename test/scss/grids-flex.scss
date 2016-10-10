@@ -4,7 +4,7 @@
   border-radius: 4px;
   color: darken($color-grid-background, 40%);
   padding: 8px;
-  white-space: nowrap;
+  transition: background-color 0.25s ease-in-out;
 }
 
 %grid-flex-container {
@@ -15,18 +15,24 @@
 .grids-flex-automatic {
   @extend %grid-flex-container;
   display: flex;
+  flex-flow: row no-wrap;
 }
 
 .grids-flex-automatic__col {
   @extend %grid-flex-col;
-  flex: 1;
+  flex: 1 100%;
   margin: 4px;
-  padding: 16px;
+
+  @include media('<=tablet-large') {
+    background-color: yellow;
+    flex-basis: auto;
+  }
 }
 
 .grids-flex-2 {
   @extend %grid-flex-container;
   display: flex;
+  flex-direction: row; // default, from left to right
 
   @include modifier('wrap') {
     flex-wrap: wrap; // child items will behave with multi-line to prevent content oveflow
@@ -47,4 +53,5 @@
 .grids-flex-2__col-2 {
   @extend %grid-flex-col;
   flex-grow: 2; // element will fill the row twice then an element flex-grow: 1; and so on
+  // flex-shrink: 1;
 }

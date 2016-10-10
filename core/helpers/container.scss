@@ -1,11 +1,11 @@
 // .selector {
-//   @include limiter((
+//   @include limit((
 //     '>=desktop-small': 1280px,
 //     '<=tablet-large': 1280px
 //   ));
 // }
 
-@mixin limiter($rules) {
+@mixin limit($rules) {
   margin: auto;
   @each $rule, $width in $rules {
     @include media($rule) {
