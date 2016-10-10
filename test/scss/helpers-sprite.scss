@@ -1,7 +1,0 @@
-.sprite-selector {
-  @include sprite(1 2, 32px 30px) {
-    background-image: theme('sprite-image.svg');
-    @include sprite-modifier('open', 1 1);
-    @include sprite-modifier('close', 1 2);
-  }
-}

@@ -1,23 +1,28 @@
-var test = require('../helper').test;
+var helper = require('../helper');
 
-test(
+helper.test({
+expect:
+`.sprite-selector {
+  @include sprite(1 2, 32px 32px) {
+    background-image: theme('sprite-image.svg');
+    @include sprite-modifier('open', 1 1);
+    @include sprite-modifier('close', 1 2);
+  }
+}`,
+toBe:
 `.sprite-selector {
   background-repeat: no-repeat;
-  background-size: 32px 60px;
-  height: 30px;
+  background-size: 32px 64px;
+  height: 32px;
   width: 32px;
   background-image: url("production/img/theme/img/sprite-image.svg");
-}`
-);
+}
 
-test(
-`.sprite-selector--open {
+.sprite-selector--open {
   background-position: 0 0;
-}`
-);
+}
 
-test(
-`.sprite-selector--close {
-  background-position: 0 -30px;
+.sprite-selector--close {
+  background-position: 0 -32px;
 }`
-);
+});

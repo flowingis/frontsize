@@ -15,6 +15,7 @@ toBe:
   display: block;
   width: auto;
 }
+
 .row::after {
   clear: both;
   content: '';

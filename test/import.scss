@@ -1,13 +1,7 @@
 $use-core-base: false;
 $use-core-print: false;
-@import '../themes/_config/import';
-@import 'scss/vars';
 
-// @import 'scss/components-bem';
-// @import 'scss/functions-background';
-// @import 'scss/grids-flex';
-// @import 'scss/grids-float';
-// @import 'scss/helpers-font';
-// @import 'scss/helpers-sprite';
-
-// @import 'scss/theme';
+@import '../themes/_config/config';
+@import '../themes/_config/vars';
+@import '../themes/_config/vendor/include-media';
+@import '../core/test';

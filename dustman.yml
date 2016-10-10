@@ -26,7 +26,7 @@ css:
   themes:
     -
       autoprefixer: false
-      compile: test/import.scss
+      compile: test/scss/import.scss
       csslint: false
       file: frontsize.test.css
       merge: false

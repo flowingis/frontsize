@@ -1,21 +1,45 @@
+%grid-flex-col {
+  background-color: $color-grid-background;
+  border: 1px solid $color-grid-border-dark;
+  border-radius: 4px;
+  color: darken($color-grid-background, 40%);
+  padding: 8px;
+}
+
+%grid-flex-container {
+  border: 1px solid $color-grid-border-dark;
+  border-radius: 4px;
+}
+
 .grids-flex-automatic {
+  @extend %grid-flex-container;
   display: flex;
 }
 
 .grids-flex-automatic__col {
-  background-color: $color-grid-background;
-  border: 1px solid $color-grid-border;
-  border-radius: 4px;
-  color: darken($color-grid-background, 40%);
+  @extend %grid-flex-col;
   flex: 1;
   margin: 4px;
   padding: 16px;
 }
 
-.grids-felex-2 {
+.grids-flex-2 {
+  @extend %grid-flex-container;
   display: flex;
 }
 
-.grids-felex-2__col {
+.grids-flex-2__col {
+  @extend %grid-flex-col;
+  flex-grow: 0; // default, element is length as it content
+}
 
+.grids-flex-2__col-1 {
+  @extend %grid-flex-col;
+  flex-grow: 1; // element will fill the row
+  margin: 8px;
+}
+
+.grids-flex-2__col-2 {
+  @extend %grid-flex-col;
+  flex-grow: 2; // element will fill the row twice then an element flex-grow: 1; and so on
 }
