@@ -52,7 +52,7 @@ Then change core references to let it point on bower folder:
 
 In `frontsize-sass/themes/_config/import.scss` file:
 
-```
+```less
 // from:
 // @import '../../core/import';
 // to:
