@@ -12,6 +12,10 @@
       "email": "cs@ideato.it"
     },
     {
+      "name": "Moreno Giorgini",
+      "email": "mg@ideato.it"
+    },
+    {
       "name": "Vittorio Vittori",
       "email": "me@vittoriovittori.com"
     }
@@ -61,8 +65,8 @@
     "url": "https://github.com/ideatosrl/frontsize-sass/issues"
   },
   "scripts": {
-    "install": "cp ./node_modules/dustman/gulpfile.js gulpfile.js",
-    "test-all": "./node_modules/.bin/gulp && node test/test.js",
+    "build": "cp ./node_modules/dustman/gulpfile.js gulpfile.js || false && npm run-script test",
+    "http": "./node_modules/.bin/gulp -S http",
     "test": "node test/test.js"
   }
 }

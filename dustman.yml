@@ -21,6 +21,7 @@ html: # optional [required by sub task html if used]
   watch: test/twig/views/**/*.twig
   files:
     - test/twig/views/grids-flex.twig
+    - test/twig/views/grids-float.twig
 
 css:
   themes:
@@ -32,7 +33,7 @@ css:
       merge: false
       name: test
       stylestats: false
-  watch: test/scss/**/*.scss
+  watch: test/**/*.scss
 
 paths:
   css: test/css

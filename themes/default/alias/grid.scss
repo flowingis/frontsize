@@ -1,34 +1,13 @@
-@mixin column(
-    $hdFullStep          : false,
-    $hdReadyStep         : false,
-    $tabletLandscapeStep : false,
-    $tabletPortraitStep  : false,
-    $mobileLandscapeStep : false,
-    $mobilePortraitStep  : false,
-    $totalSteps          : 24
-    ) {
-    @include setFloatGridColumn($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+@mixin col($rules, $total-columns: $row-columns) {
+  @include float-col($rules, $total-columns);
 }
 
-@mixin columnOffset(
-    $hdFullStep          : false,
-    $hdReadyStep         : false,
-    $tabletLandscapeStep : false,
-    $tabletPortraitStep  : false,
-    $mobileLandscapeStep : false,
-    $mobilePortraitStep  : false,
-    $totalSteps          : 24
-    ) {
-    @include setFloatGridOffset($hdFullStep, $hdReadyStep, $tabletLandscapeStep, $tabletPortraitStep, $mobileLandscapeStep, $mobilePortraitStep, $totalSteps);
+@mixin col-offset($rules, $total-columns: $row-columns) {
+  @include float-col-offset($rules, $total-columns);
 }
 
-@mixin row(
-    $hdFullSteps          : 0,
-    $hdReadySteps         : $hdFullSteps,
-    $tabletLandscapeSteps : $hdReadySteps,
-    $tabletPortraitSteps  : $tabletLandscapeSteps,
-    $mobileLandscapeSteps : 1,
-    $mobilePortraitSteps  : 1
-    ) {
-    @include setFloatGridContainer($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $mobileLandscapeSteps, $mobilePortraitSteps);
+@mixin row($rules, $total-columns: $row-columns) {
+  @include float-row($rules, $total-columns) {
+    @content;
+  };
 }

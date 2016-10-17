@@ -5,7 +5,7 @@
 //   ), 12);
 // }
 
-@mixin float-row($rules: null, $total-columns: $row-columns) {
+@mixin float-row($rules: null, $total-columns: $row-columns-total) {
   clear: both;
   display: block;
   width: auto;
@@ -21,24 +21,48 @@
   }
 
   @if $rules != null {
-    @include element('column') {
+    @include element($row-columns-name) {
       display: block;
       float: left;
+      width: 100%;
+
+      @content;
+
       @each $rule, $column-number in $rules {
-        @include media($rule) {
-          width: step($column-number, $total-columns);
+        @include media($rule...) {
+          @if ($row-columns-style == 'classic') {
+            $nth-child: ($total-columns / $column-number) + 1;
+            &:nth-child(#{$nth-child}n + #{$nth-child}) {
+              clear: both;
+            }
+            width: step($column-number, $total-columns);
+          } @else {
+            $nth-child: $column-number + 1;
+            &:nth-child(#{$nth-child}n + #{$nth-child}) {
+              clear: both;
+            }
+            width: 100% / $column-number;
+          }
         }
       }
     }
   }
 }
 
-@mixin float-col($rules: null, $total-columns: $row-columns) {
+@mixin float-col($rules: null, $total-columns: $row-columns-total) {
   display: block;
   float: left;
   @each $rule, $column-number in $rules {
     @include media($rule) {
       width: step($column-number, $total-columns);
+    }
+  }
+}
+
+@mixin float-col-offset($rules: null, $total-columns: $row-columns-total) {
+  @each $rule, $column-number in $rules {
+    @include media($rule) {
+      margin-left: step($column-number, $total-columns);
     }
   }
 }

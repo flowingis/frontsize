@@ -1,8 +1,8 @@
 frontsize
 =========
 
-[![Version](http://img.shields.io/:version-3.12.68-E7C04B.svg)][release]
-[![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
+[![Version](http://img.shields.io/:version-4.0.0-E7C04B.svg)](https://github.com/ideatosrl/frontsize-sass/releases/tag/4.0.0)
+[![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=release-4)](https://travis-ci.org/ideatosrl/frontsize-sass/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
 [![Join the chat at https://gitter.im/ideatosrl/frontsize-sass](http://img.shields.io/:gitter-join chat-00AFFF.svg)](https://gitter.im/ideatosrl/frontsize-sass?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -127,4 +127,3 @@ Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ide
 [site]:              http://frontsize.com
 [vitto]:             https://twitter.com/vttrx
 [sassdoc]:           http://sassdoc.com/
-[release]:           https://github.com/ideatosrl/frontsize-sass/releases/tag/3.12.68

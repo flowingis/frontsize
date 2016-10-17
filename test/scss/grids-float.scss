@@ -1,0 +1,11 @@
+.grids-float-row {
+  @include row((
+      '>=phone-small', '<phone-large': 1,
+      '>=phone-large', '<tablet-small': 2,
+      '>=tablet-small', '<tablet-large': 3,
+      '>=tablet-large': 4
+  )) {
+    border: 1px solid #dcdcdc;
+    padding: s(1);
+  }
+}
