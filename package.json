@@ -55,6 +55,10 @@
   "main": "compile.scss",
   "dependencies": {
     "dustman": "^1.5.43",
+    "include-media": "^1.4.8",
+    "sass-resolution": "^1.0.0"
+  },
+  "devDependencies": {
     "node-diff": "^0.2.0",
     "node-sass": "^3.10.1"
   },
