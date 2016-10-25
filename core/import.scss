@@ -2,7 +2,9 @@
 
 @charset 'UTF-8';
 
-@import '../../vendor/include-media/dist/_include-media';
+@import '../../include-media/dist/_include-media';
+@import '../../normalize.css/normalize.css';
+@import '../../sass-resolution/_resolution';
 
 @import 'functions/public';
 @import 'functions/background';

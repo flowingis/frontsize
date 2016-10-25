@@ -23,30 +23,7 @@
   "license": "MIT",
   "homepage": "http://frontsize.com",
   "keywords": [
-    "css",
-    "front-end",
-    "framework",
-    "responsive",
-    "theme",
-    "compile sass",
-    "css nesting",
-    "css variable",
-    "gradients css",
-    "gradients css3",
-    "sass",
-    "sass compiler",
-    "sass css",
-    "sass mixins",
-    "lesscss",
-    "mixins",
-    "nested css",
-    "parser",
-    "preprocessor",
-    "style",
-    "styles",
-    "stylesheet",
-    "variables in css",
-    "css sass"
+    "sass", "css", "framework"
   ],
   "repository": {
     "type": "git",
@@ -55,6 +32,7 @@
   "main": "compile.scss",
   "dependencies": {
     "include-media": "^1.4.8",
+    "normalize.css": "^5.0.0",
     "sass-resolution": "^1.0.0"
   },
   "devDependencies": {
