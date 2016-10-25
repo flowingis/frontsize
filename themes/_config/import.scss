@@ -4,6 +4,6 @@
 @import 'vendor/include-media';
 
 // points to frontsize folder, usually:
-// @import 'bower_components/frontsize-sass/core/core'
-// @import 'node_modules/frontsize-sass/core/core'
+// @import 'bower_components/frontsize-sass/core/import';
+// @import 'node_modules/frontsize-sass/core/import';
 @import '../../core/import';
