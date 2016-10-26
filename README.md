@@ -19,7 +19,7 @@ Frontsize is not a set of widgets ready to be used in your website, it's a set o
 
 - It's [BEM][bem] ready
 - It's build to work with multiple themes in the same project
-- It works fine with [dustman][dustman], a Gulp environment boilerplate built to build multiple themes
+- It works fine with [dustman][dustman], a Gulp environment boilerplate built to work with multiple themes
 - It's born to be flexible and customization oriented
 
 ---
