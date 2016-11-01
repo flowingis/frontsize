@@ -1,8 +1,8 @@
 {
-    "name": "ideatosrl/frontsize-sass",
+    "name": "ideatosrl/frontsize",
     "description": "a fully customizable CSS generator",
     "keywords": ["frontsize", "css", "sass"],
-    "homepage": "https://github.com/ideatosrl/frontsize-sass",
+    "homepage": "https://github.com/ideatosrl/frontsize",
     "authors": [
         {
             "name": "Vittorio Vittori"
@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/ideatosrl/frontsize-sass/issues"
+        "issues": "https://github.com/ideatosrl/frontsize/issues"
     },
     "license": "MIT",
     "extra": {
