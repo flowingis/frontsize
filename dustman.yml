@@ -20,14 +20,13 @@ html: # optional [required by sub task html if used]
   engine: twig # optional [html]
   watch: test/twig/views/**/*.twig
   files:
-    - test/twig/views/grids-flex.twig
     - test/twig/views/grids-float.twig
 
 css:
   themes:
     -
       autoprefixer: false
-      compile: test/scss/import.scss
+      compile: test/import.scss
       csslint: false
       file: frontsize.test.css
       merge: false
@@ -41,4 +40,3 @@ paths:
 
 tasks:
   - css
-  - html
