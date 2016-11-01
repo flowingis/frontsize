@@ -1,11 +1,55 @@
-@mixin element($name) {
-  @at-root &#{$bem-element}#{$name} {
+$bem-element: '__' !default;
+$bem-modifier: '--' !default;
+$-bem-block-name: '' !default;
+
+@mixin block($block-name) {
+  $-bem-block-name: '.#{$block-name}' !global;
+
+  #{$-bem-block-name} {
     @content;
+  }
+  $-bem-block-name: '' !global;
+}
+
+@mixin element($element-name) {
+  $element-name: #{$bem-element}#{$element-name};
+  @if str-index(inspect(&), $bem-element) {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
+  } @else if  str-index(inspect(&), ':hover') {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
+  } @else {
+    @at-root &#{$element-name} {
+      @content;
+    }
   }
 }
 
-@mixin modifier($name) {
-  @at-root &#{$bem-modifier}#{$name} {
-    @content;
+@mixin modifier($modifier-name) {
+  $modifier-name: #{$bem-modifier}#{$modifier-name};
+
+  @if str-index(inspect(&), ':hover') {
+    $element-name: str-replace(nth(str-explode(inspect(&), ':'), 1), '(', '');
+    $length: length(str-explode(inspect(&), ' '));
+
+    @if $length >= 2 {
+      @at-root &#{$modifier-name} {
+        $parent: &;
+        @content;
+      }
+    } @else {
+      $element-name: nth($element-name, 1);
+
+      &#{$element-name}#{$modifier-name} {
+        @content;
+      }
+    }
+  } @else {
+    &#{$modifier-name} {
+      @content;
+    }
   }
 }

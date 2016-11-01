@@ -26,3 +26,72 @@ toBe:
   background-color: #ff4343;
 }`
 });
+
+helper.ctest({
+expect:
+`@include block(block) {
+  @include modifier('parent-modifier') {
+    content: '.block--parent-modifier';
+  }
+
+  &:hover{
+    @include element('element') {
+      content: '.block:hover .block__element';
+      @include modifier('modifier') {
+        content: '.block:hover .block__element--modifier';
+      }
+    }
+  }
+
+  @include element('element') {
+    content: '.block__element';
+    @include modifier('child-modifier') {
+      content: '.block__element--child-modifier';
+    }
+    &:hover {
+      @include element('element-child') {
+        content: '.block__element:hover .block__element-child';
+        @include modifier('modifier') {
+          content: '.block__element:hover .block__element-child--modifier';
+        }
+      }
+      @include modifier('modifier') {
+        content: '.block__element:hover.block__element--modifier';
+      }
+    }
+  }
+}`,
+toBe:
+`.block--parent-modifier {
+  content: '.block--parent-modifier';
+}
+
+.block:hover .block__element {
+  content: '.block:hover .block__element';
+}
+
+.block:hover .block__element--modifier {
+  content: '.block:hover .block__element--modifier';
+}
+
+.block__element {
+  content: '.block__element';
+}
+
+.block__element--child-modifier {
+  content: '.block__element--child-modifier';
+}
+
+.block__element:hover .block__element-child {
+  content: '.block__element:hover .block__element-child';
+}
+
+.block__element:hover .block__element-child--modifier {
+  content: '.block__element:hover .block__element-child--modifier';
+}
+
+.block__element:hover.block__element--modifier {
+  content: '.block__element:hover.block__element--modifier';
+}
+`
+});
