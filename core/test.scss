@@ -3,21 +3,7 @@
 @charset 'UTF-8';
 
 @import '../node_modules/include-media/dist/_include-media';
-@import '../node_modules/normalize.css/normalize.css';
+@import '../node_modules/normalize-scss/sass/_normalize';
 @import '../node_modules/sass-resolution/_resolution';
 
-@import 'functions/public';
-@import 'functions/background';
-@import 'functions/ease';
-
-@import 'components/bem';
-@import 'components/print';
-
-@import 'grids/float';
-
-@import 'helpers/background';
-@import 'helpers/container';
-@import 'helpers/font';
-@import 'helpers/sprite';
-
-@import 'components/base';
+@import 'core';

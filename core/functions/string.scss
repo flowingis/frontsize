@@ -1,0 +1,25 @@
+@function str-explode($string, $dem) {
+  $list: ();
+  $sum: str-length($string);
+  @for $i from 1 through $sum {
+    $str: str-index($string, $dem);
+    @if str-length($string) >= 1 and $str == null {
+      $list: append($list, $string);
+      $string: '';
+    }
+    @if type-of($str) == number {
+      $each: str-slice($string, 0, ($str - 1));
+      $list: append($list, $each);
+      $string: str-slice($string, ($str + 1), $sum);
+    }
+  }
+  @return $list;
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
