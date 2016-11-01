@@ -1,7 +1,7 @@
 {
-  "name": "frontsize-sass",
+  "name": "frontsize",
   "version": "4.0.0",
-  "homepage": "https://github.com/ideatosrl/frontsize-sass",
+  "homepage": "https://github.com/ideatosrl/frontsize",
   "authors": [
     "Alessandro Minoccheri <alessandro.minoccheri@gmail.com>",
     "Carla Soloperto <cs@ideato.it>",
