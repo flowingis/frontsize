@@ -1,5 +1,5 @@
 {
-  "name": "frontsize-sass",
+  "name": "frontsize",
   "version": "4.0.0",
   "description": "A fully customizable CSS generator to ease your life.",
   "authors": [
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ideatosrl/frontsize-sass.git"
+    "url": "https://github.com/ideatosrl/frontsize.git"
   },
   "main": "compile.scss",
   "dependencies": {
@@ -47,7 +47,7 @@
     "node": ">=0.8.0"
   },
   "bugs": {
-    "url": "https://github.com/ideatosrl/frontsize-sass/issues"
+    "url": "https://github.com/ideatosrl/frontsize/issues"
   },
   "scripts": {
     "build": "cp ./node_modules/dustman/gulpfile.js gulpfile.js || false && npm run-script test",
