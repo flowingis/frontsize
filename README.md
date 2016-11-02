@@ -36,7 +36,7 @@ Once you have downloaded it, copy your theme to the project front-end developmen
 cp -r node_modules/frontsize-sass/themes frontend/frontsize
 ```
 
-Then change core references to let it point on bower folder:
+Then change core references to let it point to module folder:
 
 In `frontend/frontsize/themes/_config/import.scss` file:
 
