@@ -1,16 +1,11 @@
----
->-
-  Frontsize is not a set of widgets ready to be used in your website, it's a set
-  of mixins and functions to build BEM widgets, it's not intended to give you a
-  set of selectors, ready to be used in your style guide, this is a tool to
-  generate your sets.
----
-
 # frontsize
 
 [![Version](http://img.shields.io/:version-4.0.0-E7C04B.svg)](https://github.com/ideatosrl/frontsize-sass/releases/tag/4.0.0) [![TravisCI](https://travis-ci.org/ideatosrl/frontsize-sass.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize-sass/builds) [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/) [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md) [![Join the chat at https://gitter.im/ideatosrl/frontsize-sass](http://img.shields.io/:gitter-join chat-00AFFF.svg)](https://gitter.im/ideatosrl/frontsize-sass?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-The project was [originally developed in LESS][less], now only the SASS version is matained.
+>  Frontsize is not a set of widgets ready to be used in your website, it's a set
+>  of mixins and functions to build BEM widgets, it's not intended to give you a
+>  set of selectors, ready to be used in your style guide, this is a tool to
+>  generate your sets.
 
 ## Main features
 
@@ -18,6 +13,8 @@ The project was [originally developed in LESS][less], now only the SASS version 
 - It's build to work with multiple themes in the same project
 - It works fine with [dustman], a Gulp environment boilerplate built to work with multiple themes
 - It's born to be flexible and customization oriented
+
+The project was [originally developed in LESS][less], now only the SASS version is matained.
 
 --------------------------------------------------------------------------------
 
