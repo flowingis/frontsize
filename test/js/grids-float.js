@@ -25,7 +25,6 @@ toBe:
   clear: both;
   content: '';
   display: block;
-  float: left;
   height: 1px;
   margin-top: -1px;
   width: 100%;
@@ -102,7 +101,6 @@ toBe:
   clear: both;
   content: '';
   display: block;
-  float: left;
   height: 1px;
   margin-top: -1px;
   width: 100%;
@@ -151,3 +149,23 @@ toBe:
   }
 }`
 });
+
+// helper.test({
+// expect:
+// `$row-columns-style: 'frontsize';
+// $row-columns-name: 'col';
+// $row-columns-total: 12;
+// .column {
+//   @include float-col((
+//       '>=phone-small', '<phone-large': 12,
+//       '>=phone-large', '<tablet-small': 6,
+//       '>=tablet-small', '<tablet-large': 4,
+//       '>=tablet-large': 3
+//   )) {
+//     padding: s(1);
+//   }
+// }
+// `,
+// toBe:
+// ``
+// });

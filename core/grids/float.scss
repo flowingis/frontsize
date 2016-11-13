@@ -14,7 +14,6 @@
     clear: both;
     content: '';
     display: block;
-    float: left;
     height: 1px;
     margin-top: -1px;
     width: 100%;
@@ -31,17 +30,19 @@
       @each $rule, $column-number in $rules {
         @include media($rule...) {
           @if ($row-columns-style == 'classic') {
-            $nth-child: ($total-columns / $column-number) + 1;
-            &:nth-child(#{$nth-child}n + #{$nth-child}) {
-              clear: both;
-            }
             width: step($column-number, $total-columns);
-          } @else {
-            $nth-child: $column-number + 1;
+            $nth-child: ($total-columns / $column-number) + 1;
+
             &:nth-child(#{$nth-child}n + #{$nth-child}) {
               clear: both;
             }
+          } @else {
             width: 100% / $column-number;
+            $nth-child: $column-number + 1;
+
+            &:nth-child(#{$nth-child}n + #{$nth-child}) {
+              clear: both;
+            }
           }
         }
       }

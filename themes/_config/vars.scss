@@ -1,7 +1,13 @@
 
-$font-family-sans: 'helvetica, arial, sans-serif';
-$font-family-serif: 'georgia, "times new roman", times, serif';
-$font-family-monospace: 'menlo, monaco, "courier new", monospace';
+$font-family-sans: helvetica, arial, sans-serif;
+$font-family-serif: georgia, 'times new roman', times, serif;
+$font-family-monospace: menlo, monaco, 'courier new', monospace;
+
+$color-primary: #fff;
+$color-secondary: #135aa3;
+$color-tertiary: #47b0ec;
+
+$color-text: #3f494f;
 
 $color-status-info: rgb(81, 215, 223);
 $color-status-warning: rgb(246, 225, 82);

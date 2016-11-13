@@ -1,0 +1,30 @@
+$debug-box-shadow: inset 0 0 0 1px;
+$debug-color-off: rgba(255, 0, 255, 0.3) !default;
+$debug-color-on: rgba(255, 0, 255, 0.6) !default;
+$debug-duration: 4s !default;
+
+@mixin debug {
+  @keyframes f-debug-highlight {
+    0% {
+      box-shadow: $debug-box-shadow $debug-color-off;
+    }
+
+    50% {
+      box-shadow: $debug-box-shadow $debug-color-on;
+    }
+
+    100% {
+      box-shadow: $debug-box-shadow $debug-color-off;
+    }
+  }
+
+  animation: f-debug-highlight $debug-duration infinite;
+  box-shadow: $debug-box-shadow $debug-color-off;
+  min-height: 3px;
+
+  * {
+    animation: f-debug-highlight $debug-duration infinite;
+    box-shadow: $debug-box-shadow $debug-color-off;
+    min-height: 3px;
+  }
+}

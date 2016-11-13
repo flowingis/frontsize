@@ -50,7 +50,9 @@
     "url": "https://github.com/ideatosrl/frontsize/issues"
   },
   "scripts": {
-    "build": "cp ./node_modules/dustman/gulpfile.js gulpfile.js || false && npm run-script test",
+    "install": "npm install && cp ./node_modules/dustman/gulpfile.js gulpfile.js || false",
+    "update": "npm update --save && cp ./node_modules/dustman/gulpfile.js gulpfile.js || false",
+    "build": "./node_modules/.bin/gulp -S",
     "http": "./node_modules/.bin/gulp -S http",
     "test": "node test/test.js"
   }

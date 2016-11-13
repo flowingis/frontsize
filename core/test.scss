@@ -3,7 +3,10 @@
 @charset 'UTF-8';
 
 @import '../node_modules/include-media/dist/_include-media';
-@import '../node_modules/normalize-scss/sass/_normalize';
+@mixin normalize {
+  // normalize skipped
+  // @import '../node_modules/normalize-scss/sass/_normalize';
+}
 @import '../node_modules/sass-resolution/_resolution';
 
 @import 'core';

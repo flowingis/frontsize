@@ -12,6 +12,7 @@ run([
   'test/js/functions-step.js',
   'test/js/grids-float.js',
   'test/js/helpers-container.js',
+  'test/js/helpers-debug.js',
   'test/js/helpers-font.js',
   'test/js/helpers-icon.js',
   'test/js/helpers-sprite.js'

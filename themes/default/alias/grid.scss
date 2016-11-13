@@ -1,12 +1,12 @@
-@mixin col($rules, $total-columns: $row-columns) {
+@mixin col($rules, $total-columns: $row-columns-total) {
   @include float-col($rules, $total-columns);
 }
 
-@mixin col-offset($rules, $total-columns: $row-columns) {
+@mixin col-offset($rules, $total-columns: $row-columns-total) {
   @include float-col-offset($rules, $total-columns);
 }
 
-@mixin row($rules, $total-columns: $row-columns) {
+@mixin row($rules, $total-columns: $row-columns-total) {
   @include float-row($rules, $total-columns) {
     @content;
   };

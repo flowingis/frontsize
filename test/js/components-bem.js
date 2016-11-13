@@ -27,7 +27,7 @@ toBe:
 }`
 });
 
-helper.ctest({
+helper.test({
 expect:
 `@include block(block) {
   @include modifier('parent-modifier') {
