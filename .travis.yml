@@ -7,10 +7,8 @@ before_install:
   - npm install -g bower
   - npm install dustman
 
-before_script:
-  - cp ./node_modules/dustman/gulpfile.js .
-
 script:
   - bower install
-  - ./node_modules/.bin/gulp
+  - npm run-script setup
+  - npm run-script build
   - npm run-script test
