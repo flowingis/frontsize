@@ -1,9 +1,14 @@
-// .selector {
-//   @include limit((
-//     '>=desktop-small': 1280px,
-//     '<=tablet-large': 1280px
-//   ));
-// }
+@mixin has-parent($parent) {
+  @if (str-index($parent, '.') or str-index($parent, '#')) {
+    #{$parent} & {
+      @content;
+    }
+  } @else {
+    .#{$parent} & {
+      @content;
+    }
+  }
+}
 
 @mixin limit($rules) {
   margin: auto;
