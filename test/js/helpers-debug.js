@@ -31,7 +31,7 @@ toBe:
 }`
 });
 
-helper.ctest({
+helper.test({
 expect:
 `
 $debug-duration: 2s;
