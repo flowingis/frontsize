@@ -65,7 +65,7 @@ $-bem-block-name: '' !default;
 
 /*
   @a-pollo
-  @auth: Vittorio Vittori
+  @author: Vittorio Vittori
   @category: BEM
   @code: Example on using the mixin with some static property
     @include block (button) {
@@ -99,7 +99,7 @@ $-bem-block-name: '' !default;
 
 /*
   @a-pollo
-  @auth: Vittorio Vittori
+  @author: Vittorio Vittori
   @category: BEM
   @code: You must wrap `element` mixin inside `block` mixin
     @include block (button) {
@@ -140,7 +140,7 @@ $-bem-block-name: '' !default;
 
 /*
   @a-pollo
-  @auth: Vittorio Vittori
+  @author: Vittorio Vittori
   @category: BEM
   @code: Modifiers can be applied to `block` or `element` mixins
     @include block (button) {
