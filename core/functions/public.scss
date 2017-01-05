@@ -1,3 +1,29 @@
+/*
+  @a-pollo
+  @author: Vittorio Vittori
+  @category: Functions
+  @code: Usage example
+    .selector {
+      width: scale-value(40px, 0.5);
+    }
+  @css: The CSS generated
+    .selector {
+      width: 20px;
+    }
+  @date: 2017-01-05T15:01:54+01:00
+  @type: function
+  @icon: fa fa-terminal
+  @name: scale-value
+  @param: {unit-value} ($value) [required]
+          The unit value to be scaled, es: `10px`, `2em`, etc.
+  @param: {number} ($scale) [required]
+          The scale number to change the value, es: `0.5`, `1`, `1.75`, etc.
+  @public: true
+  @returns: unit-value
+  @text: Scales unit values passed, the return value will be rounded.
+  @version: 4.0.0
+*/
+
 @function scale-value($value, $scale) {
   @return round($value * $scale);
 }

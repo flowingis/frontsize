@@ -84,7 +84,7 @@ $-bem-block-name: '' !default;
       padding: 4px 8px;
     }
   @date: 2016-12-28T17:40:42+01:00
-  @doc: mixin
+  @type: mixin
   @html: A simple HTML element to see how mixin works
     <a class="button" href="#">Visit this link</a>
   @icon: fa fa-css3
@@ -123,7 +123,7 @@ $-bem-block-name: '' !default;
       font-size: 12px;
     }
   @date: 2016-12-28T18:09:00+01:00
-  @doc: mixin
+  @type: mixin
   @html: Elements should be inside a parent block
     <a class="button" href="#">
       <span class="button__text">Visit this link</span>
@@ -166,7 +166,7 @@ $-bem-block-name: '' !default;
       background: #f02052;
     }
   @date: 2016-12-28T18:09:00+01:00
-  @doc: mixin
+  @type: mixin
   @html: Remember to keep the modifier's original block or element selector
     <a class="button button--error" href="#">Click here to report the error</a>
   @icon: fa fa-css3
