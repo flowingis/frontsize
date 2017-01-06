@@ -13,6 +13,24 @@
   }
 }
 
+/*
+  @a-pollo-snippet
+  @name: button-social
+  @auth: [Vittorio Vittori](http://vit.to)
+  @date: 2017-01-06T17:50:18+01:00
+  @category: Buttons
+  @text: The base usage without styles of the button, this component **requires** [FontAwesome](http://fontawesome.github.io) to be loaded as dependency.
+  @html:
+    <a href="#" class="button-social">
+      <div class="button-social__icon">
+        <i class="fa fa-dashboard"></i>
+      </div>
+      <div class="button-social__network">
+        Button
+      </div>
+    </a>
+*/
+
 .button-social {
 
   border-radius: 4px;
@@ -42,17 +60,17 @@
 
   /*
     @a-pollo-snippet
-    @name: button-social--github
+    @name: button-social--small
     @auth: [Vittorio Vittori](http://vit.to)
     @date: 2015-12-03
     @text: The GitHub version with `button-social--small` and `button-social--with-effects` modifiers.
     @html:
       <a href="#" class="button-social button-social--small">
         <div class="button-social__icon">
-          <i class="fa fa-github-alt"></i>
+          <i class="fa fa-compress"></i>
         </div>
         <div class="button-social__network">
-          github
+          Small button
         </div>
       </a>
   */
@@ -69,15 +87,15 @@
     @a-pollo-snippet
     @name: button-social--rounded
     @auth: [Vittorio Vittori](http://vit.to)
-    @date: 2016-01-10
+    @date: 2017-01-06T17:54:08+01:00
     @text: This Facebook version has also `button-social--rounded` modifier to set it with rounded corners.
     @html:
-      <a href="#" class="button-social button-social--facebook button-social--big button-social--rounded">
+      <a href="#" class="button-social button-social--rounded">
         <div class="button-social__icon">
-          <i class="fa fa-facebook"></i>
+          <i class="fa fa-life-ring"></i>
         </div>
         <div class="button-social__network">
-          facebook
+          Rounded button
         </div>
       </a>
   */
@@ -89,17 +107,17 @@
 
   /*
     @a-pollo-snippet
-    @name: button-social--facebook
+    @name: button-social--big
     @auth: [Vittorio Vittori](http://vit.to)
     @date: 2016-01-09
     @text: This Facebook version has also `button-social--big` modifier to make it bigger.
     @html:
-      <a href="#" class="button-social button-social--facebook button-social--big">
+      <a href="#" class="button-social button-social--big">
         <div class="button-social__icon">
-          <i class="fa fa-facebook"></i>
+          <i class="fa fa-expand"></i>
         </div>
         <div class="button-social__network">
-          facebook
+          Big button
         </div>
       </a>
   */
@@ -110,17 +128,15 @@
   /*
     @a-pollo-snippet
     @auth: [Vittorio Vittori](http://vit.to)
-    @name: button-social--twitter
-    @date: 2015-12-02
-    @icon: fa fa-twitter
-    @text:  This twitter version has also `button-social--with-effects` modifier to show drop shadow effects
+    @name: button-social--with-effects
+    @date: 2017-01-06T17:56:58+01:00
     @html:
-      <a href="#" class="button-social button-social--twitter button-social--with-effects">
+      <a href="#" class="button-social button-social--with-effects">
         <div class="button-social__icon">
-          <i class="fa fa-twitter"></i>
+          <i class="fa fa-magic"></i>
         </div>
         <div class="button-social__network">
-          twitter
+          Button with effects
         </div>
       </a>
   */
@@ -133,9 +149,7 @@
   /*
     @a-pollo-snippet
     @auth: [Vittorio Vittori](http://vit.to)
-    @category: Buttons
-    @date: 2015-12-01
-    @icon: fa fa-facebook
+    @date: 2017-01-06T17:57:20+01:00
     @name: button-social--facebook
     @html:
       <a href="#" class="button-social button-social--facebook">
@@ -146,7 +160,7 @@
           facebook
         </div>
       </a>
-    @text: This should be used to connect social accounts to the project service. It requires http://fontawesome.github.io to be loaded as dependency. The code above will show the Facebook version.
+    @text: This should be used to connect social accounts to the project service.
   */
   @include modifier ('facebook') {
     @include -button-social(white, #3b5998);
@@ -156,9 +170,7 @@
     @a-pollo-snippet
     @auth: [Vittorio Vittori](http://vit.to)
     @name: button-social--twitter
-    @date: 2015-12-02
-    @icon: fa fa-twitter
-    @text:  This twitter version has also `button-social--with-effects` modifier to show drop shadow effects
+    @date: 2017-01-06T18:01:30+01:00
     @html:
       <a href="#" class="button-social button-social--twitter button-social--with-effects">
         <div class="button-social__icon">
@@ -177,10 +189,9 @@
     @a-pollo-snippet
     @name: button-social--github
     @auth: [Vittorio Vittori](http://vit.to)
-    @date: 2015-12-03
-    @text: The GitHub version with `button-social--small` and `button-social--with-effects` modifiers.
+    @date: 2017-01-06T17:59:33+01:00
     @html:
-      <a href="#" class="button-social button-social--github button-social--with-effects button-social--small">
+      <a href="#" class="button-social button-social--github">
         <div class="button-social__icon">
           <i class="fa fa-github-alt"></i>
         </div>
@@ -196,12 +207,10 @@
   /*
     @a-pollo-snippet
     @auth: [Vittorio Vittori](http://vit.to)
-    @date: 2016-01-08
-    @icon: fa fa-google
+    @date: 2017-01-06T18:02:15+01:00
     @name: button-social--google-plus
-    @text: The Google Plus version has also `button-social--small` modifier to make it smaller.
     @html:
-      <a href="#" class="button-social button-social--google-plus button-social--small">
+      <a href="#" class="button-social button-social--google-plus">
         <div class="button-social__icon">
           <i class="fa fa-google-plus"></i>
         </div>
