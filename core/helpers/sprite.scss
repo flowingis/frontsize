@@ -95,7 +95,7 @@ $-sprite-whole-map: false;
   $height: $-sprite-height;
   $whole-map: $-sprite-whole-map;
 
-  @include modifier($selector) {
+  &#{$bem-modifier}#{$selector} {
     @content;
     @include -sprite-position($sprite-map, s($scale, $width), s($scale, $height));
     @if ($scale != 1) {

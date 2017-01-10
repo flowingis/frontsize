@@ -20,7 +20,7 @@
   }
 
   @if $rules != null {
-    @include element($row-columns-name) {
+    &#{$bem-element}#{$row-columns-name} {
       display: block;
       float: left;
       width: 100%;

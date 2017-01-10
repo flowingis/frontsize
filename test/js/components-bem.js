@@ -2,7 +2,7 @@ var helper = require('../helper');
 
 helper.test({
 expect:
-`.components-bem {
+`@include block(components-bem) {
   display: block;
 
   @include element('element') {

@@ -41,7 +41,6 @@ $-bem-block-name: '' !default;
   @include -bem-check-wrapper;
 
   @if str-index(inspect(&), ':hover') {
-    $element-name: str-replace(nth(str-explode(inspect(&), ':'), 1), '(', '');
     $length: length(str-explode(inspect(&), ' '));
 
     @if $length >= 2 {
@@ -50,7 +49,7 @@ $-bem-block-name: '' !default;
         @content;
       }
     } @else {
-      $element-name: nth($element-name, 1);
+      $element-name: nth(str-replace(nth(str-explode(inspect(&), ':'), 1), '(', ''), 1);
 
       &#{$element-name}#{$modifier-name} {
         @content;
