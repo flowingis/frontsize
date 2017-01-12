@@ -5,6 +5,13 @@ expect:
 `@include block(components-bem) {
   display: block;
 
+  @include modifier('modifier') {
+    background-color: rgb(150, 0, 255);
+    @include element('element') {
+      background-color: rgb(255, 153, 0);
+    }
+  }
+
   @include element('element') {
     background-color: rgb(0, 67, 255);
 
@@ -16,6 +23,14 @@ expect:
 toBe:
 `.components-bem {
   display: block;
+}
+
+.components-bem--modifier {
+  background-color: #9600ff;
+}
+
+.components-bem--modifier .components-bem__element {
+  background-color: #ff9900;
 }
 
 .components-bem__element {

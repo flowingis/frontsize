@@ -29,6 +29,10 @@ $-bem-block-name: '' !default;
     & #{$-bem-block-name}#{$element-name} {
       @content;
     }
+  } @else if str-index(inspect(&), $bem-modifier) {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
   } @else {
     @at-root &#{$element-name} {
       @content;
