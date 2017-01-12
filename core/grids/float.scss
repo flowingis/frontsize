@@ -40,7 +40,7 @@
             width: 100% / $column-number;
             $nth-child: $column-number + 1;
 
-            &:nth-child(#{$nth-child}n + #{$nth-child}) {
+            &:nth-child(#{$column-number}n + #{$nth-child}) {
               clear: both;
             }
           }

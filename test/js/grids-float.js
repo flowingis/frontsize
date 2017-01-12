@@ -5,10 +5,9 @@ expect:
 `$row-columns-style: 'frontsize';
 .row {
   @include float-row((
-      '>=phone-small', '<phone-large': 1,
-      '>=phone-large', '<tablet-small': 2,
-      '>=tablet-small', '<tablet-large': 3,
-      '>=tablet-large': 4
+    ('<=mobile-small', '<=mobile-large'): 2,
+    ('>mobile-large', '<=tablet-large'): 4,
+    '>tablet-large': 5
   )) {
     padding: s(1);
   }
@@ -37,38 +36,29 @@ toBe:
   padding: 20px;
 }
 
-@media (min-width: 320px) and (max-width: 479px) {
-  .row__column {
-    width: 100%;
-  }
-  .row__column:nth-child(2n + 2) {
-    clear: both;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
+@media (max-width: 320px) and (max-width: 480px) {
   .row__column {
     width: 50%;
   }
-  .row__column:nth-child(3n + 3) {
+  .row__column:nth-child(2n + 3) {
     clear: both;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .row__column {
-    width: 33.33333%;
-  }
-  .row__column:nth-child(4n + 4) {
-    clear: both;
-  }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   .row__column {
     width: 25%;
   }
-  .row__column:nth-child(5n + 5) {
+  .row__column:nth-child(4n + 5) {
+    clear: both;
+  }
+}
+
+@media (min-width: 1025px) {
+  .row__column {
+    width: 20%;
+  }
+  .row__column:nth-child(5n + 6) {
     clear: both;
   }
 }`
@@ -81,8 +71,8 @@ $row-columns-name: 'col';
 $row-columns-total: 12;
 .row {
   @include float-row((
-      '>=phone-small', '<phone-large': 12,
-      '>=phone-large', '<tablet-small': 6,
+      '>=mobile-small', '<mobile-large': 12,
+      '>=mobile-large', '<tablet-small': 6,
       '>=tablet-small', '<tablet-large': 4,
       '>=tablet-large': 3
   )) {
@@ -149,23 +139,3 @@ toBe:
   }
 }`
 });
-
-// helper.test({
-// expect:
-// `$row-columns-style: 'frontsize';
-// $row-columns-name: 'col';
-// $row-columns-total: 12;
-// .column {
-//   @include float-col((
-//       '>=phone-small', '<phone-large': 12,
-//       '>=phone-large', '<tablet-small': 6,
-//       '>=tablet-small', '<tablet-large': 4,
-//       '>=tablet-large': 3
-//   )) {
-//     padding: s(1);
-//   }
-// }
-// `,
-// toBe:
-// ``
-// });
