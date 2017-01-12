@@ -1,8 +1,14 @@
 @import 'config';
 
 // points to frontsize folder, usually:
-// @import 'bower_components/frontsize/core/import';
+
+// @import '../../bower_components/frontsize/core/vendors';
+// @import '../../bower_components/frontsize/core/import';
+// or
+// @import '../../node_modules/frontsize/core/vendors';
 // @import '../../node_modules/frontsize/core/import';
+
+@import '../../core/vendors';
 @import '../../core/import';
 
 @import 'vendor/include-media';
