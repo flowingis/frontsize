@@ -1,7 +1,5 @@
 @import 'info';
-
 @charset 'UTF-8';
-
 @import '../node_modules/include-media/dist/_include-media';
 @mixin normalize {
   // normalize skipped
@@ -9,5 +7,4 @@
 }
 @import '../node_modules/sass-resolution/_resolution';
 @import '../node_modules/spinners/stylesheets/_spinners';
-
 @import 'core';
