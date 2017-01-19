@@ -1,6 +1,7 @@
 $bem-element: '__' !default;
 $bem-modifier: '--' !default;
 $-bem-block-name: '' !default;
+$-bem-element-name: '';
 
 @mixin -bem-check-wrapper {
   @if $-bem-block-name == '' {
@@ -11,7 +12,7 @@ $-bem-block-name: '' !default;
 @mixin block ($block-name) {
   $-bem-block-name: '.#{$block-name}' !global;
 
-  #{$-bem-block-name} {
+  .#{$block-name} {
     @content;
   }
   $-bem-block-name: '' !global;
@@ -19,6 +20,8 @@ $-bem-block-name: '' !default;
 
 @mixin element ($element-name) {
   $element-name: #{$bem-element}#{$element-name};
+  $-bem-element-name: $element-name !global;
+
   @include -bem-check-wrapper;
 
   @if str-index(inspect(&), $bem-element) {
@@ -38,6 +41,7 @@ $-bem-block-name: '' !default;
       @content;
     }
   }
+  $-bem-element-name: '' !global;
 }
 
 @mixin modifier ($modifier-name) {

@@ -6,6 +6,9 @@
 // }
 
 @mixin float-row-column ($rules, $total-columns) {
+  display: block;
+  float: left;
+  width: 100%;
   @each $rule, $column-number in $rules {
     @include media($rule...) {
       @if ($row-columns-style == 'classic') {
@@ -43,20 +46,22 @@
 
   @if $rules != null {
     @if $-bem-block-name != '' {
-      @include element ($row-columns-name) {
-        display: block;
-        float: left;
-        width: 100%;
-        @content;
-        @include float-row-column($rules, $total-columns);
+      @if $-bem-element-name == '' {
+        @include element ($row-columns-name) {
+          @include float-row-column($rules, $total-columns);
+          @content;
+        }
+      } @else {
+        @at-root #{$-bem-block-name}#{$-bem-element-name}-#{$row-columns-name} {
+          @include float-row-column($rules, $total-columns);
+          @content;
+        }
       }
+
     } @else {
-      &#{$bem-element}#{$row-columns-name} {
-        display: block;
-        float: left;
-        width: 100%;
-        @content;
+      .#{$row-columns-name} {
         @include float-row-column($rules, $total-columns);
+        @content;
       }
     }
   }
