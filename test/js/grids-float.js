@@ -3,7 +3,7 @@ var helper = require('../helper');
 helper.test({
 expect:
 `$row-columns-style: 'frontsize';
-.row {
+@include block ('row') {
   @include float-row((
     ('<=mobile-small', '<=mobile-large'): 2,
     ('>mobile-large', '<=tablet-large'): 4,

@@ -5,7 +5,29 @@
 //   ), 12);
 // }
 
-@mixin float-row($rules: null, $total-columns: $row-columns-total) {
+@mixin float-row-column ($rules, $total-columns) {
+  @each $rule, $column-number in $rules {
+    @include media($rule...) {
+      @if ($row-columns-style == 'classic') {
+        width: step($column-number, $total-columns);
+        $nth-child: ($total-columns / $column-number) + 1;
+
+        &:nth-child(#{$nth-child}n + #{$nth-child}) {
+          clear: both;
+        }
+      } @else {
+        width: 100% / $column-number;
+        $nth-child: $column-number + 1;
+
+        &:nth-child(#{$column-number}n + #{$nth-child}) {
+          clear: both;
+        }
+      }
+    }
+  }
+}
+
+@mixin float-row ($rules: null, $total-columns: $row-columns-total) {
   clear: both;
   display: block;
   width: auto;
@@ -20,31 +42,21 @@
   }
 
   @if $rules != null {
-    &#{$bem-element}#{$row-columns-name} {
-      display: block;
-      float: left;
-      width: 100%;
-
-      @content;
-
-      @each $rule, $column-number in $rules {
-        @include media($rule...) {
-          @if ($row-columns-style == 'classic') {
-            width: step($column-number, $total-columns);
-            $nth-child: ($total-columns / $column-number) + 1;
-
-            &:nth-child(#{$nth-child}n + #{$nth-child}) {
-              clear: both;
-            }
-          } @else {
-            width: 100% / $column-number;
-            $nth-child: $column-number + 1;
-
-            &:nth-child(#{$column-number}n + #{$nth-child}) {
-              clear: both;
-            }
-          }
-        }
+    @if $-bem-block-name != '' {
+      @include element ($row-columns-name) {
+        display: block;
+        float: left;
+        width: 100%;
+        @content;
+        @include float-row-column($rules, $total-columns);
+      }
+    } @else {
+      &#{$bem-element}#{$row-columns-name} {
+        display: block;
+        float: left;
+        width: 100%;
+        @content;
+        @include float-row-column($rules, $total-columns);
       }
     }
   }
