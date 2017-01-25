@@ -28,7 +28,7 @@ $-bem-element-name: '';
     & #{$-bem-block-name}#{$element-name} {
       @content;
     }
-  } @else if  str-index(inspect(&), ':hover') {
+  } @else if str-index(inspect(&), ':hover') {
     & #{$-bem-block-name}#{$element-name} {
       @content;
     }
