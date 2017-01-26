@@ -5,7 +5,7 @@
 //   ), 12);
 // }
 
-@mixin float-row-column ($rules, $total-columns) {
+@mixin -float-row-column ($rules, $total-columns) {
   display: block;
   float: left;
   width: 100%;
@@ -48,19 +48,19 @@
     @if $-bem-block-name != '' {
       @if $-bem-element-name == '' {
         @include element ($row-columns-name) {
-          @include float-row-column($rules, $total-columns);
+          @include -float-row-column($rules, $total-columns);
           @content;
         }
       } @else {
         @at-root #{$-bem-block-name}#{$-bem-element-name}-#{$row-columns-name} {
-          @include float-row-column($rules, $total-columns);
+          @include -float-row-column($rules, $total-columns);
           @content;
         }
       }
 
     } @else {
       .#{$row-columns-name} {
-        @include float-row-column($rules, $total-columns);
+        @include -float-row-column($rules, $total-columns);
         @content;
       }
     }
