@@ -3,13 +3,11 @@ $font-family-sans: helvetica, arial, sans-serif;
 $font-family-serif: georgia, 'times new roman', times, serif;
 $font-family-monospace: menlo, monaco, 'courier new', monospace;
 
-$color-primary: #fff;
-$color-secondary: #135aa3;
-$color-tertiary: #47b0ec;
-
-$color-text: #3f494f;
-
-$color-status-info: rgb(81, 215, 223);
-$color-status-warning: rgb(246, 225, 82);
-$color-status-success: rgb(177, 232, 75);
-$color-status-error: rgb(246, 96, 141);
+$color-azure: #135aa3; /* @a-pollo-color: Azure */
+$color-candy-corn: rgb(246, 225, 82); /* @a-pollo-color: Candy corn */
+$color-conifer: rgb(177, 232, 75); /* @a-pollo-color */
+$color-cranberry: rgb(246, 96, 141); /* @a-pollo-color */
+$color-limed-spruce: #3f494f; /* @a-pollo-color */
+$color-picton-blue: #47b0ec; /* @a-pollo-color */
+$color-turquoise-blue: rgb(81, 215, 223); /* @a-pollo-color */
+$color-white: #fff; /* @a-pollo-color */
