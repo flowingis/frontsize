@@ -35,12 +35,18 @@
   @author: Vittorio Vittori
   @category: Background
   @code: Usage example
-    .selector {
+    .selector-a {
       background-image: vertical-gradient(#ff724d, 10%);
     }
+    .selector-b {
+      background-image: vertical-gradient(#80c6ff, #0082e6);
+    }
   @css: CSS generated
-    .selector {
+    .selector-a {
       background-image: linear-gradient("top, #ff9a80 0%, #ff4a1a 100%");
+    }
+    .selector-b {
+      background-image: linear-gradient("top, #80c6ff 0%, #0082e6 100%");
     }
   @date: 2017-02-20T17:06:06+01:00
   @type: function
@@ -57,7 +63,7 @@
 
 
 @function vertical-gradient($color-base, $strength-or-color: 5%) {
-  @if (unit($strength-or-color) == %) {
+  @if (str-index(inspect($strength-or-color), '%')) {
     $strength: $strength-or-color;
     $color-top: saturate(lighten($color-base, $strength), $strength / 2);
     $color-bottom: saturate(darken($color-base, $strength), $strength / 2);
