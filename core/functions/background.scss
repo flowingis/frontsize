@@ -1,11 +1,62 @@
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @category: Background
+  @code: Example on using the mixin with some static property
+    .selector {
+      background-image: theme('image.svg');
+    }
+  @css: This is the CSS generated
+    .selector {
+      background-image: url('path/to/image.svg');
+    }
+  @date: 2017-02-20T17:06:06+01:00
+  @type: function
+  @name: theme
+  @param: {string} ($image) [required]
+          An image file **without** the relative or absolute path
+  @param: {string} ($path) [$path-images]
+          The relative or absolute path to override, by default is based on core var `$path-images` used in config
+  @public: true
+  @returns: css
+  @text: Returns a css `url` parameter, this should be used with `$path-images` core var
+  @version: 4.0.0
+*/
+
 @function theme($image, $path: $path-images) {
   @if (str-index($image, '/') != null) {
-    @error 'You should only use filename like theme(\'image.svg\'). \nAvoid paths like theme(\'../path/to/image.svg\'). \nResolve the path with $path variable in your config file.\nIf you need a different location, use: theme(\'image.svg\', \'http://cdn.com/\')';
+    @error 'You should only use filename like theme(\'image.svg\'). \nAvoid paths like theme(\'../path/to/image.svg\'). \nResolve the path with $path-images variable in your config file.\nIf you need a different location, use: theme(\'image.svg\', \'http://cdn.com/\')';
   }
   @return url('#{$path}#{$image}');
 }
 
-@function vertical-gradient($color-base: #777, $strength-or-color: 5%) {
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @category: Background
+  @code: Usage example
+    .selector {
+      background-image: vertical-gradient(#ff724d, 10%);
+    }
+  @css: CSS generated
+    .selector {
+      background-image: linear-gradient("top, #ff9a80 0%, #ff4a1a 100%");
+    }
+  @date: 2017-02-20T17:06:06+01:00
+  @type: function
+  @name: vertical-gradient
+  @param: {string} ($color-base) [required]
+          A color value
+  @param: {string} ($strength-or-color) [5%]
+          You have two usages, the % strength contrast to the color base or the bottom color for `grandient` paramter generated
+  @public: true
+  @returns: css
+  @text: Returns a css `grandient` parameter, this should be used with `$path-images` core var
+  @version: 4.0.0
+*/
+
+
+@function vertical-gradient($color-base, $strength-or-color: 5%) {
   @if (unit($strength-or-color) == %) {
     $strength: $strength-or-color;
     $color-top: saturate(lighten($color-base, $strength), $strength / 2);

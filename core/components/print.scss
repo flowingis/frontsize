@@ -1,3 +1,19 @@
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @category: Core vars
+  @code: To use media query default print behavior just set to `true` the var `$use-core-print`
+    $use-core-print: true
+  @date: 2017-02-20T17:01:46+01:00
+  @type: var
+  @name: Print
+  @param: {boolean} ($use-core-print) [true]
+          Enables CSS default print media query behavior
+  @public: true
+  @text: This core var is used for print media query behavior
+  @version: 4.0.0
+*/
+
 @if $use-core-print == true {
 
   $important: !important;
@@ -15,7 +31,7 @@
       color: $color-ink $important;
       background-image: none $important;
       background-color: white $important;
-      border: 0 solid white $important;
+      border: 0 $important;
       box-shadow: $shadow;
       border-radius: $border;
       text-shadow: 0 0 0 white $important;

@@ -1,3 +1,19 @@
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @category: Core vars
+  @code: To use core base reset behavior just set to `true` the var `$use-core-base`
+    $use-core-base: true
+  @date: 2017-02-20T14:48:35+01:00
+  @type: var
+  @name: Base
+  @param: {boolean} ($use-core-base) [true]
+          Enables CSS core reset styles
+  @public: true
+  @text: This core var is used to load default reset CSS behavior
+  @version: 4.0.0
+*/
+
 @if $use-core-base == true {
 
   * {
