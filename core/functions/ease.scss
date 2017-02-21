@@ -18,6 +18,7 @@
   @public: true
   @returns: css
   @text: Returns a css `ease` effect for the css `transition` parameters, you have these effects:
+
     | Easing | Equivalent CSS easing |
     |-|-|
     | `in-back` | `cubic-bezier(0.6, -0.28, 0.735, 0.045)` |
