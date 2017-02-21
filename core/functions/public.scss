@@ -1,6 +1,6 @@
 /*
   @a-pollo-doc
-  @author: Vittorio Vittori
+  @author: [Vittorio Vittori](http://github.com/vitto)
   @category: Functions
   @code: Usage example
     .selector {
@@ -28,9 +28,64 @@
   @return round($value * $scale);
 }
 
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    $spacing: 20px;
+    .selector {
+      padding: spacing(1.5);
+    }
+  @css: The CSS generated
+    .selector {
+      padding: 30px;
+    }
+  @date: 2017-02-21T14:14:40+01:00
+  @type: function
+  @icon: fa fa-expand
+  @name: spacing
+  @param: {number} ($scale) [1]
+          The number used to scale `$spacing` core var
+  @public: true
+  @returns: unit-value
+  @text: Scales `$spacing` core var based on a numeric parameter
+  @version: 4.0.0
+*/
+
 @function spacing($scale: 1) {
   @return scale-value($spacing, $scale);
 }
+
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    $spacing: 20px;
+    $margin: 7px;
+    .selector {
+      margin: s(2, $margin);
+      padding: s(1.5);
+    }
+  @css: The CSS generated
+    .selector {
+      margin: 14px;
+      padding: 30px;
+    }
+  @date: 2017-02-21T14:19:02+01:00
+  @type: function
+  @icon: fa fa-expand
+  @name: s
+  @param: {number} ($scale) [1]
+          The number used to scale the `$value` passed or to scale `$spacing` core var if `$value` is not passed
+  @param: {unit-value} ($value) [null]
+          The unit value scaled by `$scale` parameter
+  @public: true
+  @returns: unit-value
+  @text: Works as function `scale-value` if you pass all parameters. Works as function `spacing` if you skip the second parameter.
+  @version: 4.0.0
+*/
 
 @function s($scale: 1, $value: null) {
   @if $value == null {
@@ -40,15 +95,72 @@
   }
 }
 
-@function step($step, $total-steps: $row-columns-total) {
-  @return ($step * 100 / $total-steps) * 1%;
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    .selector {
+      width: step(4, 12);
+    }
+  @css: The CSS generated
+    .selector {
+      width: 33.33333%;
+    }
+  @date: 2017-02-21T14:30:00+01:00
+  @type: function
+  @icon: fa fa-balance-scale
+  @name: step
+  @param: {integer} ($grid-columns-used) [1]
+          Used to set the current column size based on `$grid-columns-total` parameter
+  @param: {integer} ($grid-columns-total) [$row-columns-total]
+          The ratio of the grid system you are adding
+  @public: true
+  @returns: unit-value
+  @text: A step function to generate grid system sizes.
+  @version: 4.0.0
+*/
+
+@function step($grid-columns-used, $grid-columns-total: $row-columns-total) {
+  @return ($grid-columns-used * 100 / $grid-columns-total) * 1%;
 }
 
-@function get($map, $attribute) {
-  @if map-has-key($map, $attribute) {
-    @return map-get($map, $attribute);
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    $rgb: (
+      'red': #f00,
+      'green': #0f0,
+      'blue': #00f
+    );
+    .selector {
+      background-color: get($rgb, 'green');
+    }
+  @css: The CSS generated
+    .selector {
+      background-color: #0f0;
+    }
+  @date: 2017-02-21T15:14:17+01:00
+  @type: function
+  @icon: fa fa-filter
+  @name: get
+  @param: {map} ($map) [required]
+          The [map](http://www.sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) to be filtered
+  @param: {string} ($key) [required]
+          The key to filter, will return it's value
+  @public: true
+  @returns: unit-value
+  @text: A step function to generate grid system sizes.
+  @version: 4.0.0
+*/
+
+@function get($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
   } @else {
-    @error 'No attribute \'#{$attribute}\' found inside map #{$map}\n'
+    @error 'No attribute key \'#{$key}\' found inside map #{$map}\n'
     + 'Please checkout your code to fine where is the problem.';
   }
 }

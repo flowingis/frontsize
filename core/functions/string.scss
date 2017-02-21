@@ -1,8 +1,35 @@
-@function str-explode($string, $dem) {
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    $list: str-explode('hello world',  ' ');
+    .selector {
+      content: nth($list, 1);
+    }
+  @css: The CSS generated
+    .selector {
+      content: "hello";
+    }
+  @date: 2017-02-21T12:57:57+01:00
+  @type: function
+  @icon: fa fa-scissors
+  @name: str-explode
+  @param: {string} ($string) [required]
+          The string you want to split
+  @param: {string} ($split) [required]
+          The search term to split the string in a list
+  @public: true
+  @returns: list
+  @text: A function to replace multiple occurrences inside a string
+  @version: 4.0.0
+*/
+
+@function str-explode($string, $split) {
   $list: ();
   $sum: str-length($string);
   @for $i from 1 through $sum {
-    $str: str-index($string, $dem);
+    $str: str-index($string, $split);
     @if str-length($string) >= 1 and $str == null {
       $list: append($list, $string);
       $string: '';
@@ -15,6 +42,34 @@
   }
   @return $list;
 }
+
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    .selector {
+      content: str-replace('hello world', 'o', '*');
+    }
+  @css: The CSS generated
+    .selector {
+      content: "hell* w*rld";
+    }
+  @date: 2017-02-21T12:47:26+01:00
+  @type: function
+  @icon: fa fa-exchange
+  @name: str-replace
+  @param: {string} ($string) [required]
+          The string you want to manipulate
+  @param: {string} ($search) [required]
+          The search term you want to replace, will be performed a global search inside the string
+  @param: {string} ($replace) ['']
+          The string will be used to replace occurrences
+  @public: true
+  @returns: string
+  @text: A function to replace multiple occurrences inside a string
+  @version: 4.0.0
+*/
 
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);

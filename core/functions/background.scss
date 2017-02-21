@@ -1,6 +1,6 @@
 /*
   @a-pollo-doc
-  @author: Vittorio Vittori
+  @author: [Vittorio Vittori](http://github.com/vitto)
   @category: Background
   @code: Example on using the mixin with some static property
     .selector {
@@ -13,6 +13,7 @@
   @date: 2017-02-20T17:06:06+01:00
   @type: function
   @name: theme
+  @icon: fa fa-picture-o
   @param: {string} ($image) [required]
           An image file **without** the relative or absolute path
   @param: {string} ($path) [$path-images]
@@ -32,7 +33,7 @@
 
 /*
   @a-pollo-doc
-  @author: Vittorio Vittori
+  @author: [Vittorio Vittori](http://github.com/vitto)
   @category: Background
   @code: Usage example
     .selector-a {
@@ -50,6 +51,7 @@
     }
   @date: 2017-02-20T17:06:06+01:00
   @type: function
+  @icon: fa fa-paint-brush
   @name: vertical-gradient
   @param: {string} ($color-base) [required]
           A color value
