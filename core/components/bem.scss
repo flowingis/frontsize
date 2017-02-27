@@ -24,12 +24,13 @@ $-bem-element-name: '';
 
   @include -bem-check-wrapper;
 
-  @if str-index(inspect(&), $bem-element) {
+  @if str-index(inspect(&), ':') {
     & #{$-bem-block-name}#{$element-name} {
       @content;
     }
-  } @else if str-index(inspect(&), ':hover') {
+  } @else if str-index(inspect(&), $bem-element) {
     & #{$-bem-block-name}#{$element-name} {
+      @error 'You should use pseudo-class selectors like :hover, :focus etc. to nest element mixins';
       @content;
     }
   } @else if str-index(inspect(&), $bem-modifier) {
@@ -110,7 +111,7 @@ $-bem-element-name: '';
   @category: BEM
   @code: You must wrap `element` mixin inside `block` mixin
     @include block (button) {
-      background: #3f6c44;
+      background: #3c4;
       display: inline-block;
       padding: 4px 8px;
 
@@ -118,16 +119,27 @@ $-bem-element-name: '';
         color: #fff;
         font-size: 12px;
       }
+
+      @include element (item) {
+        &:hover {
+          @include element (sub-item) {
+            color: #f3d;
+          }
+        }
+      }
     }
-  @css: The CSS generated will keep everything on 1 class level deep
+  @css: The CSS generated will keep everything on 1 class level deep, only pseudo-class selector are allowed to be nested
     .button {
-      background: #3f6c44;
+      background: #3c4;
       display: inline-block;
       padding: 4px 8px;
     }
     .button__text {
       color: #fff;
       font-size: 12px;
+    }
+    .button__item:hover .button__sub-item {
+      color: #f3d;
     }
   @date: 2016-12-28T18:09:00+01:00
   @type: mixin
