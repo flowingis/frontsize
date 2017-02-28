@@ -28,13 +28,13 @@ $-bem-element-name: '';
     & #{$-bem-block-name}#{$element-name} {
       @content;
     }
+  } @else if str-index(inspect(&), $bem-modifier) {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
   } @else if str-index(inspect(&), $bem-element) {
     & #{$-bem-block-name}#{$element-name} {
       @error 'You should use pseudo-class selectors like :hover, :focus etc. to nest element mixins';
-      @content;
-    }
-  } @else if str-index(inspect(&), $bem-modifier) {
-    & #{$-bem-block-name}#{$element-name} {
       @content;
     }
   } @else {
@@ -126,9 +126,14 @@ $-bem-element-name: '';
             color: #f3d;
           }
         }
+        @include modifier (modified) {
+          @include element (sub-item) {
+            color: #faa;
+          }
+        }
       }
     }
-  @css: The CSS generated will keep everything on 1 class level deep, only pseudo-class selector are allowed to be nested
+  @css: The CSS generated will keep everything on low level deep, only pseudo-class selector, or modifier wrappers are allowed to be nested
     .button {
       background: #3c4;
       display: inline-block;
@@ -140,6 +145,9 @@ $-bem-element-name: '';
     }
     .button__item:hover .button__sub-item {
       color: #f3d;
+    }
+    .button__item--modified .button__sub-item {
+      color: #faa;
     }
   @date: 2016-12-28T18:09:00+01:00
   @type: mixin
