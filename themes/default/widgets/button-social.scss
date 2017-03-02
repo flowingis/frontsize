@@ -19,7 +19,7 @@
   @auth: [Vittorio Vittori](http://vit.to)
   @date: 2017-01-06T17:50:18+01:00
   @category: Buttons
-  @icon: fa fa-hand-o-up
+  @icon: fa fa-hand-pointer-o
   @text: The base usage without styles of the button, this component **requires** [FontAwesome](http://fontawesome.github.io) to be loaded as dependency.
   @html:
     <a href="#" class="button-social">
@@ -64,8 +64,7 @@
     @name: button-social--small
     @auth: [Vittorio Vittori](http://vit.to)
     @date: 2015-12-03
-    @text: The GitHub version with `button-social--small` and `button-social--with-effects` modifiers.
-    @html:
+    @html: The GitHub version with `button-social--small` and `button-social--with-effects` modifiers.
       <a href="#" class="button-social button-social--small">
         <div class="button-social__icon">
           <i class="fa fa-compress"></i>
@@ -89,8 +88,7 @@
     @name: button-social--rounded
     @auth: [Vittorio Vittori](http://vit.to)
     @date: 2017-01-06T17:54:08+01:00
-    @text: This Facebook version has also `button-social--rounded` modifier to set it with rounded corners.
-    @html:
+    @html: This Facebook version has also `button-social--rounded` modifier to set it with rounded corners.
       <a href="#" class="button-social button-social--rounded">
         <div class="button-social__icon">
           <i class="fa fa-life-ring"></i>
@@ -111,8 +109,7 @@
     @name: button-social--big
     @auth: [Vittorio Vittori](http://vit.to)
     @date: 2016-01-09
-    @text: This Facebook version has also `button-social--big` modifier to make it bigger.
-    @html:
+    @html: This Facebook version has also `button-social--big` modifier to make it bigger.
       <a href="#" class="button-social button-social--big">
         <div class="button-social__icon">
           <i class="fa fa-expand"></i>
