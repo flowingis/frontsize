@@ -74,7 +74,8 @@ $-bem-element-name: '';
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
-  @category: BEM
+  @title: BEM
+  @category: Components
   @code: Example on using the mixin with some static property
     @include block (button) {
       background: #3f6c44;
@@ -108,7 +109,6 @@ $-bem-element-name: '';
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
-  @category: BEM
   @code: You must wrap `element` mixin inside `block` mixin
     @include block (button) {
       background: #3c4;
@@ -168,7 +168,6 @@ $-bem-element-name: '';
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
-  @category: BEM
   @code: Modifiers can be applied to `block` or `element` mixins
     @include block (button) {
       background: #3f6c44;
