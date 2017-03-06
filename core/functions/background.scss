@@ -1,7 +1,7 @@
 /*
   @a-pollo-doc
   @author: [Vittorio Vittori](http://github.com/vitto)
-  @category: Background
+  @category: Functions
   @code: Example on using the mixin with some static property
     .selector {
       background-image: theme('image.svg');
@@ -12,6 +12,7 @@
     }
   @date: 2017-02-20T17:06:06+01:00
   @type: function
+  @title: Background
   @name: theme
   @icon: fa fa-picture-o
   @param: {string} ($image) [required]
@@ -34,7 +35,6 @@
 /*
   @a-pollo-doc
   @author: [Vittorio Vittori](http://github.com/vitto)
-  @category: Background
   @code: Usage example
     .selector-a {
       background-image: vertical-gradient(#ff724d, 10%);
