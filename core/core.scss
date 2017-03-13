@@ -1,7 +1,8 @@
-@import 'functions/public';
+@import 'functions/map';
+@import 'functions/math';
+@import 'functions/string';
 @import 'functions/background';
 @import 'functions/ease';
-@import 'functions/string';
 
 @import 'components/bem';
 @import 'components/print';

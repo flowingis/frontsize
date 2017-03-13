@@ -1,0 +1,40 @@
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    $rgb: (
+      'red': #f00,
+      'green': #0f0,
+      'blue': #00f
+    );
+    .selector {
+      background-color: get($rgb, 'green');
+    }
+  @css: The CSS generated
+    .selector {
+      background-color: #0f0;
+    }
+  @date: 2017-02-21T15:14:17+01:00
+  @type: function
+  @title: Map
+  @icon: fa fa-filter
+  @name: get
+  @param: {map} ($map) [required]
+          The [map](http://www.sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) to be filtered
+  @param: {string} ($key) [required]
+          The key to filter, will return it's value
+  @public: true
+  @returns: unit-value
+  @text: A step function to generate grid system sizes.
+  @version: 4.0.0
+*/
+
+@function get($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  } @else {
+    @error 'No attribute key \'#{$key}\' found inside map #{$map}\n'
+    + 'Please checkout your code to fine where is the problem.';
+  }
+}
