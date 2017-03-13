@@ -6,6 +6,7 @@ run([
   'test/js/functions-background.js',
   'test/js/functions-ease.js',
   'test/js/functions-get.js',
+  'test/js/functions-px-to-em.js',
   'test/js/functions-s.js',
   'test/js/functions-scale-value.js',
   'test/js/functions-spacing.js',

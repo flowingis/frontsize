@@ -63,7 +63,7 @@
           The string you want to manipulate
   @param: {string} ($search) [required]
           The search term you want to replace, will be performed a global search inside the string
-  @param: {string} ($replace) ['']
+  @param: {string} ($replace) [empty string]
           The string will be used to replace occurrences
   @public: true
   @returns: string

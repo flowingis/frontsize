@@ -12,7 +12,7 @@
     }
   @date: 2017-01-05T15:01:54+01:00
   @type: function
-  @icon: fa fa-terminal
+  @icon: fa fa-expand
   @name: scale-value
   @param: {unit-value} ($value) [required]
           The unit value to be scaled, es: `10px`, `2em`, etc.
@@ -162,5 +162,38 @@
   } @else {
     @error 'No attribute key \'#{$key}\' found inside map #{$map}\n'
     + 'Please checkout your code to fine where is the problem.';
+  }
+}
+
+/*
+  @a-pollo-doc
+  @author: [Vittorio Vittori](http://github.com/vitto)
+  @category: Functions
+  @code: Usage example
+    .selector {
+      font-size: px-to-em(12px);
+    }
+  @css: The CSS generated
+    .selector {
+      font-size: 0.75em;
+    }
+  @date: 2017-03-13T16:15:28+01:00
+  @type: function
+  @icon: fa fa-expand
+  @name: px-to-em
+  @param: {px} ($value) [required]
+          The font-size in `px` to be converted in `em` unit
+  @public: true
+  @returns: unit-value
+  @text: A function to convert `px` unit to `em`, can be useful for font sizes.
+  @version: 4.0.0
+*/
+
+@function px-to-em($value) {
+  $base: 16px;
+  @if ($value < $base) {
+    @return ($value / $base) + 0em;
+  } @else {
+    @return ($value / $base) * 1em;
   }
 }
