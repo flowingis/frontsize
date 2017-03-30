@@ -125,36 +125,3 @@
 @function step($grid-columns-used, $grid-columns-total: $row-columns-total) {
   @return ($grid-columns-used * 100 / $grid-columns-total) * 1%;
 }
-
-/*
-  @a-pollo-doc
-  @author: [Vittorio Vittori](http://github.com/vitto)
-  @category: Functions
-  @code: Usage example
-    .selector {
-      font-size: px-to-em(12px);
-    }
-  @css: The CSS generated
-    .selector {
-      font-size: 0.75em;
-    }
-  @date: 2017-03-13T16:15:28+01:00
-  @type: function
-  @icon: fa fa-expand
-  @name: px-to-em
-  @param: {px} ($value) [required]
-          The font-size in `px` to be converted in `em` unit
-  @public: true
-  @returns: unit-value
-  @text: A function to convert `px` unit to `em`, can be useful for font sizes.
-  @version: 4.0.0
-*/
-
-@function px-to-em($value) {
-  $base: 16px;
-  @if ($value < $base) {
-    @return ($value / $base) + 0em;
-  } @else {
-    @return ($value / $base) * 1em;
-  }
-}

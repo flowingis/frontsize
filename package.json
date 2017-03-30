@@ -37,7 +37,8 @@
     "include-media": "^1.4.8",
     "normalize-scss": "^6.0.0",
     "sass-resolution": "^1.0.0",
-    "spinners": "^1.2.2"
+    "spinners": "^1.2.2",
+    "unitconversion": "^2.1.12"
   },
   "devDependencies": {
     "dustman": "^1.6.43",
