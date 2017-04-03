@@ -38,7 +38,7 @@
     "normalize-scss": "^6.0.0",
     "sass-resolution": "^1.0.0",
     "spinners": "^1.2.2",
-    "unitconversion": "^2.1.12"
+    "unitconversion": "^2.1.13"
   },
   "devDependencies": {
     "dustman": "^1.6.43",

@@ -1,8 +1,12 @@
-/*!
-Frontsize: http://frontsize.com
-GitHub:    https://github.com/ideatosrl/frontsize
-License:   MIT Licence
-Version:   4.0.0
-Date:      2017-02-28T01:00:19+01:00
-Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
-*/
+$frontsize-info: true !default;
+@if $frontsize-info == true {
+  /*!
+
+  GitHub:    https://github.com/ideatosrl/frontsize
+  License:   MIT Licence
+  Version:   4.0.0
+  Date:      2017-02-28T01:00:19+01:00
+  Authors:   Vittorio Vittori, Carla Soloperto, Alessandro Minoccheri
+
+  */
+}
