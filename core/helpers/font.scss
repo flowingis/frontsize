@@ -8,15 +8,6 @@
 //   font-weight: 700;
 // }
 
-@function -format($ext) {
-  @if str-index($ext, 'eot') != null {
-    @return format('embedded-opentype');
-  } @else if str-index($ext, 'ttf') != null {
-    @return format('truetype');
-  } @else {
-    @return format($ext);
-  }
-}
 
 @mixin font($file-name: false, $extensions: ('ttf'), $path: $path-fonts) {
   @font-face {
@@ -24,11 +15,10 @@
     $i: 1;
     $font-url: '';
     @each $ext in $extensions {
-      $format: -format($ext);
       @if $i == 1 {
-        $font-url: 'url("#{$path}#{$file-name}.#{$ext}") #{$format}';
+        $font-url: 'url("#{$path}#{$file-name}.#{$ext}")';
       } @else {
-        $font-url: '#{$font-url}, url("#{$path}#{$file-name}.#{$ext}") #{$format}';
+        $font-url: '#{$font-url}, url("#{$path}#{$file-name}.#{$ext}")';
       }
       $i: $i + 1;
     }

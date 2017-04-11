@@ -10,7 +10,7 @@ toBe:
 `@font-face {
   font-family: 'Pipiloca';
   font-weight: 400;
-  src: url("production/img/theme/fonts/LatoRegular.ttf") format("truetype");
+  src: url("production/img/theme/fonts/LatoRegular.ttf");
 }`
 });
 
@@ -24,7 +24,7 @@ toBe:
 `@font-face {
   font-family: 'Pipiloca';
   font-weight: 700;
-  src: url("production/img/theme/fonts/LatoBold.eot") format("embedded-opentype");
+  src: url("production/img/theme/fonts/LatoBold.eot");
 }`
 });
 
@@ -38,6 +38,6 @@ toBe:
 `@font-face {
   font-family: 'other font';
   font-weight: 300;
-  src: url("production/img/theme/fonts/other-font.eot") format("embedded-opentype"), url("production/img/theme/fonts/other-font.ttf") format("truetype"), url("production/img/theme/fonts/other-font.woff") format(woff), url("production/img/theme/fonts/other-font.woff2") format(woff2);
+  src: url("production/img/theme/fonts/other-font.eot"), url("production/img/theme/fonts/other-font.ttf"), url("production/img/theme/fonts/other-font.woff"), url("production/img/theme/fonts/other-font.woff2");
 }`
 });
