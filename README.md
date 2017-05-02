@@ -57,7 +57,14 @@ Now the core can be easily upgraded with `npm update frontsize-sass --save` when
 
 ## Documentation
 
-For now see [tests] to checkout how it works.
+Run this command inside frontsize module:
+
+```
+cd node_modules/frontsize
+npm run styleguideServe
+```
+
+This will open a browser window with the documented code.
 
 --------------------------------------------------------------------------------
 
