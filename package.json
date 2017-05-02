@@ -33,6 +33,7 @@
   },
   "main": "compile.scss",
   "dependencies": {
+    "a-pollo": "git+https://github.com/vitto/a-pollo.git#v2.0.0",
     "dustman": "^1.8.45",
     "include-media": "^1.4.8",
     "normalize-scss": "^6.0.0",
@@ -41,10 +42,14 @@
     "unitconversion": "^2.1.13"
   },
   "devDependencies": {
-    "dustman": "^1.6.43",
     "a-pollo": "git+https://github.com/vitto/a-pollo.git#v2.0.0",
+    "dustman": "^1.6.43",
     "node-diff": "^0.2.0",
-    "node-sass": "^3.10.1"
+    "node-sass": "^3.10.1",
+    "standard": "^10.0.1"
+  },
+  "standard": {
+    "globals": []
   },
   "engines": {
     "node": ">=0.8.0"
@@ -55,9 +60,10 @@
   "scripts": {
     "build": "./node_modules/.bin/gulp -S",
     "http": "./node_modules/.bin/gulp -S http",
-    "setup": "cp ./node_modules/dustman/gulpfile.js gulpfile.js",
-    "styleguide": "./node_modules/.bin/a-pollo",
-    "test": "node test/test.js",
-    "update": "npm update --save && cp ./node_modules/dustman/gulpfile.js gulpfile.js"
+    "setupBuild": "npm update dustman --save && cp ./node_modules/dustman/gulpfile.js gulpfile.js",
+    "setupStyleguide": "npm update a-pollo --save && cp -r -n node_modules/a-pollo/templates/* . || true",
+    "styleguideServe": "node a-pollo.js && ./node_modules/.bin/gulp -S http",
+    "styleguide": "node a-pollo.js",
+    "test": "node test/test.js"
   }
 }

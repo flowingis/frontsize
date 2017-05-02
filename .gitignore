@@ -53,5 +53,6 @@ bower_components
 /test/html
 /img
 /frontsize.yml
+/styleguide
 /vendor
 gulpfile.js

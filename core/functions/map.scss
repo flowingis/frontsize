@@ -33,8 +33,7 @@
 @function get($map, $key) {
   @if map-has-key($map, $key) {
     @return map-get($map, $key);
-  } @else {
-    @error 'No attribute key \'#{$key}\' found inside map #{$map}\n'
-    + 'Please checkout your code to fine where is the problem.';
   }
+  @error 'No attribute key \'#{$key}\' found inside map #{$map}\n'
+  + 'Please checkout your code to fine where is the problem.';
 }

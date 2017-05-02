@@ -13,6 +13,7 @@ config:
   twig:
     cache: false
   polling: false
+  emptyFolders: false
   verbose: 3
   verify: false
 
@@ -36,7 +37,7 @@ css:
 
 paths:
   css: test/css
-  server: test/html
+  server: styleguide
 
 tasks:
   - css
