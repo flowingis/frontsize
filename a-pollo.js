@@ -31,10 +31,10 @@ function generator (css) {
 }
 
 aPollo({
-  annotations: 'core',
+  annotations: './core',
   build: './node_modules/a-pollo/tmp',
   posts: './wiki',
-  index: true,
+  index: './README.md',
   assets: {
     css: 'test/css/frontsize.test.css',
     // fonts: 'css/fonts',

@@ -1,11 +1,11 @@
-var helper = require('../helper');
+var helper = require('../helper')
 
 helper.test({
 expect:
 `$row-columns-style: 'frontsize';
 @include block ('row') {
   @include float-row((
-    ('<=mobile-small', '<=mobile-large'): 2,
+    '<=mobile-large': 2,
     ('>mobile-large', '<=tablet-large'): 4,
     '>tablet-large': 5
   )) {
@@ -36,7 +36,7 @@ toBe:
   padding: 20px;
 }
 
-@media (max-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
   .row__column {
     width: 50%;
   }
@@ -62,7 +62,7 @@ toBe:
     clear: both;
   }
 }`
-});
+})
 
 helper.test({
 expect:
@@ -128,7 +128,7 @@ toBe:
     clear: both;
   }
 }`
-});
+})
 
 helper.test({
 expect:
@@ -204,4 +204,83 @@ toBe:
     clear: both;
   }
 }`
-});
+})
+
+helper.test({
+expect:
+`.column {
+  @include float-col((
+      '<=mobile-large': 10,
+      '<=tablet-small': 6,
+      '<=tablet-large': 4,
+      '>tablet-large': 2
+  ), 10);
+}
+`,
+toBe:
+`.column {
+  display: block;
+  float: left;
+}
+
+@media (max-width: 480px) {
+  .column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .column {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .column {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .column {
+    width: 20%;
+  }
+}`
+})
+
+helper.ctest({
+expect:
+`.column-offset {
+  @include float-col-offset((
+      '<=mobile-large': 10,
+      '<=tablet-small': 6,
+      '<=tablet-large': 4,
+      '>tablet-large': 2
+  ), 10);
+}
+`,
+toBe:
+`@media (max-width: 480px) {
+  .column-offset {
+    margin-left: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .column-offset {
+    margin-left: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .column-offset {
+    margin-left: 40%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .column-offset {
+    margin-left: 20%;
+  }
+}`
+})

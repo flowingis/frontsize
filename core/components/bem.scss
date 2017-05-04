@@ -9,68 +9,6 @@ $-bem-element-name: '';
   }
 }
 
-@mixin block ($block-name) {
-  $-bem-block-name: '.#{$block-name}' !global;
-
-  .#{$block-name} {
-    @content;
-  }
-  $-bem-block-name: '' !global;
-}
-
-@mixin element ($element-name) {
-  $element-name: #{$bem-element}#{$element-name};
-  $-bem-element-name: $element-name !global;
-
-  @include -bem-check-wrapper;
-
-  @if str-index(inspect(&), ':') {
-    & #{$-bem-block-name}#{$element-name} {
-      @content;
-    }
-  } @else if str-index(inspect(&), $bem-modifier) {
-    & #{$-bem-block-name}#{$element-name} {
-      @content;
-    }
-  } @else if str-index(inspect(&), $bem-element) {
-    & #{$-bem-block-name}#{$element-name} {
-      @error 'You should use pseudo-class selectors like :hover, :focus etc. to nest element mixins';
-      @content;
-    }
-  } @else {
-    @at-root &#{$element-name} {
-      @content;
-    }
-  }
-  $-bem-element-name: '' !global;
-}
-
-@mixin modifier ($modifier-name) {
-  $modifier-name: #{$bem-modifier}#{$modifier-name};
-  @include -bem-check-wrapper;
-
-  @if str-index(inspect(&), ':hover') {
-    $length: length(str-explode(inspect(&), ' '));
-
-    @if $length >= 2 {
-      @at-root &#{$modifier-name} {
-        $parent: &;
-        @content;
-      }
-    } @else {
-      $element-name: nth(str-replace(nth(str-explode(inspect(&), ':'), 1), '(', ''), 1);
-
-      &#{$element-name}#{$modifier-name} {
-        @content;
-      }
-    }
-  } @else {
-    &#{$modifier-name} {
-      @content;
-    }
-  }
-}
-
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
@@ -105,6 +43,15 @@ $-bem-element-name: '';
   @text: Defines the block name of the BEM component. This mixin is required as wrapper of `element` and `modifier` mixins
   @version: 4.0.0
 */
+
+@mixin block ($block-name) {
+  $-bem-block-name: '.#{$block-name}' !global;
+
+  .#{$block-name} {
+    @content;
+  }
+  $-bem-block-name: '' !global;
+}
 
 /*
   @a-pollo-doc
@@ -165,6 +112,33 @@ $-bem-element-name: '';
   @version: 4.0.0
 */
 
+@mixin element ($element-name) {
+  $element-name: #{$bem-element}#{$element-name};
+  $-bem-element-name: $element-name !global;
+
+  @include -bem-check-wrapper;
+
+  @if str-index(inspect(&), ':') {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
+  } @else if str-index(inspect(&), $bem-modifier) {
+    & #{$-bem-block-name}#{$element-name} {
+      @content;
+    }
+  } @else if str-index(inspect(&), $bem-element) {
+    & #{$-bem-block-name}#{$element-name} {
+      @error 'You should use pseudo-class selectors like :hover, :focus etc. to nest element mixins';
+      @content;
+    }
+  } @else {
+    @at-root &#{$element-name} {
+      @content;
+    }
+  }
+  $-bem-element-name: '' !global;
+}
+
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
@@ -204,3 +178,29 @@ $-bem-element-name: '';
   @text: Defines the modifier name of the BEM component. This mixin is required as wrapped inside `block` mixin
   @version: 4.0.0
 */
+
+@mixin modifier ($modifier-name) {
+  $modifier-name: #{$bem-modifier}#{$modifier-name};
+  @include -bem-check-wrapper;
+
+  @if str-index(inspect(&), ':hover') {
+    $length: length(str-explode(inspect(&), ' '));
+
+    @if $length >= 2 {
+      @at-root &#{$modifier-name} {
+        $parent: &;
+        @content;
+      }
+    } @else {
+      $element-name: nth(str-replace(nth(str-explode(inspect(&), ':'), 1), '(', ''), 1);
+
+      &#{$element-name}#{$modifier-name} {
+        @content;
+      }
+    }
+  } @else {
+    &#{$modifier-name} {
+      @content;
+    }
+  }
+}

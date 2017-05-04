@@ -1,3 +1,4 @@
+
 /*
   @a-pollo-doc
   @author: Vittorio Vittori
@@ -11,6 +12,61 @@
   @param: {boolean} ($use-core-print) [true]
           Enables CSS default print media query behavior
   @public: true
+  @css: If enabled, this media query will be appended to your css
+    @media print {
+      body {
+        background: none !important;
+        color: #000 !important;
+      }
+
+      * {
+        color: #000 !important;
+        background-image: none !important;
+        background-color: white !important;
+        border: 0 !important;
+        box-shadow: 0 0 0 white !important;
+        border-radius: 0 !important;
+        text-shadow: 0 0 0 white !important;
+      }
+
+      a {
+        color: #000 !important;
+        border-bottom: 1px solid #000 !important;
+        text-decoration: none !important;
+      }
+
+      @page {
+        margin: 1cm;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        color: #000 !important;
+        orphans: 3;
+        widows: 3;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        page-break-after: avoid;
+      }
+
+      code {
+        border: 1px solid #000 !important;
+      }
+
+      footer {
+        clear: both !important;
+      }
+    }
   @text: This core var is used for print media query behavior
   @version: 4.0.0
 */

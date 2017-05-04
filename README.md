@@ -7,9 +7,7 @@
 [![Join the chat at Gitter](http://img.shields.io/:gitter-chat-00AFFF.svg)](https://gitter.im/ideatosrl/frontsize-sass)
 
 >  Frontsize is not a set of widgets ready to be used in your website, it's a set
->  of mixins and functions to build BEM widgets, it's not intended to give you a
->  set of selectors, ready to be used in your style guide, this is a tool to
->  generate your sets.
+>  of mixins and functions to build BEM widgets, it's  a tool to generate your sets.
 
 ## Main features
 
@@ -29,6 +27,19 @@ Download Frontsize from node:
 ```
 npm install --save frontsize-sass
 ```
+
+--------------------------------------------------------------------------------
+
+## Documentation
+
+Run this command inside frontsize module:
+
+```
+cd node_modules/frontsize
+npm run styleguideServe
+```
+
+This will open a browser window with the documented code.
 
 --------------------------------------------------------------------------------
 
@@ -52,19 +63,6 @@ In `frontend/frontsize/themes/_config/import.scss` file:
 ```
 
 Now the core can be easily upgraded with `npm update frontsize-sass --save` when a new release is available.
-
---------------------------------------------------------------------------------
-
-## Documentation
-
-Run this command inside frontsize module:
-
-```
-cd node_modules/frontsize
-npm run styleguideServe
-```
-
-This will open a browser window with the documented code.
 
 --------------------------------------------------------------------------------
 

@@ -11,6 +11,85 @@
   @param: {boolean} ($use-core-base) [true]
           Enables CSS core reset styles
   @public: true
+  @css: This is the CSS generated
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      span,
+      div,
+      b,
+      strong {
+        &[title] {
+          cursor: help;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      a {
+        b,
+        div,
+        span,
+        strong {
+          cursor: pointer;
+
+          &[title] {
+            cursor: pointer;
+          }
+        }
+      }
+
+      p,
+      blockquote,
+      dl,
+      dt,
+      dd,
+      figure,
+      figcaption,
+      div,
+      hr,
+      article,
+      nav,
+      aside,
+      main,
+      section,
+      header,
+      footer,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hgroup,
+      address {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        text-align: left;
+      }
+
+      nav {
+        ul {
+          list-style-type: none;
+          padding: 0;
+
+          li {
+            margin-left: 0;
+          }
+        }
+      }
   @text: This core var is used to load default reset CSS behavior
   @version: 4.0.0
 */
@@ -44,8 +123,12 @@
     b,
     div,
     span,
-    strong[title] {
+    strong {
       cursor: pointer;
+
+      &[title] {
+        cursor: pointer;
+      }
     }
   }
 
