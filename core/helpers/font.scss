@@ -1,15 +1,37 @@
-// @include font('LatoRegular', (eot, ttf)) {
-//   font-family: 'Pipiloca';
-//   font-weight: 400;
-// }
-//
-// @include font('LatoBold', (eot, ttf)) {
-//   font-family: 'Pipiloca';
-//   font-weight: 700;
-// }
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @title: Fonts
+  @category: Mixins
+  @code: Example on using the mixin
+    $path-fonts: 'production/img/theme/fonts/';
+    @include font('LatoRegular', (ttf, woff2)) {
+      font-family: 'lato';
+      font-weight: 400;
+    }
+  @css: This is the CSS generated
+    @font-face {
+      font-family: 'lato';
+      font-weight: 400;
+      src: url("production/img/theme/fonts/LatoRegular.ttf"), url("production/img/theme/fonts/LatoRegular.woff2");
+    }
+  @date: 2017-05-09T16:11:06+02:00
+  @type: mixin
+  @icon: fa fa-font
+  @name: font
+  @param: {string} ($file-name) [required]
+          The name of the font file without extension
+  @param: {list} ($extensions) [('ttf')]
+          The list of the font extensions, like `ttf`, `woff`, etc.
+  @param: {string} ($path) [$path-fonts]
+          The font path, based on config var `$path-fonts` by defaut
+  @public: true
+  @returns: css
+  @text: Define font faces
+  @version: 4.0.0
+*/
 
-
-@mixin font($file-name: false, $extensions: ('ttf'), $path: $path-fonts) {
+@mixin font($file-name, $extensions: ('ttf'), $path: $path-fonts) {
   @font-face {
     @content;
     $i: 1;

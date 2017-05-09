@@ -23,6 +23,25 @@ $-debug-keyframes: false;
   }
 }
 
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @title: Debug
+  @category: Mixins
+  @code: Example on using the mixin
+    .selector {
+      @include debug;
+    }
+  @date: 2017-05-09T17:03:02+02:00
+  @type: mixin
+  @icon: fa fa-bug
+  @name: debug
+  @public: true
+  @returns: css
+  @text: A simple element outliner based on box shadow, to see the structure of elements groups
+  @version: 4.0.0
+*/
+
 @mixin debug {
   @include -debug-animation;
 

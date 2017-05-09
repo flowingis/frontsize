@@ -33,6 +33,7 @@
   },
   "main": "compile.scss",
   "dependencies": {
+    "a-pollo": "git+https://github.com/vitto/a-pollo.git#v2.0.0",
     "include-media": "^1.4.8",
     "normalize-scss": "^6.0.0",
     "sass-resolution": "^1.0.0",

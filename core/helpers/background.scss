@@ -1,8 +1,44 @@
-// .selector {
-//   @include icon('file.svg', 32px) {
-//     background-color: red;
-//   }
-// }
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @title: Icons
+  @category: Mixins
+  @code: Example on using the mixin
+    $path-images: 'production/img/theme/img/';
+    .icon {
+      @include icon('file.svg', 32px) {
+        background-color: red;
+        display: inline-block;
+      }
+    }
+  @css: This is the CSS generated
+    .icon {
+      background-image: url("production/img/theme/img/file.svg");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 32px;
+      width: 32px;
+      background-color: red;
+      display: inline-block;
+    }
+  @date: 2017-05-09T16:11:06+02:00
+  @type: mixin
+  @html: Use it to handle a layout with grid columns expected to work with one size
+    <div class="icon"></div>
+  @icon: fa fa-pencil
+  @name: icon
+  @param: {string} ($background-image) [required]
+          The background image file which containing the icon
+  @param: {int} ($width) [required]
+          The width of the icon
+  @param: {int} ($height) [$width]
+          The height of the icon, uses the previous param `$width` if not defined
+  @public: true
+  @returns: css
+  @text: Useful to create single image icons
+  @version: 4.0.0
+*/
 
 @mixin icon($background-image, $width, $height: $width) {
   background-image: theme($background-image);

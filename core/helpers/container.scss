@@ -1,4 +1,35 @@
-@mixin has-parent($parent) {
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @title: Container
+  @category: Mixins
+  @code: Example on using the mixin
+    .selector {
+      @include has-parent('aqua') {
+        background-color: rgb(139, 218, 228);
+      }
+    }
+  @css: This is the CSS generated
+    .aqua .selector {
+      background-color: #8bdae4;
+    }
+  @date: 2017-05-09T16:11:06+02:00
+  @type: mixin
+  @html: HTML usage example
+    <body class="aqua">
+      <div class="selector">Hello</div>
+    </body>
+  @icon: fa fa-cube
+  @name: has-parent
+  @param: {string} ($parent) [required]
+          Name of the parent wrapper selector
+  @public: true
+  @returns: css
+  @text: Can be nice to theming elements based on their parents
+  @version: 4.0.0
+*/
+
+@mixin has-parent ($parent) {
   @if (str-index($parent, '.') or str-index($parent, '#')) {
     #{$parent} & {
       @content;
@@ -10,7 +41,53 @@
   }
 }
 
-@mixin limit($rules) {
+/*
+  @a-pollo-doc
+  @author: Vittorio Vittori
+  @code: Example on using the mixin
+    .container {
+      @include limit((
+        '<=tablet-small': 600px
+        '<=tablet-large': 1000px,
+      ));
+    }
+  @css: This is the CSS generated
+    .container {
+      margin: auto;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .container {
+        max-width: 1000px;
+      }
+    }
+  @date: 2017-05-09T16:59:52+02:00
+  @type: mixin
+  @html: HTML usage example
+    <div class="container">
+      <article>
+        Hello, this is an article.
+      </article>
+      <article>
+        Hello, this is another article.
+      </article>
+    </div>
+  @name: limit
+  @param: {map} ($rules) [required]
+          Rules map, based on *include-media* breakpoints
+  @public: true
+  @returns: css
+  @text: It generate a selector used to limit the horizontal size of child elements, useful to create a main column to contain a set of elements
+  @version: 4.0.0
+*/
+
+@mixin limit ($rules) {
   margin: auto;
   @each $rule, $width in $rules {
     @include media($rule) {
