@@ -248,7 +248,7 @@ toBe:
 }`
 })
 
-helper.ctest({
+helper.test({
 expect:
 `.column-offset {
   @include float-col-offset((
