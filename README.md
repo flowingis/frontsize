@@ -1,20 +1,21 @@
 # frontsize
 
-[![Version](http://img.shields.io/:version-4.0.0-E7C04B.svg)](https://github.com/ideatosrl/frontsize-sass/releases/tag/4.0.0)
+[![Version](http://img.shields.io/:version-4.0.0-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.0)
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
-[![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize-sass/blob/master/LICENSE.md)
-[![Join the chat at Gitter](http://img.shields.io/:gitter-chat-00AFFF.svg)](https://gitter.im/ideatosrl/frontsize-sass)
+[![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize/blob/master/LICENSE.md)
+[![Join the chat at Gitter](http://img.shields.io/:gitter-chat-00AFFF.svg)](https://gitter.im/ideatosrl/frontsize)
 
 >  Frontsize is not a set of widgets ready to be used in your website, it's a set
 >  of mixins and functions to build BEM widgets, it's  a tool to generate your sets.
 
 ## Main features
 
-- It's [BEM] ready
-- It's build to work with multiple themes in the same project
+- It's [BEM][bem] ready
+- It's build to work with [multiple themes][themes] in the same project
 - It works fine with [dustman], a Gulp environment boilerplate built to work with multiple themes
 - It's born to be flexible and customization oriented
+- It's covered by [tests][test]
 
 The project was [originally developed in LESS][less], now only the SASS version is matained.
 
@@ -25,7 +26,7 @@ The project was [originally developed in LESS][less], now only the SASS version 
 Download Frontsize from node:
 
 ```
-npm install --save frontsize-sass
+npm install --save frontsize
 ```
 
 --------------------------------------------------------------------------------
@@ -47,18 +48,15 @@ This will open a browser window with the documented code.
 Once you have downloaded it, copy your theme to the project front-end development folder:
 
 ```
-cp -r node_modules/frontsize-sass/themes frontend/frontsize
+cp -r node_modules/frontsize/themes frontend/frontsize
 ```
 
 Then change core references to let it point to module folder:
 
-In `frontend/frontsize/themes/_config/import.scss` file:
+In `frontend/frontsize/_config/import.scss` file:
 
-```less
-// from:
-// @import '../../core/import';
-// to:
-@import '../../node_modules/frontsize-sass/core/import';
+```sass
+@import '../../node_modules/frontsize/core/import';
 ```
 
 Now the core can be easily upgraded with `npm update frontsize-sass --save` when a new release is available.
@@ -73,23 +71,14 @@ npm install && npm run test
 
 Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
 
-[app]: https://github.com/ideatosrl/frontsize-sass/blob/master/themes/default/app.scss
-[automation_config]: https://github.com/ideatosrl/frontsize-sass/blob/master/frontsize.yml.dist
-[automation_grunt]: https://github.com/ideatosrl/frontsize-sass/blob/master/Gruntfile.js
-[automation_gulp]: https://github.com/ideatosrl/frontsize-sass/blob/master/gulpfile.js
-[bem]: https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem.scss
-[bem_expressive]: https://github.com/ideatosrl/frontsize-sass/blob/master/core/components/bem-expressive.scss
-[csslint]: https://github.com/CSSLint/csslint
-[csslintrc]: https://github.com/ideatosrl/frontsize-sass/blob/master/.csslintrc
-[docs]: https://github.com/ideatosrl/frontsize-less/wiki
+[test]: https://github.com/ideatosrl/frontsize/blob/master/test/js/
+[themes]: https://github.com/ideatosrl/frontsize/tree/master/themes
+[bem]: https://github.com/ideatosrl/frontsize/blob/master/test/js/components-bem.js
 [dustman]: https://github.com/ideatosrl/dustman
-[grids]: https://github.com/ideatosrl/frontsize-sass/tree/master/core/grids
 [ideato]: http://www.ideato.it
 [less]: https://github.com/ideatosrl/frontsize-less
-[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
 [minompi]: https://twitter.com/minompi
-[sass]: https://github.com/ideatosrl/frontsize-sass
+[frontsize]: https://github.com/ideatosrl/frontsize
 [sassdoc]: http://sassdoc.com/
-[site]: http://frontsize.com
 [tests]: https://github.com/ideatosrl/frontsize-sass/tree/master/test/js
 [vitto]: https://twitter.com/vttrx
