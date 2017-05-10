@@ -35,8 +35,7 @@ npm install --save frontsize-sass
 Run this command inside frontsize module:
 
 ```
-cd node_modules/frontsize
-npm run styleguideServe
+cd node_modules/frontsize && npm run styleguideServe
 ```
 
 This will open a browser window with the documented code.
@@ -69,7 +68,7 @@ Now the core can be easily upgraded with `npm update frontsize-sass --save` when
 To test frontsize:
 
 ```
-npm install && npm run-script test
+npm install && npm run test
 ```
 
 Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]

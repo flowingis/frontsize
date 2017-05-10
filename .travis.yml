@@ -4,11 +4,13 @@ node_js:
   - 5.4.1
 
 before_install:
-  - npm install -g bower
-  - npm install dustman
+  - npm install
+
+sudo: required
 
 script:
-  - bower install
-  - npm run-script setup
-  - npm run-script build
-  - npm run-script test
+  - npm run setupBuild
+  - npm run setupStyleguide
+  - npm run build
+  - npm run styleguide
+  - npm run test
