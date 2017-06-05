@@ -28,10 +28,16 @@ The project was [originally developed in LESS][less], now only the SASS version 
 ---
 ## Install
 
-Download Frontsize from node:
+#### NPM way:
 
 ```
 npm install --save frontsize
+```
+
+#### YARN way:
+
+```
+yarn add frontsize
 ```
 
 --------------------------------------------------------------------------------
