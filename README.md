@@ -1,6 +1,6 @@
 # frontsize
 
-[![Version](http://img.shields.io/:version-4.0.0-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.0)
+[![Version](http://img.shields.io/:version-4.0.1-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.1)
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize/blob/master/LICENSE.md)
@@ -13,7 +13,6 @@
 
 - It's [BEM][bem] ready
 - It's build to work with [multiple themes][themes] in the same project
-- It works fine with [dustman], a Gulp environment boilerplate built to work with multiple themes
 - It's born to be flexible and customization oriented
 - It's covered by [tests][test]
 
@@ -21,6 +20,12 @@ The project was [originally developed in LESS][less], now only the SASS version 
 
 --------------------------------------------------------------------------------
 
+## Release 4.0.1
+
+- Adds `$frontsize-release-infos` to theme config
+- Removes `a-pollo` module from node dependencies
+
+---
 ## Install
 
 Download Frontsize from node:
