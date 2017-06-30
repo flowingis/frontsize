@@ -1,6 +1,6 @@
 # frontsize
 
-[![Version](http://img.shields.io/:version-4.0.1-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.1)
+[![Version](http://img.shields.io/:version-4.0.2-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.1)
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize/blob/master/LICENSE.md)
@@ -19,6 +19,10 @@
 The project was [originally developed in LESS][less], now only the SASS version is matained.
 
 --------------------------------------------------------------------------------
+
+## Release 4.0.2
+
+- Fix `vertical-grandient` mixin
 
 ## Release 4.0.1
 
