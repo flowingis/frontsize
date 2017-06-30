@@ -44,10 +44,10 @@
     }
   @css: CSS generated
     .selector-a {
-      background-image: linear-gradient("top, #ff9a80 0%, #ff4a1a 100%");
+      background-image: linear-gradient(to bottom, #ff9a80, #ff4a1a);
     }
     .selector-b {
-      background-image: linear-gradient("top, #80c6ff 0%, #0082e6 100%");
+      background-image: linear-gradient(to bottom, #80c6ff, #0082e6);
     }
   @date: 2017-02-20T17:06:06+01:00
   @type: function
@@ -69,8 +69,8 @@
     $strength: $strength-or-color;
     $color-top: saturate(lighten($color-base, $strength), $strength / 2);
     $color-bottom: saturate(darken($color-base, $strength), $strength / 2);
-    @return linear-gradient('top, #{$color-top} 0%, #{$color-bottom} 100%');
+    @return linear-gradient(to bottom, $color-top, $color-bottom);
   } @else {
-    @return linear-gradient('top, #{$color-base} 0%, #{$strength-or-color} 100%');
+    @return linear-gradient(to bottom, $color-base, $strength-or-color);
   }
 }

@@ -7,7 +7,7 @@ expect:
 }`,
 toBe:
 `.background-vertical-gradient {
-  background-image: linear-gradient("top, #ff9a80 0%, #ff4a1a 100%");
+  background-image: linear-gradient(to bottom, #ff9a80, #ff4a1a);
 }`
 });
 
@@ -18,7 +18,7 @@ expect:
 }`,
 toBe:
 `.background-vertical-gradient {
-  background-image: linear-gradient("top, #ff724d 0%, #33f2fd 100%");
+  background-image: linear-gradient(to bottom, #ff724d, #33f2fd);
 }`
 });
 
