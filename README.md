@@ -22,7 +22,7 @@ The project was [originally developed in LESS][less], now only the SASS version 
 
 ## Release 4.0.2
 
-- Fix `vertical-grandient` mixin
+- Fix `vertical-gradient` mixin
 
 ## Release 4.0.1
 
