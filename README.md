@@ -16,7 +16,7 @@
 - It's born to be flexible and customization oriented
 - It's covered by [tests][test]
 
-The project was [originally developed in LESS][less], now only the SASS version is matained.
+The project was [originally developed in LESS][less], now only the SASS version is mantained.
 
 --------------------------------------------------------------------------------
 
