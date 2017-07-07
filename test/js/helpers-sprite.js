@@ -2,7 +2,8 @@ var helper = require('../helper');
 
 helper.test({
 expect:
-`.sprite-selector {
+`$invalidate-cache: false;
+.sprite-selector {
   @include sprite(1 2, 32px 32px) {
     background-image: theme('sprite-image.svg');
     @include sprite-modifier('open', 1 1);

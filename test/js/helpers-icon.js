@@ -2,7 +2,8 @@ var helper = require('../helper');
 
 helper.test({
 expect:
-`.helpers-icon {
+`$invalidate-cache: false;
+.helpers-icon {
   @include icon('file.svg', 32px) {
     background-color: red;
   }
