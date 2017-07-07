@@ -5,6 +5,7 @@ $use-core-print: true !default;
 
 $path-fonts: 'production/img/theme/fonts/' !default;
 $path-images: 'production/img/theme/img/' !default;
+$invalidate-cache: true;
 
 $bem-element: '__' !default;
 $bem-modifier: '--' !default;

@@ -21,15 +21,29 @@
           The relative or absolute path to override, by default is based on core var `$path-images` used in config
   @public: true
   @returns: css
-  @text: Returns a css `url` parameter, this should be used with `$path-images` core var
-  @version: 4.0.0
+  @text: Returns a css `url` parameter, this should be used with `$path-images` core var. From version `4.0.3` you can use it with `$invalidate-cache` var, `true` by default with generates an unique random id on every build to prevent cache invalitation problem with image assets.
+  @code: Usage example
+    $path-images: '/path/to/img/';
+    $invalidate-cache: true;
+    .selector {
+      background-image: theme('image.jpg');
+    }
+  @css: CSS generated
+    .selector-a {
+      background-image: url("/path/to/img/image.jpg?a8Hda7r6");
+    }
+  @version: 4.0.3
 */
 
-@function theme($image, $path: $path-images) {
+@function theme($image, $path: $path-images, $id: unique-id()) {
   @if (str-index($image, '/') != null) {
     @error 'You should only use filename like theme(\'image.svg\'). \nAvoid paths like theme(\'../path/to/image.svg\'). \nResolve the path with $path-images variable in your config file.\nIf you need a different location, use: theme(\'image.svg\', \'http://cdn.com/\')';
   }
-  @return url('#{$path}#{$image}');
+  @if ($invalidate-cache == true) {
+    @return url('#{$path}#{$image}?#{$id}');
+  } @else {
+    @return url('#{$path}#{$image}');
+  }
 }
 
 /*
