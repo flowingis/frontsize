@@ -55,7 +55,7 @@
   @include element ('network') {
     display: table-cell;
     font-size: 14px;
-    padding-left:  s(0.25);
+    padding-left: s(0.25);
     text-transform: capitalize;
   }
 
@@ -79,7 +79,7 @@
 
     @include element ('network') {
       font-size: 12px;
-      padding-left:  s(0.125);
+      padding-left: s(0.125);
     }
   }
 
@@ -199,7 +199,7 @@
       </a>
   */
   @include modifier ('github') {
-    @include -button-social(#333, #f5f5f5);
+    @include -button-social(#333333, #f5f5f5);
   }
 
   /*
