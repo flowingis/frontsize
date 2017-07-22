@@ -1,6 +1,6 @@
 # frontsize
 
-[![Version](http://img.shields.io/:version-4.0.2-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.3)
+[![Version](http://img.shields.io/:version-4.0.4-E7C04B.svg)](https://github.com/ideatosrl/frontsize/releases/tag/4.0.4)
 [![TravisCI](https://travis-ci.org/ideatosrl/frontsize.svg?branch=master)](https://travis-ci.org/ideatosrl/frontsize/builds)
 [![Built with SASS](http://img.shields.io/:language-SASS-ff6799.svg)](http://badges.github.io/badgerbadgerbadger/)
 [![MIT licence](http://img.shields.io/:license-MIT-00AFFF.svg)](https://github.com/ideatosrl/frontsize/blob/master/LICENSE.md)
@@ -19,6 +19,10 @@
 The project was [originally developed in LESS][less], now only the SASS version is mantained.
 
 --------------------------------------------------------------------------------
+
+## Release 4.0.4
+
+- Folder `widgets` is renamed to `blocks` necause of frontsize's BEM based nature
 
 ## Release 4.0.3
 
