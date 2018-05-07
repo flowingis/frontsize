@@ -35,6 +35,8 @@
   @version: 4.0.3
 */
 
+$path-images: '/' !default;
+
 @function theme($image, $path: $path-images, $id: unique-id()) {
   @if (str-index($image, '/') != null) {
     @error 'You should only use filename like theme(\'image.svg\'). \nAvoid paths like theme(\'../path/to/image.svg\'). \nResolve the path with $path-images variable in your config file.\nIf you need a different location, use: theme(\'image.svg\', \'http://cdn.com/\')';

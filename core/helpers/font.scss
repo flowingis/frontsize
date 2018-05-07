@@ -31,6 +31,8 @@
   @version: 4.0.0
 */
 
+$path-fonts: '/' !default;
+
 @mixin font($file-name, $extensions: ('ttf'), $path: $path-fonts) {
   @font-face {
     @content;

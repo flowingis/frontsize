@@ -1,10 +1,9 @@
 $frontsize-release-infos: true;
+$use-core-base: true;
+$use-core-print: true;
 
-$use-core-base: true !default;
-$use-core-print: true !default;
-
-$path-fonts: 'production/img/theme/fonts/' !default;
-$path-images: 'production/img/theme/img/' !default;
+$path-fonts: 'production/img/theme/fonts/';
+$path-images: 'production/img/theme/img/';
 $invalidate-cache: true;
 
 $bem-element: '__' !default;

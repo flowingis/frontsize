@@ -1,17 +1,17 @@
 metadata:
-  title: Project name
-  tab_title: Component library • Project name
-  description: CSS Component library for the project **project name**
-  footer_title: Project name component library
-  footer_description: '[CrysaliCSS](https://github.com/vitto/crysalicss) is made with <i class="material-icons" style="color:#f06856; font-size:16px; position:relative; top:3px;">favorite</i> by [vitto](https://github.com/vitto/) @ [ideato](https://www.ideato.it)'
+  title: Frontsize
+  tab_title: Component library • Frontsize
+  description: CSS Component library for **Frontsize**
+  footer_title: Frontsize component library
+  footer_description: '[Frontsize](https://github.com/vitto/frontsize) is made with <i class="material-icons" style="color:#f06856; font-size:16px; position:relative; top:3px;">favorite</i> by [vitto](https://github.com/vitto/) @ [ideato](https://www.ideato.it)'
   cssLibrary: test.css
-  logo: crysalicss-logo.svg
+  logo: ideato-logo.svg
   fullscreen: Fullscreen mode
   code: Code snippets
   clipboard:
-    default: Clicca per copiare negli appunti
-    success: Codice copiato!
-    error: Il tuo browser non supporta questa azione
+    default: Click to copy in the clipboard
+    success: Code copied!
+    error: Your browser doesn't seems to support this action
   colors:
     -
       code: "#FFFFFF"

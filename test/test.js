@@ -10,7 +10,6 @@ run([
   'test/js/functions-scale-value.js',
   'test/js/functions-spacing.js',
   'test/js/functions-step.js',
-  'test/js/grids-float.js',
   'test/js/helpers-container.js',
   'test/js/helpers-debug.js',
   'test/js/helpers-font.js',
