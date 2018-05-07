@@ -94,14 +94,10 @@ npm install && npm run test
 
 Created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
 
-[test]: https://github.com/ideatosrl/frontsize/blob/master/test/js/
-[themes]: https://github.com/ideatosrl/frontsize/tree/master/themes
 [bem]: https://github.com/ideatosrl/frontsize/blob/master/test/js/components-bem.js
-[dustman]: https://github.com/ideatosrl/dustman
 [ideato]: http://www.ideato.it
 [less]: https://github.com/ideatosrl/frontsize-less
 [minompi]: https://twitter.com/minompi
-[frontsize]: https://github.com/ideatosrl/frontsize
-[sassdoc]: http://sassdoc.com/
-[tests]: https://github.com/ideatosrl/frontsize-sass/tree/master/test/js
+[test]: https://github.com/ideatosrl/frontsize/blob/master/test/js/
+[themes]: https://github.com/ideatosrl/frontsize/tree/master/themes
 [vitto]: https://twitter.com/vttrx

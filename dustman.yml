@@ -17,12 +17,6 @@ config:
   verbose: 3
   verify: false
 
-html: # optional [required by sub task html if used]
-  engine: twig # optional [html]
-  watch: test/twig/views/**/*.twig
-  files:
-    - test/twig/views/grids-float.twig
-
 css:
   themes:
     -

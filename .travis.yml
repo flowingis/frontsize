@@ -10,7 +10,5 @@ sudo: required
 
 script:
   - npm run setupBuild
-  - npm run setupStyleguide
   - npm run build
-  - npm run styleguide
   - npm run test

@@ -40,7 +40,6 @@
     "unitconversion": "^2.1.13"
   },
   "devDependencies": {
-    "a-pollo": "git+https://github.com/vitto/a-pollo.git#v2.0.0",
     "dustman": "^1.8.45",
     "node-diff": "^0.2.0",
     "node-sass": "^3.10.1",
@@ -59,9 +58,6 @@
     "build": "./node_modules/.bin/gulp -S",
     "http": "./node_modules/.bin/gulp -S http",
     "setupBuild": "npm update dustman --save && cp ./node_modules/dustman/gulpfile.js gulpfile.js",
-    "setupStyleguide": "npm update a-pollo --save && cp -r -n node_modules/a-pollo/templates/* . || true",
-    "styleguideServe": "node a-pollo.js && ./node_modules/.bin/gulp -S http",
-    "styleguide": "node a-pollo.js",
     "test": "node test/test.js"
   }
 }
