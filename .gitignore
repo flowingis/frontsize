@@ -1,58 +1,38 @@
-# temp files to be ignored #
+._*
+.csslintrc.comments.json
+.DS_Store
+.DS_Store?
+.sass-cache
+.Spotlight-V100
+.Trashes
+*.7z
 *.ai
 *.bak
-# css
-
-# Compiled source #
-###################
-*.com
 *.class
+*.com
 *.dll
-*.exe
-*.o
-*.so
-# *.css
-
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
 *.dmg
+*.exe
 *.gz
 *.iso
 *.jar
-*.rar
-*.tar
-*.zip
-
-# Logs and databases #
-######################
 *.log
+*.o
+*.rar
+*.so
 *.sql
 *.sqlite
-
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
-
-# Other #
-#########
-.csslintrc.comments.json
-node_modules
-bower_components
-.sass-cache
+*.tar
+*.zip
+/frontsize.yml
+/img
+/styleguide
 /test/css
 /test/html
-/img
-/frontsize.yml
-/styleguide
 /vendor
+bower_components
+ehthumbs.db
 gulpfile.js
+Icon?
+node_modules
+Thumbs.db

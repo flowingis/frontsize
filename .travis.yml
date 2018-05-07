@@ -9,6 +9,5 @@ before_install:
 sudo: required
 
 script:
-  - npm run setupBuild
   - npm run build
   - npm run test

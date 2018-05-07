@@ -94,6 +94,8 @@
   @version: 4.0.0
 */
 
+$use-core-base: false !default;
+
 @if $use-core-base == true {
 
   * {
