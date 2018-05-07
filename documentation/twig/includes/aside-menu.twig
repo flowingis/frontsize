@@ -1,0 +1,16 @@
+<ul class="aside-menu">
+  {% set titleAdded = 'false' %}
+  {% for component in components %}
+    {% if titleAdded != 'true' %}
+      <li class="aside-menu__title">
+        {{ component.collection }}
+      </li>
+      {% set titleAdded = 'true' %}
+    {% endif %}
+    <li class="aside-menu__item">
+      <a href="{{ relativePath }}{{ component.path|replace({ '.md': '.html' }) }}" class="aside-menu__link {% if path == component.path %} aside-menu__link--active {% endif %}">
+        {{ component.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

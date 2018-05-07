@@ -1,0 +1,46 @@
+@include block ('button-option') {
+
+  $button-text-color: $text-color;
+  $button-text-color-hover: $text-color;
+  $button-text-color-active: $text-color;
+  $button-icon-color: $text-color;
+  $button-icon-color-hover: theme('primary');
+  $button-icon-color-active: theme('primary');
+
+  background-color: transparent;
+  color: $button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  padding: s(0.5) s(0.75);
+  text-align: center;
+  text-decoration: none;
+  transition: color tween('click'), background-color tween('click');
+
+  &:hover {
+    color: $button-text-color-hover;
+
+    @include element ('icon') {
+      color: $button-icon-color-hover;
+    }
+  }
+
+  @include modifier ('active') {
+    background-color: mix(theme('primary'), theme('background'), 15%);
+    color: $button-text-color-active;
+
+    @include element ('icon') {
+      color: $button-icon-color-active;
+    }
+  }
+
+  @include element ('icon') {
+    color: $button-icon-color;
+    margin-bottom: s(0.25);
+    transition: color tween('hover');
+  }
+
+  @include element ('text') {
+    @extend %tiny-bold-text;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,69 @@
+@include block ('aside') {
+
+  $background-overlay: rgba($main-background, 0.75);
+  $background-menu: $menu-background !default;
+
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+
+  @include element ('logo') {
+    height: theme('logo-height');
+    margin: theme('logo-margin');
+    transition: margin tween('movement');
+    width: auto;
+
+    @include media ('<tp') {
+      margin: s(1);
+    }
+
+    @include modifier ('fullscreen') {
+      margin: s(1);
+    }
+  }
+
+  @include element ('go-home') {
+    display: block;
+  }
+
+  @include element ('open') {
+    backdrop-filter: $backdrop-blur;
+    background-color: $background-overlay;
+    pointer-events: auto;
+
+    &:hover {
+
+      & + .aside__slider {
+        pointer-events: auto;
+        transform: translate(0%, 0);
+
+        &::after {
+          background-color: $background-overlay;
+        }
+      }
+    }
+  }
+
+  @include element ('slider') {
+    animation-duration: 2s;
+    animation-name: go-out;
+    background-color: $background-menu;
+    box-shadow: shadow('card');
+    height: 100%;
+    overflow: auto;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translate(-100%, 0);
+    transition: transform tween('hover');
+    z-index: 1;
+
+    &:hover {
+      pointer-events: auto;
+      transform: translate(0%, 0);
+    }
+  }
+}

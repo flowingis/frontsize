@@ -1,0 +1,9 @@
+@include block ('split') {
+  margin-left: s(-0.5);
+  margin-right: s(-0.5);
+
+  > * {
+    margin-left: s(0.5);
+    margin-right: s(0.5);
+  }
+}

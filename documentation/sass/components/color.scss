@@ -1,0 +1,22 @@
+@include block ('color') {
+  $size: 24px;
+  $border-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+  $border-shadow-active: 0 0 0 1px $text-color inset;
+
+  background-color: transparent;
+  border-radius: $size;
+  box-shadow: $border-shadow;
+  display: inline-block;
+  height: $size;
+  transition: box-shadow tween('movement');
+  width: $size;
+
+  @include modifier ('transparent') {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxuczpzZXJpZj0iaHR0cDovL3d3dy5zZXJpZi5jb20vIiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEuNDE0MjE7Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBzdHlsZT0iZmlsbDojZWJlYmViOyIvPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBzdHlsZT0iZmlsbDojZWJlYmViOyIvPjwvc3ZnPg==');
+    background-size: $size $size;
+  }
+
+  @include modifier ('active') {
+    box-shadow: $border-shadow-active;
+  }
+}

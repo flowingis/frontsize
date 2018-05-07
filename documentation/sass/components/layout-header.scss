@@ -1,0 +1,19 @@
+@include block ('layout-header') {
+
+  margin-bottom: s(5);
+  margin-top: s(5);
+  user-select: none;
+
+  @include media ('<ds') {
+    text-align: center;
+  }
+
+  @include element ('title') {
+    @extend %big-title;
+    color: $title-color;
+  }
+
+  @include element ('description') {
+    @extend %small-text;
+  }
+}

@@ -1,0 +1,8 @@
+@include block ('layout-logo') {
+  height: auto;
+  width: 100px;
+
+  @include media ('<tp') {
+    width: 50px;
+  }
+}

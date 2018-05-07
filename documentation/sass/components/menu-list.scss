@@ -1,0 +1,67 @@
+@include block ('menu-list') {
+
+  $default-link-color: $text-color;
+  $hover-link-background: theme('primary'); //mix(theme('primary'), theme('background'), 50%);
+  $hover-link-color: theme('background');
+
+  list-style-type: none;
+  margin: 0;
+  padding: s(1);
+
+  @include element ('title') {
+    @extend %font-code;
+    @extend %font-code-background;
+    border-radius: 4px;
+    margin-bottom: s(1);
+    padding: s(0.5) s(1);
+  }
+
+  @include element ('link') {
+    @extend %small-text;
+    color: $default-link-color;
+    display: block;
+    margin-left: s(0.5);
+    margin-right: s(0.5);
+    padding: s(0.5);
+    position: relative;
+    text-decoration: none;
+    transition: none;
+    white-space: nowrap;
+
+    &::after,
+    &::before {
+      background-color: transparent;
+      bottom: 0;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transform: translate(0, 0);
+      transition: transform tween('sprint');
+      width: s(0.5);
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &:hover {
+      background-color: $hover-link-background;
+      color: $hover-link-color;
+
+      &::after {
+        background-color: $hover-link-background;
+        transform: translate(100%, 0);
+      }
+
+      &::before {
+        background-color: $hover-link-background;
+        transform: translate(-100%, 0);
+      }
+    }
+  }
+}

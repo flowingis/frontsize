@@ -1,0 +1,25 @@
+$backdrop-blur: blur(5px);
+
+$horizontal-border: 2px solid theme('primary');
+$main-background: theme('background');
+$menu-background: theme('background');
+$text-color: mix(theme('text'), theme('background'), 70%);
+$title-color: theme('text');
+
+$code-background: theme('code') !default;
+$code-color: desaturate(darken(theme('code'), 30%), 20%) !default;
+
+$code-markdown-background: rgba($code-color, .1) !default;
+$example-background: mix($code-color, $code-background, 25%) !default;
+$clipboard-background-hover: $example-background !default;
+
+$link-background-hover: mix(theme('primary'), theme('code')) !default;
+$menu-link-color-hover: $title-color;
+
+@if (lightness(theme('code')) <= 50%) {
+  $link-background-hover: mix(theme('primary'), theme('background'), 50%);
+  $code-color: saturate(lighten(theme('code'), 40%), 20%);
+  $menu-link-color-hover: $code-color;
+  $code-markdown-background: rgba($code-color, .07);
+  $clipboard-background-hover: mix($code-color, $code-background, 50%);
+}

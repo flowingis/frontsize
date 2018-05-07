@@ -52,7 +52,7 @@
     "globals": []
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=3.3.12"
   },
   "bugs": {
     "url": "https://github.com/ideatosrl/frontsize/issues"

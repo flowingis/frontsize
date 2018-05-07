@@ -1,0 +1,124 @@
+@include block ('tooltip') {
+
+  $color-background: theme('primary');
+  $color-title: theme('background');
+  $color-text: mix(theme('background'), theme('primary'), 65%);
+  $border: 0 0 0 1px theme('background');
+  $border-text: mix(theme('primary'), theme('background'));
+  $active-item-background: theme('background');
+  $active-item-color: theme('primary');
+  $arrow-size: 8px;
+  $border-radius: 4px;
+  $ease: 0.5s ease('out-expo');
+  $tooltip-width: 125px;
+
+  position: relative;
+
+  @include modifier ('disabled') {
+    @include element ('container') {
+      display: none;
+    }
+  }
+
+  &:hover {
+    @include element ('container') {
+      opacity: 1;
+      transform: translate(0, -10px) scale(1);
+    }
+  }
+
+  @include modifier ('animated') {
+    transition: top $ease, left $ease;
+  }
+
+  @include modifier ('show') {
+    @include element ('container') {
+      opacity: 1;
+      transform: translate(0, -10px) scale(1);
+    }
+  }
+
+  @include modifier ('compress') {
+    &:first-child {
+      @include element ('balloon') {
+        $offset: $arrow-size * 4;
+        transform: translate(-($offset), 0);
+
+        &::after {
+          left: $offset;
+        }
+      }
+    }
+  }
+
+
+  @include element ('container') {
+    bottom: 100%;
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transform: translate(0, 0) scale(.75);
+    transform-origin: 0 100%;
+    transition: transform $ease, opacity $ease;
+    width: 0;
+    z-index: 1;
+  }
+
+  @include element ('balloon') {
+    @extend %tiny-text;
+
+    background-color: $color-background;
+    border-radius: $border-radius;
+    box-shadow: $border;
+    color: $color-title;
+    font-size: 12px;
+    left: -50%;
+    padding: s(0.5) s(0.75);
+    position: relative;
+    transform: translate(-50%, 0);
+    white-space: normal;
+    width: $tooltip-width;
+
+    &::after {
+      border: solid transparent;
+      border-color: transparent;
+      border-top-color: $color-background;
+      border-width: $arrow-size;
+      content: ' ';
+      height: 0;
+      left: 50%;
+      margin-left: -($arrow-size);
+      pointer-events: none;
+      position: absolute;
+      top: 100%;
+      width: 0;
+    }
+  }
+
+  @include element ('title') {
+    @extend %tiny-bold-text;
+    color: $color-title;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @include element ('text') {
+    border-top: 1px solid $border-text;
+    color: $color-text;
+    margin-top: s(0.25);
+    padding-top: s(0.25);
+  }
+
+  @include element ('item') {
+    background-color: transparent;
+    transition: background-color tween('movement'), color tween('movement');
+
+    @include modifier ('active') {
+      background-color: $active-item-background;
+      color: $active-item-color;
+    }
+  }
+}

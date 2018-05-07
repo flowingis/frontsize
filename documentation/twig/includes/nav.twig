@@ -1,0 +1,99 @@
+<nav class="layout-nav">
+  <div class="layout-nav__container">
+    <div class="layout-nav__row">
+      <ul class="layout-nav-group">
+        {% for color in metadata.colors %}
+          <li class="layout-nav-group__item">
+            <span class="button-option button-option--color" data-color="{{ color.code }}">
+              <div class="button-option__icon">
+                {% if color.code == 'transparent' %}
+                  <div class="color color--transparent"></div>
+                {% else %}
+                  <div class="color" style="background-color: {{ color.code }};"></div>
+                {% endif %}
+              </div>
+              <div class="button-option__text">
+                {{ color.name }}
+              </div>
+            </span>
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="layout-nav-group layout-nav-group--vertical">
+        {% if metadata.fullscreen is defined %}
+          <li class="layout-nav-group__item">
+            <label class="input-checkbox">
+              <input id="fullscreen" class="input-checkbox__field" type="checkbox" name="some-name" value="1">
+              <i class="input-checkbox__icon material-icons">fullscreen</i>
+              <i class="input-checkbox__icon material-icons">fullscreen_exit</i>
+              <div class="input-checkbox__text">
+                {{ metadata.fullscreen }}
+              </div>
+            </label>
+          </li>
+        {% endif %}
+        {% if metadata.code is defined %}
+          <li class="layout-nav-group__item">
+            <label class="input-checkbox">
+              <input id="show-hide-code" class="input-checkbox__field" type="checkbox" name="some-name" value="1" checked>
+              <i class="input-checkbox__icon material-icons">code</i>
+              <i class="input-checkbox__icon material-icons">visibility_off</i>
+              <div class="input-checkbox__text">
+                {{ metadata.code }}
+              </div>
+            </label>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="layout-nav__row">
+      <ul class="layout-nav-group">
+        <li class="layout-nav-group__item tooltip">
+          <label class="input-switch input-switch--disabled">
+            <div class="input-switch__text">
+              Min
+            </div>
+            <input id="min-max" class="input-switch__field input-switch__field--homogenic" type="checkbox" name="switch-checkbox-name" value="1">
+            <div class="input-switch__box">
+              <div class="input-switch__dot"></div>
+            </div>
+            <div class="input-switch__text">
+              Max
+            </div>
+          </label>
+          <div class="tooltip__container">
+            <div class="tooltip__balloon">
+              Dimensione minima o massima del viewport selezionato
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="layout-nav-group">
+        {% for viewport in metadata.viewports %}
+          <li class="layout-nav-group__item tooltip">
+            <span class="button-option button-option--viewport" data-viewport="{{ viewport.min }},{{ viewport.max }}" href="#">
+              <div class="button-option__icon">
+                <div class="viewport-icon material-icons">{{ viewport.icon }}</div>
+              </div>
+              <div class="button-option__text">
+                {{ viewport.prefix }}
+              </div>
+            </span>
+            <div class="tooltip__container">
+              <div class="tooltip__balloon">
+                <div class="tooltip__title">
+                  {{ viewport.name }}
+                </div>
+                <div class="tooltip__text">
+                  <div class="tooltip__item"> Min: {{ viewport.min }} </div>
+                  <div class="tooltip__item"> Max: {{ viewport.max }} </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,90 @@
+@include block ('aside-menu') {
+
+
+  $link-background-active: theme('primary');
+  $link-color-hover: theme('background');
+  $link-color: $text-color;
+  $menu-background-hover: theme('code') !default;
+
+  @if (lightness($menu-background-hover) <= 50%) {
+    $menu-background-hover: mix(theme('background'), theme('primary'), 90%);
+  }
+
+  list-style-type: none;
+  margin: 0;
+  padding: s(1);
+  transition: background-color tween('hover');
+
+  &:hover {
+    background-color: $menu-background-hover;
+
+    @include element ('title') {
+      border-color: $link-background-hover;
+      border-radius: 0;
+    }
+
+    @include element ('link') {
+      color: $menu-link-color-hover;
+    }
+  }
+
+  @include element ('title') {
+    @extend %font-code;
+    @extend %font-code-background;
+    border-bottom: 2px solid transparent;
+    border-radius: 4px;
+    margin-bottom: s(1);
+    padding: s(0.5) s(1);
+    padding-top: (s(0.5) + 2px);
+    transition: border tween('hover');
+  }
+
+  @include element ('item') {
+    padding: 0;
+  }
+
+  @include element ('link') {
+    @extend %small-text;
+    color: $link-color;
+    display: block;
+    padding: s(0.5) s(1);
+    position: relative;
+    text-decoration: none;
+    transition: none;
+    white-space: nowrap;
+
+    &::after {
+      background-color: transparent;
+      bottom: 0;
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(0, 0);
+      transition: transform tween('sprint');
+      width: s(1);
+    }
+
+    &:hover {
+      background-color: $link-background-hover;
+      color: $link-color-hover !important;
+
+      &::after {
+        background-color: $link-background-hover;
+        transform: translate(100%, 0);
+      }
+    }
+
+    @include modifier ('active') {
+      background-color: $link-background-active;
+      color: $link-color-hover !important;
+      pointer-events: none;
+
+      &::after {
+        background-color: $link-background-active;
+        transform: translate(100%, 0);
+      }
+    }
+  }
+}

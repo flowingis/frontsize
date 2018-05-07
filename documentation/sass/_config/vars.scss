@@ -1,0 +1,16 @@
+$font-family-sans: -apple-system, BlinkMacSystemFont, lato, Helvetica, arial, sans-serif;
+$font-family-serif: georgia, 'times new roman', times, serif;
+$font-family-monospace: monaco, menlo, 'courier new', monospace;
+
+@import '../themes/crysalicss';
+// @import '../themes/facebook';
+// @import '../themes/google';
+// @import '../themes/ideato';
+
+@function theme($property) {
+  @return get($theme, $property);
+}
+
+$font-family-code: $font-family-monospace !default;
+$font-family-text: $font-family-sans !default;
+$font-family-title: $font-family-sans !default;

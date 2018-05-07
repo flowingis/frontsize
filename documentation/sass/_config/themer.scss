@@ -1,0 +1,97 @@
+@function distance-light ($distance, $color-target, $color-base: $color-target) {
+  $perc: 1%;
+  $color: $color-target;
+
+  @if ($color-base == $color-target) {
+    @while lightness($color) <= $distance {
+      $color: lighten($color-target, $perc);
+      $perc: $perc + 1%;
+      @if ($perc > 100%) {
+        @return $color;
+      }
+    }
+  } @else {
+    @while lightness($color-base) - lightness($color) >= $distance {
+      $color: lighten($color-target, $perc);
+      $perc: $perc + 1%;
+      @if ($perc > 100%) {
+        @return $color;
+      }
+    }
+  }
+
+  @return $color;
+}
+
+@function distance-dark ($distance, $color-target, $color-base: $color-target) {
+  $perc: 1%;
+  $color: $color-target;
+  @if ($color-base == $color-target) {
+    @while lightness($color) >= $distance {
+      $color: darken($color-target, $perc);
+      $perc: $perc + 1%;
+      @if ($perc > 100%) {
+        @return $color;
+      }
+    }
+  } @else {
+    @while lightness($color-base) - lightness($color) <= $distance {
+      $color: darken($color-target, $perc);
+      $perc: $perc + 1%;
+      @if ($perc > 100%) {
+        @return $color;
+      }
+    }
+}
+  @return $color;
+}
+
+@function distance ($distance, $target, $base: $target) {
+  $color-target: $target;
+  $color-base: $base;
+  @if (lightness($color-base) <= lightness($color-target)) {
+    @return distance-light($distance, $color-target, $color-base);
+  } @else {
+    @return distance-dark($distance, $color-target, $color-base);
+  }
+}
+
+@function lighterThan ($base, $theme) {
+  @each $name, $color in $theme {
+    @if (lightness($color) > lightness($base)) {
+      $lightest-color: $color;
+    }
+  }
+}
+
+@function lightest ($theme) {
+  $lightest-color: #000;
+  @each $name, $color in $theme {
+    @if (lightness($color) > lightness($lightest-color)) {
+      $lightest-color: $color;
+    }
+  }
+  @return $lightest-color;
+}
+
+@function darkerThan ($base, $theme) {
+  @each $name, $color in $theme {
+    @if (lightness($color) < lightness($base)) {
+      $lightest-color: $color;
+    }
+  }
+}
+
+@function darkest ($theme) {
+  $darkest-color: #fff;
+  @each $name, $color in $theme {
+    @if (lightness($color) < lightness($darkest-color)) {
+      $darkest-color: $color;
+    }
+  }
+  @return $darkest-color;
+}
+
+@function theme ($property) {
+  @return get($theme, $property);
+}

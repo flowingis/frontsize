@@ -1,0 +1,17 @@
+@include block ('layout-footer') {
+
+  border-top: $horizontal-border;
+  margin-bottom: s(10);
+  margin-top: s(5);
+  padding-top: s(5);
+  user-select: none;
+
+  @include element ('title') {
+    @extend %big-title;
+    color: $title-color;
+  }
+
+  @include element ('description') {
+    @extend %small-text;
+  }
+}

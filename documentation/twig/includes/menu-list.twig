@@ -1,0 +1,16 @@
+<ul class="menu-list">
+  {% set titleAdded = 'false' %}
+  {% for component in components %}
+    {% if titleAdded != 'true' %}
+      <li class="menu-list__title">
+        {{ component.collection }}
+      </li>
+      {% set titleAdded = 'true' %}
+    {% endif %}
+    <li class="menu-list__item">
+      <a href="{{ relativePath }}{{ component.path|replace({ '.md': '.html' }) }}" class="menu-list__link">
+        {{ component.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

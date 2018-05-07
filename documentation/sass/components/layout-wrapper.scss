@@ -1,0 +1,116 @@
+@include block ('layout-wrapper') {
+
+  $background-container: $example-background;
+  $border-size: 2px;
+  $oveflow-size: 4px;
+
+  border-top: $horizontal-border;
+  margin-bottom: s(4);
+  margin-top: s(4);
+  padding-top: s(3);
+
+  @include element ('infos') {
+    padding: s(1) 0;
+  }
+
+  @include element ('widget') {
+    padding: s(1) 0;
+  }
+
+  @include element ('container') {
+
+    background-color: $background-container;
+    border: $border-size solid $background-container;
+    overflow: auto;
+    position: relative;
+
+    &::after {
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-name: pulse;
+      @supports (backdrop-filter: invert(100%)) {
+        backdrop-filter: invert(100%);
+      }
+      @supports not (backdrop-filter: invert(100%)) {
+        background-color: theme('primary');
+      }
+      bottom: 0;
+      content: '';
+      display: none;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: opacity tween('movement');
+      width: $oveflow-size;
+      z-index: 1;
+    }
+
+    @include modifier ('show-overflow') {
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  @include element ('grid') {
+    align-items: flex-start;
+    background-color: theme('background');
+    display: inline-flex;
+    flex-direction: column;
+    padding: s(1);
+    position: relative;
+    transition: background-color tween('movement'), width tween('movement');
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    > * + * {
+      margin-top: s(1);
+    }
+
+    &::after {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxuczpzZXJpZj0iaHR0cDovL3d3dy5zZXJpZi5jb20vIiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEuNDE0MjE7Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBzdHlsZT0iZmlsbDojZWJlYmViOyIvPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBzdHlsZT0iZmlsbDojZWJlYmViOyIvPjwvc3ZnPg==');
+      background-size: 32px 32px;
+      bottom: 0;
+      content: '';
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: width tween('movement'),
+      opacity tween('movement'),
+      right tween('movement'),
+      bottom tween('movement'),
+      top tween('movement'),
+      left tween('movement');
+      z-index: 0;
+    }
+
+    @include modifier ('transparent') {
+      background-color: transparent;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include element ('title') {
+    @extend %title;
+    color: $title-color;
+    margin-bottom: s(1);
+  }
+
+  @include element ('iframe') {
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    transition: width tween('movement'), height tween('movement'), border 3s ease-in-out;
+    width: 100%;
+  }
+}

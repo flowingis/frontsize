@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ metadata.lang }}" class="layout-html">
+  <head>
+    {% include 'includes/meta.twig' %}
+    <title>
+      {{ metadata.tab_title }}
+    </title>
+    {% include 'includes/assets.twig' %}
+  </head>
+
+  <body class="layout-body">
+    {% include 'includes/header.twig' %}
+    {% include 'includes/aside.twig' %}
+
+    <main class="layout-limiter layout-main">
+      {% if contents is not empty %}
+        <div class="markdown markdown--documentation">
+          {{ contents }}
+        </div>
+      {% endif %}
+      {% for snippet in snippets %}
+        {% include 'includes/wrapper.twig' with { 'item': snippet } %}
+      {% endfor %}
+    </main>
+
+    {% if snippets is defined %}
+      {% include 'includes/nav.twig' %}
+    {% endif %}
+    {% include 'includes/footer.twig' %}
+
+  </body>
+</html>

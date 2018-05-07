@@ -1,0 +1,70 @@
+@include block ('code') {
+
+  $clipboard-background: rgba($code-background, 0.75);
+
+  cursor: pointer;
+  display: block;
+  position: relative;
+
+  &:hover {
+    @include element ('info') {
+      transform: translate(s(-1), s(-1));
+    }
+
+    @include element ('clipboard') {
+      background-color: $clipboard-background-hover;
+      color: lighten($code-color, 5%);
+    }
+  }
+
+  @include modifier ('hidden') {
+    display: none;
+  }
+
+  @include element ('info') {
+    backdrop-filter: $backdrop-blur;
+    bottom: 2px;
+    display: inline-flex;
+    position: absolute;
+    right: 2px;
+    transform: translate(0, 0);
+    transition: transform tween('hover');
+  }
+
+  @include element ('language') {
+    @extend %tiny-bold-text;
+    background-color: theme('background');
+    color: $code-color;
+    padding: s(0.5);
+    text-transform: uppercase;
+    transform: translate(0, 0);
+    transition: background-color tween('hover');
+  }
+
+  @include element ('clipboard') {
+    @extend %tiny-text;
+    background-color: $clipboard-background;
+    color: $code-color;
+    padding: s(0.5);
+    transition: background-color tween('hover');
+  }
+
+  @include element ('preview') {
+    @extend %font-code;
+    background-color: $code-background;
+    border: 0;
+    margin: 0;
+    overflow: scroll;
+    padding: s(1);
+    resize: none;
+    width: 100%;
+  }
+
+  @include element ('source') {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+}

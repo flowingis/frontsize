@@ -1,0 +1,60 @@
+@mixin input-checkbox-state ($color) {
+  &:hover {
+    @include element ('icon') {
+      color: $color;
+    }
+  }
+
+  @include element ('field') {
+    display: none;
+
+    & + .input-checkbox__icon {
+      display: inline-block;
+    }
+
+    & + .input-checkbox__icon + .input-checkbox__icon {
+      color: $color;
+      display: none;
+    }
+
+    &:checked {
+      & + .input-checkbox__icon {
+        display: none;
+      }
+
+      & + .input-checkbox__icon + .input-checkbox__icon {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@include block ('input-checkbox') {
+
+  $unchecked: theme('primary');
+
+  align-items: flex-start;
+  border-radius: radius('medium');
+  display: inline-flex;
+  transition: background-color tween('hover');
+
+  @include element ('text') {
+    @extend %small-text;
+    cursor: pointer;
+    padding: 4px 4px 4px 0;
+  }
+
+  @include element ('icon') {
+    color: $unchecked;
+    cursor: pointer;
+    margin-right: s(0.25);
+    transition: color tween('hover');
+  }
+
+  @include input-checkbox-state(theme('primary'));
+
+  // @include modifier ('avoid') {
+  //   @include input-checkbox-state(theme('text'));
+  // }
+
+}

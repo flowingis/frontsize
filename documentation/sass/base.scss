@@ -1,0 +1,8 @@
+a {
+  color: $title-color;
+  transition: color tween('hover');
+
+  &:hover {
+    color: $title-color;
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "crysalicss",
+  "version": "1.0.0",
+  "description": "A component library template for CSS code",
+  "main": "metalsmith.js",
+  "scripts": {
+    "build-and-reload": "npm run source && npm run metalsmith && ./node_modules/browser-sync/dist/bin.js reload",
+    "build": "npm run clean && npm run source && npm run sass && npm run js && npm run metalsmith",
+    "clean": "rm -rf ./build || true rm -rf ./source || true && mkdir ./source && mkdir -p ./source/css || true && mkdir -p ./source/js || true  && mkdir -p ./source/img || true",
+    "dev": "npm run build && concurrently --kill-others 'npm run watch-css' 'npm run watch-js' 'npm run watch-http' 'npm run watch-html'",
+    "js": "./node_modules/bundle-js/bin/bundle-js.js ./js/main.js -o ./source/js/metalsmith.js",
+    "metalsmith": "node metalsmith.js",
+    "sass": "./node_modules/node-sass/bin/node-sass ./sass/import.scss source/css/metalsmith.css && postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o source/css/metalsmith.css source/css/metalsmith.css && cleancss -o source/css/metalsmith.css source/css/metalsmith.css",
+    "simple-http": "python -m SimpleHTTPServer 8000",
+    "source-assets": "cp -r ./assets/* ./source/img",
+    "source-posts": "cp -r posts/* source/",
+    "source-styles": "cp src/test.css source/css/test.css",
+    "source": "npm run source-assets && npm run source-posts && npm run source-styles && npm run vendor-css && mkdir -p ./build",
+    "vendor-css": "cp ./node_modules/prismjs/themes/prism.css ./source/css/prism.css && cp -r ./node_modules/material-design-icons/iconfont/* ./source/css",
+    "watch-css": "watch -p './sass/**/*.scss' -c 'npm run sass'",
+    "watch-html": "watch -p './src/test.css' -p './assets/' -p './posts/**/*.md' -p './metalsmith.yml' -p './metalsmith.js' -p './source/**/*.md' -p './source/**/*.css' -p './source/**/*.js'  -p './twig/**/*.twig' -c 'npm run build-and-reload'",
+    "watch-http": "./node_modules/browser-sync/dist/bin.js start --server ./build",
+    "watch-js": "watch -p './js/**/*.js' -c 'npm run js'",
+    "watch": "npm run build && concurrently --kill-others 'npm run watch-css' 'npm run watch-js' 'npm run watch-html'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitto/css-component-library.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "javascript",
+    "markdown",
+    "metalsmith",
+    "sass",
+    "twig",
+    "yaml"
+  ],
+  "author": "Vittorio Vittori",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitto/css-component-library/issues"
+  },
+  "homepage": "https://github.com/vitto/css-component-library#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.3.0",
+    "browser-sync": "^2.23.6",
+    "bundle-js": "^1.0.2",
+    "clean-css-cli": "^4.1.11",
+    "concurrently": "^3.5.1",
+    "faker": "^4.1.0",
+    "js-yaml": "^3.11.0",
+    "marked": "^0.3.19",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-markdown": "^0.2.2",
+    "metalsmith-prism": "^3.1.1",
+    "metalsmith-twig": "^1.1.1",
+    "node-sass": "^4.8.3",
+    "postcss-cli": "^5.0.0",
+    "standard": "^11.0.1",
+    "watch-cli": "^0.2.3"
+  },
+  "standard": {
+    "globals": [
+      "$",
+      "ClipboardJS"
+    ]
+  },
+  "dependencies": {
+    "clipboard": "^2.0.0",
+    "frontsize": "^4.0.4",
+    "jquery": "^3.3.1",
+    "material-design-icons": "^3.0.1",
+    "prismjs": "^1.14.0"
+  }
+}

@@ -1,0 +1,24 @@
+@include block ('menus') {
+
+  @include element ('title') {
+    color: $title-color;
+    margin-bottom: s(1);
+  }
+
+  @include element ('items') {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: s(-1);
+    margin-right: s(-1);
+  }
+
+  @include element ('item') {
+    @include media ('<=ml') {
+      width: 50%;
+    }
+
+    @include media ('<=mp') {
+      width: 100%;
+    }
+  }
+}

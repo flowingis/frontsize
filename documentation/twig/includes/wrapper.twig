@@ -1,0 +1,58 @@
+<div class="layout-wrapper">
+  <div class="layout-wrapper__infos">
+    {% if item.title is defined %}
+      <div class="layout-wrapper__title">
+        {{ item.title }}
+      </div>
+    {% endif %}
+    {% if item.text is defined %}
+      <div class="layout-wrapper__description markdown">
+        {{ global.marked(item.text) }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="layout-wrapper__widget">
+
+    {% set code %}{{ item.html }}{% endset %}
+
+    <div class="layout-wrapper__container">
+      <div class="layout-wrapper__grid">
+        {% set html %}
+          <html class="html-iframe">
+            <script>
+              function disableAnchors () {
+                var anchors = document.getElementsByTagName('a');
+                for(i=0, len=anchors.length; i<len; i++){
+                  anchors[i].addEventListener('click', function(e){
+                    e.preventDefault();
+                  });
+                }
+              }
+              document.addEventListener('DOMContentLoaded', disableAnchors);
+            </script>
+            <body class="html-iframe">
+              {{ code }}
+            </body>
+            <link rel="stylesheet" href="{{ relativePath }}css/{{ metadata.cssLibrary }}?v={{ global.faker.random.uuid }}">
+            <style>
+              .html-iframe {
+                margin: 0 !important;
+                background: transparent !important;
+              }
+            </style>
+          </html>
+        {% endset %}
+        <iframe srcdoc="{{ html|escape }}" width="100%" height="150px" class="layout-wrapper__iframe" style="width: 300px;"></iframe>
+      </div>
+    </div>
+
+    <div class="code" data-clipboard-target="#snippet-{{ loop.index }}">
+      <div class="code__info">
+        <div class="code__clipboard" data-text-success="{{ metadata.clipboard.success }}" data-text-error="{{ metadata.clipboard.error }}">{{ metadata.clipboard.default }}</div>
+        <div class="code__language">HTML</div>
+      </div>
+      <pre class="code__preview">{{ global.prism.highlight(code, global.prism.languages.markup, 'markup')|trim }}</pre>
+      <textarea id="snippet-{{ loop.index }}" class="code__source">{{ code|trim }}</textarea>
+    </div>
+  </div>
+</div>

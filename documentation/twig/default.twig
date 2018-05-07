@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ metadata.lang }}" class="layout-html">
+  <head>
+    {% include 'includes/meta.twig' %}
+    <title>
+      {{ metadata.tab_title }}
+    </title>
+    {% include 'includes/assets.twig' %}
+  </head>
+
+  <body class="layout-body">
+    {% include 'includes/header.twig' %}
+
+    <aside class="aside">
+      <div class="aside__open">
+        <img class="aside__logo" src="{{ relativePath }}img/{{ metadata.logo }}">
+      </div>
+    </aside>
+
+    <main class="layout-limiter">
+      <div class="menus">
+        <h3 class="menus__title">Indice dei componenti</h3>
+        <div class="menus__items">
+          {% for components in metadata.collections %}
+            <div class="menus__item">
+              {% include 'includes/menu-list.twig' %}
+            </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div class="markdown markdown--documentation">
+        {{ contents }}
+      </div>
+    </main>
+
+    {% include 'includes/footer.twig' %}
+
+  </body>
+</html>

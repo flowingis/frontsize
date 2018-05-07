@@ -1,0 +1,18 @@
+@include block ('layout-nav-group') {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+
+  & + & {
+    margin-left: s(1);
+  }
+
+  @include modifier ('vertical') {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @include element ('item') {
+    list-style-type: none;
+  }
+}

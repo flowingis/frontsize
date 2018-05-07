@@ -1,0 +1,15 @@
+<aside class="aside">
+  <div class="aside__open">
+    <img class="aside__logo" src="{{ relativePath }}img/{{ metadata.logo }}">
+  </div>
+  <div class="aside__slider">
+    <a class="aside__go-home" href="{{ relativePath }}">
+      <img class="aside__logo" src="{{ relativePath }}img/{{ metadata.logo }}">
+    </a>
+
+    {% for components in metadata.collections %}
+      {% include 'aside-menu.twig' with { 'components': components } %}
+    {% endfor %}
+
+  </div>
+</aside>

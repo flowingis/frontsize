@@ -1,0 +1,35 @@
+$use-core-base: true;
+
+@import '_config/import';
+
+@import 'vars';
+@import 'animations';
+
+@import 'extends/typography';
+
+@import 'base';
+
+@import 'components/aside-menu';
+@import 'components/aside';
+@import 'components/button-option';
+@import 'components/code';
+@import 'components/color';
+@import 'components/input-checkbox';
+@import 'components/input-switch';
+@import 'components/layout-body';
+@import 'components/layout-footer-menu';
+@import 'components/layout-footer';
+@import 'components/layout-header';
+@import 'components/layout-html';
+@import 'components/layout-limiter';
+@import 'components/layout-logo';
+@import 'components/layout-nav-group';
+@import 'components/layout-nav';
+@import 'components/layout-wrapper';
+@import 'components/markdown';
+@import 'components/menu-list';
+@import 'components/menus';
+@import 'components/split';
+@import 'components/tooltip';
+@import 'components/viewport-icon';
+@import 'components/widget';

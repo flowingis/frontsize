@@ -1,0 +1,54 @@
+%big-title {
+  font-family: $font-family-title;
+  font-size: font-size('big');
+  font-weight: font-weight('bold');
+  letter-spacing: -1px;
+}
+
+%large-title {
+  font-family: $font-family-title;
+  font-size: font-size('large');
+  font-weight: font-weight('bold');
+  letter-spacing: -1px;
+}
+
+%title {
+  font-family: $font-family-title;
+  font-size: font-size('normal');
+  font-weight: font-weight('bold');
+}
+
+%small-text {
+  font-size: font-size('small');
+  font-weight: 300;
+}
+
+%tiny-text {
+  font-size: font-size('tiny');
+  font-weight: 400;
+}
+
+%tiny-bold-text {
+  font-size: font-size('tiny');
+  font-weight: 600;
+}
+
+%font-default {
+  font-family: $font-family-text;
+  font-size: font-size('normal');
+  font-weight: 300;
+}
+
+%font-code {
+  color: $code-color !important;
+  font-family: $font-family-code;
+  font-size: font-size('small');
+}
+
+%font-code-background {
+  @if (lightness($code-background) <= 50%) {
+    background-color: mix(theme('background'), theme('primary'), 85%);
+  } @else {
+    background-color: $code-background;
+  }
+}

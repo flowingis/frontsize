@@ -1,0 +1,18 @@
+@include block ('layout-body') {
+  @extend %font-default;
+  @extend %small-text;
+
+  background-color: $main-background;
+  color: $text-color;
+  pointer-events: auto;
+
+  content: theme('text');
+
+  @include media ('<ds') {
+    padding: 0 s(1);
+  }
+
+  @include modifier ('no-scroll') {
+    overflow: hidden;
+  }
+}

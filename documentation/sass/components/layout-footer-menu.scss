@@ -1,0 +1,36 @@
+@include block ('layout-footer-menu') {
+
+  $background-link-hover: theme('primary');
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  & + & {
+    margin-left: s(2);
+  }
+
+  @include element ('title') {
+    @extend %large-title;
+  }
+
+  @include element ('item') {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include element ('link') {
+    border-radius: radius('small');
+    color: inherit;
+    font-size: font-size('small');
+    margin-left: s(-0.25);
+    padding: s(0.125) s(0.25);
+    text-decoration: none;
+    transition: padding-right 0.5s ease('out-expo');
+
+    &:hover {
+      background-color: $background-link-hover;
+      padding-right: s(0.5);
+    }
+  }
+}

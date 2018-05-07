@@ -1,0 +1,12 @@
+@keyframes pulse {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.75; }
+  75% { opacity: 0.1; }
+  100% { opacity: 0.1; }
+}
+
+@keyframes go-out {
+  0% { transform: translate(0, 0); }
+  75% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
