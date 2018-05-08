@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="" class="layout-html">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>
+      Component library • Frontsize
+    </title>
+    <link rel="stylesheet" href="css/prism.css?v=fc6da310-083c-45fd-b814-62351a9e7ced">
+<link rel="stylesheet" href="css/material-icons.css?v=b0f6ef95-4fef-4ff7-846b-f4079a1c21a5">
+<link rel="stylesheet" href="css/metalsmith.css?v=226a1ca6-ab33-48d3-86a2-5c837df31f34">
+<script src="js/metalsmith.js?v=0770c703-bcfb-4e97-94ff-bbbaff97a884"></script>
+  </head>
+
+  <body class="layout-body">
+    <header class="layout-header layout-limiter">
+  <div class="layout-header__title">
+    Frontsize
+  </div>
+  <div class="layout-header__description">
+    <p>CSS Component library for <strong>Frontsize</strong></p>
+
+  </div>
+</header>
+
+    <aside class="aside">
+      <div class="aside__open">
+        <img class="aside__logo" src="img/ideato-logo.svg">
+      </div>
+    </aside>
+
+    <main class="layout-limiter">
+      <div class="menus">
+        <h3 class="menus__title">Indice dei componenti</h3>
+        <div class="menus__items">
+                      <div class="menus__item">
+              <ul class="menu-list">
+              <li class="menu-list__title">
+        variables
+      </li>
+              <li class="menu-list__item">
+      <a href="components/variables/configuration.html" class="menu-list__link">
+        Configuration
+      </a>
+    </li>
+  </ul>
+            </div>
+                </div>
+      </div>
+      <div class="markdown markdown--documentation">
+        <h3 id="cos-una-component-library-">Cos&#x2019;&#xE8; una component library?</h3>
+<p>Questo strumento serve a condividere la documentazione di componenti web. Al suo interno troverai esempi di come utilizzarli nelle pagine del tuo progetto.</p>
+<p>Viene utilizzato dai team di sviluppo per seguire una linea guida sull&#x2019;utilizzo corretto dei componenti modulari che si inseriscono nei template contenenti markup.</p>
+<h6 id="codice-sass">Codice SASS</h6>
+<p>I componenti sono sviluppati con le seguenti librerie <a href="https://sass-lang.com">SASS</a></p>
+<ul>
+<li><a href="https://github.com/ideatosrl/frontsize">Frontsize</a></li>
+<li><a href="http://include-media.com">Include media</a></li>
+</ul>
+<h6 id="frontsize">Frontsize</h6>
+<p>Serve per poter scrivere codice con approccio <a href="https://speakerdeck.com/vitto/workshop-sass-for-bem-development">BEM</a> con pi&#xF9; facilit&#xE0;, mette a disposizione una serie di <em>funzioni</em> e <em>mixin</em> fatti per velocizzare lo sviluppo e prevenire alcuni problemi di organizzazione del codice SASS.</p>
+<h6 id="include-media">Include media</h6>
+<p>Questa libreria mette a disposizione alcuni <em>mixin</em> per poter scrivere regole media query in maniera pi&#xF9; semantica.</p>
+<hr>
+<h3 id="snippet-di-codice">Snippet di codice</h3>
+<p>Gli snippet sono fatti per essere copiati ed incollati nei nuovi contenuti HTML che andranno in produzione.</p>
+<p>Una volta incollato, il codice va personalizzato in base ai contenuti necessari, tutti gli attributi <code>style</code> sono inseriti solo per scopo cosmetico all&#x2019;interno della libreria per poter facilitare lo scopo dell&#x2019;esempio.</p>
+<h6 id="codice-di-esempio">Codice di esempio</h6>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>set--text-right<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  Codice di esempio
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>&#xC8; importante ricordarsi di rimuovere gli attributi <code>style</code> cosmetici che non sono relazionati alle fixtures.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>set--text-right<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  Codice da mantenere
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Ci sono situazioni dove gli attributi <code>style</code> vanno comunque mantenuti, generalmente se devono caricare delle immagini, in questo caso gli esempi avranno immagini placeholder:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>set--text-right<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(&apos;//via.placeholder.com/640x480&apos;)</span><span class="token punctuation">;</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  Codice di esempio
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Lo snippet sar&#xE0; da customizzare con i dati che arrivano dal database in base al sistema di templating che state utilizzando:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>set--text-right<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(&apos;{{ database.image }}&apos;)</span><span class="token punctuation">;</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  {{ database.text }}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+
+      </div>
+    </main>
+
+    <div class="layout-limiter">
+  <footer class="layout-footer">
+    <div class="layout-footer__title">
+      Frontsize component library
+    </div>
+    <div class="layout-footer__description">
+      <p><a href="https://github.com/vitto/frontsize">Frontsize</a> is made with <i class="material-icons" style="color:#f06856; font-size:16px; position:relative; top:3px;">favorite</i> by <a href="https://github.com/vitto/">vitto</a> @ <a href="https://www.ideato.it">ideato</a></p>
+
+    </div>
+  </footer>
+</div>
+
+  </body>
+</html>

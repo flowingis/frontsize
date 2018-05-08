@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="" class="layout-html">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>
+      Component library • Frontsize
+    </title>
+    <link rel="stylesheet" href="../../css/prism.css?v=d8c92bd1-984b-4cbd-91d1-c13fd7f9d100">
+<link rel="stylesheet" href="../../css/material-icons.css?v=e0da2567-a367-4f88-a174-cef6789adf10">
+<link rel="stylesheet" href="../../css/metalsmith.css?v=55f8d4b3-9ecf-4b7c-bf01-0518f6c26b5e">
+<script src="../../js/metalsmith.js?v=4d0dfc25-d8c7-4b79-8a7a-9f91c267a07e"></script>
+  </head>
+
+  <body class="layout-body">
+    <header class="layout-header layout-limiter">
+  <div class="layout-header__title">
+    Frontsize
+  </div>
+  <div class="layout-header__description">
+    <p>CSS Component library for <strong>Frontsize</strong></p>
+
+  </div>
+</header>
+    <aside class="aside">
+  <div class="aside__open">
+    <img class="aside__logo" src="../../img/ideato-logo.svg">
+  </div>
+  <div class="aside__slider">
+    <a class="aside__go-home" href="../../">
+      <img class="aside__logo" src="../../img/ideato-logo.svg">
+    </a>
+
+          <ul class="aside-menu">
+              <li class="aside-menu__title">
+        variables
+      </li>
+              <li class="aside-menu__item">
+      <a href="../../components/variables/configuration.html" class="aside-menu__link  aside-menu__link--active ">
+        Configuration
+      </a>
+    </li>
+  </ul>
+    
+  </div>
+</aside>
+
+    <main class="layout-limiter layout-main">
+              <div class="markdown markdown--documentation">
+          <p>This is the list of the vars used by Frontsize:</p>
+<table>
+<thead>
+<tr>
+<th>Var</th>
+<th>Default value</th>
+<th>Operates on</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$bem-element</code></td>
+<td><code>__</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/components/bem.scss">bem.scss</a></td>
+<td>The BEM element convention prefix.</td>
+</tr>
+<tr>
+<td><code>$bem-modifier</code></td>
+<td><code>--</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/components/bem.scss">bem.scss</a></td>
+<td>The BEM modifier convention prefix.</td>
+</tr>
+<tr>
+<td><code>$frontsize-release-infos</code></td>
+<td><code>true</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/info.scss">info.scss</a></td>
+<td>Includes framework infos on CSS.</td>
+</tr>
+<tr>
+<td><code>$invalidate-cache</code></td>
+<td><code>true</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/functions/background.scss">background.scss</a></td>
+<td>Adds a different random string based on the SASS native function <code>unique-id</code> to the theme assets loaded.</td>
+</tr>
+<tr>
+<td><code>$path-fonts</code></td>
+<td><code>/</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/helpers/font.scss">font.scss</a></td>
+<td>The default path for fonts.</td>
+</tr>
+<tr>
+<td><code>$path-images</code></td>
+<td><code>/</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/functions/background.scss">background.scss</a></td>
+<td>The default path for theme images.</td>
+</tr>
+<tr>
+<td><code>$spacing</code></td>
+<td><code>20px</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/functions/math.scss">math.scss</a></td>
+<td>The value treated by frontsize&#x2019;s <code>s</code> function.</td>
+</tr>
+<tr>
+<td><code>$use-core-base</code></td>
+<td><code>false</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/components/base.scss">base.scss</a></td>
+<td>It generates a reset code that can be used instead of (or with) <a href="https://github.com/ideatosrl/frontsize/blob/master/themes/_config/vendor/normalize.scss">normalize</a> library.</td>
+</tr>
+<tr>
+<td><code>$use-core-print</code></td>
+<td><code>false</code></td>
+<td><a href="https://github.com/ideatosrl/frontsize/blob/master/core/components/base.scss">base.scss</a></td>
+<td>Enables CSS default print media query behavior.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="configuration-file">Configuration file</h6>
+<p>All&#x2019;interno del file troverete la configurazione degli <strong>step</strong> simile a questa:</p>
+<pre class="language-scss"><code class="language-scss"><span class="token property"><span class="token variable">$use-core-base</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+</code></pre>
+
+        </div>
+                </main>
+
+        <div class="layout-limiter">
+  <footer class="layout-footer">
+    <div class="layout-footer__title">
+      Frontsize component library
+    </div>
+    <div class="layout-footer__description">
+      <p><a href="https://github.com/vitto/frontsize">Frontsize</a> is made with <i class="material-icons" style="color:#f06856; font-size:16px; position:relative; top:3px;">favorite</i> by <a href="https://github.com/vitto/">vitto</a> @ <a href="https://www.ideato.it">ideato</a></p>
+
+    </div>
+  </footer>
+</div>
+
+  </body>
+</html>
