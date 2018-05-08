@@ -64,7 +64,7 @@ metadata:
       max: 1920
 clean: true
 source: source/
-destination: build
+destination: dist
 markdown:
   gfm: true
   langPrefix: 'language-'

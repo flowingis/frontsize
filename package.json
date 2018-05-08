@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build": "./node_modules/node-sass/bin/node-sass ./core/test.scss test/css/frontsize.css && postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o test/css/frontsize.css test/css/frontsize.css && cleancss -o test/css/frontsize.css test/css/frontsize.css",
+    "deploy": "cd documentation && npm run build && cd .. && git subtree push --prefix documentation/dist origin gh-pages",
     "test": "node test/test.js"
   }
 }
