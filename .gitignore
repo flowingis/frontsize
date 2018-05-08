@@ -24,6 +24,7 @@
 *.sqlite
 *.tar
 *.zip
+/documentation/package-lock.json
 /frontsize.yml
 /img
 /styleguide
