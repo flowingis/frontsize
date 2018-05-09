@@ -9,41 +9,6 @@ $-bem-element-name: '';
   }
 }
 
-/*
-  @a-pollo-doc
-  @author: Vittorio Vittori
-  @title: BEM
-  @category: Mixins
-  @code: Example on using the mixin with some static property
-    @include block (button) {
-      background: #3f6c44;
-      color: #fff;
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  @css: This is the CSS generated
-    .button {
-      background: #3f6c44;
-      color: #fff;
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  @date: 2016-12-28T17:40:42+01:00
-  @type: mixin
-  @html: A simple HTML element to see how mixin works
-    <a class="button" href="#">Visit this link</a>
-  @icon: fa fa-css3
-  @name: block
-  @param: {string} ($block-name) [required]
-          Defines the block name of the BEM component
-  @public: true
-  @returns: css
-  @text: Defines the block name of the BEM component. This mixin is required as wrapper of `element` and `modifier` mixins
-  @version: 4.0.0
-*/
-
 @mixin block ($block-name) {
   $-bem-block-name: '.#{$block-name}' !global;
 
@@ -52,65 +17,6 @@ $-bem-element-name: '';
   }
   $-bem-block-name: '' !global;
 }
-
-/*
-  @a-pollo-doc
-  @author: Vittorio Vittori
-  @code: You must wrap `element` mixin inside `block` mixin
-    @include block (button) {
-      background: #3c4;
-      display: inline-block;
-      padding: 4px 8px;
-
-      @include element (text) {
-        color: #fff;
-        font-size: 12px;
-      }
-
-      @include element (item) {
-        &:hover {
-          @include element (sub-item) {
-            color: #f3d;
-          }
-        }
-        @include modifier (modified) {
-          @include element (sub-item) {
-            color: #faa;
-          }
-        }
-      }
-    }
-  @css: The CSS generated will keep everything on low level deep, only pseudo-class selector, or modifier wrappers are allowed to be nested
-    .button {
-      background: #3c4;
-      display: inline-block;
-      padding: 4px 8px;
-    }
-    .button__text {
-      color: #fff;
-      font-size: 12px;
-    }
-    .button__item:hover .button__sub-item {
-      color: #f3d;
-    }
-    .button__item--modified .button__sub-item {
-      color: #faa;
-    }
-  @date: 2016-12-28T18:09:00+01:00
-  @type: mixin
-  @html: Elements should be inside a parent block
-    <a class="button" href="#">
-      <span class="button__text">Visit this link</span>
-    </a>
-  @icon: fa fa-css3
-  @name: element
-  @param: {string} ($element-name) [required]
-          Defines the element name of the BEM component
-  @public: true
-  @returns: css
-  @text: Defines the element name of the BEM component. This mixin is required as wrapped inside `block` mixin
-  @version: 4.0.0
-*/
 
 @mixin element ($element-name) {
   $element-name: #{$bem-element}#{$element-name};
