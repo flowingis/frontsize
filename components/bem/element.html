@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="" class="layout-html">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>
+      Component library • Frontsize
+    </title>
+    <link rel="stylesheet" href="../../css/prism.css?v=3c256eae-a2b9-412a-9c2f-e590d82aa894">
+<link rel="stylesheet" href="../../css/material-icons.css?v=a3316f2a-b64c-416a-847a-299b8dec8090">
+<link rel="stylesheet" href="../../css/metalsmith.css?v=981462d4-02f6-4744-b6ee-1ac4be41cfd5">
+<script src="../../js/metalsmith.js?v=8f5d0fe1-50c0-4d91-957a-941722ce8231"></script>
+  </head>
+
+  <body class="layout-body">
+    <header class="layout-header layout-limiter">
+  <div class="layout-header__title">
+    Frontsize
+  </div>
+  <div class="layout-header__description">
+    <p>CSS Component library for <strong>Frontsize</strong></p>
+
+  </div>
+</header>
+    <aside class="aside">
+  <div class="aside__open">
+    <img class="aside__logo" src="../../img/ideato-logo.svg">
+  </div>
+  <div class="aside__slider">
+    <a class="aside__go-home" href="../../">
+      <img class="aside__logo" src="../../img/ideato-logo.svg">
+    </a>
+
+          <ul class="aside-menu">
+              <li class="aside-menu__title">
+        bem
+      </li>
+              <li class="aside-menu__item">
+      <a href="../../components/bem/block.html" class="aside-menu__link ">
+        block
+      </a>
+    </li>
+          <li class="aside-menu__item">
+      <a href="../../components/bem/element.html" class="aside-menu__link  aside-menu__link--active ">
+        element
+      </a>
+    </li>
+          <li class="aside-menu__item">
+      <a href="../../components/bem/modifier.html" class="aside-menu__link ">
+        modifier
+      </a>
+    </li>
+  </ul>
+          <ul class="aside-menu">
+              <li class="aside-menu__title">
+        variables
+      </li>
+              <li class="aside-menu__item">
+      <a href="../../components/variables/configuration.html" class="aside-menu__link ">
+        Configuration
+      </a>
+    </li>
+  </ul>
+    
+  </div>
+</aside>
+
+    <main class="layout-limiter layout-main">
+              <div class="markdown markdown--documentation">
+          <h2 id="element-mixin">Element mixin</h2>
+<p>It should be used inside <a href="./block.html">block</a> mixin that works as wrapper and check if <code>element</code> is used without exceed the nesting limit that BEM methodology helps you to maintain.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@include</span> block <span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #3c4<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 8px<span class="token punctuation">;</span>
+
+  <span class="token keyword">@include</span> element <span class="token punctuation">(</span><span class="token string">&apos;text&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">@include</span> element <span class="token punctuation">(</span><span class="token string">&apos;item&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token keyword">@include</span> element <span class="token punctuation">(</span><span class="token string">&apos;sub-item&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #f3d<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">@include</span> modifier <span class="token punctuation">(</span><span class="token string">&apos;modified&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">@include</span> element <span class="token punctuation">(</span><span class="token string">&apos;sub-item&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #faa<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The mixin <code>element</code> needs to be wrapped inside <a href="./block.html">block</a>, an also used inside <a href="./modifier.html">modifier</a> or a pseudo class selector as <code>:hover</code>, <code>:focus</code> etc.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.button</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #3c4<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 8px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.button__text</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.button__item:hover .button__sub-item</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #f3d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.button__item--modified .button__sub-item</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #faa<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Using and <code>element</code> directly inside another <code>element</code> will throw an error because there is no reason to nest them and create additional selector nesting.</p>
+
+        </div>
+                </main>
+
+        <div class="layout-limiter">
+  <footer class="layout-footer">
+    <div class="layout-footer__title">
+      Frontsize component library
+    </div>
+    <div class="layout-footer__description">
+      <p><a href="https://github.com/vitto/frontsize">Frontsize</a> is made with <i class="material-icons" style="color:#f06856; font-size:16px; position:relative; top:3px;">favorite</i> by <a href="https://github.com/vitto/">vitto</a> @ <a href="https://www.ideato.it">ideato</a></p>
+
+    </div>
+  </footer>
+</div>
+
+  </body>
+</html>
